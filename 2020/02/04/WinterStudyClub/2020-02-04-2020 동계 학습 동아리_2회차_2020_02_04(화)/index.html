@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>2020 동계 학습 동아리_2회차_2020_02_04(화) - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제카카오코딩페스티벌2018 예선 B번 인형들를 해결한다.해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다.\n2. 필요한 지식\npython3로 해결하기때문에 python3의 전반적인 문법이 필요하다.\n시간복잡도가 O(N^2)으로 해결해야한다. O(N^3)으로 해결하면 시간초과가 뜬다.\n평균, 분산, 표준편차의 개념에 대해서 알아야한다.\n일일히 분산구하고, 평균구하고, 표준편차를 구하면 시간초과가 뜬다.\n그렇기 때문에 (분산) = (제곱의 평균) – (평균) * (평균) 의 특징을 알아야한다.\n누적합과 제곱의 평균의 배열을 만들어서, 미리 설정해서 값을 넣어주고, 나중에 한꺼번에 사용한다.\npython3에서 무한대를 나타낼때, “INF”의 형식으로 사용한다.\n\n3. 해결B 인형들 해결이 문제는 입력으로 들어오는 K개이상 연속된 인형들의 가중치의 평균과 분산, 표준편차를 계산하고, 최종적으로 가장 낮은 표준편차를 구해야한다.과거 알고리즘 수업을 들을때, 고민하지말고, 일단 생각나는 방법이 있으면 바로 코딩을 하라는 조교님의 말씀대로 아래와 같이 O(N^3)으로 접근했다.하지만 이 코드는 시간초과 혹은 틀린 답으로 나온다. 예제는 잘 나오는데 답은 아니라고 나온다.  \n1234567891011121314151617181920212223242526272829import mathN, K = map(int, input().split())arr = list(map(int,input().split()))re = 987654321for i in range(len(arr)-K+1): #시작.    for j in range(i+K,len(arr)+1): #끝.        com = arr[i:j]        if len(com) &lt; K: continue        # 평균.        mean = sum(com) / len(com)        # 분산.        var = 0        for i in range(len(com)):            var += (com[i] - mean) ** 2        var = var/len(com)        # 표준편차        std = math.sqrt(var)        # print(com)        # print(mean, var, std)        # print()        re = min(re, std)print(str(re)[0:13])\n2-1. 오답 이유\n첫번째로 참고1에서 “절대/상대 오차가 10-6이므로, 실수의 정밀도 관련 문제에 대해 어느 정도 고려할 필요가 있습니다.” 라고 한다.  Decimal에서의 이유로 파이썬에서는 부동소수 산술을 컨트롤하기위해 Decimal을 사용해주어야한다.\n\n두번째로 시간복잡도가 O(N^3)이다. 통과하려면 그 이하가 되어야한다.\n\n\n2-2. 핵심\n해결한 파이썬 코드를 살펴보면, 주석에서 “(분산) = (제곱의 평균) – (평균) * (평균) 이라는 성질이 알려져 있습니다. 그러므로 누적 합 배열과 제곱의 누적 합 배열을 만들면, 쉽게 풀수있다.”를 이용하면, O(N^2)으로 해결할수있다.\n\n2-3. 시행착오\n해결한 파이썬 코드에서 아래와 같은 코드가 있다.\n\n1re = Decimal(&#x27;INF&#x27;)\n\n이전의 코드는 아래와 같았다.\n\n12INF = 987654321re = Decimal(INF)\n\n근데 아래의 코드는 오답으로 나왔다. 다푼거나 다름 없었는데, 이부분에서 계속 삽질을 했다. 알고보니 파이썬에서는 무한대를 아래와 같이 나타낼수 있었다. 이제 알았으니, 앞으로는 이렇게 사용해야겠다.\n\n12pos_inf = float(&#x27;inf&#x27;)     # positive infinityneg_inf = float(&#x27;-inf&#x27;)    # negative infinity\n3. 리뷰처음 문제를 접했을때 글이 너무 많아서 난감했다. 그런데 다행히 난독이 있는지 한번에 몇글자 안읽히더라. 하나하나 정성스럽게 다 읽고 문제를 풀었는데, 이번엔 문제를 잘못이해했다. 연속된 숫자 개수가 K개 이상인데, K개만 구하게 했다. 그 뒤에도 뭐 안되서 헤맨게 있는데 기억이 안난다. 이건 시행착오에 들어가야할거같은데, 왜 리뷰에 쓰고있는지 모르겠다. 그런데 다시생각해보면 사실 여기서 시행착오라 함은 코딩과 관련된 것이지 않을까 싶다. 단순한 뇌절이므로, 리뷰에 넣어도 괜찮을것같다.\n","dateCreated":"2020-02-04T20:00:00+09:00","dateModified":"2021-01-19T22:58:33+09:00","datePublished":"2020-02-04T20:00:00+09:00","description":"","headline":"2020 동계 학습 동아리_2회차_2020_02_04(화)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/","keywords":"Activity"}</script>
+    <meta name="description" content="1. 문제카카오코딩페스티벌2018 예선 B번 인형들를 해결한다.해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다. 2. 필요한 지식 python3로 해결하기때문에 python3의 전반적인 문법이 필요하다. 시간복잡도가 O(N^2)으로 해결해야한다. O(N^3)으로 해결하면 시간초과가 뜬다. 평균, 분산, 표준편차의 개념에 대해서 알아야한다. 일">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="2020 동계 학습 동아리_2회차_2020_02_04(화)">
+<meta property="og:url" content="http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="1. 문제카카오코딩페스티벌2018 예선 B번 인형들를 해결한다.해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다. 2. 필요한 지식 python3로 해결하기때문에 python3의 전반적인 문법이 필요하다. 시간복잡도가 O(N^2)으로 해결해야한다. O(N^3)으로 해결하면 시간초과가 뜬다. 평균, 분산, 표준편차의 개념에 대해서 알아야한다. 일">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-04T11:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-19T13:58:33.011Z">
+<meta property="article:author" content="SeungMin Lee">
+<meta property="article:tag" content="Activity">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/steampower33"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/steampower33@naver.com"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            2020 동계 학습 동아리_2회차_2020_02_04(화)
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-04T20:00:00+09:00">
+	
+		    Feb 04, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/2020WinterStudyClub/">2020WinterStudyClub</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p>카카오코딩페스티벌2018 예선 B번 <a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/15954">인형들</a>를 해결한다.<br>해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다.</p>
+<h2 id="2-필요한-지식"><a href="#2-필요한-지식" class="headerlink" title="2. 필요한 지식"></a>2. 필요한 지식</h2><ul>
+<li>python3로 해결하기때문에 python3의 전반적인 문법이 필요하다.</li>
+<li>시간복잡도가 O(N^2)으로 해결해야한다. O(N^3)으로 해결하면 시간초과가 뜬다.</li>
+<li>평균, 분산, 표준편차의 개념에 대해서 알아야한다.</li>
+<li>일일히 분산구하고, 평균구하고, 표준편차를 구하면 시간초과가 뜬다.</li>
+<li>그렇기 때문에 (분산) = (제곱의 평균) – (평균) * (평균) 의 특징을 알아야한다.</li>
+<li>누적합과 제곱의 평균의 배열을 만들어서, 미리 설정해서 값을 넣어주고, 나중에 한꺼번에 사용한다.</li>
+<li>python3에서 무한대를 나타낼때, “INF”의 형식으로 사용한다.</li>
+</ul>
+<h2 id="3-해결"><a href="#3-해결" class="headerlink" title="3. 해결"></a>3. 해결</h2><p><a target="_blank" rel="noopener" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-15954-%EC%9D%B8%ED%98%95%EB%93%A4/">B 인형들 해결</a><br>이 문제는 입력으로 들어오는 K개이상 연속된 인형들의 가중치의 평균과 분산, 표준편차를 계산하고, 최종적으로 가장 낮은 표준편차를 구해야한다.<br>과거 알고리즘 수업을 들을때, 고민하지말고, 일단 생각나는 방법이 있으면 바로 코딩을 하라는 조교님의 말씀대로 아래와 같이 O(N^3)으로 접근했다.<br>하지만 이 코드는 시간초과 혹은 틀린 답으로 나온다. 예제는 잘 나오는데 답은 아니라고 나온다.  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">N, K = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">arr = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">re = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)-K+<span class="number">1</span>): <span class="comment">#시작.</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+K,<span class="built_in">len</span>(arr)+<span class="number">1</span>): <span class="comment">#끝.</span></span><br><span class="line">        com = arr[i:j]</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(com) &lt; K: <span class="keyword">continue</span></span><br><span class="line">        <span class="comment"># 평균.</span></span><br><span class="line">        mean = <span class="built_in">sum</span>(com) / <span class="built_in">len</span>(com)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 분산.</span></span><br><span class="line">        var = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(com)):</span><br><span class="line">            var += (com[i] - mean) ** <span class="number">2</span></span><br><span class="line">        var = var/<span class="built_in">len</span>(com)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 표준편차</span></span><br><span class="line">        std = math.sqrt(var)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(com)</span></span><br><span class="line">        <span class="comment"># print(mean, var, std)</span></span><br><span class="line">        <span class="comment"># print()</span></span><br><span class="line"></span><br><span class="line">        re = <span class="built_in">min</span>(re, std)</span><br><span class="line"></span><br><span class="line">print(<span class="built_in">str</span>(re)[<span class="number">0</span>:<span class="number">13</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-오답-이유"><a href="#2-1-오답-이유" class="headerlink" title="2-1. 오답 이유"></a>2-1. 오답 이유</h3><ul>
+<li><p>첫번째로 <a target="_blank" rel="noopener" href="https://tech.kakao.com/2018/08/09/code-festival-2018-round-1/">참고1</a>에서 “절대/상대 오차가 10-6이므로, 실수의 정밀도 관련 문제에 대해 어느 정도 고려할 필요가 있습니다.” 라고 한다.  <a target="_blank" rel="noopener" href="https://docs.python.org/ko/3/library/decimal.html">Decimal</a>에서의 이유로 파이썬에서는 부동소수 산술을 컨트롤하기위해 Decimal을 사용해주어야한다.</p>
+</li>
+<li><p>두번째로 시간복잡도가 O(N^3)이다. 통과하려면 그 이하가 되어야한다.</p>
+</li>
+</ul>
+<h3 id="2-2-핵심"><a href="#2-2-핵심" class="headerlink" title="2-2. 핵심"></a>2-2. 핵심</h3><ul>
+<li>해결한 파이썬 코드를 살펴보면, 주석에서 “(분산) = (제곱의 평균) – (평균) * (평균) 이라는 성질이 알려져 있습니다. 그러므로 누적 합 배열과 제곱의 누적 합 배열을 만들면, 쉽게 풀수있다.”를 이용하면, O(N^2)으로 해결할수있다.</li>
+</ul>
+<h3 id="2-3-시행착오"><a href="#2-3-시행착오" class="headerlink" title="2-3. 시행착오"></a>2-3. 시행착오</h3><ul>
+<li>해결한 파이썬 코드에서 아래와 같은 코드가 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re = Decimal(<span class="string">&#x27;INF&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>이전의 코드는 아래와 같았다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INF = <span class="number">987654321</span></span><br><span class="line">re = Decimal(INF)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>근데 아래의 코드는 오답으로 나왔다. 다푼거나 다름 없었는데, 이부분에서 계속 삽질을 했다. 알고보니 파이썬에서는 무한대를 아래와 같이 나타낼수 있었다. 이제 알았으니, 앞으로는 이렇게 사용해야겠다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pos_inf = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)     <span class="comment"># positive infinity</span></span><br><span class="line">neg_inf = <span class="built_in">float</span>(<span class="string">&#x27;-inf&#x27;</span>)    <span class="comment"># negative infinity</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>처음 문제를 접했을때 글이 너무 많아서 난감했다. 그런데 다행히 난독이 있는지 한번에 몇글자 안읽히더라. 하나하나 정성스럽게 다 읽고 문제를 풀었는데, 이번엔 문제를 잘못이해했다. 연속된 숫자 개수가 K개 이상인데, K개만 구하게 했다. 그 뒤에도 뭐 안되서 헤맨게 있는데 기억이 안난다. 이건 시행착오에 들어가야할거같은데, 왜 리뷰에 쓰고있는지 모르겠다. 그런데 다시생각해보면 사실 여기서 시행착오라 함은 코딩과 관련된 것이지 않을까 싶다. 단순한 뇌절이므로, 리뷰에 넣어도 괜찮을것같다.</p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/Activity/" rel="tag">Activity</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/02/05/Baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/"
+                    data-tooltip="다시 풀어야할 문제"
+                    aria-label="PREVIOUS: 다시 풀어야할 문제"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"
+                    data-tooltip="[모각코] 9일차 결과"
+                    aria-label="NEXT: [모각코] 9일차 결과"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/02/05/Baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/"
+                    data-tooltip="다시 풀어야할 문제"
+                    aria-label="PREVIOUS: 다시 풀어야할 문제"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"
+                    data-tooltip="[모각코] 9일차 결과"
+                    aria-label="NEXT: [모각코] 9일차 결과"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://example.com/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/';
+              
+            this.page.identifier = '2020/02/04/WinterStudyClub/2020-02-04-2020 동계 학습 동아리_2회차_2020_02_04(화)/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'steampower33-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

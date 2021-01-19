@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>Tag: UnionFind - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="SeungMin Lee">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SeungMin Lee">
+<meta property="og:url" content="http://example.com/tags/UnionFind/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="SeungMin Lee">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="SeungMin Lee">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/steampower33"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/steampower33@naver.com"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/10/Baekjoon/2020/2February/2020-02-10-%5B%EB%B0%B1%EC%A4%80%5D%203780%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%97%B0%EA%B2%B0/"
+                            aria-label=": [백준][python] 3780 네트워크 연결"
+                        >
+                            [백준][python] 3780 네트워크 연결
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-10T16:00:00+09:00">
+	
+		    Feb 10, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/3780">네트워크 연결</a><br><img width="971" alt="스크린샷 2020-02-10 오후 4 12 00" src="https://user-images.githubusercontent.com/20227720/74128274-287a7580-4c20-11ea-82be-c798eda06ad0.png"></p>
+<h2 id="2-해결"><a href="#2-해결" class="headerlink" title="2. 해결"></a>2. 해결</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 빠르게, 이거 않하면 시간초과.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    <span class="comment"># 교체하기.</span></span><br><span class="line">    tmp = find(p[x])</span><br><span class="line">    len_p[x] += len_p[p[x]]</span><br><span class="line">    p[x] = tmp</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">    <span class="comment"># 아래는 이전의 코드. 비슷해 보이지만 아래는 오답이 발생한다.</span></span><br><span class="line">    <span class="comment"># len_p[x] += len_p[p[x]]</span></span><br><span class="line">    <span class="comment"># p[x] = find(p[x])</span></span><br><span class="line">    <span class="comment"># return p[x]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 합치기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="comment"># a에 길이를 저장.</span></span><br><span class="line">    len_p[a] = <span class="built_in">abs</span>(a - b) % <span class="number">1000</span></span><br><span class="line">    <span class="comment"># b가 부모.</span></span><br><span class="line">    p[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 테스트케이스만큼.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 부모, 길이.</span></span><br><span class="line">    p = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">    len_p = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># O가 입력될때까지.</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">input</span>().split()</span><br><span class="line">        <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">&#x27;E&#x27;</span>:</span><br><span class="line">            find(<span class="built_in">int</span>(s[<span class="number">1</span>]))</span><br><span class="line">            print(len_p[<span class="built_in">int</span>(s[<span class="number">1</span>])])</span><br><span class="line">        <span class="keyword">elif</span> s[<span class="number">0</span>] == <span class="string">&#x27;I&#x27;</span>:</span><br><span class="line">            a,b = <span class="built_in">int</span>(s[<span class="number">1</span>]),<span class="built_in">int</span>(s[<span class="number">2</span>])</span><br><span class="line">            merge(a, b)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-시행착오"><a href="#3-시행착오" class="headerlink" title="3. 시행착오"></a>3. 시행착오</h2><h2 id="3-1-swap"><a href="#3-1-swap" class="headerlink" title="3-1. swap"></a>3-1. swap</h2><ul>
+<li>find함수는 루트 노드를 반환하는 함수이다. 그 명분이 있는데, 그것을 수행하지 않으면 안될것이다. tmp를 통해서 스왑을 해주지 않으면, 루트 노드가 다르게 나온다.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    <span class="comment"># 교체하기.</span></span><br><span class="line">    tmp = find(p[x])</span><br><span class="line">    len_p[x] += len_p[p[x]]</span><br><span class="line">    p[x] = tmp</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">    <span class="comment"># 아래는 이전의 코드. 비슷해 보이지만 아래는 오답이 발생한다.</span></span><br><span class="line">    <span class="comment"># len_p[x] += len_p[p[x]]</span></span><br><span class="line">    <span class="comment"># p[x] = find(p[x])</span></span><br><span class="line">    <span class="comment"># return p[x]</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-2-주어진-testcase를-통한-코딩"><a href="#3-2-주어진-testcase를-통한-코딩" class="headerlink" title="3-2. 주어진 testcase를 통한 코딩"></a>3-2. 주어진 testcase를 통한 코딩</h2></li>
+<li>주어진 testcase는 아래와 같다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">4</span><br><span class="line">E 3</span><br><span class="line">I 3 1</span><br><span class="line">E 3</span><br><span class="line">I 1 2</span><br><span class="line">E 3</span><br><span class="line">I 2 4</span><br><span class="line">E 3</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
+<ul>
+<li>merge함수를 보면 자식에 길이를 저장한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 합치기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="comment"># a에 길이를 저장.</span></span><br><span class="line">    len_p[a] = <span class="built_in">abs</span>(a - b) % <span class="number">1000</span></span><br><span class="line">    <span class="comment"># b가 부모.</span></span><br><span class="line">    p[a] = b</span><br></pre></td></tr></table></figure>
+<ul>
+<li>원래 같았으면, 부모에 길이를 연결하겠지만, 테스트 케이스를 짚어 넘어가다보면, 위의 함수처럼 코딩해야한다는것을 알수있다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><p>유니온 파인드 문제는 풀면 풀수록 신기하다. 다 같은 개념이지만, 응용되는 부분이 많다. 처음에 딱 보고 생각나는 방식으로 했다가 나중에는 아닌것을 알았다. 복잡하게 생각했던것 같다. 그렇다고 이게 단순하지만은 않다. 아직 실력이 많이 부족하구나 느꼈다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/10/Baekjoon/2020/2February/2020-02-10-%5B%EB%B0%B1%EC%A4%80%5D%203780%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%97%B0%EA%B2%B0/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/08/Baekjoon/2020/2February/2020-02-08-%5B%EB%B0%B1%EC%A4%80%5D%209938%20%EB%B0%A9%20%EC%B2%AD%EC%86%8C/"
+                            aria-label=": [백준][python] 9938 방 청소"
+                        >
+                            [백준][python] 9938 방 청소
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-08T22:00:00+09:00">
+	
+		    Feb 08, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/9938">방청소</a><br><a target="_blank" rel="noopener" href="https://www.acmicpc.net/source/16330265">참고</a><br><img width="971" alt="스크린샷 2020-02-09 오후 3 31 44" src="https://user-images.githubusercontent.com/20227720/74097618-6fe60080-4b51-11ea-8eec-38fc3b83a8aa.png"></p>
+<h2 id="2-못푼이유"><a href="#2-못푼이유" class="headerlink" title="2. 못푼이유"></a>2. 못푼이유</h2><p>유니온 파인드로 풀랬는데 보니까 안그래도 될거같아서 코딩하다가 중간에 유니온파인드 없으면 안되는걸 알아챘다.<br>백준에서 다른 사람의 코드를 해석합니다.  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입/출력 빠르게.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span>(p[x]==x): <span class="keyword">return</span> x</span><br><span class="line">    p[x] = find(p[x])</span><br><span class="line">    <span class="keyword">return</span> p[x]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    <span class="comment"># 부모찾고,</span></span><br><span class="line">    x,y = find(x),find(y)</span><br><span class="line">    <span class="comment"># x를 부모로 섬김.</span></span><br><span class="line">    p[y]=x</span><br><span class="line">    <span class="comment"># x를 부모로 섬기므로, y의 맥스와 지금을 모두 0으로 만들어준다.</span></span><br><span class="line">    max_p[y]=<span class="number">0</span></span><br><span class="line">    now_p[y]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 입력 설정.</span></span><br><span class="line">n,l=<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line"><span class="comment"># 부모 설정.</span></span><br><span class="line">p=[i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l+<span class="number">1</span>)]</span><br><span class="line"><span class="comment"># 한 부모가 수용가능한 수.</span></span><br><span class="line"><span class="comment"># 즉 1,2 이랑 연결되면 부모는 최대 2를 수용할수있다.</span></span><br><span class="line"><span class="comment"># 여기서 2,3이 되면 최대 3을 수용할수있음.</span></span><br><span class="line"><span class="comment"># 지금과 max가 다르면 보관할수있고,</span></span><br><span class="line"><span class="comment"># 같으면 보관할수 없으므로, 먹어야한다.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">max_p=[<span class="number">1</span>]*(l+<span class="number">1</span>)</span><br><span class="line">now_p=[<span class="number">0</span>]*(l+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># a의 부모와 b의 부모가 다르면,</span></span><br><span class="line">    <span class="keyword">if</span> find(p[a])!=find(p[b]):</span><br><span class="line">        <span class="comment"># a의 부모의 최대와 지금에다가 b 부모의 최대와 지금을 더해준다.</span></span><br><span class="line">        max_p[find(p[a])]+=max_p[find(p[b])]</span><br><span class="line">        now_p[find(p[a])]+=now_p[find(p[b])]</span><br><span class="line">        <span class="comment"># 그뒤 merge를 통해 합집합과정을 거쳐준다.</span></span><br><span class="line">        merge(a,b)</span><br><span class="line">    <span class="comment"># 지금이랑 최대의 값이 같으면 더이상 보관불가능함.</span></span><br><span class="line">    <span class="keyword">if</span> now_p[find(a)]==max_p[find(a)]:print(<span class="string">&#x27;SMECE&#x27;</span>)</span><br><span class="line">    <span class="comment"># 다르면 보관가능하니까 지금위치에 1더해줌.</span></span><br><span class="line">    <span class="keyword">else</span>:now_p[find(a)]+=<span class="number">1</span>;print(<span class="string">&#x27;LADICA&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>이런방법으로 접근해서 풀었다는게 상당히 놀랍다. 이런식으로 분할해서 생각하면 정말 생각하기 쉽겠구나란 생각이 들었다.<br>자기 방식대로만 풀고 넘기면 우물안 개구리마냥 고이기 마련이다. 내 방식대로 해결했다해도 다른사람의 풀이를 무조건 한 두개 이상은 해석해보는게 실력에 도움이 될것이다.<br>그리고 못풀때는 내 실력을 인정하고, 다른사람의 코드를 해석하는게 현명하다고 느꼈다.  </p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/08/Baekjoon/2020/2February/2020-02-08-%5B%EB%B0%B1%EC%A4%80%5D%209938%20%EB%B0%A9%20%EC%B2%AD%EC%86%8C/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/07/Baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%204195%20%EC%B9%9C%EA%B5%AC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"
+                            aria-label=": [백준][python] 4195 친구 네트워크"
+                        >
+                            [백준][python] 4195 친구 네트워크
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-07T22:00:00+09:00">
+	
+		    Feb 07, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/4195">친구 네트워크</a><br><img width="795" alt="스크린샷 2020-02-07 오후 9 52 46" src="https://user-images.githubusercontent.com/20227720/74031516-09e46680-49f5-11ea-84d1-8a20b74925e3.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입/출력 빠르게.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params">graph, x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> graph[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    graph[x] = getParent(graph, graph[x])</span><br><span class="line">    <span class="keyword">return</span> graph[x]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합 및 부모노드에 전체 길이 넣기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params">graph, a, b, <span class="built_in">len</span></span>):</span></span><br><span class="line">    a = getParent(graph, a)</span><br><span class="line">    b = getParent(graph, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a != b:</span><br><span class="line">        <span class="comment"># a가 무조건 부모로.</span></span><br><span class="line">        graph[b] = a</span><br><span class="line">        <span class="built_in">len</span>[a] += <span class="built_in">len</span>[b]</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 그래프, 길이 설정.</span></span><br><span class="line">    graph = <span class="built_in">dict</span>()</span><br><span class="line">    <span class="built_in">len</span> = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">            <span class="comment"># 기본 설정.</span></span><br><span class="line">            a, b = <span class="built_in">input</span>().split()</span><br><span class="line">            <span class="keyword">if</span> a <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">                graph[a] = a</span><br><span class="line">                <span class="built_in">len</span>[a] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> b <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">                graph[b] = b</span><br><span class="line">                <span class="built_in">len</span>[b] = <span class="number">1</span></span><br><span class="line">            <span class="comment"># 합집합 및 부모 설정.</span></span><br><span class="line">            p = unionParent(graph, a, b, <span class="built_in">len</span>)</span><br><span class="line">            print(<span class="built_in">str</span>(<span class="built_in">len</span>[p]))</span><br><span class="line">            print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        graph.clear()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/07/Baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%204195%20%EC%B9%9C%EA%B5%AC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/07/Baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%201976%20%EC%97%AC%ED%96%89%EA%B0%80%EC%9E%90/"
+                            aria-label=": [백준][python] 1976 여행가자"
+                        >
+                            [백준][python] 1976 여행가자
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-07T19:00:00+09:00">
+	
+		    Feb 07, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/1976">여행 가자</a><br><img width="975" alt="스크린샷 2020-02-07 오후 7 09 45" src="https://user-images.githubusercontent.com/20227720/74020699-75bad500-49dd-11ea-98c4-c1f32bdccd49.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params">parent, c</span>):</span></span><br><span class="line">    <span class="keyword">if</span> parent[c] == c: <span class="keyword">return</span> c</span><br><span class="line">    parent[c] = getParent(parent, parent[c])</span><br><span class="line">    <span class="keyword">return</span> parent[c]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a &lt; b: parent[b] = a</span><br><span class="line">    <span class="keyword">else</span>: parent[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a == b: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 도시와 여행할 도시 수.</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 연결된 도시 설정.</span></span><br><span class="line">    location = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 연결된 도시 알아내기.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> s[j] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span>, j+<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">in</span> location <span class="keyword">and</span> (j+<span class="number">1</span>, i+<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">in</span> location:</span><br><span class="line">                    location.append((i+<span class="number">1</span>,j+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 여행 도시.</span></span><br><span class="line">    trip = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 부모 노드 설정.</span></span><br><span class="line">    parent = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 저장한 연결된 도시를 합집합으로 만들어준다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> location:</span><br><span class="line">        unionParent(parent, i[<span class="number">0</span>], i[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 모두 연결되어있으므로, 첫번째와 마지막 도시의 부무노드는 무조건 같아야한다.</span></span><br><span class="line">    parent_num = findParent(parent, trip[<span class="number">0</span>], trip[-<span class="number">1</span>])</span><br><span class="line">    <span class="comment"># 찾은 부모노드를 이용해서, 여행해야하는 도시와 찾은 부모노드끼리 부모를 찾고, 환</span></span><br><span class="line">    <span class="comment"># 일치하면, 1을 반환 그렇지 않으면 0을 반환한다. 그리고 count에 더해준다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> trip:</span><br><span class="line">        count += findParent(parent, parent_num, i)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 도시 만큼 돌고 찾은 부모가 같을경우 1을 반환해주는데, 여행 경로만큼 count가 되어야한다.</span></span><br><span class="line">    <span class="comment"># 그래야 여행가능하다는것이다.</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="built_in">len</span>(trip): print(<span class="string">&quot;YES&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>: print(<span class="string">&quot;NO&quot;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/07/Baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%201976%20%EC%97%AC%ED%96%89%EA%B0%80%EC%9E%90/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/06/Baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/"
+                            aria-label=": [백준][python] 1717 집합의 표현"
+                        >
+                            [백준][python] 1717 집합의 표현
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-06T16:30:00+09:00">
+	
+		    Feb 06, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/1717">집합의 표현</a><br><img width="720" alt="스크린샷 2020-02-06 오후 4 15 36" src="https://user-images.githubusercontent.com/20227720/73914138-fe614480-48fb-11ea-8c8f-1cc7d333ef66.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시간초과가 안뜨려면 아래 3줄을 추가해주어야한다.</span></span><br><span class="line"><span class="comment"># input과 print에서 다른 일을 더 처리하기때문에 그냥 사용하면 느리기때문이다.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params"><span class="built_in">zip</span>, c</span>):</span></span><br><span class="line">    <span class="keyword">if</span> c == <span class="built_in">zip</span>[c]: <span class="keyword">return</span> c</span><br><span class="line">    <span class="built_in">zip</span>[c] = getParent(<span class="built_in">zip</span>, <span class="built_in">zip</span>[c])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">zip</span>[c]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params"><span class="built_in">zip</span>, a, b</span>):</span></span><br><span class="line">    a = getParent(<span class="built_in">zip</span>, a)</span><br><span class="line">    b = getParent(<span class="built_in">zip</span>, b)</span><br><span class="line">    <span class="keyword">if</span> a &lt; b: <span class="built_in">zip</span>[b] = a</span><br><span class="line">    <span class="keyword">else</span>: <span class="built_in">zip</span>[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findParent</span>(<span class="params"><span class="built_in">zip</span>, a, b</span>):</span></span><br><span class="line">    a = getParent(<span class="built_in">zip</span>, a)</span><br><span class="line">    b = getParent(<span class="built_in">zip</span>, b)</span><br><span class="line">    <span class="keyword">if</span> a == b: print(<span class="string">&quot;YES\n&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>: print(<span class="string">&quot;NO\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># m = 연산의 개수.</span></span><br><span class="line">    n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># n개의 집합</span></span><br><span class="line">    <span class="built_in">zip</span> = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 0 = 합집합, 1 = 같은 집합인지 확인.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        t, a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        <span class="comment"># 합집합 만들기.</span></span><br><span class="line">        <span class="keyword">if</span> t == <span class="number">0</span>:</span><br><span class="line">            unionParent(<span class="built_in">zip</span>, a, b)</span><br><span class="line">        <span class="comment"># 부모 동일 확인.</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            findParent(<span class="built_in">zip</span>, a, b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><ul>
+<li><p>카카오코딩테스트2018 예선 C번을 풀기위해서 유니온 파인드 문제를 풀면서 개념을 다지고있다.  </p>
+</li>
+<li><p>그리고 몰랐는데, 아래를 추가하지않으면, 굉장히 느리고 시간초과가 뜬다.  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시간초과가 안뜨려면 아래 3줄을 추가해주어야한다.</span></span><br><span class="line"><span class="comment"># input과 print에서 다른 일을 더 처리하기때문에 그냥 사용하면 느리기때문이다.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/06/Baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/02/05/algorithm/2020-02-05-%5Balgorithm%5D%20%EC%9C%A0%EB%8B%88%EC%98%A8%20%ED%8C%8C%EC%9D%B8%EB%93%9C/"
+                            aria-label=": [algorithm] 유니온 파인드"
+                        >
+                            [algorithm] 유니온 파인드
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-05T21:30:00+09:00">
+	
+		    Feb 05, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/algorithm/">algorithm</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="0-출처"><a href="#0-출처" class="headerlink" title="0. 출처"></a>0. 출처</h2><ul>
+<li>이 게시글은 <a target="_blank" rel="noopener" href="https://m.blog.naver.com/PostView.nhn?blogId=ndb796&logNo=221230967614&referrerCode=0&searchKeyword=%EC%8B%A4%EC%A0%84%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EA%B0%95%EC%A2%8C(Algorithm%20Programming%20Tutorial)%20%2318">동빈 나 블로그</a>를 참조했습니다.</li>
+</ul>
+<h2 id="1-유니온-파인드"><a href="#1-유니온-파인드" class="headerlink" title="1. 유니온 파인드"></a>1. 유니온 파인드</h2><ul>
+<li>여러 노드가 존재할때 두개의 노드를 선택해서, 서로 연결되어있는지 확인하는 알고리즘</li>
+</ul>
+<h2 id="2-구현"><a href="#2-구현" class="headerlink" title="2. 구현"></a>2. 구현</h2><ul>
+<li>아래 코드의 주석만 읽어도 이해가 될것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 부모 노드 가져오기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params">parent, x</span>):</span></span><br><span class="line">    <span class="comment"># 위치와 값이 같다? =&gt; 부모노드.</span></span><br><span class="line">    <span class="keyword">if</span> parent[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    <span class="comment"># 계속해서 거슬러 올라간다.</span></span><br><span class="line">    parent[x] = getParent(parent, parent[x])</span><br><span class="line">    <span class="keyword">return</span> parent[x]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 각 부모노드 합치기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    <span class="comment"># 부모노드를 찾고.</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line">    <span class="comment"># 그 작은쪽이 부모노드가 됨.</span></span><br><span class="line">    <span class="keyword">if</span> a &lt; b: parent[b] = a</span><br><span class="line">    <span class="keyword">else</span>: parent[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 같은 부모인지 확인.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    <span class="comment"># 부모노드를 찾고.</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line">    <span class="comment"># 둘다 같으면 같은 집합.</span></span><br><span class="line">    <span class="keyword">if</span> a == b: <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    parent = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">11</span>)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">        parent[i] = i</span><br><span class="line"></span><br><span class="line">    unionParent(parent, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    unionParent(parent, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    unionParent(parent, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">    unionParent(parent, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">    unionParent(parent, <span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line">    unionParent(parent, <span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">&quot;1과 5는 연결되어있나요? &quot;</span>, findParent(parent, <span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">    unionParent(parent, <span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line">    print(<span class="string">&quot;1과 5는 연결되어있나요? &quot;</span>, findParent(parent, <span class="number">1</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><ul>
+<li>참고한 동빈나 님 이분은 설명은 참 잘하신다.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/02/05/algorithm/2020-02-05-%5Balgorithm%5D%20%EC%9C%A0%EB%8B%88%EC%98%A8%20%ED%8C%8C%EC%9D%B8%EB%93%9C/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>

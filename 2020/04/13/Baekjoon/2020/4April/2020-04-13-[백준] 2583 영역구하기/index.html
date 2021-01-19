@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>[백준][python] 2583 영역 구하기 - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제영역 구하기\n2. 코드\nc++\n\n12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576#include &lt;iostream&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int m = 0, n = 0, k = 0, x1 = 0, y1 = 0, x2 = 0, y2 = 0;int dx[4] = &#123;0, 1, 0, -1&#125;, dy[4] = &#123;1, 0, -1, 0&#125;, paper[101][101] = &#123;0&#125;;int x = 0, y = 0, nx = 0, ny = 0;typedef pair&lt;int, int&gt; p;vector&lt;int&gt; width;queue&lt;p&gt; q;int bfs(int i, int j)&#123;    int rtn = 0;        q.push(&#123;i,j&#125;);    paper[i][j] = 1;    rtn++;    while( !q.empty() )&#123;        p x_y = q.front();        q.pop();                y = x_y.first;        x = x_y.second;        for(int i = 0; i &lt; 4; i++)&#123;            nx = x + dx[i];            ny = y + dy[i];            if( 0 &gt; ny || ny &gt;= m || 0 &gt; nx || nx &gt;= n) continue;            if( paper[ny][nx] != 0) continue;            q.push(&#123;ny, nx&#125;);            paper[ny][nx] = 1;            rtn++;        &#125;    &#125;    return rtn;&#125;int main()&#123;    cin &gt;&gt; m &gt;&gt; n &gt;&gt; k;    for(int i = 0; i &lt; k; i++)&#123;        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;        for(int j = y1; j &lt; y2; j++)&#123;            for(int k = x1; k &lt; x2; k++)&#123;                paper[j][k] = 1;            &#125;        &#125;    &#125;    int cnt = 0;    for(int i = 0; i &lt; m; i++)&#123;        for(int j = 0; j &lt; n; j++)&#123;            if(paper[i][j] == 0)&#123;                width.push_back(bfs(i,j));                cnt++;            &#125;        &#125;    &#125;    sort(width.begin(), width.end());    cout &lt;&lt; cnt &lt;&lt; &quot;\\n&quot;;    for(int i = 0; i &lt; width.size(); i++)&#123;        cout &lt;&lt; width[i] &lt;&lt; &quot; &quot;;    &#125;    return 0;   &#125;\n\npython\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657from collections import dequedef bfs(i,j):    rtn = 0    q = deque()    q.append([i,j])    rtn += 1    paper[i][j] = 1    dx = [0,1,0,-1]    dy = [1,0,-1,0]    while q:        y_x = q.popleft()        y = y_x[0]        x = y_x[1]        for i in range(4):            nx = dx[i] + x            ny = dy[i] + y            # 0 &lt;= ny &lt; m or 0 &lt;= nx &lt; n            if 0 &gt; ny or ny &gt;= m or 0 &gt; nx or nx &gt;= n: continue            if paper[ny][nx] != 0: continue            paper[ny][nx] = 1            rtn += 1            q.append([ny, nx])    return rtnif __name__ == &quot;__main__&quot;:    m,n,k = map(int, input().split())    width = list()    paper = [[0 for i in range(n)] for j in range(m)]    for _ in range(k):        x1, y1, x2, y2 = map(int, input().split())        for i in range(y1, y2):            for j in range(x1, x2):                paper[i][j] = 1    cnt = 0    for i in range(m):        for j in range(n):            if paper[i][j] == 0:                width.append(bfs(i,j))                cnt += 1    width.sort()    print(cnt)    for i in width:        print(i, end=&quot; &quot;)\n","dateCreated":"2020-04-13T22:20:00+09:00","dateModified":"2021-01-19T22:58:33+09:00","datePublished":"2020-04-13T22:20:00+09:00","description":"","headline":"[백준][python] 2583 영역 구하기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/","keywords":"Algorithm, Python, Solve, Graph, C++, BFS"}</script>
+    <meta name="description" content="1. 문제영역 구하기 2. 코드 c++  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576#include &lt;iostream&gt;#include">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[백준][python] 2583 영역 구하기">
+<meta property="og:url" content="http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="1. 문제영역 구하기 2. 코드 c++  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576#include &lt;iostream&gt;#include">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/79129918-01d3e900-7de1-11ea-9fb3-a982ec5bb8f9.png">
+<meta property="article:published_time" content="2020-04-13T13:20:00.000Z">
+<meta property="article:modified_time" content="2021-01-19T13:58:33.499Z">
+<meta property="article:author" content="SeungMin Lee">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Solve">
+<meta property="article:tag" content="Graph">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="BFS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/20227720/79129918-01d3e900-7de1-11ea-9fb3-a982ec5bb8f9.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/steampower33"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/steampower33@naver.com"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [백준][python] 2583 영역 구하기
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-04-13T22:20:00+09:00">
+	
+		    Apr 13, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/2583">영역 구하기</a><br><img width="941" alt="스크린샷 2020-04-13 오후 11 43 45" src="https://user-images.githubusercontent.com/20227720/79129918-01d3e900-7de1-11ea-9fb3-a982ec5bb8f9.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m = <span class="number">0</span>, n = <span class="number">0</span>, k = <span class="number">0</span>, x1 = <span class="number">0</span>, y1 = <span class="number">0</span>, x2 = <span class="number">0</span>, y2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;, paper[<span class="number">101</span>][<span class="number">101</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, nx = <span class="number">0</span>, ny = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; width;</span><br><span class="line"><span class="built_in">queue</span>&lt;p&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rtn = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    q.push(&#123;i,j&#125;);</span><br><span class="line">    paper[i][j] = <span class="number">1</span>;</span><br><span class="line">    rtn++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( !q.empty() )&#123;</span><br><span class="line">        p x_y = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        </span><br><span class="line">        y = x_y.first;</span><br><span class="line">        x = x_y.second;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">            nx = x + dx[i];</span><br><span class="line">            ny = y + dy[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( <span class="number">0</span> &gt; ny || ny &gt;= m || <span class="number">0</span> &gt; nx || nx &gt;= n) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>( paper[ny][nx] != <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            q.push(&#123;ny, nx&#125;);</span><br><span class="line">            paper[ny][nx] = <span class="number">1</span>;</span><br><span class="line">            rtn++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> rtn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n &gt;&gt; k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = y1; j &lt; y2; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = x1; k &lt; x2; k++)&#123;</span><br><span class="line">                paper[j][k] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(paper[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                width.push_back(bfs(i,j));</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(width.begin(), width.end());</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width.size(); i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; width[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">i,j</span>):</span></span><br><span class="line">    rtn = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    q = deque()</span><br><span class="line">    q.append([i,j])</span><br><span class="line">    rtn += <span class="number">1</span></span><br><span class="line">    paper[i][j] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    dx = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        y_x = q.popleft()</span><br><span class="line">        y = y_x[<span class="number">0</span>]</span><br><span class="line">        x = y_x[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            nx = dx[i] + x</span><br><span class="line">            ny = dy[i] + y</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 0 &lt;= ny &lt; m or 0 &lt;= nx &lt; n</span></span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &gt; ny <span class="keyword">or</span> ny &gt;= m <span class="keyword">or</span> <span class="number">0</span> &gt; nx <span class="keyword">or</span> nx &gt;= n: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> paper[ny][nx] != <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            paper[ny][nx] = <span class="number">1</span></span><br><span class="line">            rtn += <span class="number">1</span></span><br><span class="line">            q.append([ny, nx])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rtn</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    m,n,k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    width = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    paper = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        x1, y1, x2, y2 = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(y1, y2):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(x1, x2):</span><br><span class="line">                paper[i][j] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> paper[i][j] == <span class="number">0</span>:</span><br><span class="line">                width.append(bfs(i,j))</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    width.sort()</span><br><span class="line">    print(cnt)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> width:</span><br><span class="line">        print(i, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/BFS/" rel="tag">BFS</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/C/" rel="tag">C++</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Graph/" rel="tag">Graph</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Solve/" rel="tag">Solve</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/11/03/Baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/"
+                    data-tooltip="[백준][python] 2941 크로아티아 알파벳"
+                    aria-label="PREVIOUS: [백준][python] 2941 크로아티아 알파벳"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/04/10/Baekjoon/2020/4April/2020-04-10-%5B%EB%B0%B1%EC%A4%80%5D%2012761%20%EB%8F%8C%EB%8B%A4%EB%A6%AC/"
+                    data-tooltip="[백준][python] 12761 돌다리"
+                    aria-label="NEXT: [백준][python] 12761 돌다리"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/11/03/Baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/"
+                    data-tooltip="[백준][python] 2941 크로아티아 알파벳"
+                    aria-label="PREVIOUS: [백준][python] 2941 크로아티아 알파벳"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/04/10/Baekjoon/2020/4April/2020-04-10-%5B%EB%B0%B1%EC%A4%80%5D%2012761%20%EB%8F%8C%EB%8B%A4%EB%A6%AC/"
+                    data-tooltip="[백준][python] 12761 돌다리"
+                    aria-label="NEXT: [백준][python] 12761 돌다리"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://example.com/2020/04/13/Baekjoon/2020/4April/2020-04-13-[%EB%B0%B1%EC%A4%80]%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/';
+              
+            this.page.identifier = '2020/04/13/Baekjoon/2020/4April/2020-04-13-[백준] 2583 영역구하기/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'steampower33-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

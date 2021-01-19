@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>Tag: Dijkstra - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="SeungMin Lee">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SeungMin Lee">
+<meta property="og:url" content="http://example.com/tags/Dijkstra/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="SeungMin Lee">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="SeungMin Lee">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/steampower33"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/steampower33@naver.com"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/04/03/Baekjoon/2020/4April/2020-04-03-%5B%EB%B0%B1%EC%A4%80%5D%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/"
+                            aria-label=": [백준][python] 4485 녹색 옷 입은 애가 젤다지?"
+                        >
+                            [백준][python] 4485 녹색 옷 입은 애가 젤다지?
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-03T16:30:00+09:00">
+	
+		    Apr 03, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/4485">녹색 옷 입은 애가 젤다지?</a><br><img width="1181" alt="스크린샷 2020-04-03 오후 5 36 11" src="https://user-images.githubusercontent.com/20227720/78340806-a714e300-75d1-11ea-896d-ad582851f523.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">s</span>):</span></span><br><span class="line">    dist = [<span class="number">0</span>] + [INF] * (n*n)</span><br><span class="line">    dist[s] = <span class="number">0</span></span><br><span class="line">    heap = <span class="built_in">list</span>()</span><br><span class="line">    heappush(heap, [s, cave[<span class="number">0</span>][<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> heap:</span><br><span class="line">        current, distance = heappop(heap)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> graph[current]:</span><br><span class="line">            <span class="built_in">next</span>, nextDistance = i[<span class="number">0</span>], i[<span class="number">1</span>]</span><br><span class="line">            nextDistance += distance</span><br><span class="line">            <span class="keyword">if</span> nextDistance &lt; dist[<span class="built_in">next</span>]:</span><br><span class="line">                dist[<span class="built_in">next</span>] = nextDistance</span><br><span class="line">                heappush(heap, [<span class="built_in">next</span>, nextDistance])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>: <span class="keyword">break</span></span><br><span class="line">        cave = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>().split()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">        graph = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n*n + <span class="number">1</span>): graph[i] = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                <span class="comment"># 오른</span></span><br><span class="line">                <span class="keyword">if</span> i*n + j + <span class="number">2</span> &lt; n*n + <span class="number">1</span> <span class="keyword">and</span> j + <span class="number">1</span> &lt; n:</span><br><span class="line">                        graph[i*n + j + <span class="number">1</span>].append([i*n + j + <span class="number">2</span>, cave[i][j + <span class="number">1</span>]])</span><br><span class="line">                <span class="comment"># 아래</span></span><br><span class="line">                <span class="keyword">if</span> i*n + j + <span class="number">1</span> + n &lt; n*n + <span class="number">1</span> <span class="keyword">and</span> i + <span class="number">1</span> &lt; n:</span><br><span class="line">                    graph[i*n + j + <span class="number">1</span>].append([i*n + j + <span class="number">1</span> + n, cave[i + <span class="number">1</span>][j]])</span><br><span class="line">                <span class="comment"># 위</span></span><br><span class="line">                <span class="keyword">if</span> i*n + j + <span class="number">1</span> - n &gt;= <span class="number">0</span> <span class="keyword">and</span> i - <span class="number">1</span> &gt;= <span class="number">0</span>:</span><br><span class="line">                    graph[i*n + j + <span class="number">1</span>].append([i*n + j + <span class="number">1</span> - n, cave[i - <span class="number">1</span>][j]])</span><br><span class="line">                <span class="comment"># 왼</span></span><br><span class="line">                <span class="keyword">if</span> i*n + j &gt;= <span class="number">0</span> <span class="keyword">and</span> j - <span class="number">1</span> &gt;= <span class="number">0</span>:</span><br><span class="line">                    graph[i*n + j + <span class="number">1</span>].append([i*n + j, cave[i][j - <span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(graph)</span></span><br><span class="line">        dist = dijkstra(<span class="number">1</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        print(<span class="string">&quot;Problem %d:&quot;</span> % count, dist[n*n])</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>이 코드는 재사용이 가능할수도 있고 없을수도있다. 이걸 코딩테스트 라이브때 기억해낼수있겠지만, 구현이 되게 느릴거다.</li>
+<li>이 코드는 죽은 코드이다. 이렇게도 풀수있구나 하고 참고정도만하자.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>일단 알고리즘을 푸는데 하나의 이론으로 푸는건데 위 파이썬 코드 처럼 좀 더럽게 느껴지면 그건 잘못된 길을 가고있는거다.</li>
+<li>이상하고, 이론은 다 아는데, 구현에서 문제가 있으면, 그냥 다른사람들 코드를 참고하도록하자.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/04/03/Baekjoon/2020/4April/2020-04-03-%5B%EB%B0%B1%EC%A4%80%5D%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/03/30/Baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/"
+                            aria-label=": [백준][c++][python] 6118 숨바꼭질"
+                        >
+                            [백준][c++][python] 6118 숨바꼭질
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-30T22:30:00+09:00">
+	
+		    Mar 30, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/6118">숨바꼭질</a><br><img width="1181" alt="스크린샷 2020-03-30 오후 10 32 57" src="https://user-images.githubusercontent.com/20227720/77918202-82b9bd80-72d6-11ea-8233-c8fedcf5e703.png"><br><img width="1179" alt="스크린샷 2020-03-30 오후 10 33 02" src="https://user-images.githubusercontent.com/20227720/77918188-80576380-72d6-11ea-9acf-8b4e13b89d1f.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>, a = <span class="number">0</span>, b = <span class="number">0</span>, INF = <span class="number">987654321</span>, max_num = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; barn[<span class="number">20001</span>];</span><br><span class="line"><span class="keyword">int</span> dist[<span class="number">20001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; pq; <span class="comment">// 힙구조</span></span><br><span class="line">    pq.push(<span class="built_in">make_pair</span>(s, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 가까운 순서대로 처리 하므로 큐 사용</span></span><br><span class="line">    <span class="keyword">while</span>( !pq.empty() )&#123;</span><br><span class="line">        <span class="keyword">int</span> current = pq.top().first;</span><br><span class="line">        <span class="comment">// 짧은 것이 먼저 오도록 음수화</span></span><br><span class="line">        <span class="keyword">int</span> distance = -pq.top().second;</span><br><span class="line">        pq.pop();</span><br><span class="line">        <span class="comment">// 최단거리가 아닌경우 스킵</span></span><br><span class="line">        <span class="keyword">if</span>(dist[current] &lt; distance) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; barn[current].size(); i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> next = barn[current][i].first;</span><br><span class="line">            <span class="keyword">int</span> nextDistance = barn[current][i].second + distance;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( nextDistance &lt; dist[next] )&#123;</span><br><span class="line">                dist[next] = nextDistance;</span><br><span class="line">                pq.push(<span class="built_in">make_pair</span>(next, -nextDistance));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        barn[a].push_back(<span class="built_in">make_pair</span>(b, <span class="number">1</span>));</span><br><span class="line">        barn[b].push_back(<span class="built_in">make_pair</span>(a, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        dist[i + <span class="number">1</span>] = INF;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dijkstra(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; answer;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        max_num = max(max_num, dist[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( dist[i] == max_num )&#123;</span><br><span class="line">            answer.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; answer.front() &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; max_num &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; answer.size() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">s</span>):</span></span><br><span class="line">    dist = [<span class="number">0</span>] + [INF] * (n)</span><br><span class="line">    dist[s] = <span class="number">0</span></span><br><span class="line">    heap = []</span><br><span class="line">    heappush(heap, [s, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> heap:</span><br><span class="line">        current, distance = heappop(heap)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">next</span>, nextDistance <span class="keyword">in</span> barn[current]:</span><br><span class="line">            nextDistance += distance</span><br><span class="line">            <span class="keyword">if</span> nextDistance &lt; dist[<span class="built_in">next</span>]:</span><br><span class="line">                dist[<span class="built_in">next</span>] = nextDistance</span><br><span class="line">                heappush(heap, [<span class="built_in">next</span>, nextDistance])</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    barn = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        barn[a].append([b,<span class="number">1</span>])</span><br><span class="line">        barn[b].append([a,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    dist = dijkstra(<span class="number">1</span>)</span><br><span class="line">    max_dist = <span class="built_in">max</span>(dist)</span><br><span class="line"></span><br><span class="line">    print(dist.index(max_dist), max_dist, dist.count(max_dist))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>다익스트라 이용해서 해결.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>한동안은 다익스트라 관련 문제를 풀어야겠다.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/03/30/Baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/01/31/Baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/"
+                            aria-label=": [백준][python] 1753 최단경로"
+                        >
+                            [백준][python] 1753 최단경로
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-31T18:30:00+09:00">
+	
+		    Jan 31, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="noopener" href="https://www.acmicpc.net/problem/1753">최단경로</a><br><img width="800" alt="스크린샷 2020-01-31 오후 6 05 37" src="https://user-images.githubusercontent.com/20227720/73526308-4a237200-4454-11ea-9c77-5b619a227c9d.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 힙 사용 및 INF 설정.</span></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 다익스트라.</span></span><br><span class="line"><span class="comment"># 처음 시작하는 위치에서는 가중치가 없으니 0으로 설정.</span></span><br><span class="line"><span class="comment"># 그 뒤 heap인 q에다가 [0, 시작위치]를 넣어준다.</span></span><br><span class="line"><span class="comment"># q가 빌때까지 돈다.</span></span><br><span class="line"><span class="comment"># heap에서 하나를 꺼내고, 그 위치에서 갈수있는 간선들을 확인한다.</span></span><br><span class="line"><span class="comment"># cost에 갈수있는 간선의 c값 이랑 더하고, 그 결과 값이랑 dist[갈수있는 간선위치]랑 비교해서 더 작다면</span></span><br><span class="line"><span class="comment"># 그 값을 dist[위치]에 넣고 heap에 결과 값이랑 위치값을 넣는다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">v, s, g</span>):</span></span><br><span class="line">    dist = [INF] * v</span><br><span class="line">    dist[s - <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">    q = []</span><br><span class="line">    heappush(q, [<span class="number">0</span>, s - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        cost, pos = heappop(q)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> p, c <span class="keyword">in</span> g[pos]:</span><br><span class="line">            c += cost</span><br><span class="line">            <span class="keyword">if</span> c &lt; dist[p]:</span><br><span class="line">                dist[p] = c</span><br><span class="line">                heappush(q, [c, p])</span><br><span class="line">        print(q)</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 입/출력</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    K = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    graph = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V)]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">        u, v, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[u-<span class="number">1</span>].append([v-<span class="number">1</span>, w])</span><br><span class="line"></span><br><span class="line">    print(graph)</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dijkstra(V, K, graph):</span><br><span class="line">        print(d <span class="keyword">if</span> d != INF <span class="keyword">else</span> <span class="string">&quot;INF&quot;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/01/31/Baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>
