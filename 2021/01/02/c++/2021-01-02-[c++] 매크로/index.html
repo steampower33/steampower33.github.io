@@ -13,7 +13,7 @@
     
     
         
-            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
     <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"간결한 코드 작성을 위한 c++ 매크로 사용1234567bool TrueOrFalse(const vector&lt;int&gt;&amp; array) &#123;    for(int i = 0; i &lt; array.size(); ++i)         for(int j = 0; j &lt; i; ++j)            if(array[i] == array[j])                return true;    return false;&#125;\n123456789#define FOR(i,n) for(int i = 0; i &lt; (n); ++i)bool TrueOrFalse(const vector&lt;int&gt;&amp; array) &#123;    FOR(i, array.size())        FOR(j,i)            if(array[i] == array[j])                return true;    return false;&#125;","dateCreated":"2021-01-02T15:00:00+09:00","dateModified":"2021-01-19T22:58:32+09:00","datePublished":"2021-01-02T15:00:00+09:00","description":"","headline":"[c++] 매크로","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/01/02/c++/2021-01-02-[c++]%20%EB%A7%A4%ED%81%AC%EB%A1%9C/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/01/02/c++/2021-01-02-[c++]%20%EB%A7%A4%ED%81%AC%EB%A1%9C/","keywords":"Macro"}</script>
