@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SeungMin Lee</title>
+    <link>http://example.com/</link>
+    
+    <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>SeungMin Lee</description>
+    <pubDate>Tue, 19 Jan 2021 13:58:33 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[백준][python] 11444 피보나치 수</title>
+      <link>http://example.com/2021/01/06/Baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/</link>
+      <guid>http://example.com/2021/01/06/Baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/</guid>
+      <pubDate>Tue, 05 Jan 2021 22:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11444&quot;&gt;11444 피보나치 수 6&lt;/a&gt;&lt;br&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/11444">11444 피보나치 수 6</a><br><img src="https://user-images.githubusercontent.com/20227720/103707925-e81fa500-4ff2-11eb-9d77-3e2b9a18ffcd.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def solve(n):</span><br><span class="line"></span><br><span class="line">    if dp.get(n) !&#x3D; None:</span><br><span class="line">        return dp[n]</span><br><span class="line">    else:</span><br><span class="line">        if n % 2:</span><br><span class="line">            newN &#x3D; (n + 1) &#x2F;&#x2F; 2</span><br><span class="line">            result &#x3D; solve(newN) ** 2 + solve(newN - 1) ** 2</span><br><span class="line">            dp[n] &#x3D; result % 1000000007</span><br><span class="line">            return dp[n]</span><br><span class="line">        else:</span><br><span class="line">            newN &#x3D; n &#x2F;&#x2F; 2</span><br><span class="line">            result &#x3D; (solve(newN - 1) * 2 + solve(newN)) * solve(newN)</span><br><span class="line">            dp[n] &#x3D; result % 1000000007</span><br><span class="line">            return dp[n]</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    dp &#x3D; &#123;0: 0, 1: 1, 2: 1&#125;</span><br><span class="line"></span><br><span class="line">    print(solve(n))</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p><img src="https://user-images.githubusercontent.com/20227720/103708052-1ef5bb00-4ff3-11eb-98bb-fa400cd360e1.png" alt="피보나치 점화식"><br>피보나치 점화식을 위와같이 표현할 수 있다.<br>이를 이용하여 해결</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2021/01/06/Baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>반열린구간</title>
+      <link>http://example.com/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/</link>
+      <guid>http://example.com/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/</guid>
+      <pubDate>Sat, 02 Jan 2021 07:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;범위&quot;&gt;&lt;a href=&quot;#범위&quot; class=&quot;headerlink&quot; title=&quot;범위&quot;&gt;&lt;/a&gt;범위&lt;/h1&gt;&lt;p&gt;평소 범위라고 한다면, “일부터 십까지”에서 1 2 3 4 5 6 7 8 9 10 을 말하는 것이다.&lt;br&gt;이 범위를 숫자 양</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="범위"><a href="#범위" class="headerlink" title="범위"></a>범위</h1><p>평소 범위라고 한다면, “일부터 십까지”에서 1 2 3 4 5 6 7 8 9 10 을 말하는 것이다.<br>이 범위를 숫자 양쪽을 포함해서 표현하자면 (1, 10) -&gt; 1 &lt;= i &lt;= 10이며, 이런 집합을 닫힌 구간이라고 부른다.<br>다르게 양 끝의 경계를 포함하지 않는 열린 구간이 있는데, (0, 11) -&gt; 0 &lt; i &lt; 11 로 표현할 수 있다.</p><p>프로그래밍 언어에서 사용하는 방식은 위의 두가지를 섞은 반 열린 구간이다.<br>앞을 열고, 뒤를 닫는다.</p><h1 id="이유"><a href="#이유" class="headerlink" title="이유"></a>이유</h1><p>프로그래밍 언어에서 반 열린 구간을 사용하는 이유에는 여러가지가 있다.<br>그 중 하나를 들자면,</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">대부분의 프로그래밍 언어에서 n개의 원소를 갖는 배열 a의 첫 번째 원소는 a[0]이고, 마지막 원소는 a[n-1]이다.</span><br><span class="line">따라서 a의 인덱스 i의 범위는 0&lt;&#x3D;i&lt;n이다.</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/Information/">Information</category>
+      
+      
+      <category domain="http://example.com/tags/half-open-interval/">half-open interval</category>
+      
+      
+      <comments>http://example.com/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[c++] 매크로</title>
+      <link>http://example.com/2021/01/02/c++/2021-01-02-[c++]%20%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
+      <guid>http://example.com/2021/01/02/c++/2021-01-02-[c++]%20%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
+      <pubDate>Sat, 02 Jan 2021 06:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;간결한-코드-작성을-위한-c-매크로-사용&quot;&gt;&lt;a href=&quot;#간결한-코드-작성을-위한-c-매크로-사용&quot; class=&quot;headerlink&quot; title=&quot;간결한 코드 작성을 위한 c++ 매크로 사용&quot;&gt;&lt;/a&gt;간결한 코드 작성을 위한 c++ </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="간결한-코드-작성을-위한-c-매크로-사용"><a href="#간결한-코드-작성을-위한-c-매크로-사용" class="headerlink" title="간결한 코드 작성을 위한 c++ 매크로 사용"></a>간결한 코드 작성을 위한 c++ 매크로 사용</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">array</span>.size(); ++i) </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; ++j)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i,n) for(int i = 0; i &lt; (n); ++i)</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    FOR(i, <span class="built_in">array</span>.size())</span><br><span class="line">        FOR(j,i)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/c/">c++</category>
+      
+      
+      <category domain="http://example.com/tags/Macro/">Macro</category>
+      
+      
+      <comments>http://example.com/2021/01/02/c++/2021-01-02-[c++]%20%EB%A7%A4%ED%81%AC%EB%A1%9C/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 10830 행렬 제곱</title>
+      <link>http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/</link>
+      <guid>http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/</guid>
+      <pubDate>Sat, 02 Jan 2021 02:10:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10830&quot;&gt;10830&lt;/a&gt;&lt;br&gt;&lt;img src=</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/10830">10830</a><br><img src="https://user-images.githubusercontent.com/20227720/103449353-85749380-4cea-11eb-986d-7f208a57cc87.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def mul_matrix(a, matrix):</span><br><span class="line">    global n</span><br><span class="line">    result_matrix &#x3D; [[0 for _ in range(n)]for _ in range(n)]</span><br><span class="line"></span><br><span class="line">    for i in range(n):</span><br><span class="line">        for j in range(n):</span><br><span class="line">            for k in range(n):</span><br><span class="line">                result_matrix[i][j] +&#x3D; (a[i][k] * matrix[k][j])</span><br><span class="line">            result_matrix[i][j] %&#x3D; 1000</span><br><span class="line"></span><br><span class="line">    return result_matrix</span><br><span class="line"></span><br><span class="line">def solve(a, b):</span><br><span class="line">    if b &#x3D;&#x3D; 1:</span><br><span class="line">        for i in range(n):</span><br><span class="line">            for j in range(n):</span><br><span class="line">                a[i][j] %&#x3D; 1000</span><br><span class="line">        return a</span><br><span class="line">    elif b % 2 &#x3D;&#x3D; 1:</span><br><span class="line">        matrix &#x3D; solve(a, b-1)</span><br><span class="line">        new_matrix &#x3D; mul_matrix(a, matrix)</span><br><span class="line"></span><br><span class="line">        return new_matrix</span><br><span class="line">    else:</span><br><span class="line">        matrix &#x3D; solve(a, b&#x2F;&#x2F;2)</span><br><span class="line">        new_matrix &#x3D; mul_matrix(matrix, matrix)</span><br><span class="line"></span><br><span class="line">        return new_matrix</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    n, b &#x3D; map(int, sys.stdin.readline().split())</span><br><span class="line">    a &#x3D; [[] for i in range(n)]</span><br><span class="line">    for i in range(n): a[i] &#x3D; list(map(int, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line">    result &#x3D; solve(a,b)</span><br><span class="line"></span><br><span class="line">    for row in result:</span><br><span class="line">        print(*row)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>A를 4번 거듭제곱해야한다하면, (A^2)^2<br>5번 해야한다면, (A^2)^2 * A<br>이런식으로 연산한다.</p><p>재귀를 돌때 b가 홀수이면 b-1을 하고 a와 matrix를 곱하고, -&gt; * A<br>b가 짝수이면 matrix와 matrix를 곱한다. -&gt; (A^2) ^ 2</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 2740 행렬 곱셈</title>
+      <link>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/</link>
+      <guid>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/</guid>
+      <pubDate>Wed, 30 Dec 2020 12:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2740&quot;&gt;2740 행렬 곱셈&lt;/a&gt;&lt;br&gt;&lt;img </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/2740">2740 행렬 곱셈</a><br><img src="https://user-images.githubusercontent.com/20227720/103350187-7de29e00-4ae2-11eb-9c86-00a20f625f6c.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    n, m &#x3D; map(int, sys.stdin.readline().split())</span><br><span class="line">    a &#x3D; [[] for _ in range(n)]</span><br><span class="line">    for i in range(n): a[i] &#x3D; list(map(int, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line">    m, k &#x3D; map(int, sys.stdin.readline().split())</span><br><span class="line">    b &#x3D; [[] for _ in range(m)]</span><br><span class="line">    for i in range(m): b[i] &#x3D; list(map(int, sys.stdin.readline().split()))</span><br><span class="line"></span><br><span class="line">    r &#x3D; [[0 for i in range(k)] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for i in range(n):</span><br><span class="line">        for j in range(k):</span><br><span class="line">            num &#x3D; 0</span><br><span class="line">            for l in range(m):</span><br><span class="line">                num +&#x3D; a[i][l] * b[l][j]</span><br><span class="line">            r[i][j] &#x3D; num</span><br><span class="line"></span><br><span class="line">    for i in range(n):</span><br><span class="line">        for j in range(k):</span><br><span class="line">            print(r[i][j], end&#x3D;&#39; &#39;)</span><br><span class="line">        print()</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 1629 곱셈</title>
+      <link>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/</link>
+      <guid>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/</guid>
+      <pubDate>Tue, 29 Dec 2020 15:08:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1629&quot;&gt;1629 곱셈&lt;/a&gt;&lt;br&gt;&lt;img src</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/1629">1629 곱셈</a><br><img src="https://user-images.githubusercontent.com/20227720/103293689-b0818d80-4a33-11eb-8bd1-71aa8d518f26.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def solve(a,b):</span><br><span class="line">    if b &#x3D;&#x3D; 0:</span><br><span class="line">        return 1</span><br><span class="line">    elif b &#x3D;&#x3D; 1:</span><br><span class="line">        return a</span><br><span class="line">    else:</span><br><span class="line">        if b % 2 &#x3D;&#x3D; 1:</span><br><span class="line">            return solve(a, b - 1) * a</span><br><span class="line">        elif b % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            result &#x3D; solve(a, b &#x2F;&#x2F; 2)</span><br><span class="line">            return result * result % c</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    a, b, c &#x3D; map(int, input().split())</span><br><span class="line"></span><br><span class="line">    print(solve(a,b) % c)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>a, b, c가 주어진 상황에서 a를 b제곱하고 c로 나누는 과정에서 데이터 값이 범위를 초과하거나, 시간을 초과할수있다.</p><p>그 과정을 줄이면된다.</p><p>10 11 12가 주어졌을때, 10^11을 해야하는데 이걸 쪼개는 과정은</p><p>b가 홀수인지 짝수인지 확인하고</p><p>b가 짝수일때는 b // 2를 해준것을 2개한후 c로 나눠주고 반환 =&gt; ( a ** b // 2 ) * ( a ** b // 2) % c<br>b가 홀수일때는 a ** (b-1) * a를 반환</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2020/12/30/Baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 1780 종이의 개수</title>
+      <link>http://example.com/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/</link>
+      <guid>http://example.com/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/</guid>
+      <pubDate>Mon, 28 Dec 2020 14:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1780&quot;&gt;종이의 개수&lt;/a&gt;&lt;br&gt;&lt;img src=</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/1780">종이의 개수</a><br><img src="https://user-images.githubusercontent.com/20227720/103218794-6cbd5400-495f-11eb-8173-e667ff0f37d7.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def paperSum(x, y, v):</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    minus &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            if paper[i][j] &#x3D;&#x3D; 0:</span><br><span class="line">                zero +&#x3D; 1</span><br><span class="line">            elif paper[i][j] &#x3D;&#x3D; -1:</span><br><span class="line">                minus +&#x3D; 1</span><br><span class="line">            elif paper[i][j] &#x3D;&#x3D; 1:</span><br><span class="line">                one +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    if v &#x3D;&#x3D; zero:</span><br><span class="line">        return 0</span><br><span class="line">    elif v &#x3D;&#x3D; one:</span><br><span class="line">        return 1</span><br><span class="line">    elif v &#x3D;&#x3D; minus:</span><br><span class="line">        return -1</span><br><span class="line"></span><br><span class="line">def paperChecker(x, y, p):</span><br><span class="line">    global zero, one, minus</span><br><span class="line">    value &#x3D; abs(x[1] - x[0]) * abs(y[1] - y[0])</span><br><span class="line">    pS &#x3D; paperSum(x, y, value)</span><br><span class="line">    if  pS &#x3D;&#x3D; 0:</span><br><span class="line">        zero +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 1:</span><br><span class="line">        one +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; -1:</span><br><span class="line">        minus +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    else:</span><br><span class="line">        nP &#x3D; p &#x2F;&#x2F; 3</span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    minus &#x3D; 0</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    paper &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): paper[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;).rsplit()))</span><br><span class="line">    paperChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    print(minus)</span><br><span class="line">    print(zero)</span><br><span class="line">    print(one)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 1992 쿼드트리</title>
+      <link>http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/</link>
+      <guid>http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/</guid>
+      <pubDate>Sun, 27 Dec 2020 10:40:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1992&quot;&gt;1992 쿼드트리&lt;/a&gt;&lt;br&gt;&lt;img s</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/1992">1992 쿼드트리</a><br><img src="https://user-images.githubusercontent.com/20227720/103169080-2642f900-487c-11eb-99ed-010bc275ac7b.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def treeSum(x, y):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            sum +&#x3D; tree[i][j]</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">def treeChecker(x, y, p):</span><br><span class="line">    global result</span><br><span class="line">    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])</span><br><span class="line">    pS &#x3D; treeSum(x,y)</span><br><span class="line">    if  pS &#x3D;&#x3D; value:</span><br><span class="line">        result.append(&#39;1&#39;)</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 0:</span><br><span class="line">        result.append(&#39;0&#39;)</span><br><span class="line">        return</span><br><span class="line">    elif treeSum(x,y) !&#x3D; value:</span><br><span class="line">        result.append(&#39;(&#39;)</span><br><span class="line">        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line">        result.append(&#39;)&#39;)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    result &#x3D; list()</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    tree &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): tree[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;)))</span><br><span class="line"></span><br><span class="line">    treeChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    for _ in result:</span><br><span class="line">        print(_, end&#x3D;&#39;&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p><a href="https://neversayn3v3r.github.io/2020/12/26/Baekjoon/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/">2630 색종이 만들기 해결</a>에서 재귀를 돌기전과 후에 소괄호 하나씩 넣고, 네모안이 전부1인지 아닌지 확인하는 부분에서 소괄호 넣어주는 것으로 수정해주면 된다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 2630 색종이 만들기</title>
+      <link>http://example.com/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/</link>
+      <guid>http://example.com/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/</guid>
+      <pubDate>Sat, 26 Dec 2020 14:25:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2630&quot;&gt;2630 색종이 만들기&lt;/a&gt;&lt;br&gt;&lt;im</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/2630">2630 색종이 만들기</a><br><img src="https://user-images.githubusercontent.com/20227720/103153188-1bcc2500-47d2-11eb-8de1-f0b7888c7667.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def paperSum(x, y):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            sum +&#x3D; paper[i][j]</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">def paperChecker(x, y, p):</span><br><span class="line">    global zero, one</span><br><span class="line">    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])</span><br><span class="line">    pS &#x3D; paperSum(x,y)</span><br><span class="line">    if  pS &#x3D;&#x3D; value:</span><br><span class="line">        one +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 0:</span><br><span class="line">        zero +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif paperSum(x,y) !&#x3D; value:</span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    paper &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): paper[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;).rsplit()))</span><br><span class="line">    paperChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    print(zero)</span><br><span class="line">    print(one)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>사분면의 좌표를 설정해 재귀로 들어가 분면의 총 합이 좌표만큼인지 아니면 0인지 판별한다.</p><p>사분면 설정하는 부분에서 기준을 준다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Divide-and-Conquer/">Divide and Conquer</category>
+      
+      
+      <comments>http://example.com/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]5430 AC</title>
+      <link>http://example.com/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/</link>
+      <guid>http://example.com/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/</guid>
+      <pubDate>Fri, 25 Dec 2020 14:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/5430&quot;&gt;5430 AC&lt;/a&gt;&lt;br&gt;&lt;img src</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/5430">5430 AC</a><br><img src="https://user-images.githubusercontent.com/20227720/103136673-b3177680-4705-11eb-9b2c-a574278ea6a6.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    t &#x3D; int(sys.stdin.readline())</span><br><span class="line"></span><br><span class="line">    for i in range(t):</span><br><span class="line">        f &#x3D; list(sys.stdin.readline())</span><br><span class="line">        l &#x3D; int(sys.stdin.readline())</span><br><span class="line">        nums &#x3D; collections.deque(sys.stdin.readline().rstrip(&#39;\n&#39;).strip(&#39;[]&#39;).split(&#39;,&#39;))</span><br><span class="line">        result &#x3D; 0</span><br><span class="line">        ReverseStack &#x3D; 0</span><br><span class="line"></span><br><span class="line">        for j in f:</span><br><span class="line">            if j &#x3D;&#x3D; &#39;R&#39;:</span><br><span class="line">                ReverseStack +&#x3D; 1</span><br><span class="line">            elif j &#x3D;&#x3D; &#39;D&#39;:</span><br><span class="line">                if l &gt; 0:</span><br><span class="line">                    if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">                        nums.pop()</span><br><span class="line">                    elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">                        nums.popleft()</span><br><span class="line">                    l -&#x3D; 1</span><br><span class="line">                else:</span><br><span class="line">                    result &#x3D; &#39;error&#39;</span><br><span class="line">                    break</span><br><span class="line"></span><br><span class="line">        if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">            nums.reverse()</span><br><span class="line">        elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            ...</span><br><span class="line"></span><br><span class="line">        if result &#x3D;&#x3D; &#39;error&#39;:</span><br><span class="line">            print(result)</span><br><span class="line">        else:</span><br><span class="line">            print(&#39;[&#39;,end&#x3D;&#39;&#39;)</span><br><span class="line">            for k in range(len(nums)):</span><br><span class="line">                if k &#x3D;&#x3D; len(nums) - 1:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;&#39;)</span><br><span class="line">                else:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;,&#39;)</span><br><span class="line">            print(&#39;]&#39;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>이 문제 해결은 시간초과를 안나게 하면된다.</p><p>카운트한 R의 개수가 짝수인지 홀수인지 확인하고, 짝수면 맨 왼쪽, 홀수면 맨 오른쪽 원소를 빼주고, 마지막 출력하기전에 nums를 reverse할지말지를 결정한다.</p><p>그 외에 파이썬에서 문자열 다루는 부분을 신경써주면된다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]1021 회전하는 큐</title>
+      <link>http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/</link>
+      <guid>http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/</guid>
+      <pubDate>Thu, 24 Dec 2020 13:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1021&quot;&gt;1021 회전하는 큐&lt;/a&gt;&lt;br&gt;&lt;img</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/1021">1021 회전하는 큐</a><br><img src="https://user-images.githubusercontent.com/20227720/103092453-a0843b00-463a-11eb-978d-9c35a8d122ca.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    f &#x3D; lambda : map(int, input().split())</span><br><span class="line">    n,m &#x3D; f()</span><br><span class="line">    nums &#x3D; [*range(1, n+1)]</span><br><span class="line"></span><br><span class="line">    idx &#x3D; 0</span><br><span class="line">    cnt &#x3D; 0</span><br><span class="line"></span><br><span class="line">    for _ in f():</span><br><span class="line">        wantNumIndex &#x3D; nums.index(_)</span><br><span class="line">        t1 &#x3D; abs(wantNumIndex - idx)</span><br><span class="line">        t2 &#x3D; len(nums) - t1</span><br><span class="line">        cnt +&#x3D; min(t1, t2)</span><br><span class="line">        idx &#x3D; wantNumIndex</span><br><span class="line">        del nums[wantNumIndex]</span><br><span class="line">    print(cnt)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>현재 인덱스에서 찾길 원하는 숫자의 인덱스까지의 길이를 구하는 방법은 아래와 같이 왼쪽, 오른쪽으로 두가지가 있다.</p><ol><li>절대값(찾길원하는 숫자 인덱스 - 현재 인덱스), </li><li>리스트 총길이 - 1번 </li></ol><p>while문 사용없이 원하는 숫자를 구하는 만큼만 반복해주면된다.</p><p>collections.deque.rotate를 통해서도 같은 방법으로 해결할수있다.<br>위 두가지 방법을 이용해서 그만큼 rotate를 돌아주고 cnt에 더해주면된다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 10866 덱</title>
+      <link>http://example.com/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/</link>
+      <guid>http://example.com/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/</guid>
+      <pubDate>Tue, 22 Dec 2020 06:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10866&quot;&gt;10866 덱&lt;/a&gt;&lt;br&gt;&lt;img sr</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/10866">10866 덱</a><br><img src="https://user-images.githubusercontent.com/20227720/102856623-2dc46580-446a-11eb-9859-bbeacce73432.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    deque &#x3D; collections.deque()</span><br><span class="line"></span><br><span class="line">    for _ in range(n):</span><br><span class="line">        commands &#x3D; list(sys.stdin.readline().rsplit())</span><br><span class="line"></span><br><span class="line">        if commands[0] &#x3D;&#x3D; &#39;push_front&#39;:</span><br><span class="line">            deque.appendleft(int(commands[1]))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;push_back&#39;:</span><br><span class="line">            deque.append(int(commands[1]))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;pop_front&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque.popleft())</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;pop_back&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque.pop())</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;size&#39;:</span><br><span class="line">            print(len(deque))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;empty&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(1)</span><br><span class="line">            else:</span><br><span class="line">                print(0)</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;front&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque[0])</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;back&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque[-1])</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[git] git 명령어 모음</title>
+      <link>http://example.com/2020/12/21/Git/2020-12-21-[git]%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/</link>
+      <guid>http://example.com/2020/12/21/Git/2020-12-21-[git]%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/</guid>
+      <pubDate>Mon, 21 Dec 2020 06:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;master-에서-main으로-바꾸기&quot;&gt;&lt;a href=&quot;#master-에서-main으로-바꾸기&quot; class=&quot;headerlink&quot; title=&quot;master 에서 main으로 바꾸기.&quot;&gt;&lt;/a&gt;master 에서 main으로 바꾸기.&lt;/h1</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="master-에서-main으로-바꾸기"><a href="#master-에서-main으로-바꾸기" class="headerlink" title="master 에서 main으로 바꾸기."></a>master 에서 main으로 바꾸기.</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -help</span><br><span class="line">git branch -m master main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure><h1 id="git-add-commit-push-취소하기"><a href="#git-add-commit-push-취소하기" class="headerlink" title="git add, commit, push 취소하기."></a>git add, commit, push 취소하기.</h1><h2 id="git-add-취소하기"><a href="#git-add-취소하기" class="headerlink" title="git add 취소하기"></a>git add 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure><p>file 명을 add 취소한다 공백으로 두면 add 모든것을 취소한다.</p><h2 id="git-commit-취소하기"><a href="#git-commit-취소하기" class="headerlink" title="git commit 취소하기"></a>git commit 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 - git reset --soft HEAD~  </span><br><span class="line">2 - git reset HEAD~  </span><br><span class="line">3 - git reset --hard HEAD~</span><br></pre></td></tr></table></figure><p>1 - Undo commit and keep all files “staged”<br>2 - Undo commit and “unstage” all files<br>3 - Undo the commit and “completely remove all changes”  </p><h2 id="git-push-취소하기"><a href="#git-push-취소하기" class="headerlink" title="git push 취소하기"></a>git push 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git reset HEAD^</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure><p>reflog 한후 로그에 나오는 HEAD@{number} 를 복사 혹은 기억했다가<br>아래와 같이 명령어를 실행한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD@&#123;number&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +master</span><br></pre></td></tr></table></figure><p>위 단계를 실행하면 git 홈페이지에서 확인해보자.</p><h1 id="git-리모트-삭제하기"><a href="#git-리모트-삭제하기" class="headerlink" title="git 리모트 삭제하기."></a>git 리모트 삭제하기.</h1><h2 id="1-리모트-확인-gt-삭제할-것의-맨-앞부분-기억"><a href="#1-리모트-확인-gt-삭제할-것의-맨-앞부분-기억" class="headerlink" title="1. 리모트 확인 -&gt; 삭제할 것의 맨 앞부분 기억"></a>1. 리모트 확인 -&gt; 삭제할 것의 맨 앞부분 기억</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v </span><br></pre></td></tr></table></figure><img width="469" alt="스크린샷 2020-01-09 오전 12 31 45" src="https://user-images.githubusercontent.com/20227720/71990897-8d385e00-3277-11ea-9160-4f5cb814c817.png"><h2 id="2-리모트-삭제"><a href="#2-리모트-삭제" class="headerlink" title="2. 리모트 삭제"></a>2. 리모트 삭제</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm &quot;삭제할 부분&quot;</span><br></pre></td></tr></table></figure><img width="410" alt="스크린샷 2020-01-09 오전 12 32 15" src="https://user-images.githubusercontent.com/20227720/71990898-8d385e00-3277-11ea-9777-8ee36932262c.png"><h1 id="git-pull로-강제로-로컬-업데이트"><a href="#git-pull로-강제로-로컬-업데이트" class="headerlink" title="git pull로 강제로 로컬 업데이트"></a>git pull로 강제로 로컬 업데이트</h1><h2 id="1-디렉토리에-가서-아래의-명령어-실행"><a href="#1-디렉토리에-가서-아래의-명령어-실행" class="headerlink" title="1. 디렉토리에 가서 아래의 명령어 실행"></a>1. 디렉토리에 가서 아래의 명령어 실행</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line"> </span><br><span class="line">git reset --hard origin&#x2F;master</span><br><span class="line"> </span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure><h1 id="git-레포-설정하기"><a href="#git-레포-설정하기" class="headerlink" title="git 레포 설정하기"></a>git 레포 설정하기</h1><h2 id="1-Git-로컬-저장소-만들기"><a href="#1-Git-로컬-저장소-만들기" class="headerlink" title="1. Git 로컬 저장소 만들기"></a>1. Git 로컬 저장소 만들기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git config --global user.name &quot;깃허브 이름(큰따옴표는 빼고 입력)&quot;</span><br><span class="line">git config --global user.email &quot;깃허브 이메일 ex) justpost@naver.com&quot;</span><br></pre></td></tr></table></figure><h2 id="2-저장-되지-않았으면-하는-파일-설정"><a href="#2-저장-되지-않았으면-하는-파일-설정" class="headerlink" title="2. 저장 되지 않았으면 하는 파일 설정"></a>2. 저장 되지 않았으면 하는 파일 설정</h2><h2 id="2-2-현재-아래와-같은-파일들이-있다고-해보자"><a href="#2-2-현재-아래와-같은-파일들이-있다고-해보자" class="headerlink" title="2-2. 현재 아래와 같은 파일들이 있다고 해보자"></a>2-2. 현재 아래와 같은 파일들이 있다고 해보자</h2><img width="512" alt="스크린샷 2020-01-27 오전 2 23 07" src="https://user-images.githubusercontent.com/20227720/73138971-f7406800-40ab-11ea-8b29-c96fd57ee220.png"><h2 id="2-2-gitignore-파일-안에-저장-되지-않았으면-하는-파일의-형식-혹은-디렉토리-이름을-입력"><a href="#2-2-gitignore-파일-안에-저장-되지-않았으면-하는-파일의-형식-혹은-디렉토리-이름을-입력" class="headerlink" title="2-2. .gitignore 파일 안에 저장 되지 않았으면 하는 파일의 형식 혹은 디렉토리 이름을 입력"></a>2-2. .gitignore 파일 안에 저장 되지 않았으면 하는 파일의 형식 혹은 디렉토리 이름을 입력</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;build&#x2F;</span><br><span class="line">*.json</span><br><span class="line">&#x2F;image&#x2F;</span><br></pre></td></tr></table></figure><h2 id="3-commit을-하기전에는-항상-git-status로-커밋될수-있는-내용들을-확인하자"><a href="#3-commit을-하기전에는-항상-git-status로-커밋될수-있는-내용들을-확인하자" class="headerlink" title="3. commit을 하기전에는 항상 git status로 커밋될수 있는 내용들을 확인하자"></a>3. commit을 하기전에는 항상 git status로 커밋될수 있는 내용들을 확인하자</h2><h2 id="3-1-gitignore를-설정했기때문에-설정한-파일을-제외한-나머지-파일들이-확인된다"><a href="#3-1-gitignore를-설정했기때문에-설정한-파일을-제외한-나머지-파일들이-확인된다" class="headerlink" title="3-1. .gitignore를 설정했기때문에 설정한 파일을 제외한 나머지 파일들이 확인된다"></a>3-1. .gitignore를 설정했기때문에 설정한 파일을 제외한 나머지 파일들이 확인된다</h2><img width="548" alt="스크린샷 2020-01-27 오전 2 27 05" src="https://user-images.githubusercontent.com/20227720/73139010-851c5300-40ac-11ea-9641-441e352a1140.png"><h2 id="4-commit-및-원격-레포에-push"><a href="#4-commit-및-원격-레포에-push" class="headerlink" title="4. commit 및 원격 레포에 push"></a>4. commit 및 원격 레포에 push</h2><h2 id="4-1-commit"><a href="#4-1-commit" class="headerlink" title="4-1. commit"></a>4-1. commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add --all .</span><br><span class="line">git commit -m &quot;이렇게 큰따움표 안에 커밋 내용을 쓰세요 아까는 뺏지만 지금은 넣어야함&quot;</span><br></pre></td></tr></table></figure><h2 id="4-2-원격-레포-설정"><a href="#4-2-원격-레포-설정" class="headerlink" title="4-2. 원격 레포 설정"></a>4-2. 원격 레포 설정</h2><p><a href="https://github.com/">Github사이트</a>에 가서 레포를 아래와 같이 아무것도 체크하지 않고만드세요.<br>이렇게 만들지 않고 현재 로컬 저장소를 원격 저장소로 만들면 push 하는 과정에서 master의 위치 때문에 문제가 발생합니다.</p><img width="743" alt="스크린샷 2020-01-27 오전 2 30 59" src="https://user-images.githubusercontent.com/20227720/73139061-2c00ef00-40ad-11ea-9748-46ccd820ef2a.png"><p>다음으로 아래의 HTTPS 주소를 버튼을 눌러 복사하세요.</p><img width="963" alt="스크린샷 2020-01-27 오전 2 34 42" src="https://user-images.githubusercontent.com/20227720/73139098-acbfeb00-40ad-11ea-98bf-d19175f072d0.png"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &quot;HTTPS 주소(큰따옴표는 빼고 입력)&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure><h2 id="5-끝"><a href="#5-끝" class="headerlink" title="5. 끝"></a>5. 끝</h2><p><strong>혹시 Github 사용자 이름이랑 암호 입력하라그러면 입력해주세요.</strong></p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/git/">git</category>
+      
+      
+      <category domain="http://example.com/tags/git-command/">git command</category>
+      
+      
+      <comments>http://example.com/2020/12/21/Git/2020-12-21-[git]%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]1966 프린터 큐</title>
+      <link>http://example.com/2020/12/20/Baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/</link>
+      <guid>http://example.com/2020/12/20/Baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/</guid>
+      <pubDate>Sun, 20 Dec 2020 12:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1966&quot;&gt;1966 프린터 큐&lt;/a&gt;&lt;br&gt;&lt;img </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/1966">1966 프린터 큐</a><br><img src="https://user-images.githubusercontent.com/20227720/102713522-3b63d900-430c-11eb-972f-32f77e00a68b.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    t &#x3D; int(sys.stdin.readline())</span><br><span class="line"></span><br><span class="line">    for _ in range(t):</span><br><span class="line">        n, m &#x3D; map(int, sys.stdin.readline().rsplit())</span><br><span class="line">        importance &#x3D; collections.deque(map(int, sys.stdin.readline().rsplit()))</span><br><span class="line">        cnt &#x3D; 0</span><br><span class="line">        des &#x3D; list(sorted(importance))</span><br><span class="line">        # print(des)</span><br><span class="line">        for _ in range(len(importance)):</span><br><span class="line">            importance[_] &#x3D; (_, importance[_])</span><br><span class="line"></span><br><span class="line">        # print(importance)</span><br><span class="line">        while True:</span><br><span class="line"></span><br><span class="line">            if importance[0][1] &#x3D;&#x3D; des[-1]:</span><br><span class="line">                cnt +&#x3D; 1</span><br><span class="line">                des.pop()</span><br><span class="line">                if importance[0][0] &#x3D;&#x3D; m:</span><br><span class="line">                    print(cnt)</span><br><span class="line">                    break</span><br><span class="line">                importance.popleft()</span><br><span class="line">            elif importance[0][1] &lt; des[-1]:</span><br><span class="line">                importance.rotate(-1)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>중요도를 오름차순으로 정렬했다.<br>초기 중요도의 위치를 중요도와 함께 나타냈다.</p><p>중요도의 맨처음 위치에서의 값이 중요도의 최고값이랑 같을때마다 cnt를 늘리고,<br>중요도 정렬한 곳에서 최고값을 없애고, 중요도에서 맨 처음 위치의 값을 pop한다.<br>그리고 만약 여기서 구하려는 인덱스랑 일치할 경우 값을 출력하고, 끝낸다.</p><p>그렇지않다면, 중요도를 -1로테이트돌려 반복한다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/20/Baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]11866 요세푸스 문제 O</title>
+      <link>http://example.com/2020/12/17/Baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/</link>
+      <guid>http://example.com/2020/12/17/Baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/</guid>
+      <pubDate>Thu, 17 Dec 2020 08:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11866&quot;&gt;11866 요세푸스 문제 O&lt;/a&gt;&lt;br</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/11866">11866 요세푸스 문제 O</a><br><img src="https://user-images.githubusercontent.com/20227720/102464692-064b5280-4090-11eb-97f7-b75626be7692.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    n, k &#x3D; map(int, input().split())</span><br><span class="line"></span><br><span class="line">    circle &#x3D; collections.deque([_ for _ in range(1,n+1)])</span><br><span class="line">    result &#x3D; list()</span><br><span class="line">    cnt &#x3D; 1</span><br><span class="line">    while len(circle) !&#x3D; 0:</span><br><span class="line">        if cnt &#x2F;&#x2F; k &gt;&#x3D; 1 and cnt % k &#x3D;&#x3D; 0:</span><br><span class="line">            result.append(circle.popleft())</span><br><span class="line">        else:</span><br><span class="line">            circle.rotate(-1)</span><br><span class="line">        cnt +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    print(&quot;&lt;&quot;, end &#x3D; &#39;&#39;)</span><br><span class="line">    for _ in range(len(result)):</span><br><span class="line">        if _ &#x3D;&#x3D; len(result)-1:</span><br><span class="line">            print(result[_], end&#x3D;&#39;&gt;&#39;)</span><br><span class="line">        else:</span><br><span class="line">            print(result[_], end&#x3D;&#39;, &#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>파이썬 collections.deque.rotate(n) 을 사용한다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/17/Baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]2164 카드2</title>
+      <link>http://example.com/2020/12/16/Baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/</link>
+      <guid>http://example.com/2020/12/16/Baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/</guid>
+      <pubDate>Wed, 16 Dec 2020 07:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+(Last Updated On: 12 15, 2020)
+--&gt;
+
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--(Last Updated On: 12 15, 2020)--><h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/2164">2164 카드 2</a><br><img src="https://user-images.githubusercontent.com/20227720/102316683-b69a5780-3fb9-11eb-8b73-e5cfb691f135.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    q &#x3D; collections.deque()</span><br><span class="line"></span><br><span class="line">    for _ in range(1, int(input())+1):</span><br><span class="line">        q.append(_)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    while len(q) !&#x3D; 1:</span><br><span class="line"></span><br><span class="line">        q.popleft()</span><br><span class="line">        q.append(q.popleft())</span><br><span class="line"></span><br><span class="line">    print(q.popleft())</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>q의 원소 개수가 1개가 될대까지 맨왼쪽 원소 하나를 버리고, 그 다음 맨왼쪽 원소를 q에 넣는 것을 반복한다.</p><p>q의 원소 개수가 1개가 되면, 그 원소를 출력한다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/16/Baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python]18258 큐2</title>
+      <link>http://example.com/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/</link>
+      <guid>http://example.com/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/</guid>
+      <pubDate>Tue, 15 Dec 2020 10:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+(Last Updated On: 12 15, 2020)
+--&gt;
+
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--(Last Updated On: 12 15, 2020)--><h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/18258">18258 큐2</a><br><img src="https://user-images.githubusercontent.com/20227720/102205305-5bf7f180-3f0e-11eb-890b-7165ee3161e8.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">class Queue():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items &#x3D; collections.deque()</span><br><span class="line"></span><br><span class="line">    def push(self, x):</span><br><span class="line">        self.items.append(int(x))</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        if self.isEmpty():</span><br><span class="line">            print(&#39;-1&#39;)</span><br><span class="line">        else:</span><br><span class="line">            print(self.items.popleft())</span><br><span class="line"></span><br><span class="line">    def front(self):</span><br><span class="line">        if self.isEmpty():</span><br><span class="line">            print(&#39;-1&#39;)</span><br><span class="line">        else:</span><br><span class="line">            print(self.items[0])</span><br><span class="line"></span><br><span class="line">    def back(self):</span><br><span class="line">        if self.isEmpty():</span><br><span class="line">            print(&#39;-1&#39;)</span><br><span class="line">        else:</span><br><span class="line">            print(self.items[-1])</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        print(len(self.items))</span><br><span class="line"></span><br><span class="line">    def isEmpty(self):</span><br><span class="line">        if len(self.items) &#x3D;&#x3D; 0:</span><br><span class="line">            return 1</span><br><span class="line">        else:</span><br><span class="line">            return 0</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    N &#x3D; int(input())</span><br><span class="line">    Q &#x3D; Queue()</span><br><span class="line"></span><br><span class="line">    for _ in range(N):</span><br><span class="line">        commands &#x3D; list(sys.stdin.readline().rsplit())</span><br><span class="line">        if commands[0] &#x3D;&#x3D; &#39;push&#39;:</span><br><span class="line">            Q.push(commands[1])</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;pop&#39;:</span><br><span class="line">            Q.pop()</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;front&#39;:</span><br><span class="line">            Q.front()</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;back&#39;:</span><br><span class="line">            Q.back()</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;empty&#39;:</span><br><span class="line">            print(Q.isEmpty())</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;size&#39;:</span><br><span class="line">            Q.size()</span><br></pre></td></tr></table></figure><h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>일반 list로 해결하면 append와 pop을 실행했을때, 꼭 O(1) 이 아닐수있다.</p><p>deque를 이용하면 append와 popleft를 O(1)으로 사용가능하다.</p><p>그럼 시간초과에 걸리지않고 해결가능하다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Queue/">Queue</category>
+      
+      
+      <comments>http://example.com/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 1018 체스판 다시 칠하기</title>
+      <link>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/</link>
+      <guid>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/</guid>
+      <pubDate>Fri, 06 Nov 2020 08:50:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-문제&quot;&gt;&lt;a href=&quot;#1-문제&quot; class=&quot;headerlink&quot; title=&quot;1. 문제&quot;&gt;&lt;/a&gt;1. 문제&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1018&quot;&gt;체스판 다시 칠하기&lt;/a</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a href="https://www.acmicpc.net/problem/1018">체스판 다시 칠하기</a><br><img width="948" alt="스크린샷 2020-11-06 오후 5 54 38" src="https://user-images.githubusercontent.com/20227720/98346348-2df2d800-2059-11eb-84ad-51f0a3286484.png"></p><h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul><li>python</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    h, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    chess = [[i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(h)]</span><br><span class="line">    countB = <span class="number">0</span></span><br><span class="line">    countW = <span class="number">0</span></span><br><span class="line">    <span class="built_in">min</span> = <span class="number">987654321</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(h-<span class="number">7</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(w-<span class="number">7</span>):</span><br><span class="line">            countB = <span class="number">0</span></span><br><span class="line">            countW = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(i, i+<span class="number">8</span>):</span><br><span class="line">                <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(j, j+<span class="number">8</span>):</span><br><span class="line">                    <span class="keyword">if</span> (k + l) % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">if</span> chess[k][l] == <span class="string">&#x27;W&#x27;</span>:</span><br><span class="line">                            countW += <span class="number">1</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            countB += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">if</span> chess[k][l] == <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">                            countW += <span class="number">1</span></span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            countB += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">min</span> &gt; countB: <span class="built_in">min</span> = countB</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">min</span> &gt; countW: <span class="built_in">min</span> = countW</span><br><span class="line">    print(<span class="built_in">min</span>)</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Algorithm/">Algorithm</category>
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Solve/">Solve</category>
+      
+      <category domain="http://example.com/tags/BruteForce/">BruteForce</category>
+      
+      
+      <comments>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 7568 덩치</title>
+      <link>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%207568%20%EB%8D%A9%EC%B9%98/</link>
+      <guid>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%207568%20%EB%8D%A9%EC%B9%98/</guid>
+      <pubDate>Fri, 06 Nov 2020 06:10:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-문제&quot;&gt;&lt;a href=&quot;#1-문제&quot; class=&quot;headerlink&quot; title=&quot;1. 문제&quot;&gt;&lt;/a&gt;1. 문제&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/7568&quot;&gt;덩치&lt;/a&gt;&lt;br&gt;&lt;im</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a href="https://www.acmicpc.net/problem/7568">덩치</a><br><img width="944" alt="스크린샷 2020-11-06 오후 3 22 34" src="https://user-images.githubusercontent.com/20227720/98333425-10ffda00-2044-11eb-8f19-f95ce5215b5d.png"></p><h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul><li>python</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    people = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        w, h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        people.append((w,h))</span><br><span class="line"></span><br><span class="line">    grade = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people))]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">            <span class="keyword">if</span> i == j: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> people[i][<span class="number">0</span>] &lt; people[j][<span class="number">0</span>] <span class="keyword">and</span> people[i][<span class="number">1</span>] &lt; people[j][<span class="number">1</span>]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        grade[i] = count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> grade:</span><br><span class="line">        print(i, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Algorithm/">Algorithm</category>
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Solve/">Solve</category>
+      
+      <category domain="http://example.com/tags/BruteForce/">BruteForce</category>
+      
+      
+      <comments>http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%207568%20%EB%8D%A9%EC%B9%98/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[백준][python] 2231 분해합</title>
+      <link>http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/</link>
+      <guid>http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/</guid>
+      <pubDate>Wed, 04 Nov 2020 10:30:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-문제&quot;&gt;&lt;a href=&quot;#1-문제&quot; class=&quot;headerlink&quot; title=&quot;1. 문제&quot;&gt;&lt;/a&gt;1. 문제&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2231&quot;&gt;분해합&lt;/a&gt;&lt;br&gt;&lt;i</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a href="https://www.acmicpc.net/problem/2231">분해합</a><br><img width="947" alt="스크린샷 2020-11-04 오후 7 47 54" src="https://user-images.githubusercontent.com/20227720/98102170-a4b39800-1ed6-11eb-8437-5f0d4425224a.png"></p><h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul><li>python</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    Constructor = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">        nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">list</span>(<span class="built_in">str</span>(i))))</span><br><span class="line">        Decomposition = i + <span class="built_in">sum</span>(nums)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> Decomposition == N:</span><br><span class="line">            Constructor = i</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> Constructor == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(Constructor)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://example.com/categories/BOJ/">BOJ</category>
+      
+      
+      <category domain="http://example.com/tags/Algorithm/">Algorithm</category>
+      
+      <category domain="http://example.com/tags/Python/">Python</category>
+      
+      <category domain="http://example.com/tags/Solve/">Solve</category>
+      
+      <category domain="http://example.com/tags/Math/">Math</category>
+      
+      
+      <comments>http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
