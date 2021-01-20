@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>[백준][python] 3053 택시 기하학 - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    <link rel="canonical" href="http://example.com/2020/11/04/baekjoon/2020/11november/2020-11-04-[백준] 3053 택시 기하학/">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제택시 기하학\n2. 코드\npython\n\n12345678910import mathif __name__ == &quot;__main__&quot;:    r = int(input())    euclid = round(math.pi * ( r ** 2 ), 6)    taxi = 2 * ( r ** 2 )    print(euclid)    print(taxi)","dateCreated":"2020-11-04T17:10:00+09:00","dateModified":"2021-01-20T16:33:36+09:00","datePublished":"2020-11-04T17:10:00+09:00","description":"[백준][python] 3053 택시 기하학","headline":"[백준][python] 3053 택시 기하학","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/","keywords":"Algorithm, Python, Solve, Math"}</script>
+    <meta name="description" content="[백준][python] 3053 택시 기하학">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[백준][python] 3053 택시 기하학">
+<meta property="og:url" content="http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="[백준][python] 3053 택시 기하학">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/98086083-96a74c80-1ec1-11eb-959c-231c7a84bba8.png">
+<meta property="article:published_time" content="2020-11-04T08:10:00.000Z">
+<meta property="article:modified_time" content="2021-01-20T07:33:36.952Z">
+<meta property="article:author" content="SeungMin Lee">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Solve">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/20227720/98086083-96a74c80-1ec1-11eb-959c-231c7a84bba8.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" rel="noopener" title="About">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" rel="noopener" title="RSS">
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [백준][python] 3053 택시 기하학
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-11-04T17:10:00+09:00">
+	
+		    Nov 04, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/3053">택시 기하학</a><br><img width="956" alt="스크린샷 2020-11-04 오후 5 17 14" src="https://user-images.githubusercontent.com/20227720/98086083-96a74c80-1ec1-11eb-959c-231c7a84bba8.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    r = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    euclid = <span class="built_in">round</span>(math.pi * ( r ** <span class="number">2</span> ), <span class="number">6</span>)</span><br><span class="line">    taxi = <span class="number">2</span> * ( r ** <span class="number">2</span> )</span><br><span class="line"></span><br><span class="line">    print(euclid)</span><br><span class="line">    print(taxi)</span><br></pre></td></tr></table></figure>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Math/" rel="tag">Math</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Solve/" rel="tag">Solve</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/" data-tooltip="[백준][python] 2231 분해합" aria-label="PREVIOUS: [백준][python] 2231 분해합">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/" data-tooltip="[백준][python] 4153 직각삼각형" aria-label="NEXT: [백준][python] 4153 직각삼각형">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/" data-tooltip="[백준][python] 2231 분해합" aria-label="PREVIOUS: [백준][python] 2231 분해합">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/" data-tooltip="[백준][python] 4153 직각삼각형" aria-label="NEXT: [백준][python] 4153 직각삼각형">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://example.com/2020/11/04/Baekjoon/2020/11November/2020-11-04-[%EB%B0%B1%EC%A4%80]%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/';
+              
+            this.page.identifier = '2020/11/04/Baekjoon/2020/11November/2020-11-04-[백준] 3053 택시 기하학/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'steampower33-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

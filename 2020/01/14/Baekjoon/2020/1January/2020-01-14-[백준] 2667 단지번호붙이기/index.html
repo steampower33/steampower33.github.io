@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>[백준][python] 2667 단지번호붙이기 - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    <link rel="canonical" href="http://example.com/2020/01/14/baekjoon/2020/1january/2020-01-14-[백준] 2667 단지번호붙이기/">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인단지번호붙이기\n2. 코드 및 설명12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364# 큐.from collections import deque# bfs.# 무한루프 안에 q안의 내용이 존재할때까지 돌게하고.# 현재 위치와 4방향 위치의 값이 1인지 확인해서 같은 단지인지 확인한다.# 만약 연결되어있다면, 그 위치의 값을 num으로 바꾼다.def bfs(location, map, num):    q = location # y, x    map_ = map    dx = [0, 1, 0, -1]    dy = [1, 0, -1, 0]    map_[q[0][0]][q[0][1]] = num    while(1):        # while q 가 끝나도 q.second를 통해서, 다시 시작할수있다.        q_second = deque()        while q:            y_, x_ = q.popleft()            for i in range(4):                # 다음 위치 설정.                nextX = x_ + dx[i]                nextY = y_ + dy[i]                # 다음 위치의 조건.                if 0 &lt;= nextX &lt; n and 0 &lt;= nextY &lt; n and map_[nextY][nextX] == 1:                    map_[nextY][nextX] = num                    q_second.append((nextY,nextX))        q = q_second        # q비었으면 break.        if not q: break    return map_if __name__ == &quot;__main__&quot;:    # 지도의 크기.    n = int(input())    # 지도    map = [[int(i) for i in input()] for j in range(n)]    # 단지 설정.    num = 1    # map을 돌면서 1이 나오면 그위치에서 바로 bfs를 실행한다.    for i in range(n):        for j in range(n):            if map[i][j] == 1:                location = deque()                location.append((i,j)) # y, x                num += 1                map = bfs(location, map, num)                location.clear()    # 단지의 아파트 수.    count = [0] * (num - 1)    # map을 돌면 단지의 이름이 0, 1이 아니면 count 배열에 1씩더함.    for i in range(n):        for j in range(n):            if map[i][j] != 0 and map[i][j] != 1:                count[map[i][j]-2] += 1    # count를 정렬해주고, 출력.    count.sort()    print(len(count))    for i in count:        print(i) ","dateCreated":"2020-01-14T15:47:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-14T15:47:00+09:00","description":"","headline":"[백준][python] 2667 단지번호붙이기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, BFS&DFS"}</script>
+    <meta name="description" content="1. 확인단지번호붙이기 2. 코드 및 설명12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364# 큐.from collections import deque# bfs.# 무한루프 안에 q안의 내용이 존">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[백준][python] 2667 단지번호붙이기">
+<meta property="og:url" content="http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="1. 확인단지번호붙이기 2. 코드 및 설명12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364# 큐.from collections import deque# bfs.# 무한루프 안에 q안의 내용이 존">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/72320561-4ae2a700-36e5-11ea-8588-8eda29bba348.png">
+<meta property="article:published_time" content="2020-01-14T06:47:00.000Z">
+<meta property="article:modified_time" content="2021-01-20T07:33:37.036Z">
+<meta property="article:author" content="SeungMin Lee">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Solve">
+<meta property="article:tag" content="1DAB">
+<meta property="article:tag" content="BFS&amp;DFS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/20227720/72320561-4ae2a700-36e5-11ea-8588-8eda29bba348.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" rel="noopener" title="About">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" rel="noopener" title="RSS">
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [백준][python] 2667 단지번호붙이기
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-01-14T15:47:00+09:00">
+	
+		    Jan 14, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2667">단지번호붙이기</a><br><img width="798" alt="스크린샷 2020-01-14 오후 3 40 00" src="https://user-images.githubusercontent.com/20227720/72320561-4ae2a700-36e5-11ea-8588-8eda29bba348.png"></p>
+<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 큐.</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="comment"># bfs.</span></span><br><span class="line"><span class="comment"># 무한루프 안에 q안의 내용이 존재할때까지 돌게하고.</span></span><br><span class="line"><span class="comment"># 현재 위치와 4방향 위치의 값이 1인지 확인해서 같은 단지인지 확인한다.</span></span><br><span class="line"><span class="comment"># 만약 연결되어있다면, 그 위치의 값을 num으로 바꾼다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">location, <span class="built_in">map</span>, num</span>):</span></span><br><span class="line">    q = location <span class="comment"># y, x</span></span><br><span class="line">    map_ = <span class="built_in">map</span></span><br><span class="line">    dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">    map_[q[<span class="number">0</span>][<span class="number">0</span>]][q[<span class="number">0</span>][<span class="number">1</span>]] = num</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># while q 가 끝나도 q.second를 통해서, 다시 시작할수있다.</span></span><br><span class="line">        q_second = deque()</span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            y_, x_ = q.popleft()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">                <span class="comment"># 다음 위치 설정.</span></span><br><span class="line">                nextX = x_ + dx[i]</span><br><span class="line">                nextY = y_ + dy[i]</span><br><span class="line">                <span class="comment"># 다음 위치의 조건.</span></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= nextX &lt; n <span class="keyword">and</span> <span class="number">0</span> &lt;= nextY &lt; n <span class="keyword">and</span> map_[nextY][nextX] == <span class="number">1</span>:</span><br><span class="line">                    map_[nextY][nextX] = num</span><br><span class="line">                    q_second.append((nextY,nextX))</span><br><span class="line">        q = q_second</span><br><span class="line">        <span class="comment"># q비었으면 break.</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> map_</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 지도의 크기.</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 지도</span></span><br><span class="line">    <span class="built_in">map</span> = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지 설정.</span></span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">    <span class="comment"># map을 돌면서 1이 나오면 그위치에서 바로 bfs를 실행한다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] == <span class="number">1</span>:</span><br><span class="line">                location = deque()</span><br><span class="line">                location.append((i,j)) <span class="comment"># y, x</span></span><br><span class="line">                num += <span class="number">1</span></span><br><span class="line">                <span class="built_in">map</span> = bfs(location, <span class="built_in">map</span>, num)</span><br><span class="line">                location.clear()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지의 아파트 수.</span></span><br><span class="line">    count = [<span class="number">0</span>] * (num - <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># map을 돌면 단지의 이름이 0, 1이 아니면 count 배열에 1씩더함.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] != <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">map</span>[i][j] != <span class="number">1</span>:</span><br><span class="line">                count[<span class="built_in">map</span>[i][j]-<span class="number">2</span>] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># count를 정렬해주고, 출력.</span></span><br><span class="line">    count.sort()</span><br><span class="line">    print(<span class="built_in">len</span>(count))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">        print(i) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/1DAB/" rel="tag">1DAB</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/BFS-DFS/" rel="tag">BFS&DFS</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Solve/" rel="tag">Solve</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 3일차 결과" aria-label="PREVIOUS: [모각코] 3일차 결과">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 3일차 목표" aria-label="NEXT: [모각코] 3일차 목표">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 3일차 결과" aria-label="PREVIOUS: [모각코] 3일차 결과">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 3일차 목표" aria-label="NEXT: [모각코] 3일차 목표">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://example.com/2020/01/14/Baekjoon/2020/1January/2020-01-14-[%EB%B0%B1%EC%A4%80]%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/';
+              
+            this.page.identifier = '2020/01/14/Baekjoon/2020/1January/2020-01-14-[백준] 2667 단지번호붙이기/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'steampower33-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

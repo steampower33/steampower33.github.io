@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="SeungMin Lee">
+    <title>[algorithm] 선형 알고리즘 - SeungMin Lee</title>
+    <meta name="author" content="SeungMin Lee">
+    <link rel="canonical" href="http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm] 선형 알고리즘/">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;#include &lt;cstdlib&gt;#include &lt;ctime&gt;using namespace std;// 주어진 배열A에서 가장 많이 등장하는 숫자를 반환한다.// 만약 두 가지 이상 있을 경우 아무것이나 반환한다.// O(N^2)int majority1(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    int majority = -1, majorityCount = 0;    for(int i = 0; i &lt; N; ++i)&#123;        //A에 등장하는 A[i]의 수를 센다.        int V = A[i], count = 0;        for(int j = 0; j &lt; N; ++j)&#123;            if(A[j] == V)&#123;                ++count;            &#125;        &#125;        //지금까지 본 최대 빈도보다 많이 출현했다면 답을 갱신한다.        if(count &gt; majorityCount)&#123;            majorityCount = count;            majority = V;        &#125;    &#125;    return majority;&#125;// O(N)int majority2(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    vector&lt;int&gt; count(101, 0);    for(int i = 0; i &lt; N; ++i)&#123;        count[A[i]]++;    &#125;    //지금까지 확인한 숫자 중 빈도수가 제일 큰 것을 majority에 저장한다.    int majority = 0;    for(int i = 1; i &lt;=100; ++i)&#123;        if(count[i] &gt; count[majority])&#123;            majority = i;        &#125;    &#125;    return majority;&#125;int main()&#123;    clock_t start, end;    vector&lt;int&gt; v;    int result1 = 0;    int result2 = 0;    srand((unsigned int)time(NULL));    for(int i = 0; i &lt; 100; i++)&#123;        v.push_back((rand() % 100) + 1);    &#125;    start = clock();    result1 = majority1(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    start = clock();    result2 = majority2(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125;\n1-1. 결과\n\n\n2. 이동 평균12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;using namespace std;// O(N^2)//실수 배열 A가 주어질때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage1(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    for(int i = M-1; i &lt; N; ++i)&#123;        //A[i]까지의 이동 평균 값을 구하자.        double partialSum = 0;        for(int j = 0; j &lt; M; ++j)            partialSum += A[i-j];        ret.push_back(partialSum / M);    &#125;    return ret;&#125;// O(N)// 길이가 N인 실수 배열 A가 주어질 때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage2(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    double partialSum = 0;    for(int i = 0; i &lt; M-1; ++i)        partialSum += A[i];    for(int i = M-1; i &lt; N; ++i)&#123;        partialSum += A[i];        ret.push_back(partialSum / M);        partialSum -= A[i-M+1];    &#125;    return ret;&#125;int main()&#123;    clock_t start, end;    vector&lt;double&gt; value;    for(int i = 0; i &lt; 100; ++i)&#123;        int in = i*2 + 3;        value.push_back(in);    &#125;    start = clock();    vector&lt;double&gt; ret1 = movingAverage1(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;        start = clock();    vector&lt;double&gt; ret2 = movingAverage2(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125; \n2-2. 결과","dateCreated":"2020-02-14T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-14T15:50:00+09:00","description":"","headline":"[algorithm] 선형 알고리즘","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/","keywords":"c++, LinearTime"}</script>
+    <meta name="description" content="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &amp;lt">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="[algorithm] 선형 알고리즘">
+<meta property="og:url" content="http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/index.html">
+<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:description" content="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &amp;lt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/74514096-46611680-4f4f-11ea-8987-aa349682b074.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/74514092-43febc80-4f4f-11ea-9140-c4a24210e93b.png">
+<meta property="article:published_time" content="2020-02-14T06:50:00.000Z">
+<meta property="article:modified_time" content="2021-01-20T07:33:37.497Z">
+<meta property="article:author" content="SeungMin Lee">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="LinearTime">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/20227720/74514096-46611680-4f4f-11ea-8987-aa349682b074.png">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155220126-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155220126-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/" aria-label>
+            SeungMin Lee
+        </a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/" rel="noopener" title="Home">
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" rel="noopener" title="About">
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" rel="noopener" title="RSS">
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5" class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            [algorithm] 선형 알고리즘
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-02-14T15:50:00+09:00">
+	
+		    Feb 14, 2020
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/algorithm/">algorithm</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="1-주어진-배열에서-가장-많이-등장하는-숫자-반환하기"><a href="#1-주어진-배열에서-가장-많이-등장하는-숫자-반환하기" class="headerlink" title="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기"></a>1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 주어진 배열A에서 가장 많이 등장하는 숫자를 반환한다.</span></span><br><span class="line"><span class="comment">// 만약 두 가지 이상 있을 경우 아무것이나 반환한다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N^2)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">majority1</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">int</span> majority = <span class="number">-1</span>, majorityCount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        <span class="comment">//A에 등장하는 A[i]의 수를 센다.</span></span><br><span class="line">        <span class="keyword">int</span> V = A[i], count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[j] == V)&#123;</span><br><span class="line">                ++count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//지금까지 본 최대 빈도보다 많이 출현했다면 답을 갱신한다.</span></span><br><span class="line">        <span class="keyword">if</span>(count &gt; majorityCount)&#123;</span><br><span class="line">            majorityCount = count;</span><br><span class="line">            majority = V;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> majority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">majority2</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        count[A[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//지금까지 확인한 숫자 중 빈도수가 제일 큰 것을 majority에 저장한다.</span></span><br><span class="line">    <span class="keyword">int</span> majority = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">100</span>; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(count[i] &gt; count[majority])&#123;</span><br><span class="line">            majority = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> majority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> start, end;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> result1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> result2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">        v.push_back((rand() % <span class="number">100</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    start = clock();</span><br><span class="line">    result1 = majority1(v);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    start = clock();</span><br><span class="line">    result2 = majority2(v);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-결과"><a href="#1-1-결과" class="headerlink" title="1-1. 결과"></a>1-1. 결과</h2><img width="618" alt="스크린샷 2020-02-14 오후 5 26 56" src="https://user-images.githubusercontent.com/20227720/74514096-46611680-4f4f-11ea-8987-aa349682b074.png">
+
+
+<h2 id="2-이동-평균"><a href="#2-이동-평균" class="headerlink" title="2. 이동 평균"></a>2. 이동 평균</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N^2)</span></span><br><span class="line"><span class="comment">//실수 배열 A가 주어질때, 각 위치에서의 M-이동 평균 값을 구한다.</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">movingAverage1</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; A, <span class="keyword">int</span> M)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = M<span class="number">-1</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        <span class="comment">//A[i]까지의 이동 평균 값을 구하자.</span></span><br><span class="line">        <span class="keyword">double</span> partialSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; ++j)</span><br><span class="line">            partialSum += A[i-j];</span><br><span class="line">        ret.push_back(partialSum / M);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N)</span></span><br><span class="line"><span class="comment">// 길이가 N인 실수 배열 A가 주어질 때, 각 위치에서의 M-이동 평균 값을 구한다.</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">movingAverage2</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; A, <span class="keyword">int</span> M)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">double</span> partialSum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M<span class="number">-1</span>; ++i)</span><br><span class="line">        partialSum += A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = M<span class="number">-1</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        partialSum += A[i];</span><br><span class="line">        ret.push_back(partialSum / M);</span><br><span class="line">        partialSum -= A[i-M+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> start, end;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; value;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> in = i*<span class="number">2</span> + <span class="number">3</span>;</span><br><span class="line">        value.push_back(in);</span><br><span class="line">    &#125;</span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret1 = movingAverage1(value, <span class="number">50</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret2 = movingAverage2(value, <span class="number">50</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h2 id="2-2-결과"><a href="#2-2-결과" class="headerlink" title="2-2. 결과"></a>2-2. 결과</h2><img width="666" alt="스크린샷 2020-02-14 오후 5 27 05" src="https://user-images.githubusercontent.com/20227720/74514092-43febc80-4f4f-11ea-9140-c4a24210e93b.png">
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/LinearTime/" rel="tag">LinearTime</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/c/" rel="tag">c++</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="PREVIOUS: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="NEXT: [백준][python] 6086 최대유량">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="PREVIOUS: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="NEXT: [백준][python] 6086 최대유량">
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">SeungMin Lee</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                asia/korea/Daegu
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/';
+              
+            this.page.identifier = '2020/02/14/algorithm/2020-02-14-[algorithm] 선형 알고리즘/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'steampower33-github-io';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>
