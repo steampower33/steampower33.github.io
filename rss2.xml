@@ -3,12 +3,12 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>SeungMin Lee</title>
+    <title>학생개발자 이승민</title>
     <link>http://example.com/</link>
     
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
-    <description>SeungMin Lee</description>
+    <description>학생개발자</description>
     <pubDate>Wed, 20 Jan 2021 07:33:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     

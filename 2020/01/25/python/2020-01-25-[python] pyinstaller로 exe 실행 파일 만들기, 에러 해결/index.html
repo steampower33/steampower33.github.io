@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="SeungMin Lee">
-    <title>[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결 - SeungMin Lee</title>
-    <meta name="author" content="SeungMin Lee">
+    <meta name="generator" content="학생개발자 이승민">
+    <title>[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결 - 학생개발자 이승민</title>
+    <meta name="author" content="이승민">
     <link rel="canonical" href="http://example.com/2020/01/25/python/2020-01-25-[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결/">
     
     
@@ -18,14 +18,14 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"0. 환경\n오류가 발생하면, 목차의 [end. 문제발생] 으로 넘어가주세요.\n\n|:——–:|:——–:|| 개발 OS | 윈도우 || python | 3.8 |\n1. pyinstaller 설치1pip install pyinstaller\n2. python 모듈 체크\n예시 파일이며, import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면, 나중에 실행파일을 생성해도 정상적으로 작동하지않습니다.\n그러니 import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면, 아래와 같이 모두 설치해주시기 바랍니다.1pip install &quot;모듈, 패키지 이름&quot;\n\n\n\n\n\n3. 실행 파일 생성하기\n파일 생성 기본 명령어는 아래와 같습니다.  \n해당 파일이름.py 가 있는 디렉토리로 가서 실행합니다.\n\n1pyinstaller 파일이름.py\n\n이번에는 아래와 같이 네이밍 할수있는 옵션을 사용합니다.\n옵션에 대해서 더 알고싶으시다면, 이곳을 참고하세요.\n\n\n\n\n해당 디렉토리로 가면 뭐가 많이 생겨있습니다.\n\n\n\n\ndist 디렉토리로 가면 네이밍한 exe파일이 있습니다.\n\n\n\n\nend. 문제발생pip 버전을 최대로 upgrade1python -m pip install --upgrade pip\nwheel 설치\nwheel이 없어서 오류가 나는 경우도 간혹 존재합니다.\npip list 명령어로 list에 wheel의 유무를 체크하십시오.\n\n1pip install wheel\n[중 요] 모듈, 패키지\npip에는 *.py 에서 사용하는 모듈, 패키지가 설치되어있어야합니다.\n그리고 그 모듈과 패키지는 현재 파이썬 버전과 호환되어야합니다.\n\n","dateCreated":"2020-01-25T03:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-25T03:00:00+09:00","description":"","headline":"[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/","keywords":"HowTo, MakeRunFile, Python, pyinstaller, SolveError, PyToExe"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"0. 환경\n오류가 발생하면, 목차의 [end. 문제발생] 으로 넘어가주세요.\n\n|:——–:|:——–:|| 개발 OS | 윈도우 || python | 3.8 |\n1. pyinstaller 설치1pip install pyinstaller\n2. python 모듈 체크\n예시 파일이며, import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면, 나중에 실행파일을 생성해도 정상적으로 작동하지않습니다.\n그러니 import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면, 아래와 같이 모두 설치해주시기 바랍니다.1pip install &quot;모듈, 패키지 이름&quot;\n\n\n\n\n\n3. 실행 파일 생성하기\n파일 생성 기본 명령어는 아래와 같습니다.  \n해당 파일이름.py 가 있는 디렉토리로 가서 실행합니다.\n\n1pyinstaller 파일이름.py\n\n이번에는 아래와 같이 네이밍 할수있는 옵션을 사용합니다.\n옵션에 대해서 더 알고싶으시다면, 이곳을 참고하세요.\n\n\n\n\n해당 디렉토리로 가면 뭐가 많이 생겨있습니다.\n\n\n\n\ndist 디렉토리로 가면 네이밍한 exe파일이 있습니다.\n\n\n\n\nend. 문제발생pip 버전을 최대로 upgrade1python -m pip install --upgrade pip\nwheel 설치\nwheel이 없어서 오류가 나는 경우도 간혹 존재합니다.\npip list 명령어로 list에 wheel의 유무를 체크하십시오.\n\n1pip install wheel\n[중 요] 모듈, 패키지\npip에는 *.py 에서 사용하는 모듈, 패키지가 설치되어있어야합니다.\n그리고 그 모듈과 패키지는 현재 파이썬 버전과 호환되어야합니다.\n\n","dateCreated":"2020-01-25T03:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-25T03:00:00+09:00","description":"","headline":"[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/","keywords":"HowTo, MakeRunFile, Python, pyinstaller, SolveError, PyToExe"}</script>
     <meta name="description" content="0. 환경 오류가 발생하면, 목차의 [end. 문제발생] 으로 넘어가주세요.  |:——–:|:——–:|| 개발 OS | 윈도우 || python | 3.8 | 1. pyinstaller 설치1pip install pyinstaller 2. python 모듈 체크 예시 파일이며, import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면,">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[python] pyinstaller로 exe 실행 파일 만들기, 에러 해결">
 <meta property="og:url" content="http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/index.html">
-<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="0. 환경 오류가 발생하면, 목차의 [end. 문제발생] 으로 넘어가주세요.  |:——–:|:——–:|| 개발 OS | 윈도우 || python | 3.8 | 1. pyinstaller 설치1pip install pyinstaller 2. python 모듈 체크 예시 파일이며, import 혹은 from 되어있는 모듈, 패키지가 pip에 설치되어있지않다면,">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/73094291-a56cd600-3f23-11ea-928c-3511bc0031e4.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/73094292-a56cd600-3f23-11ea-8ffb-c3b948871668.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/73094293-a56cd600-3f23-11ea-90bd-f2f5260c3375.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/73094297-a6056c80-3f23-11ea-9bc3-4f3e92b6d27c.png">
 <meta property="article:published_time" content="2020-01-24T18:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-20T07:33:37.562Z">
-<meta property="article:author" content="SeungMin Lee">
+<meta property="article:author" content="이승민">
 <meta property="article:tag" content="HowTo">
 <meta property="article:tag" content="MakeRunFile">
 <meta property="article:tag" content="Python">
@@ -84,12 +84,12 @@
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/" aria-label>
-            SeungMin Lee
+            학생개발자 이승민
         </a>
     </div>
     
         
-            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+            <a class="header-right-picture " href="#about" aria-label="링크 열기: /#about">
         
         
         </a>
@@ -115,33 +115,25 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="카테고리">
                         <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">카테고리</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="태그">
                         <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">태그</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="아카이브">
                         <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">아카이브</span>
                     </a>
             </li>
             
@@ -162,14 +154,6 @@
                         <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -208,11 +192,11 @@
         <div class="post-meta">
     <time datetime="2020-01-25T03:00:00+09:00">
 	
-		    Jan 25, 2020
+		    2020/01/25
     	
     </time>
     
-        <span>in </span>
+        <span>카테고리 </span>
         
     <a class="category-link" href="/categories/python/">python</a>
 
@@ -280,7 +264,7 @@
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
+                <span class="text-color-light text-small">태그</span><br>
                 
     <a class="tag tag--primary tag--small t-none-link" href="/tags/HowTo/" rel="tag">HowTo</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/MakeRunFile/" rel="tag">MakeRunFile</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/PyToExe/" rel="tag">PyToExe</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/SolveError/" rel="tag">SolveError</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/pyinstaller/" rel="tag">pyinstaller</a>
 
@@ -293,18 +277,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="PREVIOUS: [모각코] 7일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="이전: [모각코] 7일차 목표">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" data-tooltip="[python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기" aria-label="NEXT: [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" data-tooltip="[python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기" aria-label="다음: [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -312,7 +296,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -320,7 +304,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -328,7 +312,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -336,7 +320,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -344,7 +328,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -352,7 +336,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -376,7 +360,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+        Copyrights &copy; 2021 이승민. All Rights Reserved.
     </span>
 </footer>
 
@@ -389,18 +373,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="PREVIOUS: [모각코] 7일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="이전: [모각코] 7일차 목표">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" data-tooltip="[python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기" aria-label="NEXT: [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" data-tooltip="[python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기" aria-label="다음: [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -408,7 +392,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -416,7 +400,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -424,7 +408,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -432,7 +416,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -440,7 +424,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -448,7 +432,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -466,24 +450,24 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/25/python/2020-01-25-[python]%20pyinstaller%EB%A1%9C%20exe%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0,%20%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
             
@@ -502,16 +486,16 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <h4 id="about-card-name">SeungMin Lee</h4>
+            <h4 id="about-card-name">이승민</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>None</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br>
-                <p>author.job</p>
+                <p>학생 개발자</p>
 
             </div>
         

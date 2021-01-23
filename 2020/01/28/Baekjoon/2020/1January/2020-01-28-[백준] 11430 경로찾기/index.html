@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="SeungMin Lee">
-    <title>[백준][python] 11430 경로찾기 - SeungMin Lee</title>
-    <meta name="author" content="SeungMin Lee">
+    <meta name="generator" content="학생개발자 이승민">
+    <title>[백준][python] 11430 경로찾기 - 학생개발자 이승민</title>
+    <meta name="author" content="이승민">
     <link rel="canonical" href="http://example.com/2020/01/28/baekjoon/2020/1january/2020-01-28-[백준] 11430 경로찾기/">
     
     
@@ -18,18 +18,18 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인경로찾기\n2. 코드 및 설명123456789101112131415161718192021# 정점 개수.n = int(input())# 그래프 입력.field = [[int(i) for i in input().split()] for j in range(n)]# 플로이드 와샬.# 그래프 돌면서 i -&gt; j -&gt; j 가 가능한지 판별한 다음# i -&gt; j 의 값을 1로 설정.for k in range(n):    for i in range(n):        for j in range(n):            if field[i][k] and field[k][j]:                field[i][j] = 1# 바뀐 그래프 출력.for i in range(len(field)):    for j in range(len(field[i])):        print(field[i][j],end=&quot; &quot;)    print()","dateCreated":"2020-01-28T14:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-28T14:30:00+09:00","description":"","headline":"[백준][python] 11430 경로찾기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, Graph, FloydWarshall"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인경로찾기\n2. 코드 및 설명123456789101112131415161718192021# 정점 개수.n = int(input())# 그래프 입력.field = [[int(i) for i in input().split()] for j in range(n)]# 플로이드 와샬.# 그래프 돌면서 i -&gt; j -&gt; j 가 가능한지 판별한 다음# i -&gt; j 의 값을 1로 설정.for k in range(n):    for i in range(n):        for j in range(n):            if field[i][k] and field[k][j]:                field[i][j] = 1# 바뀐 그래프 출력.for i in range(len(field)):    for j in range(len(field[i])):        print(field[i][j],end=&quot; &quot;)    print()","dateCreated":"2020-01-28T14:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-28T14:30:00+09:00","description":"","headline":"[백준][python] 11430 경로찾기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, Graph, FloydWarshall"}</script>
     <meta name="description" content="1. 확인경로찾기 2. 코드 및 설명123456789101112131415161718192021# 정점 개수.n &#x3D; int(input())# 그래프 입력.field &#x3D; [[int(i) for i in input().split()] for j in range(n)]# 플로이드 와샬.# 그래프 돌면서 i -&gt; j -&gt; j 가 가능한지 판별한 다음#">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 11430 경로찾기">
 <meta property="og:url" content="http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/index.html">
-<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 확인경로찾기 2. 코드 및 설명123456789101112131415161718192021# 정점 개수.n &#x3D; int(input())# 그래프 입력.field &#x3D; [[int(i) for i in input().split()] for j in range(n)]# 플로이드 와샬.# 그래프 돌면서 i -&gt; j -&gt; j 가 가능한지 판별한 다음#">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/73241988-0b3cb480-41e7-11ea-9e9b-782e35e48006.png">
 <meta property="article:published_time" content="2020-01-28T05:30:00.000Z">
 <meta property="article:modified_time" content="2021-01-20T07:33:37.077Z">
-<meta property="article:author" content="SeungMin Lee">
+<meta property="article:author" content="이승민">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Solve">
@@ -80,12 +80,12 @@
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/" aria-label>
-            SeungMin Lee
+            학생개발자 이승민
         </a>
     </div>
     
         
-            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+            <a class="header-right-picture " href="#about" aria-label="링크 열기: /#about">
         
         
         </a>
@@ -111,33 +111,25 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="카테고리">
                         <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">카테고리</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="태그">
                         <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">태그</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="아카이브">
                         <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">아카이브</span>
                     </a>
             </li>
             
@@ -158,14 +150,6 @@
                         <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -204,11 +188,11 @@
         <div class="post-meta">
     <time datetime="2020-01-28T14:30:00+09:00">
 	
-		    Jan 28, 2020
+		    2020/01/28
     	
     </time>
     
-        <span>in </span>
+        <span>카테고리 </span>
         
     <a class="category-link" href="/categories/BOJ/">BOJ</a>
 
@@ -232,7 +216,7 @@
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
+                <span class="text-color-light text-small">태그</span><br>
                 
     <a class="tag tag--primary tag--small t-none-link" href="/tags/1DAB/" rel="tag">1DAB</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/FloydWarshall/" rel="tag">FloydWarshall</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Graph/" rel="tag">Graph</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Solve/" rel="tag">Solve</a>
 
@@ -245,18 +229,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 7일차 결과" aria-label="PREVIOUS: [모각코] 7일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 7일차 결과" aria-label="이전: [모각코] 7일차 결과">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="NEXT: [모각코] 7일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="다음: [모각코] 7일차 목표">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -264,7 +248,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -272,7 +256,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -280,7 +264,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -288,7 +272,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -296,7 +280,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -304,7 +288,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -328,7 +312,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+        Copyrights &copy; 2021 이승민. All Rights Reserved.
     </span>
 </footer>
 
@@ -341,18 +325,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 7일차 결과" aria-label="PREVIOUS: [모각코] 7일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 7일차 결과" aria-label="이전: [모각코] 7일차 결과">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="NEXT: [모각코] 7일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 7일차 목표" aria-label="다음: [모각코] 7일차 목표">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -360,7 +344,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -368,7 +352,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -376,7 +360,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -384,7 +368,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -392,7 +376,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -400,7 +384,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -418,24 +402,24 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/28/Baekjoon/2020/1January/2020-01-28-[%EB%B0%B1%EC%A4%80]%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
             
@@ -454,16 +438,16 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <h4 id="about-card-name">SeungMin Lee</h4>
+            <h4 id="about-card-name">이승민</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>None</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br>
-                <p>author.job</p>
+                <p>학생 개발자</p>
 
             </div>
         

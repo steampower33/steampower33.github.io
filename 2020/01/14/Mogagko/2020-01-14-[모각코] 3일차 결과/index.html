@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="SeungMin Lee">
-    <title>[모각코] 3일차 결과 - SeungMin Lee</title>
-    <meta name="author" content="SeungMin Lee">
+    <meta name="generator" content="학생개발자 이승민">
+    <title>[모각코] 3일차 결과 - 학생개발자 이승민</title>
+    <meta name="author" content="이승민">
     <link rel="canonical" href="http://example.com/2020/01/14/mogagko/2020-01-14-[모각코] 3일차 결과/">
     
     
@@ -18,17 +18,17 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"결과1. BFS너비 우선 탐색(Breadth-first search, BFS)은 맹목적 탐색방법의 하나로 시작 정점을 방문한 후 시작 정점에 인접한 모든 정점들을 우선 방문하는 방법이다.\n1. 학습단지번호붙이기 풀이단지번호 붙이기 문제를 풀면서, bfs를 더 깊게 다루었다.\n12dx = [0, 1, 0, -1]dy = [1, 0, -1, 0]\nbfs로 탐색을 할때, 다음 위치를 알기위해서 이렇게 x와 y의 다음을 for문을 통해서 쉽게 설정할수있다.\n12345678... for i in range(4):    # 다음 위치 설정.    nextX = x_ + dx[i]    nextY = y_ + dy[i]    # 다음 위치의 조건.    if 0 &lt;= nextX &lt; n and 0 &lt;= nextY &lt; n and map_[nextY][nextX] == 1:    ...\n이와같이 4방향을 갈 for문안에 다음 위치의 조건문을 통해서 가능성 여부를 확인할수있다.\n","dateCreated":"2020-01-14T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-14T15:50:00+09:00","description":"","headline":"[모각코] 3일차 결과","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/","keywords":"Algorithm, Activity"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"결과1. BFS너비 우선 탐색(Breadth-first search, BFS)은 맹목적 탐색방법의 하나로 시작 정점을 방문한 후 시작 정점에 인접한 모든 정점들을 우선 방문하는 방법이다.\n1. 학습단지번호붙이기 풀이단지번호 붙이기 문제를 풀면서, bfs를 더 깊게 다루었다.\n12dx = [0, 1, 0, -1]dy = [1, 0, -1, 0]\nbfs로 탐색을 할때, 다음 위치를 알기위해서 이렇게 x와 y의 다음을 for문을 통해서 쉽게 설정할수있다.\n12345678... for i in range(4):    # 다음 위치 설정.    nextX = x_ + dx[i]    nextY = y_ + dy[i]    # 다음 위치의 조건.    if 0 &lt;= nextX &lt; n and 0 &lt;= nextY &lt; n and map_[nextY][nextX] == 1:    ...\n이와같이 4방향을 갈 for문안에 다음 위치의 조건문을 통해서 가능성 여부를 확인할수있다.\n","dateCreated":"2020-01-14T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-14T15:50:00+09:00","description":"","headline":"[모각코] 3일차 결과","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/","keywords":"Algorithm, Activity"}</script>
     <meta name="description" content="결과1. BFS너비 우선 탐색(Breadth-first search, BFS)은 맹목적 탐색방법의 하나로 시작 정점을 방문한 후 시작 정점에 인접한 모든 정점들을 우선 방문하는 방법이다. 1. 학습단지번호붙이기 풀이단지번호 붙이기 문제를 풀면서, bfs를 더 깊게 다루었다. 12dx &#x3D; [0, 1, 0, -1]dy &#x3D; [1, 0, -1, 0] bfs로 탐색">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[모각코] 3일차 결과">
 <meta property="og:url" content="http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/index.html">
-<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="결과1. BFS너비 우선 탐색(Breadth-first search, BFS)은 맹목적 탐색방법의 하나로 시작 정점을 방문한 후 시작 정점에 인접한 모든 정점들을 우선 방문하는 방법이다. 1. 학습단지번호붙이기 풀이단지번호 붙이기 문제를 풀면서, bfs를 더 깊게 다루었다. 12dx &#x3D; [0, 1, 0, -1]dy &#x3D; [1, 0, -1, 0] bfs로 탐색">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-01-14T06:50:00.000Z">
 <meta property="article:modified_time" content="2021-01-20T07:33:37.414Z">
-<meta property="article:author" content="SeungMin Lee">
+<meta property="article:author" content="이승민">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Activity">
 <meta name="twitter:card" content="summary">
@@ -74,12 +74,12 @@
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/" aria-label>
-            SeungMin Lee
+            학생개발자 이승민
         </a>
     </div>
     
         
-            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+            <a class="header-right-picture " href="#about" aria-label="링크 열기: /#about">
         
         
         </a>
@@ -105,33 +105,25 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="카테고리">
                         <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">카테고리</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="태그">
                         <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">태그</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="아카이브">
                         <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">아카이브</span>
                     </a>
             </li>
             
@@ -152,14 +144,6 @@
                         <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -198,11 +182,11 @@
         <div class="post-meta">
     <time datetime="2020-01-14T15:50:00+09:00">
 	
-		    Jan 14, 2020
+		    2020/01/14
     	
     </time>
     
-        <span>in </span>
+        <span>카테고리 </span>
         
     <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
 
@@ -231,7 +215,7 @@
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
+                <span class="text-color-light text-small">태그</span><br>
                 
     <a class="tag tag--primary tag--small t-none-link" href="/tags/Activity/" rel="tag">Activity</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>
 
@@ -244,18 +228,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" data-tooltip="[python] 파일 읽고 쓰기 추가" aria-label="PREVIOUS: [python] 파일 읽고 쓰기 추가">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" data-tooltip="[python] 파일 읽고 쓰기 추가" aria-label="이전: [python] 파일 읽고 쓰기 추가">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" data-tooltip="[백준][python] 2667 단지번호붙이기" aria-label="NEXT: [백준][python] 2667 단지번호붙이기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" data-tooltip="[백준][python] 2667 단지번호붙이기" aria-label="다음: [백준][python] 2667 단지번호붙이기">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -263,7 +247,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -271,7 +255,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -279,7 +263,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -287,7 +271,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -295,7 +279,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -303,7 +287,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -327,7 +311,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+        Copyrights &copy; 2021 이승민. All Rights Reserved.
     </span>
 </footer>
 
@@ -340,18 +324,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" data-tooltip="[python] 파일 읽고 쓰기 추가" aria-label="PREVIOUS: [python] 파일 읽고 쓰기 추가">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" data-tooltip="[python] 파일 읽고 쓰기 추가" aria-label="이전: [python] 파일 읽고 쓰기 추가">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" data-tooltip="[백준][python] 2667 단지번호붙이기" aria-label="NEXT: [백준][python] 2667 단지번호붙이기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/14/Baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" data-tooltip="[백준][python] 2667 단지번호붙이기" aria-label="다음: [백준][python] 2667 단지번호붙이기">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -359,7 +343,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -367,7 +351,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -375,7 +359,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -383,7 +367,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -391,7 +375,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -399,7 +383,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -417,24 +401,24 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/14/Mogagko/2020-01-14-[%EB%AA%A8%EA%B0%81%EC%BD%94]%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
             
@@ -453,16 +437,16 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <h4 id="about-card-name">SeungMin Lee</h4>
+            <h4 id="about-card-name">이승민</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>None</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br>
-                <p>author.job</p>
+                <p>학생 개발자</p>
 
             </div>
         

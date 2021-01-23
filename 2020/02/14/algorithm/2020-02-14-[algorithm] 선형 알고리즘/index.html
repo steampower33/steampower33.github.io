@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="SeungMin Lee">
-    <title>[algorithm] 선형 알고리즘 - SeungMin Lee</title>
-    <meta name="author" content="SeungMin Lee">
+    <meta name="generator" content="학생개발자 이승민">
+    <title>[algorithm] 선형 알고리즘 - 학생개발자 이승민</title>
+    <meta name="author" content="이승민">
     <link rel="canonical" href="http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm] 선형 알고리즘/">
     
     
@@ -18,19 +18,19 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;#include &lt;cstdlib&gt;#include &lt;ctime&gt;using namespace std;// 주어진 배열A에서 가장 많이 등장하는 숫자를 반환한다.// 만약 두 가지 이상 있을 경우 아무것이나 반환한다.// O(N^2)int majority1(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    int majority = -1, majorityCount = 0;    for(int i = 0; i &lt; N; ++i)&#123;        //A에 등장하는 A[i]의 수를 센다.        int V = A[i], count = 0;        for(int j = 0; j &lt; N; ++j)&#123;            if(A[j] == V)&#123;                ++count;            &#125;        &#125;        //지금까지 본 최대 빈도보다 많이 출현했다면 답을 갱신한다.        if(count &gt; majorityCount)&#123;            majorityCount = count;            majority = V;        &#125;    &#125;    return majority;&#125;// O(N)int majority2(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    vector&lt;int&gt; count(101, 0);    for(int i = 0; i &lt; N; ++i)&#123;        count[A[i]]++;    &#125;    //지금까지 확인한 숫자 중 빈도수가 제일 큰 것을 majority에 저장한다.    int majority = 0;    for(int i = 1; i &lt;=100; ++i)&#123;        if(count[i] &gt; count[majority])&#123;            majority = i;        &#125;    &#125;    return majority;&#125;int main()&#123;    clock_t start, end;    vector&lt;int&gt; v;    int result1 = 0;    int result2 = 0;    srand((unsigned int)time(NULL));    for(int i = 0; i &lt; 100; i++)&#123;        v.push_back((rand() % 100) + 1);    &#125;    start = clock();    result1 = majority1(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    start = clock();    result2 = majority2(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125;\n1-1. 결과\n\n\n2. 이동 평균12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;using namespace std;// O(N^2)//실수 배열 A가 주어질때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage1(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    for(int i = M-1; i &lt; N; ++i)&#123;        //A[i]까지의 이동 평균 값을 구하자.        double partialSum = 0;        for(int j = 0; j &lt; M; ++j)            partialSum += A[i-j];        ret.push_back(partialSum / M);    &#125;    return ret;&#125;// O(N)// 길이가 N인 실수 배열 A가 주어질 때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage2(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    double partialSum = 0;    for(int i = 0; i &lt; M-1; ++i)        partialSum += A[i];    for(int i = M-1; i &lt; N; ++i)&#123;        partialSum += A[i];        ret.push_back(partialSum / M);        partialSum -= A[i-M+1];    &#125;    return ret;&#125;int main()&#123;    clock_t start, end;    vector&lt;double&gt; value;    for(int i = 0; i &lt; 100; ++i)&#123;        int in = i*2 + 3;        value.push_back(in);    &#125;    start = clock();    vector&lt;double&gt; ret1 = movingAverage1(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;        start = clock();    vector&lt;double&gt; ret2 = movingAverage2(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125; \n2-2. 결과","dateCreated":"2020-02-14T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-14T15:50:00+09:00","description":"","headline":"[algorithm] 선형 알고리즘","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"},"publisher":{"@type":"Organization","name":"SeungMin Lee","sameAs":["https://github.com/steampower33","steampower33@naver.com"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/","keywords":"c++, LinearTime"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;#include &lt;cstdlib&gt;#include &lt;ctime&gt;using namespace std;// 주어진 배열A에서 가장 많이 등장하는 숫자를 반환한다.// 만약 두 가지 이상 있을 경우 아무것이나 반환한다.// O(N^2)int majority1(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    int majority = -1, majorityCount = 0;    for(int i = 0; i &lt; N; ++i)&#123;        //A에 등장하는 A[i]의 수를 센다.        int V = A[i], count = 0;        for(int j = 0; j &lt; N; ++j)&#123;            if(A[j] == V)&#123;                ++count;            &#125;        &#125;        //지금까지 본 최대 빈도보다 많이 출현했다면 답을 갱신한다.        if(count &gt; majorityCount)&#123;            majorityCount = count;            majority = V;        &#125;    &#125;    return majority;&#125;// O(N)int majority2(const vector&lt;int&gt;&amp; A)&#123;    int N = A.size();    vector&lt;int&gt; count(101, 0);    for(int i = 0; i &lt; N; ++i)&#123;        count[A[i]]++;    &#125;    //지금까지 확인한 숫자 중 빈도수가 제일 큰 것을 majority에 저장한다.    int majority = 0;    for(int i = 1; i &lt;=100; ++i)&#123;        if(count[i] &gt; count[majority])&#123;            majority = i;        &#125;    &#125;    return majority;&#125;int main()&#123;    clock_t start, end;    vector&lt;int&gt; v;    int result1 = 0;    int result2 = 0;    srand((unsigned int)time(NULL));    for(int i = 0; i &lt; 100; i++)&#123;        v.push_back((rand() % 100) + 1);    &#125;    start = clock();    result1 = majority1(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    start = clock();    result2 = majority2(v);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125;\n1-1. 결과\n\n\n2. 이동 평균12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;time.h&gt;using namespace std;// O(N^2)//실수 배열 A가 주어질때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage1(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    for(int i = M-1; i &lt; N; ++i)&#123;        //A[i]까지의 이동 평균 값을 구하자.        double partialSum = 0;        for(int j = 0; j &lt; M; ++j)            partialSum += A[i-j];        ret.push_back(partialSum / M);    &#125;    return ret;&#125;// O(N)// 길이가 N인 실수 배열 A가 주어질 때, 각 위치에서의 M-이동 평균 값을 구한다.vector&lt;double&gt; movingAverage2(const vector&lt;double&gt;&amp; A, int M)&#123;    vector&lt;double&gt; ret;    int N = A.size();    double partialSum = 0;    for(int i = 0; i &lt; M-1; ++i)        partialSum += A[i];    for(int i = M-1; i &lt; N; ++i)&#123;        partialSum += A[i];        ret.push_back(partialSum / M);        partialSum -= A[i-M+1];    &#125;    return ret;&#125;int main()&#123;    clock_t start, end;    vector&lt;double&gt; value;    for(int i = 0; i &lt; 100; ++i)&#123;        int in = i*2 + 3;        value.push_back(in);    &#125;    start = clock();    vector&lt;double&gt; ret1 = movingAverage1(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;        start = clock();    vector&lt;double&gt; ret2 = movingAverage2(value, 50);    end = clock();    cout &lt;&lt; (double)(end - start) &lt;&lt; endl;    return 0;&#125; \n2-2. 결과","dateCreated":"2020-02-14T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-14T15:50:00+09:00","description":"","headline":"[algorithm] 선형 알고리즘","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/","keywords":"c++, LinearTime"}</script>
     <meta name="description" content="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &amp;lt">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[algorithm] 선형 알고리즘">
 <meta property="og:url" content="http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/index.html">
-<meta property="og:site_name" content="SeungMin Lee">
+<meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;iostream&gt;#include &amp;lt">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/74514096-46611680-4f4f-11ea-8987-aa349682b074.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/20227720/74514092-43febc80-4f4f-11ea-9140-c4a24210e93b.png">
 <meta property="article:published_time" content="2020-02-14T06:50:00.000Z">
 <meta property="article:modified_time" content="2021-01-20T07:33:37.497Z">
-<meta property="article:author" content="SeungMin Lee">
+<meta property="article:author" content="이승민">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="LinearTime">
 <meta name="twitter:card" content="summary">
@@ -77,12 +77,12 @@
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/" aria-label>
-            SeungMin Lee
+            학생개발자 이승민
         </a>
     </div>
     
         
-            <a class="header-right-picture " href="#about" aria-label="Open the link: /#about">
+            <a class="header-right-picture " href="#about" aria-label="링크 열기: /#about">
         
         
         </a>
@@ -108,33 +108,25 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="Categories">
+                        <a class="sidebar-button-link " href="/all-categories" rel="noopener" title="카테고리">
                         <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">카테고리</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="Tags">
+                        <a class="sidebar-button-link " href="/all-tags" rel="noopener" title="태그">
                         <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
+                        <span class="sidebar-button-desc">태그</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="Archives">
+                        <a class="sidebar-button-link " href="/all-archives" rel="noopener" title="아카이브">
                         <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" rel="noopener" title="Search">
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
+                        <span class="sidebar-button-desc">아카이브</span>
                     </a>
             </li>
             
@@ -155,14 +147,6 @@
                         <a class="sidebar-button-link " href="https://github.com/steampower33" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
                         <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/steampower33@naver.com" rel="noopener" title="Mail">
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -201,11 +185,11 @@
         <div class="post-meta">
     <time datetime="2020-02-14T15:50:00+09:00">
 	
-		    Feb 14, 2020
+		    2020/02/14
     	
     </time>
     
-        <span>in </span>
+        <span>카테고리 </span>
         
     <a class="category-link" href="/categories/algorithm/">algorithm</a>
 
@@ -233,7 +217,7 @@
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
+                <span class="text-color-light text-small">태그</span><br>
                 
     <a class="tag tag--primary tag--small t-none-link" href="/tags/LinearTime/" rel="tag">LinearTime</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/c/" rel="tag">c++</a>
 
@@ -246,18 +230,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="PREVIOUS: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="이전: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="NEXT: [백준][python] 6086 최대유량">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="다음: [백준][python] 6086 최대유량">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -265,7 +249,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -273,7 +257,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -281,7 +265,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -289,7 +273,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -297,7 +281,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -305,7 +289,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -329,7 +313,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021 SeungMin Lee. All Rights Reserved.
+        Copyrights &copy; 2021 이승민. All Rights Reserved.
     </span>
 </footer>
 
@@ -342,18 +326,18 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="PREVIOUS: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/WinterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" data-tooltip="2020 동계 학습 동아리_6회차_2020_02_14(금)" aria-label="이전: 2020 동계 학습 동아리_6회차_2020_02_14(금)">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                        <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
             </li>
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="NEXT: [백준][python] 6086 최대유량">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/14/Baekjoon/2020/2February/2020-02-14-%5B%EB%B0%B1%EC%A4%80%5D%206086%20%EC%B5%9C%EB%8C%80%EC%9C%A0%EB%9F%89/" data-tooltip="[백준][python] 6086 최대유량" aria-label="다음: [백준][python] 6086 최대유량">
                     
-                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
             </li>
@@ -361,7 +345,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="이 포스트 공유하기">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -369,7 +353,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Facebook" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -377,7 +361,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Twitter" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -385,7 +369,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Share on Google+" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -393,7 +377,7 @@
         
             
                 <li class="post-action">
-                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="댓글을 남겨주세요">
                         <i class="fa fa-comment"></i>
                     </a>
                 </li>
@@ -401,7 +385,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="맨 위로">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -419,24 +403,24 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Facebook" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Twitter" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
             
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Share on Google+" rel="external nofollow noopener noreferrer">
-                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/14/algorithm/2020-02-14-[algorithm]%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
             
@@ -455,16 +439,16 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <h4 id="about-card-name">SeungMin Lee</h4>
+            <h4 id="about-card-name">이승민</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>None</p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br>
-                <p>author.job</p>
+                <p>학생 개발자</p>
 
             </div>
         
