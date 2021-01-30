@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제체스판 다시 칠하기\n2. 코드\npython\n\n1234567891011121314151617181920212223242526if __name__ == &quot;__main__&quot;:    h, w = map(int, input().split())    chess = [[i for i in input()] for j in range(h)]    countB = 0    countW = 0    min = 987654321    for i in range(h-7):        for j in range(w-7):            countB = 0            countW = 0            for k in range(i, i+8):                for l in range(j, j+8):                    if (k + l) % 2 == 0:                        if chess[k][l] == &#x27;W&#x27;:                            countW += 1                        else:                            countB += 1                    else:                        if chess[k][l] == &#x27;B&#x27;:                            countW += 1                        else:                            countB += 1            if min &gt; countB: min = countB            if min &gt; countW: min = countW    print(min)","dateCreated":"2020-11-06T17:50:00+09:00","dateModified":"2021-01-20T16:33:36+09:00","datePublished":"2020-11-06T17:50:00+09:00","description":"","headline":"[백준][python] 1018 체스판 다시 칠하기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/","keywords":"Algorithm, Python, Solve, BruteForce"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제체스판 다시 칠하기\n2. 코드\npython\n\n1234567891011121314151617181920212223242526if __name__ == &quot;__main__&quot;:    h, w = map(int, input().split())    chess = [[i for i in input()] for j in range(h)]    countB = 0    countW = 0    min = 987654321    for i in range(h-7):        for j in range(w-7):            countB = 0            countW = 0            for k in range(i, i+8):                for l in range(j, j+8):                    if (k + l) % 2 == 0:                        if chess[k][l] == &#x27;W&#x27;:                            countW += 1                        else:                            countB += 1                    else:                        if chess[k][l] == &#x27;B&#x27;:                            countW += 1                        else:                            countB += 1            if min &gt; countB: min = countB            if min &gt; countW: min = countW    print(min)","dateCreated":"2020-11-06T17:50:00+09:00","dateModified":"2021-01-20T16:33:36+09:00","datePublished":"2020-11-06T17:50:00+09:00","description":"","headline":"[백준][python] 1018 체스판 다시 칠하기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/","keywords":"Algorithm, Python, Solve, BruteForce"}</script>
     <meta name="description" content="1. 문제체스판 다시 칠하기 2. 코드 python  1234567891011121314151617181920212223242526if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    h, w &#x3D; map(int, input().split())    chess &#x3D; [[i for i in input()] for j in range(h)]">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 1018 체스판 다시 칠하기">
-<meta property="og:url" content="http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/index.html">
+<meta property="og:url" content="http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제체스판 다시 칠하기 2. 코드 python  1234567891011121314151617181920212223242526if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    h, w &#x3D; map(int, input().split())    chess &#x3D; [[i for i in input()] for j in range(h)]">
 <meta property="og:locale" content="ko_KR">
@@ -230,7 +230,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" data-tooltip="[백준][python]18258 큐2" aria-label="이전: [백준][python]18258 큐2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/15/baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" data-tooltip="[백준][python]18258 큐2" aria-label="이전: [백준][python]18258 큐2">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -239,7 +239,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" data-tooltip="[백준][python] 7568 덩치" aria-label="다음: [백준][python] 7568 덩치">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" data-tooltip="[백준][python] 7568 덩치" aria-label="다음: [백준][python] 7568 덩치">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -257,7 +257,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -265,7 +265,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -273,7 +273,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -326,7 +326,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" data-tooltip="[백준][python]18258 큐2" aria-label="이전: [백준][python]18258 큐2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/15/baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" data-tooltip="[백준][python]18258 큐2" aria-label="이전: [백준][python]18258 큐2">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -335,7 +335,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" data-tooltip="[백준][python] 7568 덩치" aria-label="다음: [백준][python] 7568 덩치">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" data-tooltip="[백준][python] 7568 덩치" aria-label="다음: [백준][python] 7568 덩치">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -353,7 +353,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -361,7 +361,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -369,7 +369,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -403,7 +403,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -411,7 +411,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -419,7 +419,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -475,9 +475,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/11/06/Baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/';
+            this.page.url = 'http://example.com/2020/11/06/baekjoon/2020/11November/2020-11-06-[%EB%B0%B1%EC%A4%80]%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/';
               
-            this.page.identifier = '2020/11/06/Baekjoon/2020/11November/2020-11-06-[백준] 1018 체스판 다시 칠하기/';
+            this.page.identifier = '2020/11/06/baekjoon/2020/11November/2020-11-06-[백준] 1018 체스판 다시 칠하기/';
               
           };
           (function() {

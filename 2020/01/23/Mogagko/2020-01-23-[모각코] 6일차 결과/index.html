@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 웹 크롤링이란?web상에 존재하는 데이터의 정보를 가져오는 작업\n2. 언어언어로는 python을 사용하고, BeautifulSoup4 모듈을 사용한다.\n3. 사용법아래의 명령어로 BeautifulSoup4를 설치한다.\n1pip install bs4\n4. 코드12345678910111213141516171819202122from bs4 import BeautifulSoupimport urllib.requestimport requests# 크롤링할 사이트의 url을 설정하고, # requests 라이브러리를 활용하여 HTML 페이지 요청한다.url = &quot;https://www.naver.com&quot;res = requests.get(url)# 주소의 코드가 모두 출력됨.print(res.text)# HTML 페이지 파싱하는 방법.html = res.textsoup = BeautifulSoup(html, &#x27;html.parser&#x27;)# 검색 및 추출.# html 파일의 구문을 검색해서 가져온다.# 이와 관련된 내용은 심화에서 다루겠다.title = soup.find(&#x27;title&#x27;)print(title)\n4-1. html코드의 마지막 부분\n\n\n4-2. title","dateCreated":"2020-01-23T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-23T15:50:00+09:00","description":"","headline":"[모각코] 6일차 결과","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/","keywords":"Activity, Python, WebCrowling"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 웹 크롤링이란?web상에 존재하는 데이터의 정보를 가져오는 작업\n2. 언어언어로는 python을 사용하고, BeautifulSoup4 모듈을 사용한다.\n3. 사용법아래의 명령어로 BeautifulSoup4를 설치한다.\n1pip install bs4\n4. 코드12345678910111213141516171819202122from bs4 import BeautifulSoupimport urllib.requestimport requests# 크롤링할 사이트의 url을 설정하고, # requests 라이브러리를 활용하여 HTML 페이지 요청한다.url = &quot;https://www.naver.com&quot;res = requests.get(url)# 주소의 코드가 모두 출력됨.print(res.text)# HTML 페이지 파싱하는 방법.html = res.textsoup = BeautifulSoup(html, &#x27;html.parser&#x27;)# 검색 및 추출.# html 파일의 구문을 검색해서 가져온다.# 이와 관련된 내용은 심화에서 다루겠다.title = soup.find(&#x27;title&#x27;)print(title)\n4-1. html코드의 마지막 부분\n\n\n4-2. title","dateCreated":"2020-01-23T15:50:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-23T15:50:00+09:00","description":"","headline":"[모각코] 6일차 결과","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/","keywords":"Activity, Python, WebCrowling"}</script>
     <meta name="description" content="1. 웹 크롤링이란?web상에 존재하는 데이터의 정보를 가져오는 작업 2. 언어언어로는 python을 사용하고, BeautifulSoup4 모듈을 사용한다. 3. 사용법아래의 명령어로 BeautifulSoup4를 설치한다. 1pip install bs4 4. 코드12345678910111213141516171819202122from bs4 import Be">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[모각코] 6일차 결과">
-<meta property="og:url" content="http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/index.html">
+<meta property="og:url" content="http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 웹 크롤링이란?web상에 존재하는 데이터의 정보를 가져오는 작업 2. 언어언어로는 python을 사용하고, BeautifulSoup4 모듈을 사용한다. 3. 사용법아래의 명령어로 BeautifulSoup4를 설치한다. 1pip install bs4 4. 코드12345678910111213141516171819202122from bs4 import Be">
 <meta property="og:locale" content="ko_KR">
@@ -243,7 +243,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/Baekjoon/2020/1January/2020-01-23-%5B%EB%B0%B1%EC%A4%80%5D%201507%20%EA%B6%81%EA%B8%88%ED%95%9C%20%EB%AF%BC%ED%98%B8/" data-tooltip="[백준][python] 1507 궁금한 민호" aria-label="다음: [백준][python] 1507 궁금한 민호">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/baekjoon/2020/1January/2020-01-23-%5B%EB%B0%B1%EC%A4%80%5D%201507%20%EA%B6%81%EA%B8%88%ED%95%9C%20%EB%AF%BC%ED%98%B8/" data-tooltip="[백준][python] 1507 궁금한 민호" aria-label="다음: [백준][python] 1507 궁금한 민호">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -261,7 +261,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -269,7 +269,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -277,7 +277,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -339,7 +339,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/Baekjoon/2020/1January/2020-01-23-%5B%EB%B0%B1%EC%A4%80%5D%201507%20%EA%B6%81%EA%B8%88%ED%95%9C%20%EB%AF%BC%ED%98%B8/" data-tooltip="[백준][python] 1507 궁금한 민호" aria-label="다음: [백준][python] 1507 궁금한 민호">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/23/baekjoon/2020/1January/2020-01-23-%5B%EB%B0%B1%EC%A4%80%5D%201507%20%EA%B6%81%EA%B8%88%ED%95%9C%20%EB%AF%BC%ED%98%B8/" data-tooltip="[백준][python] 1507 궁금한 민호" aria-label="다음: [백준][python] 1507 궁금한 민호">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -357,7 +357,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -365,7 +365,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -373,7 +373,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -407,7 +407,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -415,7 +415,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -423,7 +423,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -479,9 +479,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/01/23/Mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/';
+            this.page.url = 'http://example.com/2020/01/23/mogagko/2020-01-23-[%EB%AA%A8%EA%B0%81%EC%BD%94]%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/';
               
-            this.page.identifier = '2020/01/23/Mogagko/2020-01-23-[모각코] 6일차 결과/';
+            this.page.identifier = '2020/01/23/mogagko/2020-01-23-[모각코] 6일차 결과/';
               
           };
           (function() {

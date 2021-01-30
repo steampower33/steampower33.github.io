@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제버블 소트\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int main()&#123;    int n = 0, num = 0, rtn = 0;    cin &gt;&gt; n;    vector&lt;pair&lt;int, int&gt;&gt; a(n);    for(int i = 0; i &lt; n; i++)&#123;        cin &gt;&gt; a[i].first;        a[i].second = i;    &#125;    sort(a.begin(), a.end());    for(int i = 0; i &lt; n; i++)&#123;        if(rtn &lt; a[i].second - i)            rtn = a[i].second - i;    &#125;    cout &lt;&lt; rtn + 1 &lt;&lt; &#x27;\\n&#x27;;    return 0;&#125;\n\npython\n\n123456789101112131415161718if __name__ == &quot;__main__&quot;:    n = int(input())    a = list()    rtn = 0    for i in range(n):        num = int(input())        a.append((i, num))    a.sort(key=lambda x:x[1])    for i in range(n):        if rtn &lt; a[i][0] - i:            rtn = a[i][0] - i    print(rtn+1)\n3. 해결 방법\n버블 소트에서 몇번의 과정만에 해결됬는지 알아내야한다.\n정렬한뒤, 처음에 그 수가 있었던 위치와 지금위 위치를 뺀 값들의 최대값에서 1을 더한 값을 출력하면된다.\n\n4. 리뷰\n문제 이해가 안되면, 다른 사이트의 도움을 받자.\n\n","dateCreated":"2020-03-20T16:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-20T16:30:00+09:00","description":"","headline":"[백준][c++][python] 1377 버블 소트","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/","keywords":"Algorithm, Python, Solve, C++, Sort"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제버블 소트\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int main()&#123;    int n = 0, num = 0, rtn = 0;    cin &gt;&gt; n;    vector&lt;pair&lt;int, int&gt;&gt; a(n);    for(int i = 0; i &lt; n; i++)&#123;        cin &gt;&gt; a[i].first;        a[i].second = i;    &#125;    sort(a.begin(), a.end());    for(int i = 0; i &lt; n; i++)&#123;        if(rtn &lt; a[i].second - i)            rtn = a[i].second - i;    &#125;    cout &lt;&lt; rtn + 1 &lt;&lt; &#x27;\\n&#x27;;    return 0;&#125;\n\npython\n\n123456789101112131415161718if __name__ == &quot;__main__&quot;:    n = int(input())    a = list()    rtn = 0    for i in range(n):        num = int(input())        a.append((i, num))    a.sort(key=lambda x:x[1])    for i in range(n):        if rtn &lt; a[i][0] - i:            rtn = a[i][0] - i    print(rtn+1)\n3. 해결 방법\n버블 소트에서 몇번의 과정만에 해결됬는지 알아내야한다.\n정렬한뒤, 처음에 그 수가 있었던 위치와 지금위 위치를 뺀 값들의 최대값에서 1을 더한 값을 출력하면된다.\n\n4. 리뷰\n문제 이해가 안되면, 다른 사이트의 도움을 받자.\n\n","dateCreated":"2020-03-20T16:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-20T16:30:00+09:00","description":"","headline":"[백준][c++][python] 1377 버블 소트","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/","keywords":"Algorithm, Python, Solve, C++, Sort"}</script>
     <meta name="description" content="1. 문제버블 소트 2. 코드 c++  123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, num &#x3D; 0,">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][c++][python] 1377 버블 소트">
-<meta property="og:url" content="http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/index.html">
+<meta property="og:url" content="http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제버블 소트 2. 코드 c++  123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, num &#x3D; 0,">
 <meta property="og:locale" content="ko_KR">
@@ -244,7 +244,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/21/Baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/" data-tooltip="[백준][c++][python] 2884 알람 시계" aria-label="이전: [백준][c++][python] 2884 알람 시계">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/" data-tooltip="[백준][c++][python] 2884 알람 시계" aria-label="이전: [백준][c++][python] 2884 알람 시계">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -253,7 +253,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/19/Baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" data-tooltip="[백준][c++][python] 10824 네 수" aria-label="다음: [백준][c++][python] 10824 네 수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" data-tooltip="[백준][c++][python] 10824 네 수" aria-label="다음: [백준][c++][python] 10824 네 수">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -271,7 +271,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -279,7 +279,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -287,7 +287,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -340,7 +340,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/21/Baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/" data-tooltip="[백준][c++][python] 2884 알람 시계" aria-label="이전: [백준][c++][python] 2884 알람 시계">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/" data-tooltip="[백준][c++][python] 2884 알람 시계" aria-label="이전: [백준][c++][python] 2884 알람 시계">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -349,7 +349,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/19/Baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" data-tooltip="[백준][c++][python] 10824 네 수" aria-label="다음: [백준][c++][python] 10824 네 수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" data-tooltip="[백준][c++][python] 10824 네 수" aria-label="다음: [백준][c++][python] 10824 네 수">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -367,7 +367,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -375,7 +375,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -383,7 +383,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -417,7 +417,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -425,7 +425,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -433,7 +433,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -489,9 +489,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/03/20/Baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/';
+            this.page.url = 'http://example.com/2020/03/20/baekjoon/2020/3March/2020-03-20-[%EB%B0%B1%EC%A4%80]%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/';
               
-            this.page.identifier = '2020/03/20/Baekjoon/2020/3March/2020-03-20-[백준] 1377 버블 소트/';
+            this.page.identifier = '2020/03/20/baekjoon/2020/3March/2020-03-20-[백준] 1377 버블 소트/';
               
           };
           (function() {

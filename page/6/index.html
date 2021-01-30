@@ -171,7 +171,138 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/20/Baekjoon/2020/3March/2020-03-20-%5B%EB%B0%B1%EC%A4%80%5D%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label=": [백준][c++][python] 1377 버블 소트">
+                        <a class="link-unstyled" href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202475%20%EA%B2%80%EC%A6%9D%EC%88%98/" aria-label=": [백준][c++][python] 2475 검증수">
+                            [백준][c++][python] 2475 검증수
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-21T16:30:00+09:00">
+	
+		    2020/03/21
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2475">검증수</a><br><img width="719" alt="스크린샷 2020-03-21 오후 8 00 06" src="https://user-images.githubusercontent.com/20227720/77225022-96ff0b80-6bae-11ea-81a8-ee433014df7b.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num, rtn = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        rtn += <span class="built_in">pow</span>(num,<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; rtn % <span class="number">10</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    rtn = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        rtn += s[i] ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    print(rtn % <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>제곱수를 한 변수에 다 더해주고, 10으로 나눈 나머지를 출력</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>Just For The CLASS 1</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202475%20%EA%B2%80%EC%A6%9D%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/" aria-label=": [백준][c++][python] 2884 알람 시계">
+                            [백준][c++][python] 2884 알람 시계
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-21T16:30:00+09:00">
+	
+		    2020/03/21
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2884">알람 시계</a><br><img width="942" alt="스크린샷 2020-03-21 오후 8 36 44" src="https://user-images.githubusercontent.com/20227720/77225611-e4ca4280-6bb3-11ea-9395-fea71e6a6ccd.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> H = <span class="number">0</span>, M = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; H;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( H == <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="keyword">if</span>( <span class="number">0</span> &lt;= M &amp;&amp; M &lt; <span class="number">45</span> )&#123;</span><br><span class="line">            H = <span class="number">23</span>;</span><br><span class="line">            M += <span class="number">15</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            M -= <span class="number">45</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( <span class="number">0</span> &lt;= M &amp;&amp; M &lt; <span class="number">45</span> )&#123;</span><br><span class="line">            H -= <span class="number">1</span>;</span><br><span class="line">            M += <span class="number">15</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            M -= <span class="number">45</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; H &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; M &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    H, M = <span class="built_in">map</span>(<span class="built_in">int</span> , <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> H == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= M &lt; <span class="number">45</span>: H = <span class="number">23</span>; M += <span class="number">15</span></span><br><span class="line">        <span class="keyword">else</span>: M -= <span class="number">45</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= M &lt; <span class="number">45</span>: H -= <span class="number">1</span>; M += <span class="number">15</span></span><br><span class="line">        <span class="keyword">else</span>: M -= <span class="number">45</span></span><br><span class="line"></span><br><span class="line">    print(H, M)</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>H가 0인지 그외인지에 따라서 나눠서 하면 구현하기 쉽다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>8개월전에는 군대 갔다와서 얼마안되서 그런지 이걸 못풀었나보다 틀린상태였다. </li>
+<li>그걸 보고 나는 저때 정말 바보였구나 했다.</li>
+<li>미래에 나도 지금의 나를 보고 저땐 참 멍청했구나 했으면 좋겠다.</li>
+<li>그래야 조금은 실력이 늘었다는 것이지 않을까 싶다</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/21/baekjoon/2020/3March/2020-03-21-%5B%EB%B0%B1%EC%A4%80%5D%202884%20%EC%95%8C%EB%9E%8C%20%EC%8B%9C%EA%B3%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/20/baekjoon/2020/3March/2020-03-20-%5B%EB%B0%B1%EC%A4%80%5D%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/" aria-label=": [백준][c++][python] 1377 버블 소트">
                             [백준][c++][python] 1377 버블 소트
                         </a>
                     
@@ -218,7 +349,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/20/Baekjoon/2020/3March/2020-03-20-%5B%EB%B0%B1%EC%A4%80%5D%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/20/baekjoon/2020/3March/2020-03-20-%5B%EB%B0%B1%EC%A4%80%5D%201377%20%EB%B2%84%EB%B8%94%20%EC%86%8C%ED%8A%B8/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -236,7 +367,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/19/Baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" aria-label=": [백준][c++][python] 10824 네 수">
+                        <a class="link-unstyled" href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" aria-label=": [백준][c++][python] 10824 네 수">
                             [백준][c++][python] 10824 네 수
                         </a>
                     
@@ -285,7 +416,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/19/Baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -303,7 +434,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/18/Baekjoon/2020/3March/2020-03-18-%5B%EB%B0%B1%EC%A4%80%5D%2011004%20K%EB%B2%88%EC%A7%B8%20%EC%88%98/" aria-label=": [백준][c++][python] 11004 K번째 수">
+                        <a class="link-unstyled" href="/2020/03/18/baekjoon/2020/3March/2020-03-18-%5B%EB%B0%B1%EC%A4%80%5D%2011004%20K%EB%B2%88%EC%A7%B8%20%EC%88%98/" aria-label=": [백준][c++][python] 11004 K번째 수">
                             [백준][c++][python] 11004 K번째 수
                         </a>
                     
@@ -350,7 +481,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/18/Baekjoon/2020/3March/2020-03-18-%5B%EB%B0%B1%EC%A4%80%5D%2011004%20K%EB%B2%88%EC%A7%B8%20%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/18/baekjoon/2020/3March/2020-03-18-%5B%EB%B0%B1%EC%A4%80%5D%2011004%20K%EB%B2%88%EC%A7%B8%20%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -368,7 +499,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/17/Baekjoon/2020/3March/2020-03-17-%5B%EB%B0%B1%EC%A4%80%5D%2011652%20%EC%B9%B4%EB%93%9C/" aria-label=": [백준][c++][python] 11652 카드">
+                        <a class="link-unstyled" href="/2020/03/17/baekjoon/2020/3March/2020-03-17-%5B%EB%B0%B1%EC%A4%80%5D%2011652%20%EC%B9%B4%EB%93%9C/" aria-label=": [백준][c++][python] 11652 카드">
                             [백준][c++][python] 11652 카드
                         </a>
                     
@@ -419,7 +550,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/17/Baekjoon/2020/3March/2020-03-17-%5B%EB%B0%B1%EC%A4%80%5D%2011652%20%EC%B9%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/17/baekjoon/2020/3March/2020-03-17-%5B%EB%B0%B1%EC%A4%80%5D%2011652%20%EC%B9%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -437,7 +568,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/16/Baekjoon/2020/3March/2020-03-16-%5B%EB%B0%B1%EC%A4%80%5D%2010989%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%203/" aria-label=": [백준][c++][python] 10989 수 정렬하기 3">
+                        <a class="link-unstyled" href="/2020/03/16/baekjoon/2020/3March/2020-03-16-%5B%EB%B0%B1%EC%A4%80%5D%2010989%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%203/" aria-label=": [백준][c++][python] 10989 수 정렬하기 3">
                             [백준][c++][python] 10989 수 정렬하기 3
                         </a>
                     
@@ -488,7 +619,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/16/Baekjoon/2020/3March/2020-03-16-%5B%EB%B0%B1%EC%A4%80%5D%2010989%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%203/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/16/baekjoon/2020/3March/2020-03-16-%5B%EB%B0%B1%EC%A4%80%5D%2010989%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%203/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -506,7 +637,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/15/Baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/" aria-label=": [백준][c++][python] 10825 국영수">
+                        <a class="link-unstyled" href="/2020/03/15/baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/" aria-label=": [백준][c++][python] 10825 국영수">
                             [백준][c++][python] 10825 국영수
                         </a>
                     
@@ -553,7 +684,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/15/Baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/15/baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -571,7 +702,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/14/Baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/" aria-label=": [백준][c++][python] 2751 수 정렬하기">
+                        <a class="link-unstyled" href="/2020/03/14/baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/" aria-label=": [백준][c++][python] 2751 수 정렬하기">
                             [백준][c++][python] 2751 수 정렬하기
                         </a>
                     
@@ -617,7 +748,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/14/Baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/14/baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -635,7 +766,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/03/13/Baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/" aria-label=": [백준][c++][python] 2011 암호코드">
+                        <a class="link-unstyled" href="/2020/03/13/baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/" aria-label=": [백준][c++][python] 2011 암호코드">
                             [백준][c++][python] 2011 암호코드
                         </a>
                     
@@ -691,136 +822,7 @@
                     
                     
                         <p>
-                            <a href="/2020/03/13/Baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/12/Baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label=": [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
-                            [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-12T18:30:00+09:00">
-	
-		    2020/03/12
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11054">가장 긴 바이토닉 부분 수열</a><br><img width="611" alt="스크린샷 2020-03-13 오전 1 13 01" src="https://user-images.githubusercontent.com/20227720/76542035-ca171000-64c7-11ea-8ed5-68fd0e0953f1.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, m_num = <span class="number">0</span>, count = <span class="number">0</span>, s[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;, ascending[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;, descending[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;, value[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        s[i] = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>( s[j] &lt; s[i] ) count = max(count, ascending[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        ascending[i] = count + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = n<span class="number">-1</span>; j &gt;= i; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>( s[i] &gt; s[j] ) count = max(count, descending[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        descending[i] = count + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        value[i] = ascending[i] + descending[i] - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> ( m_num &lt; value[i] ) m_num = value[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m_num &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    ascending = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    descending = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    value = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">            <span class="keyword">if</span> s[j] &lt; s[i]:</span><br><span class="line">                count = <span class="built_in">max</span>(count, ascending[j])</span><br><span class="line">        ascending[i] = count + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(n)):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(i,n)):</span><br><span class="line">            <span class="keyword">if</span> s[j] &lt; s[i]:</span><br><span class="line">                count = <span class="built_in">max</span>(count, descending[j])</span><br><span class="line">        descending[i] += count + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        value[i] = ascending[i] + descending[i] - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">max</span>(value))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-11053-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4/">가장 긴 증가하는 부분 수열 풀이</a>와 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-11722-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4/">가장 긴 감소하는 부분 수열 풀이</a>의 문제를 각각 풀면 이 문제를 쉽게 풀 수 있다.</li>
-<li>왜냐하면 이 두 솔루션을 합치면 이 문제 정답 코드가 되기때문.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>번뜩이는 생각이 두 솔루션 합치자인데 되어버림</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/12/Baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/11/Baekjoon/2020/3March/2020-03-11-%5B%EB%B0%B1%EC%A4%80%5D%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label=": [백준][c++][python] 11722 가장 긴 감소하는 부분 수열">
-                            [백준][c++][python] 11722 가장 긴 감소하는 부분 수열
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-11T18:30:00+09:00">
-	
-		    2020/03/11
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11722">가장 긴 감소하는 부분 수열</a><br><img width="613" alt="스크린샷 2020-03-11 오후 4 04 46" src="https://user-images.githubusercontent.com/20227720/76391121-1839ef80-63b2-11ea-82c1-36cc52c834d4.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, count = <span class="number">0</span>, M_num = <span class="number">0</span>, s[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;, dp[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        s[i] = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>( s[j] &gt; s[i] )&#123;</span><br><span class="line">                count = max(count, dp[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i] = count + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>( dp[i] &gt; M_num ) M_num = dp[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; M_num &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">            <span class="keyword">if</span> s[j] &gt; s[i]:</span><br><span class="line">                count = <span class="built_in">max</span>(count, dp[j])</span><br><span class="line">        dp[i] = count + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">max</span>(dp))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-11053-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4/">가장 긴 증가하는 부분 수열</a>의 해결방법을 참고하면된다. 부등호만 반대이기때문이지</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>가장 긴 증가 부분 수열이랑 같은 문제여서 쉬웠따리</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/11/Baekjoon/2020/3March/2020-03-11-%5B%EB%B0%B1%EC%A4%80%5D%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/03/13/baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -849,7 +851,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 6 of 15</li>
+        <li class="pagination-number">page 6 of 16</li>
     </ul>
 </div>
 

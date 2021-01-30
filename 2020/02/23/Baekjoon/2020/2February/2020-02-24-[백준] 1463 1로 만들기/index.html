@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제1로 만들기\n2. 코드\nc++\n\n12345678910111213141516171819#include &lt;iostream&gt;#include &lt;cstdio&gt;using namespace std;int main()&#123;    int x;    int dp[1000001] = &#123;0&#125;;    scanf(&quot;%d&quot;, &amp;x);    for(int i = 2; i &lt;= x; i++)&#123;        dp[i] = dp[i - 1] + 1;        if(i % 2 == 0) dp[i] = min(dp[i], dp[i / 2] + 1);        if(i % 3 == 0) dp[i] = min(dp[i], dp[i / 3] + 1);    &#125;    printf(&quot;%d&quot;,dp[x]);        return 0;&#125;\n\npython\n\n1234567891011121314import sysinput = sys.stdin.readlineprint = sys.stdout.writeif __name__ == &quot;__main__&quot;:    x = int(input())    dp = [0] * 1000001    for i in range(2, x+1):        dp[i] = dp[i - 1] + 1;        if (i % 2 == 0): dp[i] = min(dp[i], dp[i // 2] + 1);        if (i % 3 == 0): dp[i] = min(dp[i], dp[i // 3] + 1);    print(str(dp[x]))\n3. 시행착오\n처음 파이썬 코드는 아래와 같았다.\n단순하게 모든 경우를 DP 방식으로 해서 해결하면되지 않을까 싶었다.\nDP를 푼지가 오래되서 그런지 다 까먹은듯 하다.\n메모이제이션, 점화식을 이용해야한다.\n\n1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import sysinput = sys.stdin.readlineprint = sys.stdout.writedef solve1(x):    count = 0    while x != 1:        if x % 3 == 0:            x = x // 3            count += 1        elif x % 2 == 0:            x = x // 2            count += 1        else:            x = x - 1            count += 1    return countdef solve2(x):    count = 0    while x != 1:        if x % 3 == 0:            x = x // 3            count += 1        elif x - 1 != 0:            x = x - 1            count += 1        elif x % 2 == 0:            x = x // 2            count += 1    return countdef solve3(x):    count = 0    while x != 1:        if x % 2 == 0:            x = x // 2            count += 1        elif x - 1 != 0:            x = x - 1            count += 1        elif x % 3 == 0:            x = x // 3            count += 1    return countif __name__ == &quot;__main__&quot;:    x = int(input())    rtn = list()    rtn.append(solve1(x))    rtn.append(solve2(x))    rtn.append(solve3(x))    print(str(min(rtn)))","dateCreated":"2020-02-23T20:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-23T20:30:00+09:00","description":"","headline":"[백준][c++][python] 1463 1로 만들기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, C++, DP"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제1로 만들기\n2. 코드\nc++\n\n12345678910111213141516171819#include &lt;iostream&gt;#include &lt;cstdio&gt;using namespace std;int main()&#123;    int x;    int dp[1000001] = &#123;0&#125;;    scanf(&quot;%d&quot;, &amp;x);    for(int i = 2; i &lt;= x; i++)&#123;        dp[i] = dp[i - 1] + 1;        if(i % 2 == 0) dp[i] = min(dp[i], dp[i / 2] + 1);        if(i % 3 == 0) dp[i] = min(dp[i], dp[i / 3] + 1);    &#125;    printf(&quot;%d&quot;,dp[x]);        return 0;&#125;\n\npython\n\n1234567891011121314import sysinput = sys.stdin.readlineprint = sys.stdout.writeif __name__ == &quot;__main__&quot;:    x = int(input())    dp = [0] * 1000001    for i in range(2, x+1):        dp[i] = dp[i - 1] + 1;        if (i % 2 == 0): dp[i] = min(dp[i], dp[i // 2] + 1);        if (i % 3 == 0): dp[i] = min(dp[i], dp[i // 3] + 1);    print(str(dp[x]))\n3. 시행착오\n처음 파이썬 코드는 아래와 같았다.\n단순하게 모든 경우를 DP 방식으로 해서 해결하면되지 않을까 싶었다.\nDP를 푼지가 오래되서 그런지 다 까먹은듯 하다.\n메모이제이션, 점화식을 이용해야한다.\n\n1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import sysinput = sys.stdin.readlineprint = sys.stdout.writedef solve1(x):    count = 0    while x != 1:        if x % 3 == 0:            x = x // 3            count += 1        elif x % 2 == 0:            x = x // 2            count += 1        else:            x = x - 1            count += 1    return countdef solve2(x):    count = 0    while x != 1:        if x % 3 == 0:            x = x // 3            count += 1        elif x - 1 != 0:            x = x - 1            count += 1        elif x % 2 == 0:            x = x // 2            count += 1    return countdef solve3(x):    count = 0    while x != 1:        if x % 2 == 0:            x = x // 2            count += 1        elif x - 1 != 0:            x = x - 1            count += 1        elif x % 3 == 0:            x = x // 3            count += 1    return countif __name__ == &quot;__main__&quot;:    x = int(input())    rtn = list()    rtn.append(solve1(x))    rtn.append(solve2(x))    rtn.append(solve3(x))    print(str(min(rtn)))","dateCreated":"2020-02-23T20:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-23T20:30:00+09:00","description":"","headline":"[백준][c++][python] 1463 1로 만들기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, C++, DP"}</script>
     <meta name="description" content="1. 문제1로 만들기 2. 코드 c++  12345678910111213141516171819#include &lt;iostream&gt;#include &lt;cstdio&gt;using namespace std;int main()&amp;#123;    int x;    int dp[1000001] &#x3D; &amp;#123;0&amp;#125;;    scanf(&quot;%d">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][c++][python] 1463 1로 만들기">
-<meta property="og:url" content="http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/index.html">
+<meta property="og:url" content="http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제1로 만들기 2. 코드 c++  12345678910111213141516171819#include &lt;iostream&gt;#include &lt;cstdio&gt;using namespace std;int main()&amp;#123;    int x;    int dp[1000001] &#x3D; &amp;#123;0&amp;#125;;    scanf(&quot;%d">
 <meta property="og:locale" content="ko_KR">
@@ -244,7 +244,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%2011726%202xn%20%ED%83%80%EC%9D%BC%EB%A7%81/" data-tooltip="[백준][c++][python] 11726 2xn 타일링" aria-label="이전: [백준][c++][python] 11726 2xn 타일링">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%2011726%202xn%20%ED%83%80%EC%9D%BC%EB%A7%81/" data-tooltip="[백준][c++][python] 11726 2xn 타일링" aria-label="이전: [백준][c++][python] 11726 2xn 타일링">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -253,7 +253,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/22/Baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/" data-tooltip="[백준][c++] 10814 나이순 정렬" aria-label="다음: [백준][c++] 10814 나이순 정렬">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/22/baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/" data-tooltip="[백준][c++] 10814 나이순 정렬" aria-label="다음: [백준][c++] 10814 나이순 정렬">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -271,7 +271,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -279,7 +279,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -287,7 +287,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -340,7 +340,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/Baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%2011726%202xn%20%ED%83%80%EC%9D%BC%EB%A7%81/" data-tooltip="[백준][c++][python] 11726 2xn 타일링" aria-label="이전: [백준][c++][python] 11726 2xn 타일링">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/24/baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%2011726%202xn%20%ED%83%80%EC%9D%BC%EB%A7%81/" data-tooltip="[백준][c++][python] 11726 2xn 타일링" aria-label="이전: [백준][c++][python] 11726 2xn 타일링">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -349,7 +349,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/22/Baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/" data-tooltip="[백준][c++] 10814 나이순 정렬" aria-label="다음: [백준][c++] 10814 나이순 정렬">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/22/baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/" data-tooltip="[백준][c++] 10814 나이순 정렬" aria-label="다음: [백준][c++] 10814 나이순 정렬">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -367,7 +367,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -375,7 +375,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -383,7 +383,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -417,7 +417,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -425,7 +425,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -433,7 +433,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -489,9 +489,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/02/23/Baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/';
+            this.page.url = 'http://example.com/2020/02/23/baekjoon/2020/2February/2020-02-24-[%EB%B0%B1%EC%A4%80]%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/';
               
-            this.page.identifier = '2020/02/23/Baekjoon/2020/2February/2020-02-24-[백준] 1463 1로 만들기/';
+            this.page.identifier = '2020/02/23/baekjoon/2020/2February/2020-02-24-[백준] 1463 1로 만들기/';
               
           };
           (function() {

@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제가장 긴 감소하는 부분 수열\n2. 코드\nc++\n\n12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;cmath&gt;using namespace std;int main()&#123;    int n = 0, num = 0, count = 0, M_num = 0, s[1001] = &#123;0&#125;, dp[1001] = &#123;0&#125;;    cin &gt;&gt; n;    for(int i = 0; i &lt; n; i++)&#123;        cin &gt;&gt; num;        s[i] = num;    &#125;    for(int i = 0; i &lt; n; i++)&#123;        count = 0;        for(int j = 0; j &lt; i; j++)&#123;            if( s[j] &gt; s[i] )&#123;                count = max(count, dp[j]);            &#125;        &#125;        dp[i] = count + 1;        if( dp[i] &gt; M_num ) M_num = dp[i];    &#125;    cout &lt;&lt; M_num &lt;&lt; &quot;\\n&quot;;    return 0;&#125;\n\npython\n\n1234567891011121314151617import sysinput = sys.stdin.readlineif __name__ == &quot;__main__&quot;:    n = int(input())    s = list(map(int, input().split()))    dp = [0 for i in range(n)]    for i in range(n):        count = 0        for j in range(i):            if s[j] &gt; s[i]:                count = max(count, dp[j])        dp[i] = count + 1    print(max(dp))\n3. 해결 방법\n가장 긴 증가하는 부분 수열의 해결방법을 참고하면된다. 부등호만 반대이기때문이지\n\n4. 리뷰\n가장 긴 증가 부분 수열이랑 같은 문제여서 쉬웠따리\n\n","dateCreated":"2020-03-11T18:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-11T18:30:00+09:00","description":"","headline":"[백준][c++][python] 11722 가장 긴 감소하는 부분 수열","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/","keywords":"Algorithm, Python, Solve, C++, DP"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제가장 긴 감소하는 부분 수열\n2. 코드\nc++\n\n12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;cmath&gt;using namespace std;int main()&#123;    int n = 0, num = 0, count = 0, M_num = 0, s[1001] = &#123;0&#125;, dp[1001] = &#123;0&#125;;    cin &gt;&gt; n;    for(int i = 0; i &lt; n; i++)&#123;        cin &gt;&gt; num;        s[i] = num;    &#125;    for(int i = 0; i &lt; n; i++)&#123;        count = 0;        for(int j = 0; j &lt; i; j++)&#123;            if( s[j] &gt; s[i] )&#123;                count = max(count, dp[j]);            &#125;        &#125;        dp[i] = count + 1;        if( dp[i] &gt; M_num ) M_num = dp[i];    &#125;    cout &lt;&lt; M_num &lt;&lt; &quot;\\n&quot;;    return 0;&#125;\n\npython\n\n1234567891011121314151617import sysinput = sys.stdin.readlineif __name__ == &quot;__main__&quot;:    n = int(input())    s = list(map(int, input().split()))    dp = [0 for i in range(n)]    for i in range(n):        count = 0        for j in range(i):            if s[j] &gt; s[i]:                count = max(count, dp[j])        dp[i] = count + 1    print(max(dp))\n3. 해결 방법\n가장 긴 증가하는 부분 수열의 해결방법을 참고하면된다. 부등호만 반대이기때문이지\n\n4. 리뷰\n가장 긴 증가 부분 수열이랑 같은 문제여서 쉬웠따리\n\n","dateCreated":"2020-03-11T18:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-11T18:30:00+09:00","description":"","headline":"[백준][c++][python] 11722 가장 긴 감소하는 부분 수열","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/","keywords":"Algorithm, Python, Solve, C++, DP"}</script>
     <meta name="description" content="1. 문제가장 긴 감소하는 부분 수열 2. 코드 c++  12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;cmath&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, num &#x3D; 0, count &#x3D; 0, M_n">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][c++][python] 11722 가장 긴 감소하는 부분 수열">
-<meta property="og:url" content="http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/index.html">
+<meta property="og:url" content="http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제가장 긴 감소하는 부분 수열 2. 코드 c++  12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;cmath&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, num &#x3D; 0, count &#x3D; 0, M_n">
 <meta property="og:locale" content="ko_KR">
@@ -242,7 +242,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/12/Baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11054 가장 긴 바이토닉 부분 수열" aria-label="이전: [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/12/baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11054 가장 긴 바이토닉 부분 수열" aria-label="이전: [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -251,7 +251,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/10/Baekjoon/2020/3March/2020-03-10-%5B%EB%B0%B1%EC%A4%80%5D%2011053%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11053 가장 긴 증가하는 부분 수열" aria-label="다음: [백준][c++][python] 11053 가장 긴 증가하는 부분 수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/10/baekjoon/2020/3March/2020-03-10-%5B%EB%B0%B1%EC%A4%80%5D%2011053%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11053 가장 긴 증가하는 부분 수열" aria-label="다음: [백준][c++][python] 11053 가장 긴 증가하는 부분 수열">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -269,7 +269,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -277,7 +277,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -285,7 +285,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -338,7 +338,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/12/Baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11054 가장 긴 바이토닉 부분 수열" aria-label="이전: [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/12/baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11054 가장 긴 바이토닉 부분 수열" aria-label="이전: [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -347,7 +347,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/10/Baekjoon/2020/3March/2020-03-10-%5B%EB%B0%B1%EC%A4%80%5D%2011053%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11053 가장 긴 증가하는 부분 수열" aria-label="다음: [백준][c++][python] 11053 가장 긴 증가하는 부분 수열">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/10/baekjoon/2020/3March/2020-03-10-%5B%EB%B0%B1%EC%A4%80%5D%2011053%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" data-tooltip="[백준][c++][python] 11053 가장 긴 증가하는 부분 수열" aria-label="다음: [백준][c++][python] 11053 가장 긴 증가하는 부분 수열">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -365,7 +365,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -373,7 +373,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -381,7 +381,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -415,7 +415,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -423,7 +423,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -431,7 +431,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -487,9 +487,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/03/11/Baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/';
+            this.page.url = 'http://example.com/2020/03/11/baekjoon/2020/3March/2020-03-11-[%EB%B0%B1%EC%A4%80]%2011722%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/';
               
-            this.page.identifier = '2020/03/11/Baekjoon/2020/3March/2020-03-11-[백준] 11722 가장 긴 감소하는 부분 수열/';
+            this.page.identifier = '2020/03/11/baekjoon/2020/3March/2020-03-11-[백준] 11722 가장 긴 감소하는 부분 수열/';
               
           };
           (function() {

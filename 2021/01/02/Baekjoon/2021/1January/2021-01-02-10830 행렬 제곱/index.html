@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제10830  \n코드123456789101112131415161718192021222324252627282930313233343536373839404142import sysdef mul_matrix(a, matrix):    global n    result_matrix &#x3D; [[0 for _ in range(n)]for _ in range(n)]    for i in range(n):        for j in range(n):            for k in range(n):                result_matrix[i][j] +&#x3D; (a[i][k] * matrix[k][j])            result_matrix[i][j] %&#x3D; 1000    return result_matrixdef solve(a, b):    if b &#x3D;&#x3D; 1:        for i in range(n):            for j in range(n):                a[i][j] %&#x3D; 1000        return a    elif b % 2 &#x3D;&#x3D; 1:        matrix &#x3D; solve(a, b-1)        new_matrix &#x3D; mul_matrix(a, matrix)        return new_matrix    else:        matrix &#x3D; solve(a, b&#x2F;&#x2F;2)        new_matrix &#x3D; mul_matrix(matrix, matrix)        return new_matrixif __name__ &#x3D;&#x3D; &quot;__main__&quot;:    n, b &#x3D; map(int, sys.stdin.readline().split())    a &#x3D; [[] for i in range(n)]    for i in range(n): a[i] &#x3D; list(map(int, sys.stdin.readline().split()))    result &#x3D; solve(a,b)    for row in result:        print(*row)\n해결A를 4번 거듭제곱해야한다하면, (A^2)^25번 해야한다면, (A^2)^2 * A이런식으로 연산한다.\n재귀를 돌때 b가 홀수이면 b-1을 하고 a와 matrix를 곱하고, -&gt; * Ab가 짝수이면 matrix와 matrix를 곱한다. -&gt; (A^2) ^ 2\n","dateCreated":"2021-01-02T11:10:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2021-01-02T11:10:00+09:00","description":"","headline":"[백준][python] 10830 행렬 제곱","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/","keywords":"Python, Divide and Conquer"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제10830  \n코드123456789101112131415161718192021222324252627282930313233343536373839404142import sysdef mul_matrix(a, matrix):    global n    result_matrix &#x3D; [[0 for _ in range(n)]for _ in range(n)]    for i in range(n):        for j in range(n):            for k in range(n):                result_matrix[i][j] +&#x3D; (a[i][k] * matrix[k][j])            result_matrix[i][j] %&#x3D; 1000    return result_matrixdef solve(a, b):    if b &#x3D;&#x3D; 1:        for i in range(n):            for j in range(n):                a[i][j] %&#x3D; 1000        return a    elif b % 2 &#x3D;&#x3D; 1:        matrix &#x3D; solve(a, b-1)        new_matrix &#x3D; mul_matrix(a, matrix)        return new_matrix    else:        matrix &#x3D; solve(a, b&#x2F;&#x2F;2)        new_matrix &#x3D; mul_matrix(matrix, matrix)        return new_matrixif __name__ &#x3D;&#x3D; &quot;__main__&quot;:    n, b &#x3D; map(int, sys.stdin.readline().split())    a &#x3D; [[] for i in range(n)]    for i in range(n): a[i] &#x3D; list(map(int, sys.stdin.readline().split()))    result &#x3D; solve(a,b)    for row in result:        print(*row)\n해결A를 4번 거듭제곱해야한다하면, (A^2)^25번 해야한다면, (A^2)^2 * A이런식으로 연산한다.\n재귀를 돌때 b가 홀수이면 b-1을 하고 a와 matrix를 곱하고, -&gt; * Ab가 짝수이면 matrix와 matrix를 곱한다. -&gt; (A^2) ^ 2\n","dateCreated":"2021-01-02T11:10:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2021-01-02T11:10:00+09:00","description":"","headline":"[백준][python] 10830 행렬 제곱","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/","keywords":"Python, Divide and Conquer"}</script>
     <meta name="description" content="문제10830   코드123456789101112131415161718192021222324252627282930313233343536373839404142import sysdef mul_matrix(a, matrix):    global n    result_matrix &#x3D; [[0 for _ in range(n)]for _ in range(n)]">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 10830 행렬 제곱">
-<meta property="og:url" content="http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/index.html">
+<meta property="og:url" content="http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="문제10830   코드123456789101112131415161718192021222324252627282930313233343536373839404142import sysdef mul_matrix(a, matrix):    global n    result_matrix &#x3D; [[0 for _ in range(n)]for _ in range(n)]">
 <meta property="og:locale" content="ko_KR">
@@ -237,7 +237,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" data-tooltip="[백준][python] 2740 행렬 곱셈" aria-label="다음: [백준][python] 2740 행렬 곱셈">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/30/baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" data-tooltip="[백준][python] 2740 행렬 곱셈" aria-label="다음: [백준][python] 2740 행렬 곱셈">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -255,7 +255,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -263,7 +263,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -271,7 +271,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -333,7 +333,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" data-tooltip="[백준][python] 2740 행렬 곱셈" aria-label="다음: [백준][python] 2740 행렬 곱셈">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/30/baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" data-tooltip="[백준][python] 2740 행렬 곱셈" aria-label="다음: [백준][python] 2740 행렬 곱셈">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -351,7 +351,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -359,7 +359,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -367,7 +367,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -401,7 +401,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -409,7 +409,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -417,7 +417,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -473,9 +473,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/';
+            this.page.url = 'http://example.com/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/';
               
-            this.page.identifier = '2021/01/02/Baekjoon/2021/1January/2021-01-02-10830 행렬 제곱/';
+            this.page.identifier = '2021/01/02/baekjoon/2021/1January/2021-01-02-10830 행렬 제곱/';
               
           };
           (function() {

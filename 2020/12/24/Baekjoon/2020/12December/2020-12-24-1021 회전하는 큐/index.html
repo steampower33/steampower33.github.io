@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제1021 회전하는 큐  \n코드123456789101112131415161718if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    f &#x3D; lambda : map(int, input().split())    n,m &#x3D; f()    nums &#x3D; [*range(1, n+1)]    idx &#x3D; 0    cnt &#x3D; 0    for _ in f():        wantNumIndex &#x3D; nums.index(_)        t1 &#x3D; abs(wantNumIndex - idx)        t2 &#x3D; len(nums) - t1        cnt +&#x3D; min(t1, t2)        idx &#x3D; wantNumIndex        del nums[wantNumIndex]    print(cnt)\n해결현재 인덱스에서 찾길 원하는 숫자의 인덱스까지의 길이를 구하는 방법은 아래와 같이 왼쪽, 오른쪽으로 두가지가 있다.\n\n절대값(찾길원하는 숫자 인덱스 - 현재 인덱스), \n리스트 총길이 - 1번 \n\nwhile문 사용없이 원하는 숫자를 구하는 만큼만 반복해주면된다.\ncollections.deque.rotate를 통해서도 같은 방법으로 해결할수있다.위 두가지 방법을 이용해서 그만큼 rotate를 돌아주고 cnt에 더해주면된다.\n","dateCreated":"2020-12-24T22:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-12-24T22:00:00+09:00","description":"","headline":"[백준][python]1021 회전하는 큐","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/","keywords":"Python, Queue"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제1021 회전하는 큐  \n코드123456789101112131415161718if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    f &#x3D; lambda : map(int, input().split())    n,m &#x3D; f()    nums &#x3D; [*range(1, n+1)]    idx &#x3D; 0    cnt &#x3D; 0    for _ in f():        wantNumIndex &#x3D; nums.index(_)        t1 &#x3D; abs(wantNumIndex - idx)        t2 &#x3D; len(nums) - t1        cnt +&#x3D; min(t1, t2)        idx &#x3D; wantNumIndex        del nums[wantNumIndex]    print(cnt)\n해결현재 인덱스에서 찾길 원하는 숫자의 인덱스까지의 길이를 구하는 방법은 아래와 같이 왼쪽, 오른쪽으로 두가지가 있다.\n\n절대값(찾길원하는 숫자 인덱스 - 현재 인덱스), \n리스트 총길이 - 1번 \n\nwhile문 사용없이 원하는 숫자를 구하는 만큼만 반복해주면된다.\ncollections.deque.rotate를 통해서도 같은 방법으로 해결할수있다.위 두가지 방법을 이용해서 그만큼 rotate를 돌아주고 cnt에 더해주면된다.\n","dateCreated":"2020-12-24T22:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-12-24T22:00:00+09:00","description":"","headline":"[백준][python]1021 회전하는 큐","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/","keywords":"Python, Queue"}</script>
     <meta name="description" content="문제1021 회전하는 큐   코드123456789101112131415161718if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    f &#x3D; lambda : map(int, input().split())    n,m &#x3D; f()    nums &#x3D; [*range(1, n+1)]    idx &amp;#x3">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python]1021 회전하는 큐">
-<meta property="og:url" content="http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/index.html">
+<meta property="og:url" content="http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="문제1021 회전하는 큐   코드123456789101112131415161718if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    f &#x3D; lambda : map(int, input().split())    n,m &#x3D; f()    nums &#x3D; [*range(1, n+1)]    idx &amp;#x3">
 <meta property="og:locale" content="ko_KR">
@@ -233,7 +233,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/" data-tooltip="[백준][python]5430 AC" aria-label="이전: [백준][python]5430 AC">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/25/baekjoon/2020/12December/2020-12-25-5430%20AC/" data-tooltip="[백준][python]5430 AC" aria-label="이전: [백준][python]5430 AC">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -242,7 +242,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" data-tooltip="[백준][python] 10866 덱" aria-label="다음: [백준][python] 10866 덱">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" data-tooltip="[백준][python] 10866 덱" aria-label="다음: [백준][python] 10866 덱">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -260,7 +260,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -268,7 +268,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -276,7 +276,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -329,7 +329,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/" data-tooltip="[백준][python]5430 AC" aria-label="이전: [백준][python]5430 AC">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/25/baekjoon/2020/12December/2020-12-25-5430%20AC/" data-tooltip="[백준][python]5430 AC" aria-label="이전: [백준][python]5430 AC">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -338,7 +338,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" data-tooltip="[백준][python] 10866 덱" aria-label="다음: [백준][python] 10866 덱">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" data-tooltip="[백준][python] 10866 덱" aria-label="다음: [백준][python] 10866 덱">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -356,7 +356,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -364,7 +364,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -372,7 +372,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -406,7 +406,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -414,7 +414,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -422,7 +422,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -478,9 +478,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/';
+            this.page.url = 'http://example.com/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/';
               
-            this.page.identifier = '2020/12/24/Baekjoon/2020/12December/2020-12-24-1021 회전하는 큐/';
+            this.page.identifier = '2020/12/24/baekjoon/2020/12December/2020-12-24-1021 회전하는 큐/';
               
           };
           (function() {

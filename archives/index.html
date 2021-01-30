@@ -172,7 +172,187 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2021/01/06/Baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/" aria-label=": [백준][python] 11444 피보나치 수">
+                        <a class="link-unstyled" href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" aria-label=": flutter 시작하기">
+                            flutter 시작하기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-30T18:50:00+09:00">
+	
+		    2021/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter/">flutter</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <ul>
+<li>윈도우10에서 진행한다.</li>
+</ul>
+<h1 id="1-Flutter"><a href="#1-Flutter" class="headerlink" title="1. Flutter?"></a>1. Flutter?</h1><p>Flutter(플러터)는 하나의 코드베이스로 모바일, 웹, 데스크톱에서 네이티브로 컴파일 되는 구글의 아름다운 UI 툴킷이다. - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://flutter-ko.dev/">flutter</a></p>
+<p><img src="https://user-images.githubusercontent.com/20227720/106172532-439a1880-61d6-11eb-9b3e-5860dd5102ec.PNG" alt="a">  </p>
+<h1 id="2-SDK-설치와-환경변수-설정하기"><a href="#2-SDK-설치와-환경변수-설정하기" class="headerlink" title="2. SDK 설치와 환경변수 설정하기"></a>2. SDK 설치와 환경변수 설정하기</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://flutter-ko.dev/docs/get-started/install/windows#flutter-sdk-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C">sdk 설치</a>에서 flutter sdk의 최신 릴리즈를 다운 후, 압축을 푼다.<br>압축을 풀면 flutter라는 폴더가 나오고, flutter/bin안에 flutter.bat이란 파일이 있는데, 이 파일의 폴더 주소를 환경변수 설정해주어야한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2-1. 먼저 flutter.bat파일을 우클릭, 속성 누른 후 위치의 주소를 복사</span><br><span class="line">2-2. 그 뒤 윈도우키를 누르고, 시스템 환경 변수 편집을 실행</span><br><span class="line">2-3. 환경변수를 누르고, 위 아래 중 아래의 시스템 변수에서 휠로 내림면 변수위치에 Path가 있음</span><br><span class="line">2-4. Path를 클릭 후, 편집, 새로만들기한 후 아까 복사한 주소를 붙여넣기 후 확인</span><br><span class="line">2-5. 또 확인하면 환경변수 설정 완료</span><br></pre></td></tr></table></figure>
+<h1 id="3-확인"><a href="#3-확인" class="headerlink" title="3. 확인"></a>3. 확인</h1><p>파워쉘을 키고 flutter 치면 다운로드나 설치 후 아래와 같이 뜬다<br><img src="https://user-images.githubusercontent.com/20227720/106283606-7d762800-6285-11eb-8e8e-a88ee9b656b2.PNG" alt="asdf"></p>
+<h1 id="4-android-studio-설치"><a href="#4-android-studio-설치" class="headerlink" title="4. android studio 설치"></a>4. android studio 설치</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[android studio](https:&#x2F;&#x2F;developer.android.com&#x2F;studio)를 에서 설치파일을 다운 후 실행한다</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257037-67557100-625f-11eb-830b-1944ce835785.PNG" alt="1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257039-67557100-625f-11eb-823f-f0c8ea3121b1.PNG" alt="2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257042-67ee0780-625f-11eb-83d4-ba2db373fdcb.PNG" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257044-67ee0780-625f-11eb-8410-99574f95bb1d.PNG" alt="4"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257045-68869e00-625f-11eb-8f64-e2addd41450e.PNG" alt="5"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Finish</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257050-68869e00-625f-11eb-9685-1bcd3df97e29.PNG" alt="6"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OK</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257052-691f3480-625f-11eb-8e28-55ecb514fd53.PNG" alt="7"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">개인선택) Don&#39;t send</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257054-69b7cb00-625f-11eb-8984-bcf6aedf69b6.PNG" alt="8"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257056-69b7cb00-625f-11eb-9b3c-4e30379273df.PNG" alt="9"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257058-6a506180-625f-11eb-8f58-5baac1aecc10.PNG" alt="10"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Next</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257061-6a506180-625f-11eb-8720-849936ef7dc6.PNG" alt="11"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Finish</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257062-6ae8f800-625f-11eb-8131-cdd116e43365.PNG" alt="12"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Finish</span><br></pre></td></tr></table></figure>
+<h1 id="4-1-android-studio-AVD-설정"><a href="#4-1-android-studio-AVD-설정" class="headerlink" title="4-1. android studio AVD 설정"></a>4-1. android studio AVD 설정</h1><p><img src="https://user-images.githubusercontent.com/20227720/106257615-2316a080-6260-11eb-8ecb-a7df6e8d14b3.PNG" alt="123"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configure - AVG Manager</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257064-6b818e80-625f-11eb-845a-12bb32f01ac0.PNG" alt="13"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create Vitual Device</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257031-658bad80-625f-11eb-9423-64f0fdc06a67.PNG" alt="14"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">개인선택) Pixel 2</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257035-66bcda80-625f-11eb-9b55-1bd60c1df249.PNG" alt="15"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">개인선택) Q</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257732-49d4d700-6260-11eb-8db9-551d2febd9fc.PNG" alt="2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Finish</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106257736-4a6d6d80-6260-11eb-95c5-8ccf04778b5a.PNG" alt="1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">설치된거 선택 후 Finish</span><br></pre></td></tr></table></figure>
+<h1 id="4-2-android-studio-Plugin-설정"><a href="#4-2-android-studio-Plugin-설정" class="headerlink" title="4-2. android studio Plugin 설정"></a>4-2. android studio Plugin 설정</h1><p><img src="https://user-images.githubusercontent.com/20227720/106257615-2316a080-6260-11eb-8ecb-a7df6e8d14b3.PNG" alt="123"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Configure - Plugins</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106259171-33c81600-6262-11eb-886f-a3aa139a5034.PNG" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dart install</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106259173-3460ac80-6262-11eb-89b0-c43ebc60f74a.PNG" alt="4"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flutter install</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106259164-332f7f80-6262-11eb-8343-f2db045644ab.PNG" alt="5"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Restart IDE로 Android Studio 재시작</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106259508-b18c2180-6262-11eb-85db-63f4775502f5.PNG" alt="1"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flutter Project 생성하기가 생김</span><br></pre></td></tr></table></figure>
+<h1 id="5-Visual-Studio-Code-설치"><a href="#5-Visual-Studio-Code-설치" class="headerlink" title="5. Visual Studio Code 설치"></a>5. Visual Studio Code 설치</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Visual Studio Code](https:&#x2F;&#x2F;code.visualstudio.com&#x2F;download)  </span><br><span class="line">기본설정으로 그대로 진행</span><br></pre></td></tr></table></figure>
+<h1 id="5-1-Extensions-설치"><a href="#5-1-Extensions-설치" class="headerlink" title="5-1. Extensions 설치"></a>5-1. Extensions 설치</h1><p><img src="https://user-images.githubusercontent.com/20227720/106272641-b35ee080-6274-11eb-9458-f9ce551c1b66.PNG" alt="2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flutter install</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106272646-b35ee080-6274-11eb-9ece-ffcc49ee20e4.PNG" alt="3"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dart install</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106272647-b3f77700-6274-11eb-97e3-31c14b241910.PNG" alt="4"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">개인선택) Material Icon Theme</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106272649-b3f77700-6274-11eb-811e-c06fe85ad57b.PNG" alt="5"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">상당히 이뻐짐</span><br></pre></td></tr></table></figure>
+<h1 id="6-flutter-doctor-로-개발환경-확인"><a href="#6-flutter-doctor-로-개발환경-확인" class="headerlink" title="6. flutter doctor 로 개발환경 확인"></a>6. flutter doctor 로 개발환경 확인</h1><p><img src="https://user-images.githubusercontent.com/20227720/106283790-b44c3e00-6285-11eb-9bc0-12dd52d0671b.PNG" alt="adsrfasdfasf"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">파워쉘에서 flutter doctor 입력</span><br><span class="line">현재 개발환경 상황을 알림</span><br><span class="line"></span><br><span class="line">문제</span><br><span class="line">1. 안드로이드 스튜디오 라이센스가 없음 </span><br><span class="line">2. 안드로이드 스튜디오 내에 다트, 플루터 플러그인이 없으므로, 설정해주어야함</span><br><span class="line">3. 연결된 기기는 가상 장치를 이용할것이므로 무관</span><br></pre></td></tr></table></figure>
+<h1 id="6-1-flutter-doctor-–android-licenses-명령어로-해결"><a href="#6-1-flutter-doctor-–android-licenses-명령어로-해결" class="headerlink" title="6-1. flutter doctor –android-licenses 명령어로 해결"></a>6-1. flutter doctor –android-licenses 명령어로 해결</h1><p>![asd](<a target="_blank" rel="external nofollow noopener noreferrer" href="https://user-images.githubusercontent.com/20227720/106287531-3e96a100-628a">https://user-images.githubusercontent.com/20227720/106287531-3e96a100-628a</a><br>-11eb-9c4c-4400f7e8ffd0.PNG)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">계속해서 y&#x2F;N을 묻는데 계속 y를 해주면된다.</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106287682-70a80300-628a-11eb-91b1-d7dcb195e513.PNG" alt="asdfasdf"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">해결됨</span><br></pre></td></tr></table></figure>
+<h1 id="6-2-android-studio-4-1과-flutter-1-22-간의-오류"><a href="#6-2-android-studio-4-1과-flutter-1-22-간의-오류" class="headerlink" title="6-2. android studio 4.1과 flutter 1.22 간의 오류"></a>6-2. android studio 4.1과 flutter 1.22 간의 오류</h1><p><img src="https://user-images.githubusercontent.com/20227720/106289581-c4b3e700-628c-11eb-900f-c3eff12d5420.PNG" alt="asdfasdf"><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/64395106/update-to-android-studio-4-1-flutter-plugin-and-dart-plugin-not-installed">참고</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Flutter를 1.22 안정버전으로 바꾼후</span><br><span class="line">Flutter를 재설치</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106345239-1b074100-62f2-11eb-96df-514e74135686.PNG" alt="asdfasdf"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">해결됨</span><br></pre></td></tr></table></figure>
+<h1 id="7-vscode에서-flutter-시작하기"><a href="#7-vscode에서-flutter-시작하기" class="headerlink" title="7. vscode에서 flutter 시작하기"></a>7. vscode에서 flutter 시작하기</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vscode 실행 - ctrl + shift + p - Flutter: New Application Project - 프로젝트 생성할 파일 설정 - 프로젝트 이름 설정</span><br><span class="line"></span><br><span class="line">lib - main.dart - F5 - 에뮬레이터 선택</span><br></pre></td></tr></table></figure>
+<h1 id="8-android-studio에서-flutter-시작하기"><a href="#8-android-studio에서-flutter-시작하기" class="headerlink" title="8. android studio에서 flutter 시작하기"></a>8. android studio에서 flutter 시작하기</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android studio 실행 - create new flutter project - flutter application - 프로젝트 이름, 위치, 설명 설정 - Flutter SDK path를 이전에 다운받은 flutter 폴더로 설정 - next - finish</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106353536-b1595800-632e-11eb-8503-8d52a82f30ca.PNG" alt="asdf"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">사진에서 맨왼쪽부분에서 에뮬레이터 설정후 초록색 화살표로 main.dart실행</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label=": flutter 오류 모음">
+                            flutter 오류 모음
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-28T18:50:00+09:00">
+	
+		    2021/01/28
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter/">flutter</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager"><a href="#1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager" class="headerlink" title="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager"></a>1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager</h1><pre><code>sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.
+
+Android Studio - Tools - sdk manager - android SDK - SDK Tools - Show Package Details(check) - 29.0.2 버전(uncheck) - Apply - 29.0.2 버전(check) - Apply
+
+vscode는 재접후 앱 실행하면 정상적으로 작동함</code></pre>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/01/06/baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/" aria-label=": [백준][python] 11444 피보나치 수">
                             [백준][python] 11444 피보나치 수
                         </a>
                     
@@ -206,7 +386,7 @@
                     
                     
                         <p>
-                            <a href="/2021/01/06/Baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2021/01/06/baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -326,7 +506,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label=": [백준][python] 10830 행렬 제곱">
+                        <a class="link-unstyled" href="/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label=": [백준][python] 10830 행렬 제곱">
                             [백준][python] 10830 행렬 제곱
                         </a>
                     
@@ -361,7 +541,7 @@
                     
                     
                         <p>
-                            <a href="/2021/01/02/Baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -379,7 +559,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" aria-label=": [백준][python] 2740 행렬 곱셈">
+                        <a class="link-unstyled" href="/2020/12/30/baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/" aria-label=": [백준][python] 2740 행렬 곱셈">
                             [백준][python] 2740 행렬 곱셈
                         </a>
                     
@@ -411,7 +591,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/30/baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -429,7 +609,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/" aria-label=": [백준][python] 1629 곱셈">
+                        <a class="link-unstyled" href="/2020/12/30/baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/" aria-label=": [백준][python] 1629 곱셈">
                             [백준][python] 1629 곱셈
                         </a>
                     
@@ -467,7 +647,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/30/Baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/30/baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -485,7 +665,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label=": [백준][python] 1780 종이의 개수">
+                        <a class="link-unstyled" href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label=": [백준][python] 1780 종이의 개수">
                             [백준][python] 1780 종이의 개수
                         </a>
                     
@@ -517,7 +697,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -535,7 +715,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label=": [백준][python] 1992 쿼드트리">
+                        <a class="link-unstyled" href="/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label=": [백준][python] 1992 쿼드트리">
                             [백준][python] 1992 쿼드트리
                         </a>
                     
@@ -569,114 +749,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label=": [백준][python] 2630 색종이 만들기">
-                            [백준][python] 2630 색종이 만들기
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-12-26T23:25:00+09:00">
-	
-		    2020/12/26
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2630">2630 색종이 만들기</a><br><img src="https://user-images.githubusercontent.com/20227720/103153188-1bcc2500-47d2-11eb-8de1-f0b7888c7667.PNG" alt="캡처">  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def paperSum(x, y):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            sum +&#x3D; paper[i][j]</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">def paperChecker(x, y, p):</span><br><span class="line">    global zero, one</span><br><span class="line">    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])</span><br><span class="line">    pS &#x3D; paperSum(x,y)</span><br><span class="line">    if  pS &#x3D;&#x3D; value:</span><br><span class="line">        one +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 0:</span><br><span class="line">        zero +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif paperSum(x,y) !&#x3D; value:</span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    paper &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): paper[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;).rsplit()))</span><br><span class="line">    paperChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    print(zero)</span><br><span class="line">    print(one)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>사분면의 좌표를 설정해 재귀로 들어가 분면의 총 합이 좌표만큼인지 아니면 0인지 판별한다.</p>
-<p>사분면 설정하는 부분에서 기준을 준다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/" aria-label=": [백준][python]5430 AC">
-                            [백준][python]5430 AC
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-12-25T23:00:00+09:00">
-	
-		    2020/12/25
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/5430">5430 AC</a><br><img src="https://user-images.githubusercontent.com/20227720/103136673-b3177680-4705-11eb-9b2c-a574278ea6a6.PNG" alt="캡처">  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    t &#x3D; int(sys.stdin.readline())</span><br><span class="line"></span><br><span class="line">    for i in range(t):</span><br><span class="line">        f &#x3D; list(sys.stdin.readline())</span><br><span class="line">        l &#x3D; int(sys.stdin.readline())</span><br><span class="line">        nums &#x3D; collections.deque(sys.stdin.readline().rstrip(&#39;\n&#39;).strip(&#39;[]&#39;).split(&#39;,&#39;))</span><br><span class="line">        result &#x3D; 0</span><br><span class="line">        ReverseStack &#x3D; 0</span><br><span class="line"></span><br><span class="line">        for j in f:</span><br><span class="line">            if j &#x3D;&#x3D; &#39;R&#39;:</span><br><span class="line">                ReverseStack +&#x3D; 1</span><br><span class="line">            elif j &#x3D;&#x3D; &#39;D&#39;:</span><br><span class="line">                if l &gt; 0:</span><br><span class="line">                    if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">                        nums.pop()</span><br><span class="line">                    elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">                        nums.popleft()</span><br><span class="line">                    l -&#x3D; 1</span><br><span class="line">                else:</span><br><span class="line">                    result &#x3D; &#39;error&#39;</span><br><span class="line">                    break</span><br><span class="line"></span><br><span class="line">        if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">            nums.reverse()</span><br><span class="line">        elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            ...</span><br><span class="line"></span><br><span class="line">        if result &#x3D;&#x3D; &#39;error&#39;:</span><br><span class="line">            print(result)</span><br><span class="line">        else:</span><br><span class="line">            print(&#39;[&#39;,end&#x3D;&#39;&#39;)</span><br><span class="line">            for k in range(len(nums)):</span><br><span class="line">                if k &#x3D;&#x3D; len(nums) - 1:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;&#39;)</span><br><span class="line">                else:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;,&#39;)</span><br><span class="line">            print(&#39;]&#39;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>이 문제 해결은 시간초과를 안나게 하면된다.</p>
-<p>카운트한 R의 개수가 짝수인지 홀수인지 확인하고, 짝수면 맨 왼쪽, 홀수면 맨 오른쪽 원소를 빼주고, 마지막 출력하기전에 nums를 reverse할지말지를 결정한다.</p>
-<p>그 외에 파이썬에서 문자열 다루는 부분을 신경써주면된다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/12/25/Baekjoon/2020/12December/2020-12-25-5430%20AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -698,7 +771,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 1 of 15</li>
+        <li class="pagination-number">page 1 of 16</li>
     </ul>
 </div>
 

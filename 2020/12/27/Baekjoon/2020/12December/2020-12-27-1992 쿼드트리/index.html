@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제1992 쿼드트리  \n코드12345678910111213141516171819202122232425262728293031323334353637383940414243import sysdef treeSum(x, y):    sum &#x3D; 0    for i in range(y[0], y[1]):        for j in range(x[0], x[1]):            sum +&#x3D; tree[i][j]    return sumdef treeChecker(x, y, p):    global result    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])    pS &#x3D; treeSum(x,y)    if  pS &#x3D;&#x3D; value:        result.append(&#39;1&#39;)        return    elif pS &#x3D;&#x3D; 0:        result.append(&#39;0&#39;)        return    elif treeSum(x,y) !&#x3D; value:        result.append(&#39;(&#39;)        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)        result.append(&#39;)&#39;)if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    result &#x3D; list()    n &#x3D; int(sys.stdin.readline())    tree &#x3D; [[] for j in range(n)]    for _ in range(n): tree[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\\n&#39;)))    treeChecker([0,n], [0,n], n)    for _ in result:        print(_, end&#x3D;&#39;&#39;)\n해결2630 색종이 만들기 해결에서 재귀를 돌기전과 후에 소괄호 하나씩 넣고, 네모안이 전부1인지 아닌지 확인하는 부분에서 소괄호 넣어주는 것으로 수정해주면 된다.\n","dateCreated":"2020-12-27T19:40:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-12-27T19:40:00+09:00","description":"","headline":"[백준][python] 1992 쿼드트리","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/","keywords":"Python, Divide and Conquer"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"문제1992 쿼드트리  \n코드12345678910111213141516171819202122232425262728293031323334353637383940414243import sysdef treeSum(x, y):    sum &#x3D; 0    for i in range(y[0], y[1]):        for j in range(x[0], x[1]):            sum +&#x3D; tree[i][j]    return sumdef treeChecker(x, y, p):    global result    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])    pS &#x3D; treeSum(x,y)    if  pS &#x3D;&#x3D; value:        result.append(&#39;1&#39;)        return    elif pS &#x3D;&#x3D; 0:        result.append(&#39;0&#39;)        return    elif treeSum(x,y) !&#x3D; value:        result.append(&#39;(&#39;)        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)        result.append(&#39;)&#39;)if __name__ &#x3D;&#x3D; &quot;__main__&quot;:    result &#x3D; list()    n &#x3D; int(sys.stdin.readline())    tree &#x3D; [[] for j in range(n)]    for _ in range(n): tree[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\\n&#39;)))    treeChecker([0,n], [0,n], n)    for _ in result:        print(_, end&#x3D;&#39;&#39;)\n해결2630 색종이 만들기 해결에서 재귀를 돌기전과 후에 소괄호 하나씩 넣고, 네모안이 전부1인지 아닌지 확인하는 부분에서 소괄호 넣어주는 것으로 수정해주면 된다.\n","dateCreated":"2020-12-27T19:40:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-12-27T19:40:00+09:00","description":"","headline":"[백준][python] 1992 쿼드트리","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/","keywords":"Python, Divide and Conquer"}</script>
     <meta name="description" content="문제1992 쿼드트리   코드12345678910111213141516171819202122232425262728293031323334353637383940414243import sysdef treeSum(x, y):    sum &#x3D; 0    for i in range(y[0], y[1]):        for j in range(x[0], x[1">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 1992 쿼드트리">
-<meta property="og:url" content="http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/index.html">
+<meta property="og:url" content="http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="문제1992 쿼드트리   코드12345678910111213141516171819202122232425262728293031323334353637383940414243import sysdef treeSum(x, y):    sum &#x3D; 0    for i in range(y[0], y[1]):        for j in range(x[0], x[1">
 <meta property="og:locale" content="ko_KR">
@@ -227,7 +227,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" data-tooltip="[백준][python] 1780 종이의 개수" aria-label="이전: [백준][python] 1780 종이의 개수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" data-tooltip="[백준][python] 1780 종이의 개수" aria-label="이전: [백준][python] 1780 종이의 개수">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -236,7 +236,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" data-tooltip="[백준][python] 2630 색종이 만들기" aria-label="다음: [백준][python] 2630 색종이 만들기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/26/baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" data-tooltip="[백준][python] 2630 색종이 만들기" aria-label="다음: [백준][python] 2630 색종이 만들기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -254,7 +254,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -262,7 +262,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -270,7 +270,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -323,7 +323,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/28/Baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" data-tooltip="[백준][python] 1780 종이의 개수" aria-label="이전: [백준][python] 1780 종이의 개수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" data-tooltip="[백준][python] 1780 종이의 개수" aria-label="이전: [백준][python] 1780 종이의 개수">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -332,7 +332,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/26/Baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" data-tooltip="[백준][python] 2630 색종이 만들기" aria-label="다음: [백준][python] 2630 색종이 만들기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/12/26/baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" data-tooltip="[백준][python] 2630 색종이 만들기" aria-label="다음: [백준][python] 2630 색종이 만들기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -350,7 +350,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -358,7 +358,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -366,7 +366,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -400,7 +400,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -408,7 +408,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -416,7 +416,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -472,9 +472,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/12/27/Baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/';
+            this.page.url = 'http://example.com/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/';
               
-            this.page.identifier = '2020/12/27/Baekjoon/2020/12December/2020-12-27-1992 쿼드트리/';
+            this.page.identifier = '2020/12/27/baekjoon/2020/12December/2020-12-27-1992 쿼드트리/';
               
           };
           (function() {

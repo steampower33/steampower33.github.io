@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인케빈 베이컨의 6단계 법칙\n2. 코드 및 설명플로이드 와샬의 법칙을 이용해서, 해결.참고 1참고 2\n12345678910111213141516171819202122232425262728# 입력.n, m = map(int, input().split())# 테이블.map_ = [[n for _ in range(n)] for _ in range(n)]# 테이블에 양방향으로 연결.for _ in range(m):    a, b = map(int, input().split())    map_[a-1][b-1] = 1    map_[b-1][a-1] = 1#플로이드-워셜 알고리즘for k in range(n):    for i in range(n):        for j in range(n):            # 대각선, 자기 자신끼리는 가중치 0            if i == j:                map_[i][j] = 0             else:            # 최소값을 적용.                map_[i][j] = min(map_[i][j], map_[i][k] + map_[k][j])#출력bacon = []for row in map_:    bacon.append(sum(row))print(bacon.index(min(bacon)) + 1)","dateCreated":"2020-01-17T23:47:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-17T23:47:00+09:00","description":"","headline":"[백준][python] 1389 케빈 베이컨의 6단계 법칙","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/","keywords":"Algorithm, Python, Solve, 1DAB, BFS&DFS"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인케빈 베이컨의 6단계 법칙\n2. 코드 및 설명플로이드 와샬의 법칙을 이용해서, 해결.참고 1참고 2\n12345678910111213141516171819202122232425262728# 입력.n, m = map(int, input().split())# 테이블.map_ = [[n for _ in range(n)] for _ in range(n)]# 테이블에 양방향으로 연결.for _ in range(m):    a, b = map(int, input().split())    map_[a-1][b-1] = 1    map_[b-1][a-1] = 1#플로이드-워셜 알고리즘for k in range(n):    for i in range(n):        for j in range(n):            # 대각선, 자기 자신끼리는 가중치 0            if i == j:                map_[i][j] = 0             else:            # 최소값을 적용.                map_[i][j] = min(map_[i][j], map_[i][k] + map_[k][j])#출력bacon = []for row in map_:    bacon.append(sum(row))print(bacon.index(min(bacon)) + 1)","dateCreated":"2020-01-17T23:47:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-17T23:47:00+09:00","description":"","headline":"[백준][python] 1389 케빈 베이컨의 6단계 법칙","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/","keywords":"Algorithm, Python, Solve, 1DAB, BFS&DFS"}</script>
     <meta name="description" content="1. 확인케빈 베이컨의 6단계 법칙 2. 코드 및 설명플로이드 와샬의 법칙을 이용해서, 해결.참고 1참고 2 12345678910111213141516171819202122232425262728# 입력.n, m &#x3D; map(int, input().split())# 테이블.map_ &#x3D; [[n for _ in range(n)] for _ in range(n)]#">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 1389 케빈 베이컨의 6단계 법칙">
-<meta property="og:url" content="http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/index.html">
+<meta property="og:url" content="http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 확인케빈 베이컨의 6단계 법칙 2. 코드 및 설명플로이드 와샬의 법칙을 이용해서, 해결.참고 1참고 2 12345678910111213141516171819202122232425262728# 입력.n, m &#x3D; map(int, input().split())# 테이블.map_ &#x3D; [[n for _ in range(n)] for _ in range(n)]#">
 <meta property="og:locale" content="ko_KR">
@@ -229,7 +229,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/18/Baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" data-tooltip="[백준][python] 1867 돌멩이 제거" aria-label="이전: [백준][python] 1867 돌멩이 제거">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/18/baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" data-tooltip="[백준][python] 1867 돌멩이 제거" aria-label="이전: [백준][python] 1867 돌멩이 제거">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -238,7 +238,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/Mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 4일차 결과" aria-label="다음: [모각코] 4일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 4일차 결과" aria-label="다음: [모각코] 4일차 결과">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -256,7 +256,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -264,7 +264,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -272,7 +272,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -325,7 +325,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/18/Baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" data-tooltip="[백준][python] 1867 돌멩이 제거" aria-label="이전: [백준][python] 1867 돌멩이 제거">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/18/baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" data-tooltip="[백준][python] 1867 돌멩이 제거" aria-label="이전: [백준][python] 1867 돌멩이 제거">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -334,7 +334,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/Mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 4일차 결과" aria-label="다음: [모각코] 4일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 4일차 결과" aria-label="다음: [모각코] 4일차 결과">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -352,7 +352,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -360,7 +360,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -368,7 +368,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -402,7 +402,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -410,7 +410,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -418,7 +418,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -474,9 +474,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/01/17/Baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/';
+            this.page.url = 'http://example.com/2020/01/17/baekjoon/2020/1January/2020-01-17-[%EB%B0%B1%EC%A4%80]%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/';
               
-            this.page.identifier = '2020/01/17/Baekjoon/2020/1January/2020-01-17-[백준] 1389 케빈 베이컨의 6단계 법칙/';
+            this.page.identifier = '2020/01/17/baekjoon/2020/1January/2020-01-17-[백준] 1389 케빈 베이컨의 6단계 법칙/';
               
           };
           (function() {

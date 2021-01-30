@@ -165,13 +165,120 @@
                 <section class="postShorten-group main-content-wrap">
     
     
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" aria-label=": [백준][python] 7568 덩치">
+                            [백준][python] 7568 덩치
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-11-06T15:10:00+09:00">
+	
+		    2020/11/06
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/7568">덩치</a><br><img width="944" alt="스크린샷 2020-11-06 오후 3 22 34" src="https://user-images.githubusercontent.com/20227720/98333425-10ffda00-2044-11eb-8f19-f95ce5215b5d.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    people = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        w, h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        people.append((w,h))</span><br><span class="line"></span><br><span class="line">    grade = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people))]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">            <span class="keyword">if</span> i == j: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> people[i][<span class="number">0</span>] &lt; people[j][<span class="number">0</span>] <span class="keyword">and</span> people[i][<span class="number">1</span>] &lt; people[j][<span class="number">1</span>]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        grade[i] = count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> grade:</span><br><span class="line">        print(i, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/" aria-label=": [백준][python] 2231 분해합">
+                            [백준][python] 2231 분해합
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-11-04T19:30:00+09:00">
+	
+		    2020/11/04
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2231">분해합</a><br><img width="947" alt="스크린샷 2020-11-04 오후 7 47 54" src="https://user-images.githubusercontent.com/20227720/98102170-a4b39800-1ed6-11eb-8437-5f0d4425224a.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    Constructor = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">        nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">list</span>(<span class="built_in">str</span>(i))))</span><br><span class="line">        Decomposition = i + <span class="built_in">sum</span>(nums)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> Decomposition == N:</span><br><span class="line">            Constructor = i</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> Constructor == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(Constructor)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
     <article class="postShorten postShorten--thumbnailimg-right">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" aria-label=": [백준][python] 3053 택시 기하학">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" aria-label=": [백준][python] 3053 택시 기하학">
                             [백준][python] 3053 택시 기하학
                         </a>
                     
@@ -196,7 +303,7 @@
                 <div class="postShorten-excerpt">
                     [백준][python] 3053 택시 기하학
                     
-                        <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" class="postShorten-excerpt_link link" aria-label=": [백준][python] 3053 택시 기하학">
+                        <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203053%20%ED%83%9D%EC%8B%9C%20%EA%B8%B0%ED%95%98%ED%95%99/" class="postShorten-excerpt_link link" aria-label=": [백준][python] 3053 택시 기하학">
                             계속 읽기
                         </a>
                         
@@ -214,7 +321,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/" aria-label=": [백준][python] 4153 직각삼각형">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/" aria-label=": [백준][python] 4153 직각삼각형">
                             [백준][python] 4153 직각삼각형
                         </a>
                     
@@ -249,7 +356,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -267,7 +374,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/" aria-label=": [백준][python] 3009 네 번째 점">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/" aria-label=": [백준][python] 3009 네 번째 점">
                             [백준][python] 3009 네 번째 점
                         </a>
                     
@@ -302,7 +409,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -320,7 +427,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/" aria-label=": [백준][python] 1085 직사각형에서 탈출">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/" aria-label=": [백준][python] 1085 직사각형에서 탈출">
                             [백준][python] 1085 직사각형에서 탈출
                         </a>
                     
@@ -356,7 +463,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -374,7 +481,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/" aria-label=": [백준][python] 9020 골드바흐의 추측">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/" aria-label=": [백준][python] 9020 골드바흐의 추측">
                             [백준][python] 9020 골드바흐의 추측
                         </a>
                     
@@ -410,7 +517,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -428,7 +535,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/" aria-label=": [백준][python] 1002 터렛">
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/" aria-label=": [백준][python] 1002 터렛">
                             [백준][python] 1002 터렛
                         </a>
                     
@@ -464,7 +571,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -482,7 +589,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/03/Baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/" aria-label=": [백준][python] 2941 크로아티아 알파벳">
+                        <a class="link-unstyled" href="/2020/11/03/baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/" aria-label=": [백준][python] 2941 크로아티아 알파벳">
                             [백준][python] 2941 크로아티아 알파벳
                         </a>
                     
@@ -518,7 +625,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/03/Baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/03/baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -536,7 +643,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/04/13/Baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/" aria-label=": [백준][python] 2583 영역 구하기">
+                        <a class="link-unstyled" href="/2020/04/13/baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/" aria-label=": [백준][python] 2583 영역 구하기">
                             [백준][python] 2583 영역 구하기
                         </a>
                     
@@ -576,134 +683,7 @@
                     
                     
                         <p>
-                            <a href="/2020/04/13/Baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/04/10/Baekjoon/2020/4April/2020-04-10-%5B%EB%B0%B1%EC%A4%80%5D%2012761%20%EB%8F%8C%EB%8B%A4%EB%A6%AC/" aria-label=": [백준][python] 12761 돌다리">
-                            [백준][python] 12761 돌다리
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-04-10T22:20:00+09:00">
-	
-		    2020/04/10
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/12761">돌다리</a><br><img width="942" alt="스크린샷 2020-04-10 오후 10 59 35" src="https://user-images.githubusercontent.com/20227720/78996168-fda89100-7b7e-11ea-94fb-a73790910765.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> A = <span class="number">0</span>, B = <span class="number">0</span>, N = <span class="number">0</span>, M = <span class="number">0</span>, visited[<span class="number">100001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(N);</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>( !q.empty() )&#123;</span><br><span class="line">        num = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (num == M) <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, visited[num]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="number">0</span> &lt;= num - <span class="number">1</span> &amp;&amp; !visited[num - <span class="number">1</span>])&#123;</span><br><span class="line">            visited[num - <span class="number">1</span>] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span> &lt;= num - A &amp;&amp; !visited[num - A])&#123;</span><br><span class="line">            visited[num - A] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num - A);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span> &lt;= num - B &amp;&amp; !visited[num - B])&#123;</span><br><span class="line">            visited[num - B] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num - B);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num + <span class="number">1</span> &lt;= <span class="number">100000</span> &amp;&amp; !visited[num + <span class="number">1</span>])&#123;</span><br><span class="line">            visited[num + <span class="number">1</span>] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num + A &lt;= <span class="number">100000</span> &amp;&amp; !visited[num + A])&#123;</span><br><span class="line">            visited[num + A] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num + A);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num + B &lt;= <span class="number">100000</span> &amp;&amp; !visited[num + B])&#123;</span><br><span class="line">            visited[num + B] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num + B);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num * A &lt;= <span class="number">100000</span> &amp;&amp; !visited[num * A])&#123;</span><br><span class="line">            visited[num * A] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num * A);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(num * B &lt;= <span class="number">100000</span> &amp;&amp; !visited[num * B])&#123;</span><br><span class="line">            visited[num * B] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num * B);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; A &gt;&gt; B &gt;&gt; N &gt;&gt; M;</span><br><span class="line">    bfs();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>():</span></span><br><span class="line"></span><br><span class="line">    q = deque()</span><br><span class="line"></span><br><span class="line">    q.append(N)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        num = q.popleft()</span><br><span class="line">        <span class="keyword">if</span> num == M:</span><br><span class="line">            print(visited[num])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= num - <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num - <span class="number">1</span>]:</span><br><span class="line">            visited[num - <span class="number">1</span>] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= num - A <span class="keyword">and</span> <span class="keyword">not</span> visited[num - A]:</span><br><span class="line">            visited[num - A] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num - A)</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= num - B <span class="keyword">and</span> <span class="keyword">not</span> visited[num - B]:</span><br><span class="line">            visited[num - B] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num - B)</span><br><span class="line">        <span class="keyword">if</span> num + <span class="number">1</span> &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num + <span class="number">1</span>]:</span><br><span class="line">            visited[num + <span class="number">1</span>] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> num + A &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num + A]:</span><br><span class="line">            visited[num + A] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num + A)</span><br><span class="line">        <span class="keyword">if</span> num + B &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num + B]:</span><br><span class="line">            visited[num + B] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num + B)</span><br><span class="line">        <span class="keyword">if</span> num * A &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num * A]:</span><br><span class="line">            visited[num * A] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num * A)</span><br><span class="line">        <span class="keyword">if</span> num * B &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num * B]:</span><br><span class="line">            visited[num * B] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num * B)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    A, B, N, M = <span class="built_in">map</span>(<span class="built_in">int</span> ,<span class="built_in">input</span>().split())</span><br><span class="line">    visited = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100001</span>)]</span><br><span class="line"></span><br><span class="line">    bfs()</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>모든 방법을 다 bfs에 넣으면 된다. +1 -1 +A - A +B -B *A *B</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/04/10/Baekjoon/2020/4April/2020-04-10-%5B%EB%B0%B1%EC%A4%80%5D%2012761%20%EB%8F%8C%EB%8B%A4%EB%A6%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/04/09/Baekjoon/2020/4April/2020-04-09-%5B%EB%B0%B1%EC%A4%80%5D%203184%20%EC%96%91/" aria-label=": [백준][python] 3184 양">
-                            [백준][python] 3184 양
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-04-09T22:20:00+09:00">
-	
-		    2020/04/09
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/3184">양</a><br><img src="https://user-images.githubusercontent.com/20227720/78900371-b99b8a80-7ab1-11ea-89ee-01c86b8d144e.png" alt="스크린샷 2020-04-09 오후 10 27 41"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 세로, 가로</span></span><br><span class="line"><span class="keyword">int</span> r = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> field[<span class="number">250</span>][<span class="number">250</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p;</span><br><span class="line"></span><br><span class="line"><span class="function">p <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;p&gt; way;</span><br><span class="line">    <span class="keyword">int</span> sheep = <span class="number">0</span>, wolf = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> start = field[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(field[i][j] == <span class="string">&#x27;o&#x27;</span>) sheep = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (field[i][j] == <span class="string">&#x27;v&#x27;</span>) wolf = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span> &#125;, dy[<span class="number">4</span>] = &#123; <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">    way.push(&#123;i,j&#125;);</span><br><span class="line">    field[i][j] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( !way.empty() ) &#123;</span><br><span class="line">        p y_x = way.front();</span><br><span class="line">        way.pop();</span><br><span class="line">        <span class="keyword">int</span> y = y_x.first, x = y_x.second;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> nx = x + dx[i]; <span class="comment">// 다음 가로</span></span><br><span class="line">            <span class="keyword">int</span> ny = y + dy[i]; <span class="comment">// 다음 세로</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 범위 안에</span></span><br><span class="line">            <span class="comment">// 0이 아니면</span></span><br><span class="line">            <span class="comment">// 익힐수있으므로 다음으로 넘어간다.</span></span><br><span class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= c || ny &lt; <span class="number">0</span> || ny &gt;= r) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(field[ny][nx] == <span class="string">&#x27;o&#x27;</span>)&#123;</span><br><span class="line">                sheep += <span class="number">1</span>;</span><br><span class="line">                way.push(&#123;ny,nx&#125;);</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>( field[ny][nx] == <span class="string">&#x27;v&#x27;</span>)&#123;</span><br><span class="line">                wolf += <span class="number">1</span>;</span><br><span class="line">                way.push(&#123;ny, nx&#125;);</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ( field[ny][nx] == <span class="string">&#x27;.&#x27;</span> )&#123;</span><br><span class="line">                way.push(&#123;ny, nx&#125;);</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    p rtn = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span>( sheep &gt; wolf )&#123;</span><br><span class="line">        rtn = &#123;<span class="number">1</span>, sheep&#125;;</span><br><span class="line">        <span class="keyword">return</span> rtn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        rtn = &#123;<span class="number">0</span>, wolf&#125;;</span><br><span class="line">        <span class="keyword">return</span> rtn;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; r &gt;&gt; c;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; c; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; field[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sheep_num = <span class="number">0</span>, wolf_num = <span class="number">0</span>, num = <span class="number">0</span>, sheep_or_wolf = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt; c; j++)&#123;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (field[i][j] == <span class="string">&#x27;o&#x27;</span> <span class="keyword">or</span> field[i][j] == <span class="string">&#x27;v&#x27;</span>)&#123;</span><br><span class="line">                p rtn = bfs(i, j);</span><br><span class="line">                sheep_or_wolf = rtn.first;</span><br><span class="line">                num = rtn.second;</span><br><span class="line">                <span class="keyword">if</span> (sheep_or_wolf == <span class="number">1</span>) sheep_num += num;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>( sheep_or_wolf == <span class="number">0</span>) wolf_num += num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, sheep_num, wolf_num);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">i, j</span>):</span></span><br><span class="line">    sheep = <span class="number">0</span></span><br><span class="line">    wolf = <span class="number">0</span></span><br><span class="line">    start = field[i][j]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> field[i][j] == <span class="string">&#x27;o&#x27;</span>: sheep = <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> field[i][j] == <span class="string">&#x27;v&#x27;</span>: wolf = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    way = deque()</span><br><span class="line">    way.append([i,j])</span><br><span class="line">    field[i][j] = <span class="string">&#x27;#&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> way:</span><br><span class="line">        y_x = way.popleft()</span><br><span class="line">        y = y_x[<span class="number">0</span>]</span><br><span class="line">        x = y_x[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            nx = x + dx[i]</span><br><span class="line">            ny = y + dy[i]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ny &lt; <span class="number">0</span> <span class="keyword">or</span> ny &gt;= r <span class="keyword">or</span> nx &lt; <span class="number">0</span> <span class="keyword">or</span> nx &gt;= c: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> field[ny][nx] == <span class="string">&#x27;o&#x27;</span>:</span><br><span class="line">                sheep += <span class="number">1</span></span><br><span class="line">                way.append([ny, nx])</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span></span><br><span class="line">            <span class="keyword">elif</span> field[ny][nx] == <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">                wolf += <span class="number">1</span></span><br><span class="line">                way.append([ny, nx])</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span></span><br><span class="line">            <span class="keyword">elif</span> field[ny][nx] == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">                way.append([ny, nx])</span><br><span class="line">                field[ny][nx] = <span class="string">&#x27;#&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> sheep &gt; wolf: <span class="keyword">return</span> <span class="number">1</span>, sheep</span><br><span class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">0</span>, wolf</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 세로, 가로</span></span><br><span class="line">    r,c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    field = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(c)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(r)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(r):</span><br><span class="line">        s = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)-<span class="number">1</span>):</span><br><span class="line">            field[i][j] = s[j]</span><br><span class="line"></span><br><span class="line">    sheep_num = <span class="number">0</span></span><br><span class="line">    wolf_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(r):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(c):</span><br><span class="line">            num = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> field[i][j] == <span class="string">&#x27;o&#x27;</span> <span class="keyword">or</span> field[i][j] == <span class="string">&#x27;v&#x27;</span>:</span><br><span class="line">                (sheep_or_wolf, num) = bfs(i,j)</span><br><span class="line">                <span class="keyword">if</span> sheep_or_wolf == <span class="number">1</span>: sheep_num += num</span><br><span class="line">                <span class="keyword">elif</span> sheep_or_wolf == <span class="number">0</span>: wolf_num += num</span><br><span class="line"></span><br><span class="line">    print(sheep_num, wolf_num)</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>일반적인 4방향으로 설정한 bfs로 해결하는 문제인데, 다른건 조건에서 좀 다르다.</li>
-<li>continue해줄 조건문을 걸어주고 그 밑에 통과한 부분이 실행할 구문을 설정해주는게 일반적인데, 이 문제는 조건을 3가지로 설정해줘야한다.</li>
-<li>or로 설정하게 되면, 모든 것을 다 하게 되는데, 결국 조건을 거나마나가 되는것이기 때문이다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>쉽네!</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/04/09/Baekjoon/2020/4April/2020-04-09-%5B%EB%B0%B1%EC%A4%80%5D%203184%20%EC%96%91/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/04/13/baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -732,7 +712,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 3 of 15</li>
+        <li class="pagination-number">page 3 of 16</li>
     </ul>
 </div>
 

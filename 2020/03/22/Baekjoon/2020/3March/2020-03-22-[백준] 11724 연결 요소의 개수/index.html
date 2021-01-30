@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제연결 요소의 개수\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;queue&gt;#include &lt;cstring&gt;using namespace std;vector&lt;int&gt; graph[1001];bool visited[1001];void bfs(int start);void dfs(int v);void bfs(int start)&#123;    queue&lt;int&gt; q;    q.push(start);    while (!q.empty())&#123;        int node = q.front();        q.pop();        if(!visited[node])&#123;            for(int i = 0; i &lt; graph[node].size(); i++)&#123;                q.push(graph[node][i]);            &#125;            visited[node] = true;        &#125;    &#125;&#125;void dfs(int v)&#123;    visited[v] = true;    for(int i = 0; i &lt; graph[v].size(); i++)&#123;        if (!visited[graph[v][i]])&#123;            dfs(graph[v][i]);        &#125;    &#125;&#125;int main()&#123;    int n = 0, m = 0, a = 0, b = 0, cnt = 0;    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);    for(int i = 0; i &lt; m; i++)&#123;        scanf(&quot;%d %d&quot;, &amp;a, &amp;b);        graph[a].push_back(b);        graph[b].push_back(a);    &#125;    memset(visited, false, sizeof(visited));    for(int i = 1; i &lt;= n; i++)&#123;        if (!visited[i])&#123;            cnt++;            bfs(i);            // dfs(i);        &#125;    &#125;    printf(&quot;%d&quot;, cnt);    return 0;&#125;\n\npython\n\n1234567891011121314151617181920212223242526272829303132333435363738def bfs(start):    q = set()    q.add(start)    while q:        node = q.pop()        if not visited[node]:            plus = set(graph[node])            q = q | plus            visited[node] = Truedef dfs(v):    visited[v] = True    for i in graph[v]:        if not(visited[i]):            dfs(i)if __name__ == &quot;__main__&quot;:    n, m = map(int, input().split())    cnt = 0    graph = dict()    visited = [False] * (n + 1)    for i in range(1, n+1): graph[i] = list()    for i in range(m):        a, b = map(int, input().split())        graph[a].append(b)        graph[b].append(a)    for i in range(1, n+1):        if not(visited[i]):            cnt += 1            bfs(i)            #dfs(i)    print(cnt)\n3. 해결 방법\nbfs와 dfs 둘다 이용해서 해결할수있다.\n\n4. 리뷰\nc++에서 코드에 문제가 없는데, 런타임 오류가 뜬다? -&gt; include에서 뭐 빼먹은게 없는지 확인하자.\n\n","dateCreated":"2020-03-22T21:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-22T21:30:00+09:00","description":"","headline":"[백준][c++][python] 11724 연결 요소의 개수","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/","keywords":"Algorithm, Python, Solve, Graph, C++"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제연결 요소의 개수\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;queue&gt;#include &lt;cstring&gt;using namespace std;vector&lt;int&gt; graph[1001];bool visited[1001];void bfs(int start);void dfs(int v);void bfs(int start)&#123;    queue&lt;int&gt; q;    q.push(start);    while (!q.empty())&#123;        int node = q.front();        q.pop();        if(!visited[node])&#123;            for(int i = 0; i &lt; graph[node].size(); i++)&#123;                q.push(graph[node][i]);            &#125;            visited[node] = true;        &#125;    &#125;&#125;void dfs(int v)&#123;    visited[v] = true;    for(int i = 0; i &lt; graph[v].size(); i++)&#123;        if (!visited[graph[v][i]])&#123;            dfs(graph[v][i]);        &#125;    &#125;&#125;int main()&#123;    int n = 0, m = 0, a = 0, b = 0, cnt = 0;    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);    for(int i = 0; i &lt; m; i++)&#123;        scanf(&quot;%d %d&quot;, &amp;a, &amp;b);        graph[a].push_back(b);        graph[b].push_back(a);    &#125;    memset(visited, false, sizeof(visited));    for(int i = 1; i &lt;= n; i++)&#123;        if (!visited[i])&#123;            cnt++;            bfs(i);            // dfs(i);        &#125;    &#125;    printf(&quot;%d&quot;, cnt);    return 0;&#125;\n\npython\n\n1234567891011121314151617181920212223242526272829303132333435363738def bfs(start):    q = set()    q.add(start)    while q:        node = q.pop()        if not visited[node]:            plus = set(graph[node])            q = q | plus            visited[node] = Truedef dfs(v):    visited[v] = True    for i in graph[v]:        if not(visited[i]):            dfs(i)if __name__ == &quot;__main__&quot;:    n, m = map(int, input().split())    cnt = 0    graph = dict()    visited = [False] * (n + 1)    for i in range(1, n+1): graph[i] = list()    for i in range(m):        a, b = map(int, input().split())        graph[a].append(b)        graph[b].append(a)    for i in range(1, n+1):        if not(visited[i]):            cnt += 1            bfs(i)            #dfs(i)    print(cnt)\n3. 해결 방법\nbfs와 dfs 둘다 이용해서 해결할수있다.\n\n4. 리뷰\nc++에서 코드에 문제가 없는데, 런타임 오류가 뜬다? -&gt; include에서 뭐 빼먹은게 없는지 확인하자.\n\n","dateCreated":"2020-03-22T21:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-03-22T21:30:00+09:00","description":"","headline":"[백준][c++][python] 11724 연결 요소의 개수","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/","keywords":"Algorithm, Python, Solve, Graph, C++"}</script>
     <meta name="description" content="1. 문제연결 요소의 개수 2. 코드 c++  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;iostream&gt;#include &lt;vector&gt;#include">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][c++][python] 11724 연결 요소의 개수">
-<meta property="og:url" content="http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/index.html">
+<meta property="og:url" content="http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제연결 요소의 개수 2. 코드 c++  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;iostream&gt;#include &lt;vector&gt;#include">
 <meta property="og:locale" content="ko_KR">
@@ -243,7 +243,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/23/Baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/" data-tooltip="[백준][c++][python] 10451 순열 사이클" aria-label="이전: [백준][c++][python] 10451 순열 사이클">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/23/baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/" data-tooltip="[백준][c++][python] 10451 순열 사이클" aria-label="이전: [백준][c++][python] 10451 순열 사이클">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -270,7 +270,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -278,7 +278,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -286,7 +286,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -339,7 +339,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/23/Baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/" data-tooltip="[백준][c++][python] 10451 순열 사이클" aria-label="이전: [백준][c++][python] 10451 순열 사이클">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/03/23/baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/" data-tooltip="[백준][c++][python] 10451 순열 사이클" aria-label="이전: [백준][c++][python] 10451 순열 사이클">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -366,7 +366,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -374,7 +374,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -382,7 +382,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -416,7 +416,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -424,7 +424,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -432,7 +432,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -488,9 +488,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/03/22/Baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/';
+            this.page.url = 'http://example.com/2020/03/22/baekjoon/2020/3March/2020-03-22-[%EB%B0%B1%EC%A4%80]%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/';
               
-            this.page.identifier = '2020/03/22/Baekjoon/2020/3March/2020-03-22-[백준] 11724 연결 요소의 개수/';
+            this.page.identifier = '2020/03/22/baekjoon/2020/3March/2020-03-22-[백준] 11724 연결 요소의 개수/';
               
           };
           (function() {

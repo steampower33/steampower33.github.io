@@ -171,7 +171,152 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/06/Baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/" aria-label=": [백준][python] 1717 집합의 표현">
+                        <a class="link-unstyled" href="/2020/02/07/winterStudyClub/2020-02-07-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_3%ED%9A%8C%EC%B0%A8_2020_02_07(%EA%B8%88)/" aria-label=": 2020 동계 학습 동아리_3회차_2020_02_07(금)">
+                            2020 동계 학습 동아리_3회차_2020_02_07(금)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-07T20:00:00+09:00">
+	
+		    2020/02/07
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/2020WinterStudyClub/">2020WinterStudyClub</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p>카카오코딩페스티벌2018 예선 C번 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/15956">숏코딩</a>를 해결한다.<br>해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다.</p>
+<h2 id="2-필요한-지식"><a href="#2-필요한-지식" class="headerlink" title="2. 필요한 지식"></a>2. 필요한 지식</h2><ul>
+<li>python3로 해결하기때문에 python3의 전반적인 문법이 필요하다.</li>
+<li>Union-Find 혹은 Disjoint-set 이론에 대한 전반적인 이해가 있어야한다.</li>
+</ul>
+<h2 id="3-해결하지-못함"><a href="#3-해결하지-못함" class="headerlink" title="3. 해결하지 못함"></a>3. 해결하지 못함</h2><h3 id="3-1-풀이-이론"><a href="#3-1-풀이-이론" class="headerlink" title="3-1. 풀이 이론"></a>3-1. 풀이 이론</h3><ul>
+<li><p>문제의 조건에 맞게 생성된 논리식이 입력되었을 때, 이 식과 동치인 논리식 중 가장 짧은 논리식을 찾는 문제입니다.<br>==과 !=를 나누어 생각합니다.</p>
+</li>
+<li><p>==: 각 단항식을 정점으로, ==를 a와 b를 잇는 양방향 간선으로 생각한 그래프에서 한 컴포넌트에 속한 정점들은 모두 값이 같아야 합니다. 이는 ==가 동치관계(equivalence relation)이기 때문입니다.</p>
+</li>
+<li><p>한 컴포넌트에 있는 단항식들을 u1, u2, …, un이라고 하고, 그 중 길이가 가장 짧은 것을 ui라고 하면, ui와 다른 모든 정점을 잇는 n-1개의 간선만 있어도 정점들을 똑같이 묶을 수 있고, 이렇게 하는 것이 가장 길이가 짧습니다. </p>
+</li>
+<li><p>컴포넌트의 크기가 1이라면 (1==1, a==a 등으로 가능) 그 컴포넌트는 출력에 포함되지 않아야 합니다.</p>
+</li>
+<li><p>단, 같은 컴포넌트에 2개 이상의 정수가 있다면, 조건문은 항상 false를 반환합니다.</p>
+</li>
+<li><p>!=: !=가 있다고 가정하면, a와 b를, 같은 == 컴포넌트에 속한 가장 길이가 짧은 단항식으로 교체할 수 있습니다.</p>
+</li>
+<li><p>(교체한 이후) 똑같은 != 조건문이 여러 개 있다면 그 중 하나만 남겨둘 수 있습니다.</p>
+</li>
+<li><p>a와 b가 같은 == 컴포넌트에 속한다면, 조건문은 항상 false를 반환하므로, 이와 동치인 가장 짧은 조건문(ex: x!=x, 4==7)을 출력해야 합니다.</p>
+</li>
+<li><p>a가 속하는 == 컴포넌트에 정수가 포함되어 있고, b가 속하는 == 컴포넌트에도 정수가 포함되어 있다면, 해당 비교 연산은 결국 서로 다른 두 정수를 비교하고 있으므로 필요가 없고, 따라서 제거할 수 있습니다.</p>
+</li>
+<li><p>위의 과정에서 비교 연산들이 모두 불필요하다고 판단되어 제거되었다면, 조건문은 항상 true를 반환하는 식이 됩니다. 항상 true나 false를 반환하는 가장 짧은 조건문은 길이가 4이며, 각각 T==T와 0!=0의 예시가 있습니다.</p>
+</li>
+<li><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://tech.kakao.com/2018/08/09/code-festival-2018-round-1/">출처</a></p>
+</li>
+</ul>
+<h3 id="3-2-해결-되지-않는-원인"><a href="#3-2-해결-되지-않는-원인" class="headerlink" title="3-2. 해결 되지 않는 원인"></a>3-2. 해결 되지 않는 원인</h3><ul>
+<li>유니온 파인드에 대한 전반적인 지식을 가지고있고, 구현 또한 가능하다. 하지만 그것을 응용해서 합집합을 만들고 나서, 그것을 그룹으로 지정하고, 그 그룹안에서 입력을 기준으로 논리가 가능한지 확인해야한다. 여기에서 반례들이 생성되고, 그것을 하나하나 설정해주어야한다고 생각된다. 지금 그 반례를 설정하는것에서 문제가 생겼다고 할수있다.</li>
+<li>이 문제는 이론도 이론이지만, 코딩 실력이 문제해결을 좌우한다. 이론을 조합한다고 되는게아니다. 머리속에서 디버깅이 자유롭게 되어야하고, 기억하고 있어야할것들이 많다. 코드의 길이가 길기때문에 이것을 한번에 파악하기란 쉽지않다. 하나씩 일일히 디버깅해가면서 하면 반나절이 걸릴것같다. 아직 이것을 구현하기에는 실력이 부족하다.</li>
+</ul>
+<h3 id="3-3-해결을-위한-노력"><a href="#3-3-해결을-위한-노력" class="headerlink" title="3-3. 해결을 위한 노력"></a>3-3. 해결을 위한 노력</h3><ul>
+<li>유니온 파인드와 관련된 문제임을 틀림이 없다. 그러니 관련 문제들을 계속 풀어본다. 계속해서 어려운 난이도를 도전하다보면 비슷한 유형의 문제를 마주칠것이다. 혹은 이 문제와 비슷하게 코딩 실력을 더 요구하는 문제를 찾아 해결한다.</li>
+<li>유니온 파인드 이론을 다시 정리한다. <ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/algorithm/Algorithm-%EC%9C%A0%EB%8B%88%EC%98%A8-%ED%8C%8C%EC%9D%B8%EB%93%9C/">정리한 유니온 파인드 이론</a></li>
+</ul>
+</li>
+<li>유니온 파인드 관련 문제를 해결한다. <ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-1717-%EC%A7%91%ED%95%A9%EC%9D%98-%ED%91%9C%ED%98%84/">문제1</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-1976-%EC%97%AC%ED%96%89%EA%B0%80%EC%9E%90/">문제2</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-4195-%EC%B9%9C%EA%B5%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">문제3</a></li>
+</ul>
+</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/07/winterStudyClub/2020-02-07-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_3%ED%9A%8C%EC%B0%A8_2020_02_07(%EA%B8%88)/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/07/baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%201976%20%EC%97%AC%ED%96%89%EA%B0%80%EC%9E%90/" aria-label=": [백준][python] 1976 여행가자">
+                            [백준][python] 1976 여행가자
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-07T19:00:00+09:00">
+	
+		    2020/02/07
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1976">여행 가자</a><br><img width="975" alt="스크린샷 2020-02-07 오후 7 09 45" src="https://user-images.githubusercontent.com/20227720/74020699-75bad500-49dd-11ea-98c4-c1f32bdccd49.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params">parent, c</span>):</span></span><br><span class="line">    <span class="keyword">if</span> parent[c] == c: <span class="keyword">return</span> c</span><br><span class="line">    parent[c] = getParent(parent, parent[c])</span><br><span class="line">    <span class="keyword">return</span> parent[c]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a &lt; b: parent[b] = a</span><br><span class="line">    <span class="keyword">else</span>: parent[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findParent</span>(<span class="params">parent, a, b</span>):</span></span><br><span class="line">    a = getParent(parent, a)</span><br><span class="line">    b = getParent(parent, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a == b: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 도시와 여행할 도시 수.</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 연결된 도시 설정.</span></span><br><span class="line">    location = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 연결된 도시 알아내기.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> s[j] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> (i+<span class="number">1</span>, j+<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">in</span> location <span class="keyword">and</span> (j+<span class="number">1</span>, i+<span class="number">1</span>) <span class="keyword">not</span> <span class="keyword">in</span> location:</span><br><span class="line">                    location.append((i+<span class="number">1</span>,j+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 여행 도시.</span></span><br><span class="line">    trip = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 부모 노드 설정.</span></span><br><span class="line">    parent = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 저장한 연결된 도시를 합집합으로 만들어준다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> location:</span><br><span class="line">        unionParent(parent, i[<span class="number">0</span>], i[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 모두 연결되어있으므로, 첫번째와 마지막 도시의 부무노드는 무조건 같아야한다.</span></span><br><span class="line">    parent_num = findParent(parent, trip[<span class="number">0</span>], trip[-<span class="number">1</span>])</span><br><span class="line">    <span class="comment"># 찾은 부모노드를 이용해서, 여행해야하는 도시와 찾은 부모노드끼리 부모를 찾고, 환</span></span><br><span class="line">    <span class="comment"># 일치하면, 1을 반환 그렇지 않으면 0을 반환한다. 그리고 count에 더해준다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> trip:</span><br><span class="line">        count += findParent(parent, parent_num, i)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 도시 만큼 돌고 찾은 부모가 같을경우 1을 반환해주는데, 여행 경로만큼 count가 되어야한다.</span></span><br><span class="line">    <span class="comment"># 그래야 여행가능하다는것이다.</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="built_in">len</span>(trip): print(<span class="string">&quot;YES&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>: print(<span class="string">&quot;NO&quot;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/07/baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%201976%20%EC%97%AC%ED%96%89%EA%B0%80%EC%9E%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/06/baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/" aria-label=": [백준][python] 1717 집합의 표현">
                             [백준][python] 1717 집합의 표현
                         </a>
                     
@@ -210,7 +355,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/06/Baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/06/baekjoon/2020/2February/2020-02-06-%5B%EB%B0%B1%EC%A4%80%5D%201717%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -290,7 +435,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/05/Baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/" aria-label=": 다시 풀어야할 문제">
+                        <a class="link-unstyled" href="/2020/02/05/baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/" aria-label=": 다시 풀어야할 문제">
                             다시 풀어야할 문제
                         </a>
                     
@@ -322,7 +467,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/05/Baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/05/baekjoon/2020/2February/2020-02-05-%5B%EB%B0%B1%EC%A4%80%5D%2015956%20%EC%88%8F%EC%BD%94%EB%94%A9/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -340,7 +485,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/" aria-label=": 2020 동계 학습 동아리_2회차_2020_02_04(화)">
+                        <a class="link-unstyled" href="/2020/02/04/winterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/" aria-label=": 2020 동계 학습 동아리_2회차_2020_02_04(화)">
                             2020 동계 학습 동아리_2회차_2020_02_04(화)
                         </a>
                     
@@ -405,7 +550,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/04/WinterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/04/winterStudyClub/2020-02-04-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_2%ED%9A%8C%EC%B0%A8_2020_02_04(%ED%99%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -423,7 +568,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 9일차 결과">
+                        <a class="link-unstyled" href="/2020/02/04/mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 9일차 결과">
                             [모각코] 9일차 결과
                         </a>
                     
@@ -479,7 +624,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/04/mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -497,7 +642,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/04/Baekjoon/2020/2February/2020-02-04-%5B%EB%B0%B1%EC%A4%80%5D%2015954%20%EC%9D%B8%ED%98%95%EB%93%A4/" aria-label=": [백준][python] 15954 인형들">
+                        <a class="link-unstyled" href="/2020/02/04/baekjoon/2020/2February/2020-02-04-%5B%EB%B0%B1%EC%A4%80%5D%2015954%20%EC%9D%B8%ED%98%95%EB%93%A4/" aria-label=": [백준][python] 15954 인형들">
                             [백준][python] 15954 인형들
                         </a>
                     
@@ -530,7 +675,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/04/Baekjoon/2020/2February/2020-02-04-%5B%EB%B0%B1%EC%A4%80%5D%2015954%20%EC%9D%B8%ED%98%95%EB%93%A4/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/04/baekjoon/2020/2February/2020-02-04-%5B%EB%B0%B1%EC%A4%80%5D%2015954%20%EC%9D%B8%ED%98%95%EB%93%A4/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -548,7 +693,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 9일차 목표">
+                        <a class="link-unstyled" href="/2020/02/04/mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 9일차 목표">
                             [모각코] 9일차 목표
                         </a>
                     
@@ -580,7 +725,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/04/Mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/04/mogagko/2020-02-04-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%209%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -598,7 +743,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/03/WinterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/" aria-label=": 2020 동계 학습 동아리_1회차_2020_02_03(월)">
+                        <a class="link-unstyled" href="/2020/02/03/winterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/" aria-label=": 2020 동계 학습 동아리_1회차_2020_02_03(월)">
                             2020 동계 학습 동아리_1회차_2020_02_03(월)
                         </a>
                     
@@ -638,107 +783,7 @@
                     
                     
                         <p>
-                            <a href="/2020/02/03/WinterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/03/Baekjoon/2020/2February/2020-02-03-%5B%EB%B0%B1%EC%A4%80%5D%2015953%20%EC%83%81%EA%B8%88%20%ED%97%8C%ED%84%B0/" aria-label=": [백준][python] 15953 상금 헌터">
-                            [백준][python] 15953 상금 헌터
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-03T19:30:00+09:00">
-	
-		    2020/02/03
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/15953">상금 헌터</a><br><img width="969" alt="스크린샷 2020-02-03 오후 8 54 18" src="https://user-images.githubusercontent.com/20227720/73651227-595e2600-46c7-11ea-8b4a-d799a4d69074.png"></p>
-<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가정한 횟수.</span></span><br><span class="line">T = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 정보.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">    <span class="comment"># 몇등인지.</span></span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># 돈 설정.</span></span><br><span class="line">    money = <span class="number">0</span></span><br><span class="line">    moneyA = &#123;<span class="number">1</span>: <span class="number">5000000</span>, <span class="number">2</span>: <span class="number">3000000</span>, <span class="number">3</span>: <span class="number">2000000</span>, <span class="number">4</span>: <span class="number">500000</span>, <span class="number">5</span>: <span class="number">300000</span>, <span class="number">6</span>: <span class="number">100000</span>&#125;</span><br><span class="line">    moneyB = &#123;<span class="number">1</span>: <span class="number">5120000</span>, <span class="number">2</span>: <span class="number">2560000</span>, <span class="number">3</span>: <span class="number">1280000</span>, <span class="number">4</span>: <span class="number">640000</span>, <span class="number">5</span>: <span class="number">320000</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># a에 해당하는 돈.</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">            money += <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> a &lt;= _:</span><br><span class="line">            money += moneyA[_]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        a = a - _</span><br><span class="line"></span><br><span class="line">    <span class="comment"># b에 해당하는 돈.</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">            money += <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        count = <span class="number">2</span> ** (_-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> b &lt;= count:</span><br><span class="line">            money += moneyB[_]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        b = b - count</span><br><span class="line">    <span class="comment"># 돈 출력.</span></span><br><span class="line">    print(money)</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/03/Baekjoon/2020/2February/2020-02-03-%5B%EB%B0%B1%EC%A4%80%5D%2015953%20%EC%83%81%EA%B8%88%20%ED%97%8C%ED%84%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/31/Baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/" aria-label=": [백준][python] 1753 최단경로">
-                            [백준][python] 1753 최단경로
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-31T18:30:00+09:00">
-	
-		    2020/01/31
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1753">최단경로</a><br><img width="800" alt="스크린샷 2020-01-31 오후 6 05 37" src="https://user-images.githubusercontent.com/20227720/73526308-4a237200-4454-11ea-9c77-5b619a227c9d.png"></p>
-<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 힙 사용 및 INF 설정.</span></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 다익스트라.</span></span><br><span class="line"><span class="comment"># 처음 시작하는 위치에서는 가중치가 없으니 0으로 설정.</span></span><br><span class="line"><span class="comment"># 그 뒤 heap인 q에다가 [0, 시작위치]를 넣어준다.</span></span><br><span class="line"><span class="comment"># q가 빌때까지 돈다.</span></span><br><span class="line"><span class="comment"># heap에서 하나를 꺼내고, 그 위치에서 갈수있는 간선들을 확인한다.</span></span><br><span class="line"><span class="comment"># cost에 갈수있는 간선의 c값 이랑 더하고, 그 결과 값이랑 dist[갈수있는 간선위치]랑 비교해서 더 작다면</span></span><br><span class="line"><span class="comment"># 그 값을 dist[위치]에 넣고 heap에 결과 값이랑 위치값을 넣는다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">v, s, g</span>):</span></span><br><span class="line">    dist = [INF] * v</span><br><span class="line">    dist[s - <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">    q = []</span><br><span class="line">    heappush(q, [<span class="number">0</span>, s - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        cost, pos = heappop(q)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> p, c <span class="keyword">in</span> g[pos]:</span><br><span class="line">            c += cost</span><br><span class="line">            <span class="keyword">if</span> c &lt; dist[p]:</span><br><span class="line">                dist[p] = c</span><br><span class="line">                heappush(q, [c, p])</span><br><span class="line">        print(q)</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 입/출력</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    K = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    graph = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V)]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">        u, v, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[u-<span class="number">1</span>].append([v-<span class="number">1</span>, w])</span><br><span class="line"></span><br><span class="line">    print(graph)</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dijkstra(V, K, graph):</span><br><span class="line">        print(d <span class="keyword">if</span> d != INF <span class="keyword">else</span> <span class="string">&quot;INF&quot;</span>)</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/31/Baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/02/03/winterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -767,7 +812,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 11 of 15</li>
+        <li class="pagination-number">page 11 of 16</li>
     </ul>
 </div>
 

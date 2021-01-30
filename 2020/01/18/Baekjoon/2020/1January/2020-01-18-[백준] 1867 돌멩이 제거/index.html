@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인돌멩이 제거\n2. 코드 및 설명참고1참고2참고3\n1234567891011121314151617181920212223242526272829303132333435363738# field에 들어있는 값의 r위치가 이미 한번 돌았던거라면, 또 돌필요가 없다.# 이분 매칭에서는 이미 있는 곳을 선택하려할때 이미 다른게 있으면# 그 다른걸 가지고 또 다른 가능성이 있는지 탐색하는데# 이 문제에서는 돌 한번 치우면 끝이기 때문에 또 치울 필요가없다.# 그러니 field를 길이 만큼 돌면서, 되면 ans += 1 해주고 안되면 아무것도 안해주면된다.def dfs(a):    global v,r,field    if v[a]:        return 0    v[a] = 1    for b in field[a]:        if r[b] == -1 or dfs(r[b]):            r[b] = a            return 1    return 0if __name__ == &quot;__main__&quot;:    # 격자, 돌멩이.    n, k = map(int, input().split())    # 운동장.    field = [[] for i in range(n)]    # 돌맹이 위치.    for i in range(k):        a, b = map(int, input().split())        field[a - 1].append(b - 1)    # n 만큼을 돌면서 확인해주면된다.    v = [0] * n    r = [-1] * n    ans = 0    for i in range(n):        v = [0] * n        ans += dfs(i)    print(ans)","dateCreated":"2020-01-18T19:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-18T19:30:00+09:00","description":"","headline":"[백준][python] 1867 돌멩이 제거","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/","keywords":"Algorithm, Python, Solve, 1DAB, Graph"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인돌멩이 제거\n2. 코드 및 설명참고1참고2참고3\n1234567891011121314151617181920212223242526272829303132333435363738# field에 들어있는 값의 r위치가 이미 한번 돌았던거라면, 또 돌필요가 없다.# 이분 매칭에서는 이미 있는 곳을 선택하려할때 이미 다른게 있으면# 그 다른걸 가지고 또 다른 가능성이 있는지 탐색하는데# 이 문제에서는 돌 한번 치우면 끝이기 때문에 또 치울 필요가없다.# 그러니 field를 길이 만큼 돌면서, 되면 ans += 1 해주고 안되면 아무것도 안해주면된다.def dfs(a):    global v,r,field    if v[a]:        return 0    v[a] = 1    for b in field[a]:        if r[b] == -1 or dfs(r[b]):            r[b] = a            return 1    return 0if __name__ == &quot;__main__&quot;:    # 격자, 돌멩이.    n, k = map(int, input().split())    # 운동장.    field = [[] for i in range(n)]    # 돌맹이 위치.    for i in range(k):        a, b = map(int, input().split())        field[a - 1].append(b - 1)    # n 만큼을 돌면서 확인해주면된다.    v = [0] * n    r = [-1] * n    ans = 0    for i in range(n):        v = [0] * n        ans += dfs(i)    print(ans)","dateCreated":"2020-01-18T19:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-18T19:30:00+09:00","description":"","headline":"[백준][python] 1867 돌멩이 제거","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/","keywords":"Algorithm, Python, Solve, 1DAB, Graph"}</script>
     <meta name="description" content="1. 확인돌멩이 제거 2. 코드 및 설명참고1참고2참고3 1234567891011121314151617181920212223242526272829303132333435363738# field에 들어있는 값의 r위치가 이미 한번 돌았던거라면, 또 돌필요가 없다.# 이분 매칭에서는 이미 있는 곳을 선택하려할때 이미 다른게 있으면# 그 다른걸 가지고 또 다른 가">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 1867 돌멩이 제거">
-<meta property="og:url" content="http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/index.html">
+<meta property="og:url" content="http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 확인돌멩이 제거 2. 코드 및 설명참고1참고2참고3 1234567891011121314151617181920212223242526272829303132333435363738# field에 들어있는 값의 r위치가 이미 한번 돌았던거라면, 또 돌필요가 없다.# 이분 매칭에서는 이미 있는 곳을 선택하려할때 이미 다른게 있으면# 그 다른걸 가지고 또 다른 가">
 <meta property="og:locale" content="ko_KR">
@@ -238,7 +238,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/17/Baekjoon/2020/1January/2020-01-17-%5B%EB%B0%B1%EC%A4%80%5D%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" data-tooltip="[백준][python] 1389 케빈 베이컨의 6단계 법칙" aria-label="다음: [백준][python] 1389 케빈 베이컨의 6단계 법칙">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/17/baekjoon/2020/1January/2020-01-17-%5B%EB%B0%B1%EC%A4%80%5D%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" data-tooltip="[백준][python] 1389 케빈 베이컨의 6단계 법칙" aria-label="다음: [백준][python] 1389 케빈 베이컨의 6단계 법칙">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -256,7 +256,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -264,7 +264,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -272,7 +272,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -334,7 +334,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/17/Baekjoon/2020/1January/2020-01-17-%5B%EB%B0%B1%EC%A4%80%5D%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" data-tooltip="[백준][python] 1389 케빈 베이컨의 6단계 법칙" aria-label="다음: [백준][python] 1389 케빈 베이컨의 6단계 법칙">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/17/baekjoon/2020/1January/2020-01-17-%5B%EB%B0%B1%EC%A4%80%5D%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" data-tooltip="[백준][python] 1389 케빈 베이컨의 6단계 법칙" aria-label="다음: [백준][python] 1389 케빈 베이컨의 6단계 법칙">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -352,7 +352,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -360,7 +360,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -368,7 +368,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -402,7 +402,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -410,7 +410,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -418,7 +418,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -474,9 +474,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/01/18/Baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/';
+            this.page.url = 'http://example.com/2020/01/18/baekjoon/2020/1January/2020-01-18-[%EB%B0%B1%EC%A4%80]%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/';
               
-            this.page.identifier = '2020/01/18/Baekjoon/2020/1January/2020-01-18-[백준] 1867 돌멩이 제거/';
+            this.page.identifier = '2020/01/18/baekjoon/2020/1January/2020-01-18-[백준] 1867 돌멩이 제거/';
               
           };
           (function() {

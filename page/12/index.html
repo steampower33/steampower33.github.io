@@ -171,7 +171,107 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/30/Baekjoon/2020/1January/2020-01-30-%5B%EB%B0%B1%EC%A4%80%5D%201238%20%ED%8C%8C%ED%8B%B0/" aria-label=": 다시 풀어야할 문제">
+                        <a class="link-unstyled" href="/2020/02/03/baekjoon/2020/2February/2020-02-03-%5B%EB%B0%B1%EC%A4%80%5D%2015953%20%EC%83%81%EA%B8%88%20%ED%97%8C%ED%84%B0/" aria-label=": [백준][python] 15953 상금 헌터">
+                            [백준][python] 15953 상금 헌터
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-03T19:30:00+09:00">
+	
+		    2020/02/03
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/15953">상금 헌터</a><br><img width="969" alt="스크린샷 2020-02-03 오후 8 54 18" src="https://user-images.githubusercontent.com/20227720/73651227-595e2600-46c7-11ea-8b4a-d799a4d69074.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가정한 횟수.</span></span><br><span class="line">T = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 정보.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">    <span class="comment"># 몇등인지.</span></span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># 돈 설정.</span></span><br><span class="line">    money = <span class="number">0</span></span><br><span class="line">    moneyA = &#123;<span class="number">1</span>: <span class="number">5000000</span>, <span class="number">2</span>: <span class="number">3000000</span>, <span class="number">3</span>: <span class="number">2000000</span>, <span class="number">4</span>: <span class="number">500000</span>, <span class="number">5</span>: <span class="number">300000</span>, <span class="number">6</span>: <span class="number">100000</span>&#125;</span><br><span class="line">    moneyB = &#123;<span class="number">1</span>: <span class="number">5120000</span>, <span class="number">2</span>: <span class="number">2560000</span>, <span class="number">3</span>: <span class="number">1280000</span>, <span class="number">4</span>: <span class="number">640000</span>, <span class="number">5</span>: <span class="number">320000</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># a에 해당하는 돈.</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">            money += <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> a &lt;= _:</span><br><span class="line">            money += moneyA[_]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        a = a - _</span><br><span class="line"></span><br><span class="line">    <span class="comment"># b에 해당하는 돈.</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">            money += <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        count = <span class="number">2</span> ** (_-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> b &lt;= count:</span><br><span class="line">            money += moneyB[_]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        b = b - count</span><br><span class="line">    <span class="comment"># 돈 출력.</span></span><br><span class="line">    print(money)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/03/baekjoon/2020/2February/2020-02-03-%5B%EB%B0%B1%EC%A4%80%5D%2015953%20%EC%83%81%EA%B8%88%20%ED%97%8C%ED%84%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/31/baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/" aria-label=": [백준][python] 1753 최단경로">
+                            [백준][python] 1753 최단경로
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-31T18:30:00+09:00">
+	
+		    2020/01/31
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1753">최단경로</a><br><img width="800" alt="스크린샷 2020-01-31 오후 6 05 37" src="https://user-images.githubusercontent.com/20227720/73526308-4a237200-4454-11ea-9c77-5b619a227c9d.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 힙 사용 및 INF 설정.</span></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 다익스트라.</span></span><br><span class="line"><span class="comment"># 처음 시작하는 위치에서는 가중치가 없으니 0으로 설정.</span></span><br><span class="line"><span class="comment"># 그 뒤 heap인 q에다가 [0, 시작위치]를 넣어준다.</span></span><br><span class="line"><span class="comment"># q가 빌때까지 돈다.</span></span><br><span class="line"><span class="comment"># heap에서 하나를 꺼내고, 그 위치에서 갈수있는 간선들을 확인한다.</span></span><br><span class="line"><span class="comment"># cost에 갈수있는 간선의 c값 이랑 더하고, 그 결과 값이랑 dist[갈수있는 간선위치]랑 비교해서 더 작다면</span></span><br><span class="line"><span class="comment"># 그 값을 dist[위치]에 넣고 heap에 결과 값이랑 위치값을 넣는다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">v, s, g</span>):</span></span><br><span class="line">    dist = [INF] * v</span><br><span class="line">    dist[s - <span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">    q = []</span><br><span class="line">    heappush(q, [<span class="number">0</span>, s - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        cost, pos = heappop(q)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> p, c <span class="keyword">in</span> g[pos]:</span><br><span class="line">            c += cost</span><br><span class="line">            <span class="keyword">if</span> c &lt; dist[p]:</span><br><span class="line">                dist[p] = c</span><br><span class="line">                heappush(q, [c, p])</span><br><span class="line">        print(q)</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 입/출력</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    V, E = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    K = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    graph = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(V)]</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(E):</span><br><span class="line">        u, v, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[u-<span class="number">1</span>].append([v-<span class="number">1</span>, w])</span><br><span class="line"></span><br><span class="line">    print(graph)</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> dijkstra(V, K, graph):</span><br><span class="line">        print(d <span class="keyword">if</span> d != INF <span class="keyword">else</span> <span class="string">&quot;INF&quot;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/31/baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/30/baekjoon/2020/1January/2020-01-30-%5B%EB%B0%B1%EC%A4%80%5D%201238%20%ED%8C%8C%ED%8B%B0/" aria-label=": 다시 풀어야할 문제">
                             다시 풀어야할 문제
                         </a>
                     
@@ -209,7 +309,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/30/Baekjoon/2020/1January/2020-01-30-%5B%EB%B0%B1%EC%A4%80%5D%201238%20%ED%8C%8C%ED%8B%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/30/baekjoon/2020/1January/2020-01-30-%5B%EB%B0%B1%EC%A4%80%5D%201238%20%ED%8C%8C%ED%8B%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -227,57 +327,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/30/Mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 8일차 목표">
-                            [모각코] 8일차 목표
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-30T13:50:00+09:00">
-	
-		    2020/01/30
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1238">파티</a>문제를 해결하고, 정리한다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/30/Mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/30/Mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 8일차 결과">
+                        <a class="link-unstyled" href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 8일차 결과">
                             [모각코] 8일차 결과
                         </a>
                     
@@ -317,7 +367,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/30/Mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -335,7 +385,57 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/29/Baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/" aria-label=": 다시 풀어야할 문제">
+                        <a class="link-unstyled" href="/2020/01/30/mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 8일차 목표">
+                            [모각코] 8일차 목표
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-30T13:50:00+09:00">
+	
+		    2020/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1238">파티</a>문제를 해결하고, 정리한다.  </p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/30/mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/" aria-label=": 다시 풀어야할 문제">
                             다시 풀어야할 문제
                         </a>
                     
@@ -369,7 +469,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/29/Baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -387,7 +487,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 7일차 결과">
+                        <a class="link-unstyled" href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 7일차 결과">
                             [모각코] 7일차 결과
                         </a>
                     
@@ -421,7 +521,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -439,7 +539,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/28/Baekjoon/2020/1January/2020-01-28-%5B%EB%B0%B1%EC%A4%80%5D%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label=": [백준][python] 11430 경로찾기">
+                        <a class="link-unstyled" href="/2020/01/28/baekjoon/2020/1January/2020-01-28-%5B%EB%B0%B1%EC%A4%80%5D%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label=": [백준][python] 11430 경로찾기">
                             [백준][python] 11430 경로찾기
                         </a>
                     
@@ -471,7 +571,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/28/Baekjoon/2020/1January/2020-01-28-%5B%EB%B0%B1%EC%A4%80%5D%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/28/baekjoon/2020/1January/2020-01-28-%5B%EB%B0%B1%EC%A4%80%5D%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -489,7 +589,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 7일차 목표">
+                        <a class="link-unstyled" href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 7일차 목표">
                             [모각코] 7일차 목표
                         </a>
                     
@@ -521,7 +621,7 @@
                     
                     
                         <p>
-                            <a href="/2020/01/28/Mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -626,112 +726,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/" aria-label=": [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기">
-                            [python][심화] 도서 사이트에서 웹 크롤링으로 책 정보 가져오기
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-23T16:00:00+09:00">
-	
-		    2020/01/23
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/python/">python</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/23/python/2020-01-23-%5Bpython%5D%20%EB%8F%84%EC%84%9C%20%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C%20%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9C%BC%EB%A1%9C%20%EC%B1%85%20%EC%A0%95%EB%B3%B4%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/23/Mogagko/2020-01-23-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 6일차 결과">
-                            [모각코] 6일차 결과
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-23T15:50:00+09:00">
-	
-		    2020/01/23
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-웹-크롤링이란"><a href="#1-웹-크롤링이란" class="headerlink" title="1. 웹 크롤링이란?"></a>1. 웹 크롤링이란?</h2><p>web상에 존재하는 데이터의 정보를 가져오는 작업</p>
-<h2 id="2-언어"><a href="#2-언어" class="headerlink" title="2. 언어"></a>2. 언어</h2><p>언어로는 python을 사용하고, BeautifulSoup4 모듈을 사용한다.</p>
-<h2 id="3-사용법"><a href="#3-사용법" class="headerlink" title="3. 사용법"></a>3. 사용법</h2><p>아래의 명령어로 BeautifulSoup4를 설치한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install bs4</span><br></pre></td></tr></table></figure>
-<h2 id="4-코드"><a href="#4-코드" class="headerlink" title="4. 코드"></a>4. 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 크롤링할 사이트의 url을 설정하고, </span></span><br><span class="line"><span class="comment"># requests 라이브러리를 활용하여 HTML 페이지 요청한다.</span></span><br><span class="line">url = <span class="string">&quot;https://www.naver.com&quot;</span></span><br><span class="line">res = requests.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 주소의 코드가 모두 출력됨.</span></span><br><span class="line">print(res.text)</span><br><span class="line"></span><br><span class="line"><span class="comment"># HTML 페이지 파싱하는 방법.</span></span><br><span class="line">html = res.text</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 검색 및 추출.</span></span><br><span class="line"><span class="comment"># html 파일의 구문을 검색해서 가져온다.</span></span><br><span class="line"><span class="comment"># 이와 관련된 내용은 심화에서 다루겠다.</span></span><br><span class="line">title = soup.find(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print(title)</span><br></pre></td></tr></table></figure>
-<h2 id="4-1-html코드의-마지막-부분"><a href="#4-1-html코드의-마지막-부분" class="headerlink" title="4-1. html코드의 마지막 부분"></a>4-1. html코드의 마지막 부분</h2><img width="703" alt="스크린샷 2020-01-23 오후 3 35 43" src="https://user-images.githubusercontent.com/20227720/72961903-12824d80-3df6-11ea-9bb3-ca60b1d3aa23.png">
-
-
-<h2 id="4-2-title"><a href="#4-2-title" class="headerlink" title="4-2. title"></a>4-2. title</h2><img width="151" alt="스크린샷 2020-01-23 오후 3 35 47" src="https://user-images.githubusercontent.com/20227720/72961902-12824d80-3df6-11ea-88dc-898466148a90.png">
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/23/Mogagko/2020-01-23-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%206%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -750,7 +744,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 12 of 15</li>
+        <li class="pagination-number">page 12 of 16</li>
     </ul>
 </div>
 

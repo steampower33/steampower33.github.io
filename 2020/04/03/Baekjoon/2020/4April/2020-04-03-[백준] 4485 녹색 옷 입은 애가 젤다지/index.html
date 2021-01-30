@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제녹색 옷 입은 애가 젤다지?\n2. 코드\npython\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from heapq import heappush, heappopimport sysinput = sys.stdin.readlineINF = 987654321def dijkstra(s):    dist = [0] + [INF] * (n*n)    dist[s] = 0    heap = list()    heappush(heap, [s, cave[0][0]])    while heap:        current, distance = heappop(heap)        for i in graph[current]:            next, nextDistance = i[0], i[1]            nextDistance += distance            if nextDistance &lt; dist[next]:                dist[next] = nextDistance                heappush(heap, [next, nextDistance])    return distif __name__ == &quot;__main__&quot;:    count = 0    while True:        n = int(input())        if n == 0: break        cave = [[int(i) for i in input().split()] for j in range(n)]        graph = dict()        for i in range(1, n*n + 1): graph[i] = list()        for i in range(n):            for j in range(n):                # 오른                if i*n + j + 2 &lt; n*n + 1 and j + 1 &lt; n:                        graph[i*n + j + 1].append([i*n + j + 2, cave[i][j + 1]])                # 아래                if i*n + j + 1 + n &lt; n*n + 1 and i + 1 &lt; n:                    graph[i*n + j + 1].append([i*n + j + 1 + n, cave[i + 1][j]])                # 위                if i*n + j + 1 - n &gt;= 0 and i - 1 &gt;= 0:                    graph[i*n + j + 1].append([i*n + j + 1 - n, cave[i - 1][j]])                # 왼                if i*n + j &gt;= 0 and j - 1 &gt;= 0:                    graph[i*n + j + 1].append([i*n + j, cave[i][j - 1]])        # print(graph)        dist = dijkstra(1)        count += 1        print(&quot;Problem %d:&quot; % count, dist[n*n])\n3. 해결 방법\n이 코드는 재사용이 가능할수도 있고 없을수도있다. 이걸 코딩테스트 라이브때 기억해낼수있겠지만, 구현이 되게 느릴거다.\n이 코드는 죽은 코드이다. 이렇게도 풀수있구나 하고 참고정도만하자.\n\n4. 리뷰\n일단 알고리즘을 푸는데 하나의 이론으로 푸는건데 위 파이썬 코드 처럼 좀 더럽게 느껴지면 그건 잘못된 길을 가고있는거다.\n이상하고, 이론은 다 아는데, 구현에서 문제가 있으면, 그냥 다른사람들 코드를 참고하도록하자.\n\n","dateCreated":"2020-04-03T16:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-04-03T16:30:00+09:00","description":"","headline":"[백준][python] 4485 녹색 옷 입은 애가 젤다지?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/","keywords":"Algorithm, Python, Solve, Graph, Dijkstra"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제녹색 옷 입은 애가 젤다지?\n2. 코드\npython\n\n123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from heapq import heappush, heappopimport sysinput = sys.stdin.readlineINF = 987654321def dijkstra(s):    dist = [0] + [INF] * (n*n)    dist[s] = 0    heap = list()    heappush(heap, [s, cave[0][0]])    while heap:        current, distance = heappop(heap)        for i in graph[current]:            next, nextDistance = i[0], i[1]            nextDistance += distance            if nextDistance &lt; dist[next]:                dist[next] = nextDistance                heappush(heap, [next, nextDistance])    return distif __name__ == &quot;__main__&quot;:    count = 0    while True:        n = int(input())        if n == 0: break        cave = [[int(i) for i in input().split()] for j in range(n)]        graph = dict()        for i in range(1, n*n + 1): graph[i] = list()        for i in range(n):            for j in range(n):                # 오른                if i*n + j + 2 &lt; n*n + 1 and j + 1 &lt; n:                        graph[i*n + j + 1].append([i*n + j + 2, cave[i][j + 1]])                # 아래                if i*n + j + 1 + n &lt; n*n + 1 and i + 1 &lt; n:                    graph[i*n + j + 1].append([i*n + j + 1 + n, cave[i + 1][j]])                # 위                if i*n + j + 1 - n &gt;= 0 and i - 1 &gt;= 0:                    graph[i*n + j + 1].append([i*n + j + 1 - n, cave[i - 1][j]])                # 왼                if i*n + j &gt;= 0 and j - 1 &gt;= 0:                    graph[i*n + j + 1].append([i*n + j, cave[i][j - 1]])        # print(graph)        dist = dijkstra(1)        count += 1        print(&quot;Problem %d:&quot; % count, dist[n*n])\n3. 해결 방법\n이 코드는 재사용이 가능할수도 있고 없을수도있다. 이걸 코딩테스트 라이브때 기억해낼수있겠지만, 구현이 되게 느릴거다.\n이 코드는 죽은 코드이다. 이렇게도 풀수있구나 하고 참고정도만하자.\n\n4. 리뷰\n일단 알고리즘을 푸는데 하나의 이론으로 푸는건데 위 파이썬 코드 처럼 좀 더럽게 느껴지면 그건 잘못된 길을 가고있는거다.\n이상하고, 이론은 다 아는데, 구현에서 문제가 있으면, 그냥 다른사람들 코드를 참고하도록하자.\n\n","dateCreated":"2020-04-03T16:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-04-03T16:30:00+09:00","description":"","headline":"[백준][python] 4485 녹색 옷 입은 애가 젤다지?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/","keywords":"Algorithm, Python, Solve, Graph, Dijkstra"}</script>
     <meta name="description" content="1. 문제녹색 옷 입은 애가 젤다지? 2. 코드 python  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from heapq import heappush, heappopimport sysinput &#x3D; sys.stdin.readlineI">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 4485 녹색 옷 입은 애가 젤다지?">
-<meta property="og:url" content="http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/index.html">
+<meta property="og:url" content="http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제녹색 옷 입은 애가 젤다지? 2. 코드 python  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051from heapq import heappush, heappopimport sysinput &#x3D; sys.stdin.readlineI">
 <meta property="og:locale" content="ko_KR">
@@ -240,7 +240,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/06/Baekjoon/2020/4April/2020-04-06-%5B%EB%B0%B1%EC%A4%80%5D%203187%20%EC%96%91%EC%B9%98%EA%B8%B0%20%EA%BF%8D/" data-tooltip="[백준][python] 3187 양치기 꿍" aria-label="이전: [백준][python] 3187 양치기 꿍">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/06/baekjoon/2020/4April/2020-04-06-%5B%EB%B0%B1%EC%A4%80%5D%203187%20%EC%96%91%EC%B9%98%EA%B8%B0%20%EA%BF%8D/" data-tooltip="[백준][python] 3187 양치기 꿍" aria-label="이전: [백준][python] 3187 양치기 꿍">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -249,7 +249,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/03/Baekjoon/2020/4April/2020-04-04-%5B%EB%B0%B1%EC%A4%80%5D%204677%20Oil%20Deposits/" data-tooltip="[백준][python] 4677 Oil Deposits" aria-label="다음: [백준][python] 4677 Oil Deposits">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/03/baekjoon/2020/4April/2020-04-04-%5B%EB%B0%B1%EC%A4%80%5D%204677%20Oil%20Deposits/" data-tooltip="[백준][python] 4677 Oil Deposits" aria-label="다음: [백준][python] 4677 Oil Deposits">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -267,7 +267,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -275,7 +275,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -283,7 +283,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -336,7 +336,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/06/Baekjoon/2020/4April/2020-04-06-%5B%EB%B0%B1%EC%A4%80%5D%203187%20%EC%96%91%EC%B9%98%EA%B8%B0%20%EA%BF%8D/" data-tooltip="[백준][python] 3187 양치기 꿍" aria-label="이전: [백준][python] 3187 양치기 꿍">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/06/baekjoon/2020/4April/2020-04-06-%5B%EB%B0%B1%EC%A4%80%5D%203187%20%EC%96%91%EC%B9%98%EA%B8%B0%20%EA%BF%8D/" data-tooltip="[백준][python] 3187 양치기 꿍" aria-label="이전: [백준][python] 3187 양치기 꿍">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -345,7 +345,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/03/Baekjoon/2020/4April/2020-04-04-%5B%EB%B0%B1%EC%A4%80%5D%204677%20Oil%20Deposits/" data-tooltip="[백준][python] 4677 Oil Deposits" aria-label="다음: [백준][python] 4677 Oil Deposits">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/04/03/baekjoon/2020/4April/2020-04-04-%5B%EB%B0%B1%EC%A4%80%5D%204677%20Oil%20Deposits/" data-tooltip="[백준][python] 4677 Oil Deposits" aria-label="다음: [백준][python] 4677 Oil Deposits">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -363,7 +363,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -371,7 +371,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -379,7 +379,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -413,7 +413,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -421,7 +421,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -429,7 +429,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -485,9 +485,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/04/03/Baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/';
+            this.page.url = 'http://example.com/2020/04/03/baekjoon/2020/4April/2020-04-03-[%EB%B0%B1%EC%A4%80]%204485%20%EB%85%B9%EC%83%89%20%EC%98%B7%20%EC%9E%85%EC%9D%80%20%EC%95%A0%EA%B0%80%20%EC%A0%A4%EB%8B%A4%EC%A7%80/';
               
-            this.page.identifier = '2020/04/03/Baekjoon/2020/4April/2020-04-03-[백준] 4485 녹색 옷 입은 애가 젤다지/';
+            this.page.identifier = '2020/04/03/baekjoon/2020/4April/2020-04-03-[백준] 4485 녹색 옷 입은 애가 젤다지/';
               
           };
           (function() {

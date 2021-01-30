@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인단지번호붙이기\n2. 코드 및 설명123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# bfs# 방문, q 설정.# q에 시작위치 넣고.# q가 빌때까지 돈다.# node에 q의 값을 pop(0)하고# 그 pop 한 값이 방문한적없다면 visit에 넣고# q에 graph[node] 값을 마지막에 넣어준다.def bfs(graph, start):    visit = list()    queue = list()    queue.append(start)    while queue:        node = queue.pop(0)        if node not in visit:            visit.append(node)            queue.extend(graph[node])    return visitif __name__ == &quot;__main__&quot;:    # 컴퓨터 수.    computers = int(input())    # 쌍 수.    pair = int(input())    # 그래프.    graph = dict()    # 그래프 설정.    for i in range(1, computers+1):        graph[i] = []    # 그래프 양방향 연결.    for i in range(pair):        one, two = map(int, input().split())        graph[one].append(two)        graph[two].append(one)    # 바이러스 걸린 컴퓨터 수 넣을 곳.    birus = list()    # 시작위치를 1 ~ 컴퓨터 수 만큼 돌아서 birus에 길이를 넣는다.    for i in range(1, computers+1):        result = bfs(graph, i)        birus.append(len(result)-1)    # 그 중 최대 값을 출력한다.    print(max(birus))","dateCreated":"2020-01-15T15:36:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-15T15:36:00+09:00","description":"","headline":"[백준][python] 2606 바이러스","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/","keywords":"Algorithm, Python, Solve, 1DAB, BFS&DFS"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 확인단지번호붙이기\n2. 코드 및 설명123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# bfs# 방문, q 설정.# q에 시작위치 넣고.# q가 빌때까지 돈다.# node에 q의 값을 pop(0)하고# 그 pop 한 값이 방문한적없다면 visit에 넣고# q에 graph[node] 값을 마지막에 넣어준다.def bfs(graph, start):    visit = list()    queue = list()    queue.append(start)    while queue:        node = queue.pop(0)        if node not in visit:            visit.append(node)            queue.extend(graph[node])    return visitif __name__ == &quot;__main__&quot;:    # 컴퓨터 수.    computers = int(input())    # 쌍 수.    pair = int(input())    # 그래프.    graph = dict()    # 그래프 설정.    for i in range(1, computers+1):        graph[i] = []    # 그래프 양방향 연결.    for i in range(pair):        one, two = map(int, input().split())        graph[one].append(two)        graph[two].append(one)    # 바이러스 걸린 컴퓨터 수 넣을 곳.    birus = list()    # 시작위치를 1 ~ 컴퓨터 수 만큼 돌아서 birus에 길이를 넣는다.    for i in range(1, computers+1):        result = bfs(graph, i)        birus.append(len(result)-1)    # 그 중 최대 값을 출력한다.    print(max(birus))","dateCreated":"2020-01-15T15:36:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-15T15:36:00+09:00","description":"","headline":"[백준][python] 2606 바이러스","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/","keywords":"Algorithm, Python, Solve, 1DAB, BFS&DFS"}</script>
     <meta name="description" content="1. 확인단지번호붙이기 2. 코드 및 설명123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# bfs# 방문, q 설정.# q에 시작위치 넣고.# q가 빌때까지 돈다.# node에 q의 값을 pop(0)하고# 그 pop 한 값이 방문한적없다면">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][python] 2606 바이러스">
-<meta property="og:url" content="http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/index.html">
+<meta property="og:url" content="http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 확인단지번호붙이기 2. 코드 및 설명123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051# bfs# 방문, q 설정.# q에 시작위치 넣고.# q가 빌때까지 돈다.# node에 q의 값을 pop(0)하고# 그 pop 한 값이 방문한적없다면">
 <meta property="og:locale" content="ko_KR">
@@ -228,7 +228,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/Mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 4일차 목표" aria-label="이전: [모각코] 4일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 4일차 목표" aria-label="이전: [모각코] 4일차 목표">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -255,7 +255,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -263,7 +263,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -271,7 +271,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -324,7 +324,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/Mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 4일차 목표" aria-label="이전: [모각코] 4일차 목표">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" data-tooltip="[모각코] 4일차 목표" aria-label="이전: [모각코] 4일차 목표">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -351,7 +351,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -359,7 +359,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -367,7 +367,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -401,7 +401,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -409,7 +409,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -417,7 +417,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -473,9 +473,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/01/15/Baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/';
+            this.page.url = 'http://example.com/2020/01/15/baekjoon/2020/1January/2020-01-15-[%EB%B0%B1%EC%A4%80]%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/';
               
-            this.page.identifier = '2020/01/15/Baekjoon/2020/1January/2020-01-15-[백준] 2606 바이러스/';
+            this.page.identifier = '2020/01/15/baekjoon/2020/1January/2020-01-15-[백준] 2606 바이러스/';
               
           };
           (function() {

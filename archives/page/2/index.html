@@ -172,7 +172,114 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label=": [백준][python]1021 회전하는 큐">
+                        <a class="link-unstyled" href="/2020/12/26/baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label=": [백준][python] 2630 색종이 만들기">
+                            [백준][python] 2630 색종이 만들기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-12-26T23:25:00+09:00">
+	
+		    2020/12/26
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2630">2630 색종이 만들기</a><br><img src="https://user-images.githubusercontent.com/20227720/103153188-1bcc2500-47d2-11eb-8de1-f0b7888c7667.PNG" alt="캡처">  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def paperSum(x, y):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            sum +&#x3D; paper[i][j]</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">def paperChecker(x, y, p):</span><br><span class="line">    global zero, one</span><br><span class="line">    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])</span><br><span class="line">    pS &#x3D; paperSum(x,y)</span><br><span class="line">    if  pS &#x3D;&#x3D; value:</span><br><span class="line">        one +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 0:</span><br><span class="line">        zero +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif paperSum(x,y) !&#x3D; value:</span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    paper &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): paper[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;).rsplit()))</span><br><span class="line">    paperChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    print(zero)</span><br><span class="line">    print(one)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>사분면의 좌표를 설정해 재귀로 들어가 분면의 총 합이 좌표만큼인지 아니면 0인지 판별한다.</p>
+<p>사분면 설정하는 부분에서 기준을 준다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/12/26/baekjoon/2020/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/12/25/baekjoon/2020/12December/2020-12-25-5430%20AC/" aria-label=": [백준][python]5430 AC">
+                            [백준][python]5430 AC
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-12-25T23:00:00+09:00">
+	
+		    2020/12/25
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/5430">5430 AC</a><br><img src="https://user-images.githubusercontent.com/20227720/103136673-b3177680-4705-11eb-9b2c-a574278ea6a6.PNG" alt="캡처">  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    t &#x3D; int(sys.stdin.readline())</span><br><span class="line"></span><br><span class="line">    for i in range(t):</span><br><span class="line">        f &#x3D; list(sys.stdin.readline())</span><br><span class="line">        l &#x3D; int(sys.stdin.readline())</span><br><span class="line">        nums &#x3D; collections.deque(sys.stdin.readline().rstrip(&#39;\n&#39;).strip(&#39;[]&#39;).split(&#39;,&#39;))</span><br><span class="line">        result &#x3D; 0</span><br><span class="line">        ReverseStack &#x3D; 0</span><br><span class="line"></span><br><span class="line">        for j in f:</span><br><span class="line">            if j &#x3D;&#x3D; &#39;R&#39;:</span><br><span class="line">                ReverseStack +&#x3D; 1</span><br><span class="line">            elif j &#x3D;&#x3D; &#39;D&#39;:</span><br><span class="line">                if l &gt; 0:</span><br><span class="line">                    if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">                        nums.pop()</span><br><span class="line">                    elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">                        nums.popleft()</span><br><span class="line">                    l -&#x3D; 1</span><br><span class="line">                else:</span><br><span class="line">                    result &#x3D; &#39;error&#39;</span><br><span class="line">                    break</span><br><span class="line"></span><br><span class="line">        if ReverseStack % 2 &#x3D;&#x3D; 1:</span><br><span class="line">            nums.reverse()</span><br><span class="line">        elif ReverseStack % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            ...</span><br><span class="line"></span><br><span class="line">        if result &#x3D;&#x3D; &#39;error&#39;:</span><br><span class="line">            print(result)</span><br><span class="line">        else:</span><br><span class="line">            print(&#39;[&#39;,end&#x3D;&#39;&#39;)</span><br><span class="line">            for k in range(len(nums)):</span><br><span class="line">                if k &#x3D;&#x3D; len(nums) - 1:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;&#39;)</span><br><span class="line">                else:</span><br><span class="line">                    print(nums[k], end&#x3D;&#39;,&#39;)</span><br><span class="line">            print(&#39;]&#39;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>이 문제 해결은 시간초과를 안나게 하면된다.</p>
+<p>카운트한 R의 개수가 짝수인지 홀수인지 확인하고, 짝수면 맨 왼쪽, 홀수면 맨 오른쪽 원소를 빼주고, 마지막 출력하기전에 nums를 reverse할지말지를 결정한다.</p>
+<p>그 외에 파이썬에서 문자열 다루는 부분을 신경써주면된다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/12/25/baekjoon/2020/12December/2020-12-25-5430%20AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/" aria-label=": [백준][python]1021 회전하는 큐">
                             [백준][python]1021 회전하는 큐
                         </a>
                     
@@ -212,7 +319,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/24/Baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/24/baekjoon/2020/12December/2020-12-24-1021%20%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94%20%ED%81%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -230,7 +337,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" aria-label=": [백준][python] 10866 덱">
+                        <a class="link-unstyled" href="/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/" aria-label=": [백준][python] 10866 덱">
                             [백준][python] 10866 덱
                         </a>
                     
@@ -262,7 +369,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/22/Baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -280,7 +387,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/21/Git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/" aria-label=": [git] git 명령어 모음">
+                        <a class="link-unstyled" href="/2020/12/21/git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/" aria-label=": [git] git 명령어 모음">
                             [git] git 명령어 모음
                         </a>
                     
@@ -346,7 +453,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/21/Git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/21/git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -364,7 +471,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/20/Baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/" aria-label=": [백준][python]1966 프린터 큐">
+                        <a class="link-unstyled" href="/2020/12/20/baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/" aria-label=": [백준][python]1966 프린터 큐">
                             [백준][python]1966 프린터 큐
                         </a>
                     
@@ -400,7 +507,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/20/Baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/20/baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -418,7 +525,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/17/Baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/" aria-label=": [백준][python]11866 요세푸스 문제 O">
+                        <a class="link-unstyled" href="/2020/12/17/baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/" aria-label=": [백준][python]11866 요세푸스 문제 O">
                             [백준][python]11866 요세푸스 문제 O
                         </a>
                     
@@ -452,7 +559,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/17/Baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/17/baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -470,7 +577,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/16/Baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/" aria-label=": [백준][python]2164 카드2">
+                        <a class="link-unstyled" href="/2020/12/16/baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/" aria-label=": [백준][python]2164 카드2">
                             [백준][python]2164 카드2
                         </a>
                     
@@ -509,7 +616,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/16/Baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/16/baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -527,7 +634,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" aria-label=": [백준][python]18258 큐2">
+                        <a class="link-unstyled" href="/2020/12/15/baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/" aria-label=": [백준][python]18258 큐2">
                             [백준][python]18258 큐2
                         </a>
                     
@@ -567,7 +674,7 @@
                     
                     
                         <p>
-                            <a href="/2020/12/15/Baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/12/15/baekjoon/2020/12December/2020-12-15-18258%20%ED%81%902/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -585,7 +692,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label=": [백준][python] 1018 체스판 다시 칠하기">
+                        <a class="link-unstyled" href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/" aria-label=": [백준][python] 1018 체스판 다시 칠하기">
                             [백준][python] 1018 체스판 다시 칠하기
                         </a>
                     
@@ -620,114 +727,7 @@
                     
                     
                         <p>
-                            <a href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/" aria-label=": [백준][python] 7568 덩치">
-                            [백준][python] 7568 덩치
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-11-06T15:10:00+09:00">
-	
-		    2020/11/06
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/7568">덩치</a><br><img width="944" alt="스크린샷 2020-11-06 오후 3 22 34" src="https://user-images.githubusercontent.com/20227720/98333425-10ffda00-2044-11eb-8f19-f95ce5215b5d.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    people = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        w, h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        people.append((w,h))</span><br><span class="line"></span><br><span class="line">    grade = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people))]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(people)):</span><br><span class="line">            <span class="keyword">if</span> i == j: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> people[i][<span class="number">0</span>] &lt; people[j][<span class="number">0</span>] <span class="keyword">and</span> people[i][<span class="number">1</span>] &lt; people[j][<span class="number">1</span>]:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        grade[i] = count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> grade:</span><br><span class="line">        print(i, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/11/06/Baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%207568%20%EB%8D%A9%EC%B9%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/" aria-label=": [백준][python] 2231 분해합">
-                            [백준][python] 2231 분해합
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-11-04T19:30:00+09:00">
-	
-		    2020/11/04
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2231">분해합</a><br><img width="947" alt="스크린샷 2020-11-04 오후 7 47 54" src="https://user-images.githubusercontent.com/20227720/98102170-a4b39800-1ed6-11eb-8437-5f0d4425224a.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    Constructor = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>):</span><br><span class="line">        nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">list</span>(<span class="built_in">str</span>(i))))</span><br><span class="line">        Decomposition = i + <span class="built_in">sum</span>(nums)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> Decomposition == N:</span><br><span class="line">            Constructor = i</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> Constructor == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(Constructor)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/11/04/Baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%202231%20%EB%B6%84%ED%95%B4%ED%95%A9/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2020/11/06/baekjoon/2020/11November/2020-11-06-%5B%EB%B0%B1%EC%A4%80%5D%201018%20%EC%B2%B4%EC%8A%A4%ED%8C%90%20%EB%8B%A4%EC%8B%9C%20%EC%B9%A0%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -756,7 +756,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 2 of 15</li>
+        <li class="pagination-number">page 2 of 16</li>
     </ul>
 </div>
 

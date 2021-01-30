@@ -18,11 +18,11 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제2579 계단 오르기\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;int main()&#123;    int n = 0, score = 0;    int stairs[301] = &#123;0&#125;;    int dp[301] = &#123;0&#125;;    scanf(&quot;%d&quot;, &amp;n);    for(int i = 0; i &lt; n; i++)&#123;        scanf(&quot;%d&quot;, &amp;score);        stairs[i] = score;    &#125;    dp[0] = stairs[0];    dp[1] = max(stairs[0]+stairs[1], stairs[1]);    dp[2] = max(stairs[0]+stairs[2], stairs[1]+stairs[2]);    for(int i = 3; i &lt; n; i++)&#123;        dp[i] = max(dp[i-3] + stairs[i-1] + stairs[i], dp[i-2] + stairs[i]);    &#125;    printf(&quot;%d&quot;, dp[n-1]);    return 0;&#125;\n\npython\n\n12345678910111213141516171819import sysinput = sys.stdin.readlineif __name__ == &quot;__main__&quot;:    n = int(input())    stairs = [0] * 301    dp = [0] * 301    for i in range(n):        stairs[i] = int(input())    dp[0] = stairs[0]    dp[1] = max(stairs[0] + stairs[1], stairs[1])    dp[2] = max(stairs[0] + stairs[2], stairs[1] + stairs[2])    for i in range(3, n):        dp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])    print(dp[n-1])\n3. 설명\n대부분의 DP문제는 점화식을 이용해서 해결한다. 설령 그 문제가 절대 점화식으로 풀리지 않을것같아도, 점화식으로 풀릴것이다. 안풀리면 말고. 아무튼 이 문제도 점화식을 이용하면 해결가능하다.  \n\n먼저 다음의 규칙을 보자.  \n\n계단 오르는 데는 다음과 같은 규칙이 있다.\n\n계단은 한 번에 한 계단씩 또는 두 계단씩 오를 수 있다. 즉, 한 계단을 밟으면서 이어서 다음 계단이나, 다음 다음 계단으로 오를 수 있다.\n연속된 세 개의 계단을 모두 밟아서는 안 된다. 단, 시작점은 계단에 포함되지 않는다.\n마지막 도착 계단은 반드시 밟아야 한다.\n\n\n두칸까지는 연속 이동가능, 3칸은 불가능, 두칸 다 갔으면 2칸을 더 간뒤에 다시 연속 2칸을 가든 또 2칸을 넘든하면된다.\n\n여기서 중요한건 마지막 도착 계단은 반드시 밟아야 한다 이다.\n\n마지막을 중심으로 점화식을 세울수 있다.\n\n아래와 같이 2가지 경우가 있다.\n\n\n\n\nn - 3\nn - 2\nn - 1\nn\n\n\n\nO\nX\nO\nO\n\n\n?\nO\nX\nO\n\n\n\n차트 설명\n\n마지막과 그전을 밟는경우 그 전전은 못 밟고 그전전전은 무조건 밟아야한다.\n마지막과 그 전전을 밟는 경우 그 전전전은 뭐일지 모른다. 둘다 가능하기때문이다.\n\n\n점화식 유도\n\ndp배열과 stairs배열을 만들고, dp에는 지금까지 합의 최대, stairs는 각 층의 점수를 넣는다.\ndp는 for문을 3부터 n까지 돌고, 식은 다음과 같다.\n\n\ndp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])\n\n\nfor문을 돌리기 전에 dp의 0~2위치를 초기화해주어야하는데, for문에서 3부터 시작하지만 dp의 0 1 2 를 사용해야하기때문\n\n\n배열에서 사용되는 숫자의 맨 처음 값이 0으로 되어있다. 0부터 1층이라 생각하면된다.\n한칸 위치는 stairs의 처음위치를 넣는다. -&gt; dp[0] = stairs[0]\n두칸 위치는 0, 1 연속 가는 방법과 한번에 1로가는 방법이 있다. -&gt; dp[1] = max(stairs[0] + stairs[1], stairs[1])\n세칸 위치는 한칸 두칸 - 0, 2 or 두칸 한칸 - 1, 2을 가는 방법이 있다. -&gt; dp[2] = max(stairs[0] + stairs[2], stairs[1] + stairs[2])\n\n\n그러고 배열은 원래 위치에 1 작으니까 결과값으로 dp[n-1]의 값을 출력한다.\n\n\n\n","dateCreated":"2020-02-27T16:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-27T16:00:00+09:00","description":"","headline":"[백준][c++][python] 2579 계단오르기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, C++, DP"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 문제2579 계단 오르기\n2. 코드\nc++\n\n123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;int main()&#123;    int n = 0, score = 0;    int stairs[301] = &#123;0&#125;;    int dp[301] = &#123;0&#125;;    scanf(&quot;%d&quot;, &amp;n);    for(int i = 0; i &lt; n; i++)&#123;        scanf(&quot;%d&quot;, &amp;score);        stairs[i] = score;    &#125;    dp[0] = stairs[0];    dp[1] = max(stairs[0]+stairs[1], stairs[1]);    dp[2] = max(stairs[0]+stairs[2], stairs[1]+stairs[2]);    for(int i = 3; i &lt; n; i++)&#123;        dp[i] = max(dp[i-3] + stairs[i-1] + stairs[i], dp[i-2] + stairs[i]);    &#125;    printf(&quot;%d&quot;, dp[n-1]);    return 0;&#125;\n\npython\n\n12345678910111213141516171819import sysinput = sys.stdin.readlineif __name__ == &quot;__main__&quot;:    n = int(input())    stairs = [0] * 301    dp = [0] * 301    for i in range(n):        stairs[i] = int(input())    dp[0] = stairs[0]    dp[1] = max(stairs[0] + stairs[1], stairs[1])    dp[2] = max(stairs[0] + stairs[2], stairs[1] + stairs[2])    for i in range(3, n):        dp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])    print(dp[n-1])\n3. 설명\n대부분의 DP문제는 점화식을 이용해서 해결한다. 설령 그 문제가 절대 점화식으로 풀리지 않을것같아도, 점화식으로 풀릴것이다. 안풀리면 말고. 아무튼 이 문제도 점화식을 이용하면 해결가능하다.  \n\n먼저 다음의 규칙을 보자.  \n\n계단 오르는 데는 다음과 같은 규칙이 있다.\n\n계단은 한 번에 한 계단씩 또는 두 계단씩 오를 수 있다. 즉, 한 계단을 밟으면서 이어서 다음 계단이나, 다음 다음 계단으로 오를 수 있다.\n연속된 세 개의 계단을 모두 밟아서는 안 된다. 단, 시작점은 계단에 포함되지 않는다.\n마지막 도착 계단은 반드시 밟아야 한다.\n\n\n두칸까지는 연속 이동가능, 3칸은 불가능, 두칸 다 갔으면 2칸을 더 간뒤에 다시 연속 2칸을 가든 또 2칸을 넘든하면된다.\n\n여기서 중요한건 마지막 도착 계단은 반드시 밟아야 한다 이다.\n\n마지막을 중심으로 점화식을 세울수 있다.\n\n아래와 같이 2가지 경우가 있다.\n\n\n\n\nn - 3\nn - 2\nn - 1\nn\n\n\n\nO\nX\nO\nO\n\n\n?\nO\nX\nO\n\n\n\n차트 설명\n\n마지막과 그전을 밟는경우 그 전전은 못 밟고 그전전전은 무조건 밟아야한다.\n마지막과 그 전전을 밟는 경우 그 전전전은 뭐일지 모른다. 둘다 가능하기때문이다.\n\n\n점화식 유도\n\ndp배열과 stairs배열을 만들고, dp에는 지금까지 합의 최대, stairs는 각 층의 점수를 넣는다.\ndp는 for문을 3부터 n까지 돌고, 식은 다음과 같다.\n\n\ndp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])\n\n\nfor문을 돌리기 전에 dp의 0~2위치를 초기화해주어야하는데, for문에서 3부터 시작하지만 dp의 0 1 2 를 사용해야하기때문\n\n\n배열에서 사용되는 숫자의 맨 처음 값이 0으로 되어있다. 0부터 1층이라 생각하면된다.\n한칸 위치는 stairs의 처음위치를 넣는다. -&gt; dp[0] = stairs[0]\n두칸 위치는 0, 1 연속 가는 방법과 한번에 1로가는 방법이 있다. -&gt; dp[1] = max(stairs[0] + stairs[1], stairs[1])\n세칸 위치는 한칸 두칸 - 0, 2 or 두칸 한칸 - 1, 2을 가는 방법이 있다. -&gt; dp[2] = max(stairs[0] + stairs[2], stairs[1] + stairs[2])\n\n\n그러고 배열은 원래 위치에 1 작으니까 결과값으로 dp[n-1]의 값을 출력한다.\n\n\n\n","dateCreated":"2020-02-27T16:00:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-02-27T16:00:00+09:00","description":"","headline":"[백준][c++][python] 2579 계단오르기","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/","keywords":"Algorithm, Python, Solve, 1DAB, C++, DP"}</script>
     <meta name="description" content="1. 문제2579 계단 오르기 2. 코드 c++  123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, score &#x3D; 0;    int stairs[">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[백준][c++][python] 2579 계단오르기">
-<meta property="og:url" content="http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/index.html">
+<meta property="og:url" content="http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. 문제2579 계단 오르기 2. 코드 c++  123456789101112131415161718192021222324252627#include &lt;iostream&gt;#include &lt;algorithm&gt;using namespace std;int main()&amp;#123;    int n &#x3D; 0, score &#x3D; 0;    int stairs[">
 <meta property="og:locale" content="ko_KR">
@@ -308,7 +308,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/28/Baekjoon/2020/2February/2020-02-28-%5B%EB%B0%B1%EC%A4%80%5D%2011052%20%EC%B9%B4%EB%93%9C%20%EA%B5%AC%EB%A7%A4%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 11052 카드구매하기" aria-label="이전: [백준][c++][python] 11052 카드구매하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/28/baekjoon/2020/2February/2020-02-28-%5B%EB%B0%B1%EC%A4%80%5D%2011052%20%EC%B9%B4%EB%93%9C%20%EA%B5%AC%EB%A7%A4%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 11052 카드구매하기" aria-label="이전: [백준][c++][python] 11052 카드구매하기">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -317,7 +317,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/26/Baekjoon/2020/2February/2020-02-26-%5B%EB%B0%B1%EC%A4%80%5D%209095%201,2,3%20%EB%8D%94%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 9095 1,2,3 더하기" aria-label="다음: [백준][c++][python] 9095 1,2,3 더하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/26/baekjoon/2020/2February/2020-02-26-%5B%EB%B0%B1%EC%A4%80%5D%209095%201,2,3%20%EB%8D%94%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 9095 1,2,3 더하기" aria-label="다음: [백준][c++][python] 9095 1,2,3 더하기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -335,7 +335,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -343,7 +343,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -351,7 +351,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -404,7 +404,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/28/Baekjoon/2020/2February/2020-02-28-%5B%EB%B0%B1%EC%A4%80%5D%2011052%20%EC%B9%B4%EB%93%9C%20%EA%B5%AC%EB%A7%A4%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 11052 카드구매하기" aria-label="이전: [백준][c++][python] 11052 카드구매하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/28/baekjoon/2020/2February/2020-02-28-%5B%EB%B0%B1%EC%A4%80%5D%2011052%20%EC%B9%B4%EB%93%9C%20%EA%B5%AC%EB%A7%A4%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 11052 카드구매하기" aria-label="이전: [백준][c++][python] 11052 카드구매하기">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -413,7 +413,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/26/Baekjoon/2020/2February/2020-02-26-%5B%EB%B0%B1%EC%A4%80%5D%209095%201,2,3%20%EB%8D%94%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 9095 1,2,3 더하기" aria-label="다음: [백준][c++][python] 9095 1,2,3 더하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/26/baekjoon/2020/2February/2020-02-26-%5B%EB%B0%B1%EC%A4%80%5D%209095%201,2,3%20%EB%8D%94%ED%95%98%EA%B8%B0/" data-tooltip="[백준][c++][python] 9095 1,2,3 더하기" aria-label="다음: [백준][c++][python] 9095 1,2,3 더하기">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -431,7 +431,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -439,7 +439,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -447,7 +447,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -481,7 +481,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -489,7 +489,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -497,7 +497,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -553,9 +553,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/02/27/Baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/';
+            this.page.url = 'http://example.com/2020/02/27/baekjoon/2020/2February/2020-02-27-[%EB%B0%B1%EC%A4%80]%202579%20%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/';
               
-            this.page.identifier = '2020/02/27/Baekjoon/2020/2February/2020-02-27-[백준] 2579 계단오르기/';
+            this.page.identifier = '2020/02/27/baekjoon/2020/2February/2020-02-27-[백준] 2579 계단오르기/';
               
           };
           (function() {
