@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="학생개발자 이승민">
-    <title>flutter 오류 모음 - 학생개발자 이승민</title>
+    <title>[dart] dart 기본 문법 - 학생개발자 이승민</title>
     <meta name="author" content="이승민">
-    <link rel="canonical" href="http://example.com/2021/01/28/flutter/2021-01-30-flutter 오류 모움/">
+    <link rel="canonical" href="http://example.com/2020/01/05/dart/2020-01-30-[dart] dart 기본 문법/">
     
     
     
@@ -18,19 +18,21 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager12345sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.Android Studio - Tools - sdk manager - android SDK - SDK Tools - Show Package Details(check) - 29.0.2 버전(uncheck) - Apply - 29.0.2 버전(check) - Applyvscode는 재접후 앱 실행하면 정상적으로 작동함\n2. Execution failed for task ‘:app:mergeDexDebug’.해결 : https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter\n1문제는 multidex 빌더에 있습니다. 실제로 이는 빌드 된 단일 .dex에 맞지 않는 yaml 파일에 많은 패키지를 가져 왔기 때문에 multidex를 활성화해야하는 경우에 자주 발생합니다.\nandroid/app/build.gradle에 아래 코드를 추가한다.\n12345678dependencies &#123;  implementation &#x27;com.android.support:multidex:1.0.3&#x27; //enter the latest version&#125;android &#123;    defaultConfig &#123;        multiDexEnabled true    &#125;&#125;","dateCreated":"2021-01-28T18:50:00+09:00","dateModified":"2021-02-06T01:07:27+09:00","datePublished":"2021-01-28T18:50:00+09:00","description":"","headline":"flutter 오류 모음","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/","keywords":"flutter_errors.zip"}</script>
-    <meta name="description" content="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager12345sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.Android Studio - Tools - sdk manager - android SDK -">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 설정1flutter 개발 환경이 설정되어 있지않으시면, [flutter 시작하기](https:&#x2F;&#x2F;steampower33.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;flutter&#x2F;2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&#x2F;)를 참고\n\n1맨 처음 main에는 여러가지 많을텐데, main만 남기고 다 삭제한다.\n2. 출력12345void main() &#123;    // 출력    print(&#x27;Hello, World!&#x27;); &#125;","dateCreated":"2020-01-05T21:00:00+09:00","dateModified":"2021-02-03T21:19:07+09:00","datePublished":"2020-01-05T21:00:00+09:00","description":"","headline":"[dart] dart 기본 문법","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/","keywords":"dart"}</script>
+    <meta name="description" content="1. 설정1flutter 개발 환경이 설정되어 있지않으시면, [flutter 시작하기](https:&#x2F;&#x2F;steampower33.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;flutter&#x2F;2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&#x2F;)를">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="flutter 오류 모음">
-<meta property="og:url" content="http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/index.html">
+<meta property="og:title" content="[dart] dart 기본 문법">
+<meta property="og:url" content="http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
-<meta property="og:description" content="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager12345sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.Android Studio - Tools - sdk manager - android SDK -">
+<meta property="og:description" content="1. 설정1flutter 개발 환경이 설정되어 있지않으시면, [flutter 시작하기](https:&#x2F;&#x2F;steampower33.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;flutter&#x2F;2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&#x2F;)를">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-01-28T09:50:00.000Z">
-<meta property="article:modified_time" content="2021-02-05T16:07:27.726Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20227720/106357701-02774500-634b-11eb-90c9-c200d0d23a42.PNG">
+<meta property="article:published_time" content="2020-01-05T12:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-03T12:19:07.073Z">
 <meta property="article:author" content="이승민">
-<meta property="article:tag" content="flutter_errors.zip">
+<meta property="article:tag" content="dart">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/20227720/106357701-02774500-634b-11eb-90c9-c200d0d23a42.PNG">
     
     
         
@@ -174,20 +176,20 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            flutter 오류 모음
+            [dart] dart 기본 문법
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2021-01-28T18:50:00+09:00">
+    <time datetime="2020-01-05T21:00:00+09:00">
 	
-		    2021/01/28
+		    2020/01/05
     	
     </time>
     
         <span>카테고리 </span>
         
-    <a class="category-link" href="/categories/flutter/">flutter</a>
+    <a class="category-link" href="/categories/dart/">dart</a>
 
 
     
@@ -199,11 +201,10 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h1 id="1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager"><a href="#1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager" class="headerlink" title="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager"></a>1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.</span><br><span class="line"></span><br><span class="line">Android Studio - Tools - sdk manager - android SDK - SDK Tools - Show Package Details(check) - 29.0.2 버전(uncheck) - Apply - 29.0.2 버전(check) - Apply</span><br><span class="line"></span><br><span class="line">vscode는 재접후 앱 실행하면 정상적으로 작동함</span><br></pre></td></tr></table></figure>
-<h1 id="2-Execution-failed-for-task-‘-app-mergeDexDebug’"><a href="#2-Execution-failed-for-task-‘-app-mergeDexDebug’" class="headerlink" title="2. Execution failed for task ‘:app:mergeDexDebug’."></a>2. Execution failed for task ‘:app:mergeDexDebug’.</h1><p>해결 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter">https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">문제는 multidex 빌더에 있습니다. 실제로 이는 빌드 된 단일 .dex에 맞지 않는 yaml 파일에 많은 패키지를 가져 왔기 때문에 multidex를 활성화해야하는 경우에 자주 발생합니다.</span><br></pre></td></tr></table></figure>
-<p>android/app/build.gradle에 아래 코드를 추가한다.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  implementation <span class="string">&#x27;com.android.support:multidex:1.0.3&#x27;</span> <span class="comment">//enter the latest version</span></span><br><span class="line">&#125;</span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        multiDexEnabled <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="1-설정"><a href="#1-설정" class="headerlink" title="1. 설정"></a>1. 설정</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter 개발 환경이 설정되어 있지않으시면, [flutter 시작하기](https:&#x2F;&#x2F;steampower33.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;flutter&#x2F;2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&#x2F;)를 참고</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/106357701-02774500-634b-11eb-90c9-c200d0d23a42.PNG" alt="캡처"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">맨 처음 main에는 여러가지 많을텐데, main만 남기고 다 삭제한다.</span><br></pre></td></tr></table></figure>
+<h1 id="2-출력"><a href="#2-출력" class="headerlink" title="2. 출력"></a>2. 출력</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="comment">// 출력</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello, World!&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
             
 
 
@@ -214,7 +215,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">태그</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/flutter-errors-zip/" rel="tag">flutter_errors.zip</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/dart/" rel="tag">dart</a>
 
             </div>
         
@@ -225,7 +226,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" data-tooltip="flutter 시작하기" aria-label="이전: flutter 시작하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/05/etc/2020-01-02-%5Bswift%5D%20let%20%EA%B3%BC%20var%EC%9D%98%20%EC%B0%A8%EC%9D%B4/" data-tooltip="[swift] let과 var의 차이" aria-label="이전: [swift] let과 var의 차이">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -234,7 +235,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/06/baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/" data-tooltip="[백준][python] 11444 피보나치 수" aria-label="다음: [백준][python] 11444 피보나치 수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/03/c++/2020-01-02-%5Bc++%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B8%B0/" data-tooltip="[c++] txt 파일의 내용 공백 구분해서/구분없이 읽어오기." aria-label="다음: [c++] txt 파일의 내용 공백 구분해서/구분없이 읽어오기.">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -252,7 +253,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -260,7 +261,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -268,7 +269,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -321,7 +322,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" data-tooltip="flutter 시작하기" aria-label="이전: flutter 시작하기">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/05/etc/2020-01-02-%5Bswift%5D%20let%20%EA%B3%BC%20var%EC%9D%98%20%EC%B0%A8%EC%9D%B4/" data-tooltip="[swift] let과 var의 차이" aria-label="이전: [swift] let과 var의 차이">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -330,7 +331,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/06/baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/" data-tooltip="[백준][python] 11444 피보나치 수" aria-label="다음: [백준][python] 11444 피보나치 수">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/03/c++/2020-01-02-%5Bc++%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B8%B0/" data-tooltip="[c++] txt 파일의 내용 공백 구분해서/구분없이 읽어오기." aria-label="다음: [c++] txt 파일의 내용 공백 구분해서/구분없이 읽어오기.">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -348,7 +349,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -356,7 +357,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -364,7 +365,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -398,7 +399,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -406,7 +407,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -414,7 +415,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -470,9 +471,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/';
+            this.page.url = 'http://example.com/2020/01/05/dart/2020-01-30-[dart]%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/';
               
-            this.page.identifier = '2021/01/28/flutter/2021-01-30-flutter 오류 모움/';
+            this.page.identifier = '2020/01/05/dart/2020-01-30-[dart] dart 기본 문법/';
               
           };
           (function() {
