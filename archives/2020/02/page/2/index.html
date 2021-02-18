@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -391,6 +391,59 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label=": [flutter&amp;dart] map 메소드">
+                            [flutter&amp;dart] map 메소드
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-18T12:00:00+09:00">
+	
+		    2020/02/18
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-map-메소드"><a href="#1-map-메소드" class="headerlink" title="1. map 메소드"></a>1. map 메소드</h1><p>문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> questions = [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite color?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Black&#x27;</span>, <span class="string">&#x27;Red&#x27;</span>, <span class="string">&#x27;Green&#x27;</span>, <span class="string">&#x27;White&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite animal?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Cow&#x27;</span>, <span class="string">&#x27;Rabbit&#x27;</span>, <span class="string">&#x27;Dog&#x27;</span>, <span class="string">&#x27;Lion&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;what\&#x27;s your favorite Game?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;LOL&#x27;</span>, <span class="string">&#x27;FIFA&#x27;</span>, <span class="string">&#x27;OVERWATCH&#x27;</span>, <span class="string">&#x27;MAPLESTORY&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">  ];</span><br></pre></td></tr></table></figure>
+<p>위의 자료형에 접근하려고한다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...(questions[_questionIndex][<span class="string">&#x27;answers&#x27;</span>] <span class="keyword">as</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;)</span><br><span class="line">                .map((answer) &#123;</span><br><span class="line">              <span class="keyword">return</span> Answer(_answerQuestion, answer);</span><br><span class="line">            &#125;).toList()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">questions[_questionIndex][&#39;answers&#39;]은 List&lt;String&gt;인데, dart에서 인식하지 못해서 () 감싸준다음 as LIst&lt;String&gt;으로 dart에게 알려줄 수 있다.</span><br><span class="line">그리고 이건 iterable 하기에 map method 사용할수있다.</span><br><span class="line">반복가능한 집단에서 map method 사용 가능</span><br><span class="line"></span><br><span class="line">() &#123;&#125; 에서 () 안에 익명함수를 사용 &#123;&#125; 안에는 리턴할 함수를 사용한다.</span><br><span class="line">익명 함수를 사용하는 이유는 여기에만 해당 함수가 필요하고 다른 곳에서는 필요하지 않기 때문이다.</span><br><span class="line"></span><br><span class="line">map method 안에서 여기서 만들 수 있는 명명 된 함수를 사용할 수 있다.</span><br><span class="line">여기에서 함수를 정의하고 그 함수는 자동으로 인수 자체를 받는다.</span><br><span class="line"></span><br><span class="line">.toList()를 통해 map으로 리턴될 것을 List가 되게해줌.</span><br><span class="line"></span><br><span class="line">맨앞의 ...은 spread operator인데, 현재 이 구문 밖은 List로 감싸져있다.</span><br><span class="line">List 안의 List이기에 spread operator를 통해서 그 밖의 List의 값이 되도록 해준다.</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/02/17/winterStudyClub/2020-02-17-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_7%ED%9A%8C%EC%B0%A8_2020_02_17(%EC%9B%94)/" aria-label=": 2020 동계 학습 동아리_7회차_2020_02_17(월)">
                             2020 동계 학습 동아리_7회차_2020_02_17(월)
                         </a>
@@ -694,60 +747,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/14/algorithm/2020-02-14-%5Balgorithm%5D%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" aria-label=": [algorithm] 선형 알고리즘">
-                            [algorithm] 선형 알고리즘
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-14T15:50:00+09:00">
-	
-		    2020/02/14
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/algorithm/">algorithm</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-주어진-배열에서-가장-많이-등장하는-숫자-반환하기"><a href="#1-주어진-배열에서-가장-많이-등장하는-숫자-반환하기" class="headerlink" title="1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기"></a>1. 주어진 배열에서 가장 많이 등장하는 숫자 반환하기</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 주어진 배열A에서 가장 많이 등장하는 숫자를 반환한다.</span></span><br><span class="line"><span class="comment">// 만약 두 가지 이상 있을 경우 아무것이나 반환한다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N^2)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">majority1</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">int</span> majority = <span class="number">-1</span>, majorityCount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        <span class="comment">//A에 등장하는 A[i]의 수를 센다.</span></span><br><span class="line">        <span class="keyword">int</span> V = A[i], count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; ++j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[j] == V)&#123;</span><br><span class="line">                ++count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//지금까지 본 최대 빈도보다 많이 출현했다면 답을 갱신한다.</span></span><br><span class="line">        <span class="keyword">if</span>(count &gt; majorityCount)&#123;</span><br><span class="line">            majorityCount = count;</span><br><span class="line">            majority = V;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> majority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">majority2</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        count[A[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//지금까지 확인한 숫자 중 빈도수가 제일 큰 것을 majority에 저장한다.</span></span><br><span class="line">    <span class="keyword">int</span> majority = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">100</span>; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(count[i] &gt; count[majority])&#123;</span><br><span class="line">            majority = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> majority;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> start, end;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> result1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> result2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">        v.push_back((rand() % <span class="number">100</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    start = clock();</span><br><span class="line">    result1 = majority1(v);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    start = clock();</span><br><span class="line">    result2 = majority2(v);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-1-결과"><a href="#1-1-결과" class="headerlink" title="1-1. 결과"></a>1-1. 결과</h2><img width="618" alt="스크린샷 2020-02-14 오후 5 26 56" src="https://user-images.githubusercontent.com/20227720/74514096-46611680-4f4f-11ea-8987-aa349682b074.png">
-
-
-<h2 id="2-이동-평균"><a href="#2-이동-평균" class="headerlink" title="2. 이동 평균"></a>2. 이동 평균</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N^2)</span></span><br><span class="line"><span class="comment">//실수 배열 A가 주어질때, 각 위치에서의 M-이동 평균 값을 구한다.</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">movingAverage1</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; A, <span class="keyword">int</span> M)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = M<span class="number">-1</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        <span class="comment">//A[i]까지의 이동 평균 값을 구하자.</span></span><br><span class="line">        <span class="keyword">double</span> partialSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; ++j)</span><br><span class="line">            partialSum += A[i-j];</span><br><span class="line">        ret.push_back(partialSum / M);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// O(N)</span></span><br><span class="line"><span class="comment">// 길이가 N인 실수 배열 A가 주어질 때, 각 위치에서의 M-이동 평균 값을 구한다.</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">movingAverage2</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;&amp; A, <span class="keyword">int</span> M)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret;</span><br><span class="line">    <span class="keyword">int</span> N = A.size();</span><br><span class="line">    <span class="keyword">double</span> partialSum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M<span class="number">-1</span>; ++i)</span><br><span class="line">        partialSum += A[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = M<span class="number">-1</span>; i &lt; N; ++i)&#123;</span><br><span class="line">        partialSum += A[i];</span><br><span class="line">        ret.push_back(partialSum / M);</span><br><span class="line">        partialSum -= A[i-M+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> start, end;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; value;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> in = i*<span class="number">2</span> + <span class="number">3</span>;</span><br><span class="line">        value.push_back(in);</span><br><span class="line">    &#125;</span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret1 = movingAverage1(value, <span class="number">50</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    start = clock();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ret2 = movingAverage2(value, <span class="number">50</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(end - start) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h2 id="2-2-결과"><a href="#2-2-결과" class="headerlink" title="2-2. 결과"></a>2-2. 결과</h2><img width="666" alt="스크린샷 2020-02-14 오후 5 27 05" src="https://user-images.githubusercontent.com/20227720/74514092-43febc80-4f4f-11ea-9140-c4a24210e93b.png">
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/14/algorithm/2020-02-14-%5Balgorithm%5D%20%EC%84%A0%ED%98%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -766,7 +765,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 2 of 4</li>
+        <li class="pagination-number">page 2 of 5</li>
     </ul>
 </div>
 
@@ -820,7 +819,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 

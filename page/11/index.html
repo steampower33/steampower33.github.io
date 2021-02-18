@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -163,6 +163,56 @@
                         hasCoverMetaIn
                         ">
                 <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/07/baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%204195%20%EC%B9%9C%EA%B5%AC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" aria-label=": [백준][python] 4195 친구 네트워크">
+                            [백준][python] 4195 친구 네트워크
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-07T22:00:00+09:00">
+	
+		    2020/02/07
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-해결"><a href="#1-해결" class="headerlink" title="1. 해결"></a>1. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/4195">친구 네트워크</a><br><img width="795" alt="스크린샷 2020-02-07 오후 9 52 46" src="https://user-images.githubusercontent.com/20227720/74031516-09e46680-49f5-11ea-84d1-8a20b74925e3.png"></p>
+<h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입/출력 빠르게.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParent</span>(<span class="params">graph, x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> graph[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    graph[x] = getParent(graph, graph[x])</span><br><span class="line">    <span class="keyword">return</span> graph[x]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합 및 부모노드에 전체 길이 넣기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unionParent</span>(<span class="params">graph, a, b, <span class="built_in">len</span></span>):</span></span><br><span class="line">    a = getParent(graph, a)</span><br><span class="line">    b = getParent(graph, b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a != b:</span><br><span class="line">        <span class="comment"># a가 무조건 부모로.</span></span><br><span class="line">        graph[b] = a</span><br><span class="line">        <span class="built_in">len</span>[a] += <span class="built_in">len</span>[b]</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 그래프, 길이 설정.</span></span><br><span class="line">    graph = <span class="built_in">dict</span>()</span><br><span class="line">    <span class="built_in">len</span> = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">            <span class="comment"># 기본 설정.</span></span><br><span class="line">            a, b = <span class="built_in">input</span>().split()</span><br><span class="line">            <span class="keyword">if</span> a <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">                graph[a] = a</span><br><span class="line">                <span class="built_in">len</span>[a] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> b <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">                graph[b] = b</span><br><span class="line">                <span class="built_in">len</span>[b] = <span class="number">1</span></span><br><span class="line">            <span class="comment"># 합집합 및 부모 설정.</span></span><br><span class="line">            p = unionParent(graph, a, b, <span class="built_in">len</span>)</span><br><span class="line">            print(<span class="built_in">str</span>(<span class="built_in">len</span>[p]))</span><br><span class="line">            print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        graph.clear()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/07/baekjoon/2020/2February/2020-02-07-%5B%EB%B0%B1%EC%A4%80%5D%204195%20%EC%B9%9C%EA%B5%AC%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">
@@ -736,64 +786,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/03/winterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/" aria-label=": 2020 동계 학습 동아리_1회차_2020_02_03(월)">
-                            2020 동계 학습 동아리_1회차_2020_02_03(월)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-03T20:00:00+09:00">
-	
-		    2020/02/03
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/2020WinterStudyClub/">2020WinterStudyClub</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p>카카오코딩페스티벌2018 예선 A번 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/15953">상금 헌터</a>를 해결한다.<br>해결하는 과정에서 부족한 부분의 지식을 따로 공부하고 정리한다.</p>
-<h2 id="2-해결"><a href="#2-해결" class="headerlink" title="2. 해결"></a>2. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-15953-%EC%83%81%EA%B8%88-%ED%97%8C%ED%84%B0/">A 상금 헌터 해결</a></p>
-<h2 id="3-필요한-지식"><a href="#3-필요한-지식" class="headerlink" title="3. 필요한 지식"></a>3. 필요한 지식</h2><ul>
-<li>python3로 해결하기때문에 python3의 전반적인 문법이 필요하다.</li>
-<li>switch case 문을 사용해서 해결하는 방법과 dictionary와 for문을 이용한 방법이 있다.</li>
-<li>switch은 너무 쉽다 생각되서, dictionary로 해결했다.</li>
-<li>증가수열에 대한 전반적인 이해가 필요하다.</li>
-</ul>
-<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>switch case 문을 사용해도 되지만, 인원이 증가하는게 증가 수열이기때문에 위와같이 구현할수있다.<br>하지만 위와 같이 수식을 코드화하는 과정은 구현에 오래걸릴수있다.<br>가능하면 빨리 해결할 수 있는 코드를 짜도록해야한다.<br>코딩테스트 문제를 풀면서 느낀건데, 소용반에는 굵직한 알고리즘 관련된건 많이 없고, 수식과 관련된 알고리즘이 많이 나온다.<br>혹은 각 언어의 특징이 다르다는걸 노리고 낸건지는 모르겠는데, 부동소수점 관련 문제도 있었다.<br>쉽다고 느껴지지만, 시험장에 가서 아무것도 못보는 채로 푼다고 하면, 아마 못풀것같다.<br>코딩테스트 동향을 잘 알고 문제를 다양하게 풀어야할 것 같다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/03/winterStudyClub/2020-02-03-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_1%ED%9A%8C%EC%B0%A8_2020_02_03(%EC%9B%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -865,7 +857,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 

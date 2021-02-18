@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -164,6 +164,129 @@
                         ">
                 
     <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/20/baekjoon/2020/1January/2020-01-20-%5B%EB%B0%B1%EC%A4%80%5D%204963%20%EC%84%AC%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label=": [백준][python] 4963 섬의 개수">
+                            [백준][python] 4963 섬의 개수
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-20T23:50:00+09:00">
+	
+		    2020/01/20
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/4963">섬의 개수</a><br><img width="807" alt="스크린샷 2020-01-21 오전 12 03 53" src="https://user-images.githubusercontent.com/20227720/72736882-dd051680-3be1-11ea-9fc1-3893c9b29249.png"></p>
+<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">field, start</span>):</span></span><br><span class="line">    queue = deque()</span><br><span class="line">    count = <span class="number">1</span></span><br><span class="line">    queue.append(start)</span><br><span class="line"></span><br><span class="line">    dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        q_second = deque()</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            y_, x_ = queue.popleft()</span><br><span class="line">            <span class="comment">#print(y_,x_)</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">                nextX = dx[i] + x_</span><br><span class="line">                nextY = dy[i] + y_</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= nextX &lt; <span class="built_in">len</span>(field[<span class="number">0</span>]) <span class="keyword">and</span> <span class="number">0</span> &lt;= nextY &lt; <span class="built_in">len</span>(field) <span class="keyword">and</span> field[nextY][nextX] == <span class="number">1</span>:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                    field[nextY][nextX] = <span class="number">0</span></span><br><span class="line">                    q_second.append((nextY, nextX))</span><br><span class="line">        <span class="comment">#print(count)</span></span><br><span class="line"></span><br><span class="line">        queue = q_second</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> queue: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> count &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    w, h = -<span class="number">1</span>, -<span class="number">1</span></span><br><span class="line">    islands = <span class="built_in">list</span>()</span><br><span class="line">    <span class="keyword">while</span> w != <span class="number">0</span> <span class="keyword">and</span> h !=<span class="number">0</span> :</span><br><span class="line">        <span class="comment"># 너비, 높이.</span></span><br><span class="line">        w,h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">        field = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>().split()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(h)]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#print(field)</span></span><br><span class="line">        num = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 높이.</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(h):</span><br><span class="line">            <span class="comment"># 너비.</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(w):</span><br><span class="line">                <span class="comment"># 세로, 가로.</span></span><br><span class="line">                <span class="keyword">if</span> field[i][j] == <span class="number">1</span>:</span><br><span class="line">                    a = bfs(field, (i,j))</span><br><span class="line">                    num += <span class="built_in">int</span>(a)</span><br><span class="line"></span><br><span class="line">        islands.append(num)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(islands)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(islands)-<span class="number">1</span>):</span><br><span class="line">        print(islands[i])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>0 0 이 나올때까지 너비, 높이, 맵 받으면서 맵안에 몇개의 섬이 있는지 알아낸다.<br>먼저, 문제를 잘 읽도록하자. 당연히 동서남북 4방향인줄 알았지만, 이문제를 당연하지 않았다.<br>수정하는데 코드 한줄이면 된다고 긍정적으로 생각해서는 안된다.<br>애초에 문제를 잘 못 읽으면 인풋이 잘 들어간들 아웃풋이 이상하기 때문에 시간을 꽤 낭비한다.<br>그 외에는 일반적인 길 찾기 알고리즘과 다를게없다.<br>이제 이런 섬 문제에는 익숙해져있으니, 그래프를 본격적으로 다루는 문제를 접해봐야겠다.  </p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/20/baekjoon/2020/1January/2020-01-20-%5B%EB%B0%B1%EC%A4%80%5D%204963%20%EC%84%AC%EC%9D%98%20%EA%B0%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/20/etc/2020-01-21-%5B%ED%84%B0%EB%AF%B8%EB%84%90%5D%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label=": [Terminal] 명령어 실행 파일 만들기">
+                            [Terminal] 명령어 실행 파일 만들기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-20T15:50:00+09:00">
+	
+		    2020/01/20
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/terminal/">terminal</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-동기"><a href="#1-동기" class="headerlink" title="1. 동기"></a>1. 동기</h2><p>실행 명령어가 간단하면 상관없는데,  </p>
+<p>jekyll 에서처럼 아래와 같을 수 있다.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll server</span><br></pre></td></tr></table></figure>
+
+<p>다른 것도 같이 겸하면서 각각의 명령어를 외우면서 작업을 하다보면 꽤나 귀찮다.  </p>
+<p>그러니 이걸 줄여줄 방법을 알아봤다.  </p>
+<h2 id="2-작업"><a href="#2-작업" class="headerlink" title="2. 작업"></a>2. 작업</h2><p>터미널에서 사용하는 명령어를 기억하자.  </p>
+<p>필자의 경우 아래와 같다.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll server</span><br></pre></td></tr></table></figure>
+<p>실행 명령어는 r로 아주 간단하게 하도록 하자.<br>그럼 아래와 같이 vi r로 r 파일을 만들어주고, 거기안에 명령어를 넣어준다.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi r</span><br></pre></td></tr></table></figure>
+<img width="231" alt="스크린샷 2020-01-21 오후 5 05 33" src="https://user-images.githubusercontent.com/20227720/72786162-3e73c680-3c70-11ea-8e04-3b0f12ed9202.png">
+
+
+<p>그러고 ./r을 실행해보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;r</span><br></pre></td></tr></table></figure>
+<p>그러면 아래와 같이 권한이 없다고 뜬다.<br><img width="445" alt="스크린샷 2020-01-21 오후 5 00 00" src="https://user-images.githubusercontent.com/20227720/72785861-7fb7a680-3c6f-11ea-946b-1542c97fbfc0.png"></p>
+<p>그럼 아래와 같이 권한을 줘보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chomod +x r</span><br></pre></td></tr></table></figure>
+<p>아래와같이 아무것도 안뜨면 정상적으로 권한을 준것이다.<br><img width="465" alt="스크린샷 2020-01-21 오후 5 02 34" src="https://user-images.githubusercontent.com/20227720/72785985-d7561200-3c6f-11ea-9cc4-75f0ce4a2348.png"></p>
+<p>마지막으로 ./r로 실행하면 완성된것이다.<br><img width="602" alt="스크린샷 2020-01-21 오후 5 03 41" src="https://user-images.githubusercontent.com/20227720/72786043-fc4a8500-3c6f-11ea-8803-dea5fc4efbd4.png"></p>
+<p>추가로 권한을 해제 하고 싶다면, 아래의 명령어를 사용하면된다.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chomod -x r</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/20/etc/2020-01-21-%5B%ED%84%B0%EB%AF%B8%EB%84%90%5D%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%8B%A4%ED%96%89%20%ED%8C%8C%EC%9D%BC%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">
@@ -614,106 +737,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/14/baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" aria-label=": [백준][python] 2667 단지번호붙이기">
-                            [백준][python] 2667 단지번호붙이기
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-14T15:47:00+09:00">
-	
-		    2020/01/14
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2667">단지번호붙이기</a><br><img width="798" alt="스크린샷 2020-01-14 오후 3 40 00" src="https://user-images.githubusercontent.com/20227720/72320561-4ae2a700-36e5-11ea-8588-8eda29bba348.png"></p>
-<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 큐.</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="comment"># bfs.</span></span><br><span class="line"><span class="comment"># 무한루프 안에 q안의 내용이 존재할때까지 돌게하고.</span></span><br><span class="line"><span class="comment"># 현재 위치와 4방향 위치의 값이 1인지 확인해서 같은 단지인지 확인한다.</span></span><br><span class="line"><span class="comment"># 만약 연결되어있다면, 그 위치의 값을 num으로 바꾼다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">location, <span class="built_in">map</span>, num</span>):</span></span><br><span class="line">    q = location <span class="comment"># y, x</span></span><br><span class="line">    map_ = <span class="built_in">map</span></span><br><span class="line">    dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">    map_[q[<span class="number">0</span>][<span class="number">0</span>]][q[<span class="number">0</span>][<span class="number">1</span>]] = num</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># while q 가 끝나도 q.second를 통해서, 다시 시작할수있다.</span></span><br><span class="line">        q_second = deque()</span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            y_, x_ = q.popleft()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">                <span class="comment"># 다음 위치 설정.</span></span><br><span class="line">                nextX = x_ + dx[i]</span><br><span class="line">                nextY = y_ + dy[i]</span><br><span class="line">                <span class="comment"># 다음 위치의 조건.</span></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= nextX &lt; n <span class="keyword">and</span> <span class="number">0</span> &lt;= nextY &lt; n <span class="keyword">and</span> map_[nextY][nextX] == <span class="number">1</span>:</span><br><span class="line">                    map_[nextY][nextX] = num</span><br><span class="line">                    q_second.append((nextY,nextX))</span><br><span class="line">        q = q_second</span><br><span class="line">        <span class="comment"># q비었으면 break.</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> map_</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 지도의 크기.</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 지도</span></span><br><span class="line">    <span class="built_in">map</span> = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지 설정.</span></span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">    <span class="comment"># map을 돌면서 1이 나오면 그위치에서 바로 bfs를 실행한다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] == <span class="number">1</span>:</span><br><span class="line">                location = deque()</span><br><span class="line">                location.append((i,j)) <span class="comment"># y, x</span></span><br><span class="line">                num += <span class="number">1</span></span><br><span class="line">                <span class="built_in">map</span> = bfs(location, <span class="built_in">map</span>, num)</span><br><span class="line">                location.clear()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지의 아파트 수.</span></span><br><span class="line">    count = [<span class="number">0</span>] * (num - <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># map을 돌면 단지의 이름이 0, 1이 아니면 count 배열에 1씩더함.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] != <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">map</span>[i][j] != <span class="number">1</span>:</span><br><span class="line">                count[<span class="built_in">map</span>[i][j]-<span class="number">2</span>] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># count를 정렬해주고, 출력.</span></span><br><span class="line">    count.sort()</span><br><span class="line">    print(<span class="built_in">len</span>(count))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">        print(i) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/14/baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 3일차 목표">
-                            [모각코] 3일차 목표
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-14T12:50:00+09:00">
-	
-		    2020/01/14
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p>알고리즘 문제 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2667">단지번호 붙이기</a>를 해결하고, 블로그에 글작성하기.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -786,7 +809,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 

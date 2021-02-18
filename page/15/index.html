@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -163,6 +163,106 @@
                         hasCoverMetaIn
                         ">
                 <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/14/baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/" aria-label=": [백준][python] 2667 단지번호붙이기">
+                            [백준][python] 2667 단지번호붙이기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-14T15:47:00+09:00">
+	
+		    2020/01/14
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2667">단지번호붙이기</a><br><img width="798" alt="스크린샷 2020-01-14 오후 3 40 00" src="https://user-images.githubusercontent.com/20227720/72320561-4ae2a700-36e5-11ea-8588-8eda29bba348.png"></p>
+<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 큐.</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="comment"># bfs.</span></span><br><span class="line"><span class="comment"># 무한루프 안에 q안의 내용이 존재할때까지 돌게하고.</span></span><br><span class="line"><span class="comment"># 현재 위치와 4방향 위치의 값이 1인지 확인해서 같은 단지인지 확인한다.</span></span><br><span class="line"><span class="comment"># 만약 연결되어있다면, 그 위치의 값을 num으로 바꾼다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">location, <span class="built_in">map</span>, num</span>):</span></span><br><span class="line">    q = location <span class="comment"># y, x</span></span><br><span class="line">    map_ = <span class="built_in">map</span></span><br><span class="line">    dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">    map_[q[<span class="number">0</span>][<span class="number">0</span>]][q[<span class="number">0</span>][<span class="number">1</span>]] = num</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># while q 가 끝나도 q.second를 통해서, 다시 시작할수있다.</span></span><br><span class="line">        q_second = deque()</span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            y_, x_ = q.popleft()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">                <span class="comment"># 다음 위치 설정.</span></span><br><span class="line">                nextX = x_ + dx[i]</span><br><span class="line">                nextY = y_ + dy[i]</span><br><span class="line">                <span class="comment"># 다음 위치의 조건.</span></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= nextX &lt; n <span class="keyword">and</span> <span class="number">0</span> &lt;= nextY &lt; n <span class="keyword">and</span> map_[nextY][nextX] == <span class="number">1</span>:</span><br><span class="line">                    map_[nextY][nextX] = num</span><br><span class="line">                    q_second.append((nextY,nextX))</span><br><span class="line">        q = q_second</span><br><span class="line">        <span class="comment"># q비었으면 break.</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> map_</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 지도의 크기.</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 지도</span></span><br><span class="line">    <span class="built_in">map</span> = [[<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>()] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지 설정.</span></span><br><span class="line">    num = <span class="number">1</span></span><br><span class="line">    <span class="comment"># map을 돌면서 1이 나오면 그위치에서 바로 bfs를 실행한다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] == <span class="number">1</span>:</span><br><span class="line">                location = deque()</span><br><span class="line">                location.append((i,j)) <span class="comment"># y, x</span></span><br><span class="line">                num += <span class="number">1</span></span><br><span class="line">                <span class="built_in">map</span> = bfs(location, <span class="built_in">map</span>, num)</span><br><span class="line">                location.clear()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 단지의 아파트 수.</span></span><br><span class="line">    count = [<span class="number">0</span>] * (num - <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># map을 돌면 단지의 이름이 0, 1이 아니면 count 배열에 1씩더함.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">map</span>[i][j] != <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">map</span>[i][j] != <span class="number">1</span>:</span><br><span class="line">                count[<span class="built_in">map</span>[i][j]-<span class="number">2</span>] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># count를 정렬해주고, 출력.</span></span><br><span class="line">    count.sort()</span><br><span class="line">    print(<span class="built_in">len</span>(count))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">        print(i) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/14/baekjoon/2020/1January/2020-01-14-%5B%EB%B0%B1%EC%A4%80%5D%202667%20%EB%8B%A8%EC%A7%80%EB%B2%88%ED%98%B8%EB%B6%99%EC%9D%B4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 3일차 목표">
+                            [모각코] 3일차 목표
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-14T12:50:00+09:00">
+	
+		    2020/01/14
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p>알고리즘 문제 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2667">단지번호 붙이기</a>를 해결하고, 블로그에 글작성하기.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">
@@ -643,115 +743,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/05/etc/2020-01-02-%5Bswift%5D%20let%20%EA%B3%BC%20var%EC%9D%98%20%EC%B0%A8%EC%9D%B4/" aria-label=": [swift] let과 var의 차이">
-                            [swift] let과 var의 차이
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-05T21:00:00+09:00">
-	
-		    2020/01/05
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/swift/">swift</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="선언"><a href="#선언" class="headerlink" title="[선언]"></a>[선언]</h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nameLee <span class="operator">=</span> <span class="string">&quot;Han&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nameLee:<span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Han&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="특징"><a href="#특징" class="headerlink" title="[특징]"></a>[특징]</h2><h3 id="let-1"><a href="#let-1" class="headerlink" title="let"></a>let</h3><img width="656" alt="스크린샷 2020-01-05 오후 9 18 16" src="https://user-images.githubusercontent.com/20227720/71780094-9c15db00-3001-11ea-9bf4-b5602c79e985.png">
-let은 상수를 선언할때 사용되며, 상수는 추후에 다른 값을 대입할 수 없습니다.
-
-<h3 id="var-1"><a href="#var-1" class="headerlink" title="var"></a>var</h3><img width="654" alt="스크린샷 2020-01-05 오후 9 18 43" src="https://user-images.githubusercontent.com/20227720/71780093-9c15db00-3001-11ea-9418-a82d1a0e3cf9.png">
-
-<p>var는 변수를 선언할때 사용되며, 변수는 추후에 다른 값을 대입할 수 있습니다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/05/etc/2020-01-02-%5Bswift%5D%20let%20%EA%B3%BC%20var%EC%9D%98%20%EC%B0%A8%EC%9D%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/05/dart/2020-01-30-%5Bdart%5D%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/" aria-label=": [dart] dart 기본 문법">
-                            [dart] dart 기본 문법
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-05T21:00:00+09:00">
-	
-		    2020/01/05
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/dart/">dart</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="1-설정"><a href="#1-설정" class="headerlink" title="1. 설정"></a>1. 설정</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter 개발 환경이 설정되어 있지않으시면, [flutter 시작하기](https:&#x2F;&#x2F;steampower33.github.io&#x2F;2021&#x2F;01&#x2F;30&#x2F;flutter&#x2F;2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&#x2F;)를 참고</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/20227720/106357701-02774500-634b-11eb-90c9-c200d0d23a42.PNG" alt="캡처"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">맨 처음 main에는 여러가지 많을텐데, main만 남기고 다 삭제한다.</span><br></pre></td></tr></table></figure>
-<h1 id="2-출력"><a href="#2-출력" class="headerlink" title="2. 출력"></a>2. 출력</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="comment">// 출력</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello, World!&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/05/dart/2020-01-30-%5Bdart%5D%20dart%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -823,7 +814,7 @@ let은 상수를 선언할때 사용되며, 상수는 추후에 다른 값을 �
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 

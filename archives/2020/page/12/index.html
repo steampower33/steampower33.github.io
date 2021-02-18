@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -164,6 +164,108 @@
                         ">
                 
     <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/30/mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 8일차 목표">
+                            [모각코] 8일차 목표
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-30T13:50:00+09:00">
+	
+		    2020/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1238">파티</a>문제를 해결하고, 정리한다.  </p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/30/mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/" aria-label=": 다시 풀어야할 문제">
+                            다시 풀어야할 문제
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-29T14:30:00+09:00">
+	
+		    2020/01/29
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-확인-해결못함"><a href="#1-확인-해결못함" class="headerlink" title="1. 확인 - 해결못함."></a>1. 확인 - 해결못함.</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11404">플로이드</a><br><img width="979" alt="스크린샷 2020-01-30 오전 2 57 45" src="https://user-images.githubusercontent.com/20227720/73383229-4be21e00-430c-11ea-8036-f6ab376f5540.png"></p>
+<h2 id="2-실패한-코드"><a href="#2-실패한-코드" class="headerlink" title="2. 실패한 코드"></a>2. 실패한 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 정점의 개수.</span></span><br><span class="line"><span class="comment"># 버스의 개수.</span></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 무한대 및 그래프 설정.</span></span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line">field = [[INF <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 버스의 정보 입력받는다.</span></span><br><span class="line"><span class="comment"># 함정이 있다 입력받을때 이미 정보가 있는 위치에 그 위치의 값보다 작은 값을 입력받을수있다.</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    field[a-<span class="number">1</span>][b-<span class="number">1</span>] = <span class="built_in">min</span>(field[a-<span class="number">1</span>][b-<span class="number">1</span>], c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 플로이드.</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> i == j:</span><br><span class="line">                field[i][j] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> field[i][k] + field[k][j] &lt; field[i][j]:</span><br><span class="line">                field[i][j] = field[i][k] + field[k][j]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출력.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        print(field[i][j], end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>이 문제는 파이썬으로 풀면, 푼시간보다 제출해서 채점하는시간이 더 길다. 채점에 10분이 걸림<br>으이가 없네 ㄹㅇ 제출하고 유투브 보고옴. 왜 틀린건지는 이성을 되찾고 나중에 찾아봐야겠다.<br>채점도 70~80%대에서 틀려서 더 열받음</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">
@@ -618,107 +720,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/22/baekjoon/2020/1January/2020-01-22-%5B%EB%B0%B1%EC%A4%80%5D%205214%20%ED%99%98%EC%8A%B9/" aria-label=": 다시풀어야할 문제">
-                            다시풀어야할 문제
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-22T21:30:00+09:00">
-	
-		    2020/01/22
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-해결하지-못한-이유"><a href="#1-해결하지-못한-이유" class="headerlink" title="1. 해결하지 못한 이유."></a>1. 해결하지 못한 이유.</h2><p>하이퍼 링크를 사용하는데, 간선끼리 하이퍼링크끼리 서로 연결해주어서 bfs를 돌리면<br>너무 많이 돌아서 시간초과가 난다는 것은 알았다.<br>그런데 더미 노드를 만들어서 해결하는게 대부분의 해결책인데,<br>그 부분에 대해서는 이해를 잘 못하겠다.<br>일일이 그림그려가며 확인해봐도 감이 잡히질 않는다.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/source/15044612">참고1</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stack07142.tistory.com/135">참고2</a></p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/22/baekjoon/2020/1January/2020-01-22-%5B%EB%B0%B1%EC%A4%80%5D%205214%20%ED%99%98%EC%8A%B9/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/21/mogagko/2020-01-21-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%205%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 5일차 결과">
-                            [모각코] 5일차 결과
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-21T15:50:00+09:00">
-	
-		    2020/01/21
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-풀이"><a href="#1-풀이" class="headerlink" title="1. 풀이"></a>1. 풀이</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-5567-%EA%B2%B0%ED%98%BC%EC%8B%9D/">풀이</a></p>
-<h2 id="2-리뷰"><a href="#2-리뷰" class="headerlink" title="2. 리뷰"></a>2. 리뷰</h2><p>먼저 이 문제는 쉽고, 간단하다.<br>그 이유는 값에 제한을 두어서 그 제한 안에서만 결과값을 도출해내면 되기때문이다.<br>사실 모든 알고리즘은 제한을 둘수있는데, 그 제한을 두는 범위를 내가 설정할 수 있는지 없는지가 문제이다.<br>문제에 적용되는 알고리즘은 다 다른데, 결국 알고리즘을 하나 적용 했으면, 제한을 둔것이다.<br>이 문제가 더 쉽게 느껴지는 이유는 그 제한안에 또 제한을 하나 더 두기때문이라고 할수있다.<br>값을 1로 설정해서 지정할수 있기때문에 더 쉬운것이다.<br>이런식으로 제한을 둘수 있다는 것을 파악하는 수준이 숫자를 두는 것에 익숙해져있다고 할수있고,<br>아직 내 수준이 이 정도 밖에 안된다고 판단할 수 있다.<br>다른 고급 알고리즘을 큰 범위에 적용했을때, 그 범위 내에서 또 작은 제한을 둬서<br>결과값을 도출해 낼수 있을 정도가 되어야 할것이다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/21/mogagko/2020-01-21-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%205%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -791,7 +792,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 

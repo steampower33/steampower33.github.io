@@ -38,7 +38,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-npyypskapqtqfx5pr6opxypimlejtkvz5bnm9qpymhwbeh5synjhv1bfwzoh.min.css">
+<link rel="stylesheet" href="/assets/css/style-tmt8zx7sjkkkph0mq8wfyqqeowacafmcvzzwmmolihstqacwxgp1grilguxw.min.css">
 
     <!--STYLES END-->
     
@@ -172,8 +172,8 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" aria-label=": flutter 시작하기">
-                            flutter 시작하기
+                        <a class="link-unstyled" href="/2021/01/30/flutter&dart/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label=": flutter 오류 모음">
+                            flutter 오류 모음
                         </a>
                     
                 </h1>
@@ -195,13 +195,71 @@
             </div>
             
                 <div class="postShorten-content">
-                    <ul>
-<li>윈도우10에서 진행한다.</li>
-</ul>
-<h1 id="1-Flutter"><a href="#1-Flutter" class="headerlink" title="1. Flutter?"></a>1. Flutter?</h1><p>Flutter(플러터)는 하나의 코드베이스로 모바일, 웹, 데스크톱에서 네이티브로 컴파일 되는 구글의 아름다운 UI 툴킷이다. - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://flutter-ko.dev/">flutter</a></p>
+                    <h1 id="1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager"><a href="#1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager" class="headerlink" title="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager"></a>1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.</span><br><span class="line"></span><br><span class="line">Android Studio - Tools - sdk manager - android SDK - SDK Tools - Show Package Details(check) - 29.0.2 버전(uncheck) - Apply - 29.0.2 버전(check) - Apply</span><br><span class="line"></span><br><span class="line">vscode는 재접후 앱 실행하면 정상적으로 작동함</span><br></pre></td></tr></table></figure>
+<h1 id="2-Execution-failed-for-task-‘-app-mergeDexDebug’"><a href="#2-Execution-failed-for-task-‘-app-mergeDexDebug’" class="headerlink" title="2. Execution failed for task ‘:app:mergeDexDebug’."></a>2. Execution failed for task ‘:app:mergeDexDebug’.</h1><p>해결 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter">https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">문제는 multidex 빌더에 있습니다. 실제로 이는 빌드 된 단일 .dex에 맞지 않는 yaml 파일에 많은 패키지를 가져 왔기 때문에 multidex를 활성화해야하는 경우에 자주 발생합니다.</span><br></pre></td></tr></table></figure>
+<p>android/app/build.gradle에 아래 코드를 추가한다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  implementation <span class="string">&#x27;com.android.support:multidex:1.0.3&#x27;</span> <span class="comment">//enter the latest version</span></span><br><span class="line">&#125;</span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        multiDexEnabled <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-flutter-클래스에-중간에-줄이-그어지는-현상"><a href="#3-flutter-클래스에-중간에-줄이-그어지는-현상" class="headerlink" title="3. flutter 클래스에 중간에 줄이 그어지는 현상"></a>3. flutter 클래스에 중간에 줄이 그어지는 현상</h1><p><img src="https://user-images.githubusercontent.com/20227720/107105216-7b553000-6868-11eb-961d-a2e4d6babb37.PNG" alt="캡처"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">위와 같이 발생할때, 마우스를 가져다대면 이유를 알수있다.</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/107105215-7a240300-6868-11eb-8c4c-cc01d897607b.png" alt="제목 없음"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">여기서는 더이상 쓰이는 클래스가 아니므로 Elevated Button을 대신 사용하라한다.</span><br></pre></td></tr></table></figure>
+<h1 id="4-No-Firebase-App-‘-DEFAULT-’-has-been-created-call-Firebase-initializeApp"><a href="#4-No-Firebase-App-‘-DEFAULT-’-has-been-created-call-Firebase-initializeApp" class="headerlink" title="4. No Firebase App ‘[DEFAULT]’ has been created - call Firebase.initializeApp()"></a>4. No Firebase App ‘[DEFAULT]’ has been created - call Firebase.initializeApp()</h1><p>해결 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/63492211/no-firebase-app-default-has-been-created-call-firebase-initializeapp-in">https://stackoverflow.com/questions/63492211/no-firebase-app-default-has-been-created-call-firebase-initializeapp-in</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">어떤 firebase product를 사용하기전에 firebase.initializeApp()을 불러주어야합니다.</span><br><span class="line"></span><br><span class="line">firebase_core를 설치해주고, main.dart에 import &#39;package:firebase_core&#x2F;firebase_core.dart&#39;; 해줍니다.</span><br><span class="line"></span><br><span class="line">initializeApp()은 단 한번만 불러주면되기때문에 아래와 같이 main에서 처리해줍니다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span> &#123;</span><br><span class="line">  WidgetsFlutterBinding.ensureInitialized();</span><br><span class="line">  <span class="keyword">await</span> Firebase.initializeApp();</span><br><span class="line">  runApp(MyApp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/30/flutter&dart/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/01/29/flutter&dart/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" aria-label=": flutter 시작하기">
+                            flutter 시작하기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-29T18:50:00+09:00">
+	
+		    2021/01/29
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter/">flutter</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-Flutter"><a href="#1-Flutter" class="headerlink" title="1. Flutter?"></a>1. Flutter?</h1><p>Flutter(플러터)는 하나의 코드베이스로 모바일, 웹, 데스크톱에서 네이티브로 컴파일 되는 구글의 아름다운 UI 툴킷이다. - <a target="_blank" rel="external nofollow noopener noreferrer" href="https://flutter-ko.dev/">flutter</a></p>
 <p><img src="https://user-images.githubusercontent.com/20227720/106172532-439a1880-61d6-11eb-9b3e-5860dd5102ec.PNG" alt="a">  </p>
 <h1 id="2-SDK-설치와-환경변수-설정하기"><a href="#2-SDK-설치와-환경변수-설정하기" class="headerlink" title="2. SDK 설치와 환경변수 설정하기"></a>2. SDK 설치와 환경변수 설정하기</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://flutter-ko.dev/docs/get-started/install/windows#flutter-sdk-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C">sdk 설치</a>에서 flutter sdk의 최신 릴리즈를 다운 후, 압축을 푼다.<br>압축을 풀면 flutter라는 폴더가 나오고, flutter/bin안에 flutter.bat이란 파일이 있는데, 이 파일의 폴더 주소를 환경변수 설정해주어야한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2-1. 먼저 flutter.bat파일을 우클릭, 속성 누른 후 위치의 주소를 복사</span><br><span class="line">2-2. 그 뒤 윈도우키를 누르고, 시스템 환경 변수 편집을 실행</span><br><span class="line">2-3. 환경변수를 누르고, 위 아래 중 아래의 시스템 변수에서 휠로 내림면 변수위치에 Path가 있음</span><br><span class="line">2-4. Path를 클릭 후, 편집, 새로만들기한 후 아까 복사한 주소를 붙여넣기 후 확인</span><br><span class="line">2-5. 또 확인하면 환경변수 설정 완료</span><br></pre></td></tr></table></figure>
+<h1 id="2-1-WINDOW"><a href="#2-1-WINDOW" class="headerlink" title="2-1. WINDOW"></a>2-1. WINDOW</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 먼저 flutter.bat파일을 우클릭, 속성 누른 후 위치의 주소를 복사</span><br><span class="line">2. 그 뒤 윈도우키를 누르고, 시스템 환경 변수 편집을 실행</span><br><span class="line">3. 환경변수를 누르고, 위 아래 중 아래의 시스템 변수에서 휠로 내림면 변수위치에 Path가 있음</span><br><span class="line">4. Path를 클릭 후, 편집, 새로만들기한 후 아까 복사한 주소를 붙여넣기 후 확인</span><br><span class="line">5. 또 확인하면 환경변수 설정 완료</span><br></pre></td></tr></table></figure>
+<h1 id="2-2-MAC"><a href="#2-2-MAC" class="headerlink" title="2-2. MAC"></a>2-2. MAC</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 다운받은 flutter 폴더의 bin 까지의 주소를 확인</span><br><span class="line">2. terminal에서 vi ~&#x2F;.bash_profile 이후 i </span><br><span class="line">3. export PATH&#x3D;&quot;$PATH:주소&quot; 입력 후 wq 로 저장</span><br><span class="line">4. source ~&#x2F;.bash_profile 입력</span><br><span class="line">5. flutter 입력으로 flutter 정상 설치 확인</span><br><span class="line">6. which flutter dart로 둘 다 정상 설치 확인</span><br></pre></td></tr></table></figure>
 <h1 id="3-확인"><a href="#3-확인" class="headerlink" title="3. 확인"></a>3. 확인</h1><p>파워쉘을 키고 flutter 치면 다운로드나 설치 후 아래와 같이 뜬다<br><img src="https://user-images.githubusercontent.com/20227720/106283606-7d762800-6285-11eb-8e8e-a88ee9b656b2.PNG" alt="asdf"></p>
 <h1 id="4-android-studio-설치"><a href="#4-android-studio-설치" class="headerlink" title="4. android studio 설치"></a>4. android studio 설치</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[android studio](https:&#x2F;&#x2F;developer.android.com&#x2F;studio)를 에서 설치파일을 다운 후 실행한다</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/20227720/106257037-67557100-625f-11eb-830b-1944ce835785.PNG" alt="1"></p>
@@ -288,67 +346,7 @@
                     
                     
                         <p>
-                            <a href="/2021/01/30/flutter/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label=": flutter 오류 모음">
-                            flutter 오류 모음
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2021-01-28T18:50:00+09:00">
-	
-		    2021/01/28
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/flutter/">flutter</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager"><a href="#1-installed-build-tools-revision-29-0-2-is-corrupted-remove-and-install-again-using-the-sdk-manager" class="headerlink" title="1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager"></a>1. installed build tools revision 29.0.2 is corrupted. remove and install again using the sdk manager</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sdk manager에서 29.0.2 버전을 삭제후 다시 설치해주면됩니다.</span><br><span class="line"></span><br><span class="line">Android Studio - Tools - sdk manager - android SDK - SDK Tools - Show Package Details(check) - 29.0.2 버전(uncheck) - Apply - 29.0.2 버전(check) - Apply</span><br><span class="line"></span><br><span class="line">vscode는 재접후 앱 실행하면 정상적으로 작동함</span><br></pre></td></tr></table></figure>
-<h1 id="2-Execution-failed-for-task-‘-app-mergeDexDebug’"><a href="#2-Execution-failed-for-task-‘-app-mergeDexDebug’" class="headerlink" title="2. Execution failed for task ‘:app:mergeDexDebug’."></a>2. Execution failed for task ‘:app:mergeDexDebug’.</h1><p>해결 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter">https://stackoverflow.com/questions/60310873/execution-failed-for-task-appmergedexdebug-firestore-flutter</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">문제는 multidex 빌더에 있습니다. 실제로 이는 빌드 된 단일 .dex에 맞지 않는 yaml 파일에 많은 패키지를 가져 왔기 때문에 multidex를 활성화해야하는 경우에 자주 발생합니다.</span><br></pre></td></tr></table></figure>
-<p>android/app/build.gradle에 아래 코드를 추가한다.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  implementation <span class="string">&#x27;com.android.support:multidex:1.0.3&#x27;</span> <span class="comment">//enter the latest version</span></span><br><span class="line">&#125;</span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        multiDexEnabled <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-flutter-클래스에-중간에-줄이-그어지는-현상"><a href="#3-flutter-클래스에-중간에-줄이-그어지는-현상" class="headerlink" title="3. flutter 클래스에 중간에 줄이 그어지는 현상"></a>3. flutter 클래스에 중간에 줄이 그어지는 현상</h1><p><img src="https://user-images.githubusercontent.com/20227720/107105216-7b553000-6868-11eb-961d-a2e4d6babb37.PNG" alt="캡처"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">위와 같이 발생할때, 마우스를 가져다대면 이유를 알수있다.</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/20227720/107105215-7a240300-6868-11eb-8c4c-cc01d897607b.png" alt="제목 없음"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">여기서는 더이상 쓰이는 클래스가 아니므로 Elevated Button을 대신 사용하라한다.</span><br></pre></td></tr></table></figure>
-<h1 id="4-No-Firebase-App-‘-DEFAULT-’-has-been-created-call-Firebase-initializeApp"><a href="#4-No-Firebase-App-‘-DEFAULT-’-has-been-created-call-Firebase-initializeApp" class="headerlink" title="4. No Firebase App ‘[DEFAULT]’ has been created - call Firebase.initializeApp()"></a>4. No Firebase App ‘[DEFAULT]’ has been created - call Firebase.initializeApp()</h1><p>해결 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/63492211/no-firebase-app-default-has-been-created-call-firebase-initializeapp-in">https://stackoverflow.com/questions/63492211/no-firebase-app-default-has-been-created-call-firebase-initializeapp-in</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">어떤 firebase product를 사용하기전에 firebase.initializeApp()을 불러주어야합니다.</span><br><span class="line"></span><br><span class="line">firebase_core를 설치해주고, main.dart에 import &#39;package:firebase_core&#x2F;firebase_core.dart&#39;; 해줍니다.</span><br><span class="line"></span><br><span class="line">initializeApp()은 단 한번만 불러주면되기때문에 아래와 같이 main에서 처리해줍니다.</span><br></pre></td></tr></table></figure>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() <span class="keyword">async</span> &#123;</span><br><span class="line">  WidgetsFlutterBinding.ensureInitialized();</span><br><span class="line">  <span class="keyword">await</span> Firebase.initializeApp();</span><br><span class="line">  runApp(MyApp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2021/01/28/flutter/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2021/01/29/flutter&dart/2021-01-29-flutter%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
@@ -624,7 +622,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-ghemoilg4wiqtveko4klphdwfw5pkfoemjoyqyqkjincu8intwgfsunv9iz8.min.js"></script>
+<script src="/assets/js/script-eqkqftqt9h6hqaoutkaklrhr16xg6oc3esxvgf8xqm5p3rcfogrxzd7zckxy.min.js"></script>
 
 <!--SCRIPTS END-->
 
