@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="학생개발자 이승민">
-    <title>다시 풀어야할 문제 - 학생개발자 이승민</title>
+    <title>final과 const  - 학생개발자 이승민</title>
     <meta name="author" content="이승민">
-    <link rel="canonical" href="http://example.com/2020/01/30/baekjoon/2020/1january/2020-01-30-[백준] 1238 파티/">
+    <link rel="canonical" href="http://example.com/2021/02/18/flutter&dart/2021-02-22-final과 const/">
     
     
     
@@ -18,21 +18,18 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 해결못함.2. 코드 및 풀이\n플로이드-와샬 풀이 -&gt; 시간초과  \n\n1234567891011121314151617181920212223242526272829# 입력 및 무한대 그래프 설정.n, m, x = map(int, input().split())INF = 987654321graph = [[INF for i in range(n)]for j in range(n)]# 방향 입력 가중치 설정.for i in range(m):    x, y, v = map(int, input().split())    graph[x-1][y-1] = v# 자시자신으로는 못감.for i in range(n):    graph[i][i] = 0# 플로이드for k in range(n):    for i in range(n):        for j in range(n):            if graph[i][k] + graph[k][j] &lt; graph[i][j]:                graph[i][j] = graph[i][k] + graph[k][j]# 2로 가서 2에서 돌아오는게 무조건 가능.# 가능한것들중에 최대값 설정.ret = 0for i in range(n):    ret = max(ret, graph[i][v] + graph[v][i])# 출력print(ret)\n\n다익스트라 풀이 -&gt; 해결못함참고1참고2\n\n","dateCreated":"2020-01-30T14:30:00+09:00","dateModified":"2021-01-20T16:33:37+09:00","datePublished":"2020-01-30T14:30:00+09:00","description":"","headline":"다시 풀어야할 문제","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/","keywords":"Algorithm, Python, Solve, 1DAB"}</script>
-    <meta name="description" content="1. 해결못함.2. 코드 및 풀이 플로이드-와샬 풀이 -&gt; 시간초과    1234567891011121314151617181920212223242526272829# 입력 및 무한대 그래프 설정.n, m, x &#x3D; map(int, input().split())INF &#x3D; 987654321graph &#x3D; [[INF for i in range(n)]for j i">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. 컴파일 타임, 런타임123456컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,소스코드에 이상이 없는지 판단하는 과정이다.런타임 : 컴파일 이후 프로그램이 실행되는 타임컴파일 -&gt; 런 순서\n2. final과 const2-1. 상수final과 const 둘 다 한번 설정하면 변경할 수 없다.\nconst는 컴파일 타임에서 상수 정의 가능 -&gt; const로 정의된 상수는 런타임에서 설정 불가능즉 절대 바뀌지않아야하는 상수라면 const를 사용한다.\nfinal은 런타임에서 결정되는 값도 설정가능하다.\n123final DateTime now = DateTime.now(); // DateTime.now()의 값이 런타임에서 결정되어도, final은 문제가 없다.//const DateTime now = DateTime.now(); // 런타임 시에 값이 결정나기때문에 const는 사용 불가능.\n2-2. 배열12345678910final hello = [&#x27;Hello&#x27;]; // 가능const hi = [&#x27;hi&#x27;]; // 가능hello.add(&#x27;Bye&#x27;) // 가능hi.add(&#x27;See ya&#x27;) // 불가능hello.removeAt(0); // 가능hello = [&#x27;What&#x27;]; // 불가능hi = [&#x27;What&#x27;]; // 불가능\nconst와 final 둘다 아예 다른 배열로 바꾸는 것은 불가능하다.\nconst의 경우 추가, 삭제 불가능. 아예 원본을 유지해야한다.final은 추가, 삭제가 가능하다.\n","dateCreated":"2021-02-18T12:00:00+09:00","dateModified":"2021-02-22T19:52:52+09:00","datePublished":"2021-02-18T12:00:00+09:00","description":"","headline":"final과 const ","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/","keywords":"map method"}</script>
+    <meta name="description" content="1. 컴파일 타임, 런타임123456컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,소스코드에 이상이 없는지 판단하는 과정이다.런타임 : 컴파일 이후 프로그램이 실행되는 타임컴파일 -&gt; 런 순서 2. final과 const2-1. 상수fi">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="다시 풀어야할 문제">
-<meta property="og:url" content="http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/index.html">
+<meta property="og:title" content="final과 const ">
+<meta property="og:url" content="http://example.com/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
-<meta property="og:description" content="1. 해결못함.2. 코드 및 풀이 플로이드-와샬 풀이 -&gt; 시간초과    1234567891011121314151617181920212223242526272829# 입력 및 무한대 그래프 설정.n, m, x &#x3D; map(int, input().split())INF &#x3D; 987654321graph &#x3D; [[INF for i in range(n)]for j i">
+<meta property="og:description" content="1. 컴파일 타임, 런타임123456컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,소스코드에 이상이 없는지 판단하는 과정이다.런타임 : 컴파일 이후 프로그램이 실행되는 타임컴파일 -&gt; 런 순서 2. final과 const2-1. 상수fi">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-01-30T05:30:00.000Z">
-<meta property="article:modified_time" content="2021-01-20T07:33:37.084Z">
+<meta property="article:published_time" content="2021-02-18T03:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-22T10:52:52.083Z">
 <meta property="article:author" content="이승민">
-<meta property="article:tag" content="Algorithm">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Solve">
-<meta property="article:tag" content="1DAB">
+<meta property="article:tag" content="map method">
 <meta name="twitter:card" content="summary">
     
     
@@ -177,20 +174,20 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            다시 풀어야할 문제
+            final과 const 
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2020-01-30T14:30:00+09:00">
+    <time datetime="2021-02-18T12:00:00+09:00">
 	
-		    2020/01/30
+		    2021/02/18
     	
     </time>
     
         <span>카테고리 </span>
         
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
 
 
     
@@ -202,13 +199,14 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h2 id="1-해결못함"><a href="#1-해결못함" class="headerlink" title="1. 해결못함."></a>1. 해결못함.</h2><h2 id="2-코드-및-풀이"><a href="#2-코드-및-풀이" class="headerlink" title="2. 코드 및 풀이"></a>2. 코드 및 풀이</h2><ul>
-<li>플로이드-와샬 풀이 -&gt; 시간초과  </li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 및 무한대 그래프 설정.</span></span><br><span class="line">n, m, x = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line">graph = [[INF <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 방향 입력 가중치 설정.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    x, y, v = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    graph[x-<span class="number">1</span>][y-<span class="number">1</span>] = v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 자시자신으로는 못감.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    graph[i][i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 플로이드</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> graph[i][k] + graph[k][j] &lt; graph[i][j]:</span><br><span class="line">                graph[i][j] = graph[i][k] + graph[k][j]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2로 가서 2에서 돌아오는게 무조건 가능.</span></span><br><span class="line"><span class="comment"># 가능한것들중에 최대값 설정.</span></span><br><span class="line">ret = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    ret = <span class="built_in">max</span>(ret, graph[i][v] + graph[v][i])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출력</span></span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>다익스트라 풀이 -&gt; 해결못함<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://m.blog.naver.com/PostView.nhn?blogId=ndb796&logNo=221234424646&proxyReferer=https://www.google.com/">참고1</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://dojinkimm.github.io/problem_solving/2019/12/10/boj-1238-party.html">참고2</a></li>
-</ul>
+            <h1 id="1-컴파일-타임-런타임"><a href="#1-컴파일-타임-런타임" class="headerlink" title="1. 컴파일 타임, 런타임"></a>1. 컴파일 타임, 런타임</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,</span><br><span class="line">소스코드에 이상이 없는지 판단하는 과정이다.</span><br><span class="line"></span><br><span class="line">런타임 : 컴파일 이후 프로그램이 실행되는 타임</span><br><span class="line"></span><br><span class="line">컴파일 -&gt; 런 순서</span><br></pre></td></tr></table></figure>
+<h1 id="2-final과-const"><a href="#2-final과-const" class="headerlink" title="2. final과 const"></a>2. final과 const</h1><h1 id="2-1-상수"><a href="#2-1-상수" class="headerlink" title="2-1. 상수"></a>2-1. 상수</h1><p>final과 const 둘 다 한번 설정하면 변경할 수 없다.</p>
+<p>const는 컴파일 타임에서 상수 정의 가능 -&gt; const로 정의된 상수는 런타임에서 설정 불가능<br>즉 절대 바뀌지않아야하는 상수라면 const를 사용한다.</p>
+<p>final은 런타임에서 결정되는 값도 설정가능하다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="built_in">DateTime</span> now = <span class="built_in">DateTime</span>.now(); <span class="comment">// DateTime.now()의 값이 런타임에서 결정되어도, final은 문제가 없다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const DateTime now = DateTime.now(); // 런타임 시에 값이 결정나기때문에 const는 사용 불가능.</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-2-배열"><a href="#2-2-배열" class="headerlink" title="2-2. 배열"></a>2-2. 배열</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> hello = [<span class="string">&#x27;Hello&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"><span class="keyword">const</span> hi = [<span class="string">&#x27;hi&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello.add(<span class="string">&#x27;Bye&#x27;</span>) <span class="comment">// 가능</span></span><br><span class="line">hi.add(<span class="string">&#x27;See ya&#x27;</span>) <span class="comment">// 불가능</span></span><br><span class="line"></span><br><span class="line">hello.removeAt(<span class="number">0</span>); <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br><span class="line">hi = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br></pre></td></tr></table></figure>
+<p>const와 final 둘다 아예 다른 배열로 바꾸는 것은 불가능하다.</p>
+<p>const의 경우 추가, 삭제 불가능. 아예 원본을 유지해야한다.<br>final은 추가, 삭제가 가능하다.</p>
 
             
 
@@ -220,7 +218,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">태그</span><br>
                 
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/1DAB/" rel="tag">1DAB</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Python/" rel="tag">Python</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/Solve/" rel="tag">Solve</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/map-method/" rel="tag">map method</a>
 
             </div>
         
@@ -231,7 +229,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/31/baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/" data-tooltip="[백준][python] 1753 최단경로" aria-label="이전: [백준][python] 1753 최단경로">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" data-tooltip="[flutter&amp;dart] map 메소드" aria-label="이전: [flutter&amp;dart] map 메소드">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -240,7 +238,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 8일차 결과" aria-label="다음: [모각코] 8일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/" data-tooltip="[dart] Dart에 대해서" aria-label="다음: [dart] Dart에 대해서">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -258,7 +256,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -266,7 +264,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -274,7 +272,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -327,7 +325,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/31/baekjoon/2020/1January/2020-01-31-%5B%EB%B0%B1%EC%A4%80%5D%201753%20%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C/" data-tooltip="[백준][python] 1753 최단경로" aria-label="이전: [백준][python] 1753 최단경로">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" data-tooltip="[flutter&amp;dart] map 메소드" aria-label="이전: [flutter&amp;dart] map 메소드">
                     
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
@@ -336,7 +334,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" data-tooltip="[모각코] 8일차 결과" aria-label="다음: [모각코] 8일차 결과">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/" data-tooltip="[dart] Dart에 대해서" aria-label="다음: [dart] Dart에 대해서">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -354,7 +352,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -362,7 +360,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -370,7 +368,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -404,7 +402,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -412,7 +410,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -420,7 +418,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -476,9 +474,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/01/30/baekjoon/2020/1January/2020-01-30-[%EB%B0%B1%EC%A4%80]%201238%20%ED%8C%8C%ED%8B%B0/';
+            this.page.url = 'http://example.com/2021/02/18/flutter&amp;dart/2021-02-22-final%EA%B3%BC%20const/';
               
-            this.page.identifier = '2020/01/30/baekjoon/2020/1January/2020-01-30-[백준] 1238 파티/';
+            this.page.identifier = '2021/02/18/flutter&amp;dart/2021-02-22-final과 const/';
               
           };
           (function() {

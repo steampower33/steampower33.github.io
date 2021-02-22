@@ -8,7 +8,7 @@
     <meta name="generator" content="학생개발자 이승민">
     <title>[flutter&amp;dart] map 메소드 - 학생개발자 이승민</title>
     <meta name="author" content="이승민">
-    <link rel="canonical" href="http://example.com/2020/02/18/flutter&dart/2020-02-18-[flutter&dart] map 메소드/">
+    <link rel="canonical" href="http://example.com/2021/02/18/flutter&dart/2021-02-18-[flutter&dart] map 메소드/">
     
     
     
@@ -18,16 +18,16 @@
             <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss2.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. map 메소드문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다.\n1234567891011121314var questions = [    &#123;      &#x27;questionText&#x27;: &#x27;What\\&#x27;s your favorite color?&#x27;,      &#x27;answers&#x27;: [&#x27;Black&#x27;, &#x27;Red&#x27;, &#x27;Green&#x27;, &#x27;White&#x27;],    &#125;,    &#123;      &#x27;questionText&#x27;: &#x27;What\\&#x27;s your favorite animal?&#x27;,      &#x27;answers&#x27;: [&#x27;Cow&#x27;, &#x27;Rabbit&#x27;, &#x27;Dog&#x27;, &#x27;Lion&#x27;],    &#125;,    &#123;      &#x27;questionText&#x27;: &#x27;what\\&#x27;s your favorite Game?&#x27;,      &#x27;answers&#x27;: [&#x27;LOL&#x27;, &#x27;FIFA&#x27;, &#x27;OVERWATCH&#x27;, &#x27;MAPLESTORY&#x27;],    &#125;,  ];\n위의 자료형에 접근하려고한다.\n1234...(questions[_questionIndex][&#x27;answers&#x27;] as List&lt;String&gt;)                .map((answer) &#123;              return Answer(_answerQuestion, answer);            &#125;).toList()\n1234567891011121314questions[_questionIndex][&#39;answers&#39;]은 List&lt;String&gt;인데, dart에서 인식하지 못해서 () 감싸준다음 as LIst&lt;String&gt;으로 dart에게 알려줄 수 있다.그리고 이건 iterable 하기에 map method 사용할수있다.반복가능한 집단에서 map method 사용 가능() &#123;&#125; 에서 () 안에 익명함수를 사용 &#123;&#125; 안에는 리턴할 함수를 사용한다.익명 함수를 사용하는 이유는 여기에만 해당 함수가 필요하고 다른 곳에서는 필요하지 않기 때문이다.map method 안에서 여기서 만들 수 있는 명명 된 함수를 사용할 수 있다.여기에서 함수를 정의하고 그 함수는 자동으로 인수 자체를 받는다..toList()를 통해 map으로 리턴될 것을 List가 되게해줌.맨앞의 ...은 spread operator인데, 현재 이 구문 밖은 List로 감싸져있다.List 안의 List이기에 spread operator를 통해서 그 밖의 List의 값이 되도록 해준다.","dateCreated":"2020-02-18T12:00:00+09:00","dateModified":"2021-02-18T16:43:23+09:00","datePublished":"2020-02-18T12:00:00+09:00","description":"","headline":"[flutter&dart] map 메소드","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2020/02/18/flutter&dart/2020-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2020/02/18/flutter&dart/2020-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/","keywords":"map method"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"},"articleBody":"1. map 메소드문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다.\n1234567891011121314var questions = [    &#123;      &#x27;questionText&#x27;: &#x27;What\\&#x27;s your favorite color?&#x27;,      &#x27;answers&#x27;: [&#x27;Black&#x27;, &#x27;Red&#x27;, &#x27;Green&#x27;, &#x27;White&#x27;],    &#125;,    &#123;      &#x27;questionText&#x27;: &#x27;What\\&#x27;s your favorite animal?&#x27;,      &#x27;answers&#x27;: [&#x27;Cow&#x27;, &#x27;Rabbit&#x27;, &#x27;Dog&#x27;, &#x27;Lion&#x27;],    &#125;,    &#123;      &#x27;questionText&#x27;: &#x27;what\\&#x27;s your favorite Game?&#x27;,      &#x27;answers&#x27;: [&#x27;LOL&#x27;, &#x27;FIFA&#x27;, &#x27;OVERWATCH&#x27;, &#x27;MAPLESTORY&#x27;],    &#125;,  ];\n위의 자료형에 접근하려고한다.\n1234...(questions[_questionIndex][&#x27;answers&#x27;] as List&lt;String&gt;)                .map((answer) &#123;              return Answer(_answerQuestion, answer);            &#125;).toList()\n1234567891011121314questions[_questionIndex][&#39;answers&#39;]은 List&lt;String&gt;인데, dart에서 인식하지 못해서 () 감싸준다음 as LIst&lt;String&gt;으로 dart에게 알려줄 수 있다.그리고 이건 iterable 하기에 map method 사용할수있다.반복가능한 집단에서 map method 사용 가능() &#123;&#125; 에서 () 안에 익명함수를 사용 &#123;&#125; 안에는 리턴할 함수를 사용한다.익명 함수를 사용하는 이유는 여기에만 해당 함수가 필요하고 다른 곳에서는 필요하지 않기 때문이다.map method 안에서 여기서 만들 수 있는 명명 된 함수를 사용할 수 있다.여기에서 함수를 정의하고 그 함수는 자동으로 인수 자체를 받는다..toList()를 통해 map으로 리턴될 것을 List가 되게해줌.맨앞의 ...은 spread operator인데, 현재 이 구문 밖은 List로 감싸져있다.List 안의 List이기에 spread operator를 통해서 그 밖의 List의 값이 되도록 해준다.","dateCreated":"2021-02-18T12:00:00+09:00","dateModified":"2021-02-22T18:58:19+09:00","datePublished":"2021-02-18T12:00:00+09:00","description":"","headline":"[flutter&dart] map 메소드","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/02/18/flutter&dart/2021-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/"},"publisher":{"@type":"Organization","name":"이승민","sameAs":["https://github.com/steampower33"],"image":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/3da324d31d85d22fd2da1c81eccc8a21"}},"url":"http://example.com/2021/02/18/flutter&dart/2021-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/","keywords":"map method"}</script>
     <meta name="description" content="1. map 메소드문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다. 1234567891011121314var questions &#x3D; [    &amp;#123;      &amp;#x27;questionText&amp;#x27;: &amp;#x27;What\&amp;#x27;s your favorite color?&amp;#x27;,">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[flutter&amp;dart] map 메소드">
-<meta property="og:url" content="http://example.com/2020/02/18/flutter&dart/2020-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/index.html">
+<meta property="og:url" content="http://example.com/2021/02/18/flutter&dart/2021-02-18-[flutter&dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/index.html">
 <meta property="og:site_name" content="학생개발자 이승민">
 <meta property="og:description" content="1. map 메소드문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다. 1234567891011121314var questions &#x3D; [    &amp;#123;      &amp;#x27;questionText&amp;#x27;: &amp;#x27;What\&amp;#x27;s your favorite color?&amp;#x27;,">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-02-18T03:00:00.000Z">
-<meta property="article:modified_time" content="2021-02-18T07:43:23.894Z">
+<meta property="article:published_time" content="2021-02-18T03:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-22T09:58:19.942Z">
 <meta property="article:author" content="이승민">
 <meta property="article:tag" content="map method">
 <meta name="twitter:card" content="summary">
@@ -179,9 +179,9 @@
     
     
         <div class="post-meta">
-    <time datetime="2020-02-18T12:00:00+09:00">
+    <time datetime="2021-02-18T12:00:00+09:00">
 	
-		    2020/02/18
+		    2021/02/18
     	
     </time>
     
@@ -224,9 +224,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/18/baekjoon/2020/2February/2020-02-18-%5B%EB%B0%B1%EC%A4%80%5D%202741%20N%20%EC%B0%8D%EA%B8%B0/" data-tooltip="[백준][c++] 2741 N 찍기" aria-label="이전: [백준][c++] 2741 N 찍기">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
@@ -234,7 +233,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/17/winterStudyClub/2020-02-17-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_7%ED%9A%8C%EC%B0%A8_2020_02_17(%EC%9B%94)/" data-tooltip="2020 동계 학습 동아리_7회차_2020_02_17(월)" aria-label="다음: 2020 동계 학습 동아리_7회차_2020_02_17(월)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/" data-tooltip="final과 const " aria-label="다음: final과 const ">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -252,7 +251,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -260,7 +259,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -268,7 +267,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -320,9 +319,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/18/baekjoon/2020/2February/2020-02-18-%5B%EB%B0%B1%EC%A4%80%5D%202741%20N%20%EC%B0%8D%EA%B8%B0/" data-tooltip="[백준][c++] 2741 N 찍기" aria-label="이전: [백준][c++] 2741 N 찍기">
-                    
+                    <a class="post-action-btn btn btn--disabled" aria-hidden="true">
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">이전</span>
                     </a>
@@ -330,7 +328,7 @@
             <li class="post-action">
                 
                     
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/02/17/winterStudyClub/2020-02-17-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_7%ED%9A%8C%EC%B0%A8_2020_02_17(%EC%9B%94)/" data-tooltip="2020 동계 학습 동아리_7회차_2020_02_17(월)" aria-label="다음: 2020 동계 학습 동아리_7회차_2020_02_17(월)">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/" data-tooltip="final과 const " aria-label="다음: final과 const ">
                     
                         <span class="hide-xs hide-sm text-small icon-mr">다음</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -348,7 +346,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Facebook에 공유하기" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -356,7 +354,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Twitter에 공유하기" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -364,7 +362,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" title="Google+에 공유하기" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -398,7 +396,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Facebook에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Facebook에 공유하기</span>
                     </a>
                 </li>
@@ -406,7 +404,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Twitter에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter에 공유하기</span>
                     </a>
                 </li>
@@ -414,7 +412,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
+                    <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label="Google+에 공유하기" rel="external nofollow noopener noreferrer">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Google+에 공유하기</span>
                     </a>
                 </li>
@@ -470,9 +468,9 @@
     
         <script>
           var disqus_config = function() {
-            this.page.url = 'http://example.com/2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/';
+            this.page.url = 'http://example.com/2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart]%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/';
               
-            this.page.identifier = '2020/02/18/flutter&amp;dart/2020-02-18-[flutter&amp;dart] map 메소드/';
+            this.page.identifier = '2021/02/18/flutter&amp;dart/2021-02-18-[flutter&amp;dart] map 메소드/';
               
           };
           (function() {

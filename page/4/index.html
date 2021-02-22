@@ -171,6 +171,172 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/" aria-label=": [백준][python] 1002 터렛">
+                            [백준][python] 1002 터렛
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-11-04T15:18:30+09:00">
+	
+		    2020/11/04
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1002">터렛</a><br><img width="1143" alt="스크린샷 2020-11-04 오후 6 39 38" src="https://user-images.githubusercontent.com/20227720/98094797-1981d480-1ecd-11eb-9d42-ab887bfc2c5a.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    testCase = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(testCase):</span><br><span class="line">        x1, y1, r1, x2, y2, r2 = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        d = (<span class="built_in">abs</span>(x1-x2) ** <span class="number">2</span> + <span class="built_in">abs</span>(y1-y2) ** <span class="number">2</span>) ** <span class="number">0.5</span></span><br><span class="line">        <span class="keyword">if</span> r2 &gt;= r1:</span><br><span class="line">            <span class="keyword">if</span> r2 - r1 &lt; d &lt; r1 + r2: print(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d == r1 + r2 <span class="keyword">or</span> (d == r2 - r1 <span class="keyword">and</span> d != <span class="number">0</span>): print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d &lt; r2 - r1 <span class="keyword">or</span> d &gt; r1 + r2: print(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d ==<span class="number">0</span> <span class="keyword">and</span> r1 == r2: print(<span class="string">&quot;-1&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> r1 - r2 &lt; d &lt; r1 + r2: print(<span class="string">&quot;2&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d == r1 + r2 <span class="keyword">or</span> (d == r1 - r2 <span class="keyword">and</span> d != <span class="number">0</span>): print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d &lt; r1 - r2 <span class="keyword">or</span> d &gt; r1 + r2: print(<span class="string">&quot;0&quot;</span>)</span><br><span class="line">            <span class="keyword">elif</span> d ==<span class="number">0</span> <span class="keyword">and</span> r1 == r2: print(<span class="string">&quot;-1&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201002%20%ED%84%B0%EB%A0%9B/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/11/03/baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/" aria-label=": [백준][python] 2941 크로아티아 알파벳">
+                            [백준][python] 2941 크로아티아 알파벳
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-11-03T20:20:00+09:00">
+	
+		    2020/11/03
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2941">크로아티아 알파벳</a><br><img width="1141" alt="스크린샷 2020-11-03 오후 8 26 22" src="https://user-images.githubusercontent.com/20227720/97979673-eb3fbe80-1e12-11eb-96ce-b126f4039176.png">  </p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    words = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">input</span>())) + [<span class="literal">None</span>]</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(words)):</span><br><span class="line">        <span class="keyword">if</span> words[i] == <span class="literal">None</span>: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> words[i] == <span class="string">&quot;l&quot;</span> <span class="keyword">or</span> words[i] == <span class="string">&quot;n&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span> words[i + <span class="number">1</span>] == <span class="string">&quot;j&quot;</span>: <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> words[i] == <span class="string">&quot;c&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span> words[i + <span class="number">1</span>] == <span class="string">&quot;=&quot;</span> <span class="keyword">or</span> words[i + <span class="number">1</span>] == <span class="string">&quot;-&quot;</span>: <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> words[i] == <span class="string">&quot;s&quot;</span> <span class="keyword">or</span> words[i] == <span class="string">&quot;z&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span> words[i + <span class="number">1</span>] == <span class="string">&quot;=&quot;</span>: <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> words[i] == <span class="string">&quot;d&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span> words[i + <span class="number">1</span>] == <span class="string">&quot;-&quot;</span>: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> words[i + <span class="number">1</span>] == <span class="string">&quot;z&quot;</span> <span class="keyword">and</span> words[i + <span class="number">2</span>] == <span class="string">&quot;=&quot;</span>: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(cnt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/11/03/baekjoon/2020/11November/2020-11-03-%5B%EB%B0%B1%EC%A4%80%5D%202941%20%ED%81%AC%EB%A1%9C%EC%95%84%ED%8B%B0%EC%95%84%20%EC%95%8C%ED%8C%8C%EB%B2%B3/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/04/13/baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/" aria-label=": [백준][python] 2583 영역 구하기">
+                            [백준][python] 2583 영역 구하기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-13T22:20:00+09:00">
+	
+		    2020/04/13
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2583">영역 구하기</a><br><img width="941" alt="스크린샷 2020-04-13 오후 11 43 45" src="https://user-images.githubusercontent.com/20227720/79129918-01d3e900-7de1-11ea-9fb3-a982ec5bb8f9.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m = <span class="number">0</span>, n = <span class="number">0</span>, k = <span class="number">0</span>, x1 = <span class="number">0</span>, y1 = <span class="number">0</span>, x2 = <span class="number">0</span>, y2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;, paper[<span class="number">101</span>][<span class="number">101</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>, nx = <span class="number">0</span>, ny = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; width;</span><br><span class="line"><span class="built_in">queue</span>&lt;p&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rtn = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    q.push(&#123;i,j&#125;);</span><br><span class="line">    paper[i][j] = <span class="number">1</span>;</span><br><span class="line">    rtn++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( !q.empty() )&#123;</span><br><span class="line">        p x_y = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        </span><br><span class="line">        y = x_y.first;</span><br><span class="line">        x = x_y.second;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">            nx = x + dx[i];</span><br><span class="line">            ny = y + dy[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( <span class="number">0</span> &gt; ny || ny &gt;= m || <span class="number">0</span> &gt; nx || nx &gt;= n) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>( paper[ny][nx] != <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            q.push(&#123;ny, nx&#125;);</span><br><span class="line">            paper[ny][nx] = <span class="number">1</span>;</span><br><span class="line">            rtn++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> rtn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n &gt;&gt; k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = y1; j &lt; y2; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = x1; k &lt; x2; k++)&#123;</span><br><span class="line">                paper[j][k] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(paper[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                width.push_back(bfs(i,j));</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(width.begin(), width.end());</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; width.size(); i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; width[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">i,j</span>):</span></span><br><span class="line">    rtn = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    q = deque()</span><br><span class="line">    q.append([i,j])</span><br><span class="line">    rtn += <span class="number">1</span></span><br><span class="line">    paper[i][j] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    dx = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>]</span><br><span class="line">    dy = [<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        y_x = q.popleft()</span><br><span class="line">        y = y_x[<span class="number">0</span>]</span><br><span class="line">        x = y_x[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            nx = dx[i] + x</span><br><span class="line">            ny = dy[i] + y</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 0 &lt;= ny &lt; m or 0 &lt;= nx &lt; n</span></span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &gt; ny <span class="keyword">or</span> ny &gt;= m <span class="keyword">or</span> <span class="number">0</span> &gt; nx <span class="keyword">or</span> nx &gt;= n: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> paper[ny][nx] != <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            paper[ny][nx] = <span class="number">1</span></span><br><span class="line">            rtn += <span class="number">1</span></span><br><span class="line">            q.append([ny, nx])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rtn</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    m,n,k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    width = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    paper = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        x1, y1, x2, y2 = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(y1, y2):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(x1, x2):</span><br><span class="line">                paper[i][j] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> paper[i][j] == <span class="number">0</span>:</span><br><span class="line">                width.append(bfs(i,j))</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    width.sort()</span><br><span class="line">    print(cnt)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> width:</span><br><span class="line">        print(i, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/04/13/baekjoon/2020/4April/2020-04-13-%5B%EB%B0%B1%EC%A4%80%5D%202583%20%EC%98%81%EC%97%AD%EA%B5%AC%ED%95%98%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/04/10/baekjoon/2020/4April/2020-04-10-%5B%EB%B0%B1%EC%A4%80%5D%2012761%20%EB%8F%8C%EB%8B%A4%EB%A6%AC/" aria-label=": [백준][python] 12761 돌다리">
                             [백준][python] 12761 돌다리
                         </a>
@@ -600,202 +766,6 @@
                     
                         <p>
                             <a href="/2020/04/03/baekjoon/2020/4April/2020-04-04-%5B%EB%B0%B1%EC%A4%80%5D%204677%20Oil%20Deposits/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/04/02/baekjoon/2020/4April/2020-04-02-%5B%EB%B0%B1%EC%A4%80%5D%201932%20%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95/" aria-label=": [백준][c++][python] 1932 정수 삼각형">
-                            [백준][c++][python] 1932 정수 삼각형
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-04-02T16:30:00+09:00">
-	
-		    2020/04/02
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1932">정수 삼각형</a><br><img width="1176" alt="스크린샷 2020-04-02 오후 4 05 21" src="https://user-images.githubusercontent.com/20227720/78220076-cb05f500-74fb-11ea-9d0f-d1d5abcc69bd.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, dp[<span class="number">500</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;, sq[<span class="number">500</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">            sq[i][j] = num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = sq[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span>; j++)&#123;</span><br><span class="line">            dp[i+<span class="number">1</span>][j] = max(dp[i+<span class="number">1</span>][j], sq[i+<span class="number">1</span>][j] + dp[i][j]);</span><br><span class="line">            dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i+<span class="number">1</span>][j+<span class="number">1</span>], sq[i+<span class="number">1</span>][j+<span class="number">1</span>] + dp[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> rtn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( rtn &lt; dp[n<span class="number">-1</span>][i] ) rtn = dp[n<span class="number">-1</span>][i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, rtn);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    dp = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    sq = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        nums = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>().split()]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            sq[i][j] = nums[j]</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = sq[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>):</span><br><span class="line">            dp[i+<span class="number">1</span>][j] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j], sq[i+<span class="number">1</span>][j] + dp[i][j])</span><br><span class="line">            dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j+<span class="number">1</span>], sq[i+<span class="number">1</span>][j+<span class="number">1</span>] + dp[i][j])</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">max</span>(dp[n-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>dp[i+1][j] = max(dp[i+1][j], sq[i+1][j] + dp[i][j])</li>
-<li>dp[i+1][j+1] = max(dp[i+1][j+1], sq[i+1][j+1] + dp[i][j])</li>
-<li>이 점화식을 사용한다.</li>
-<li>계속 더하기만 하면 중간에 겹치는 부분때문에 숫자가 엄청 커진다.</li>
-<li>그래서 max를 이용해서 최대값을 넣어준다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>으따 dp 으렵네</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/04/02/baekjoon/2020/4April/2020-04-02-%5B%EB%B0%B1%EC%A4%80%5D%201932%20%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/31/baekjoon/2020/3March/2020-03-31-%5B%EB%B0%B1%EC%A4%80%5D%201026%20%EB%B3%B4%EB%AC%BC/" aria-label=": [백준][c++][python] 1026 보물">
-                            [백준][c++][python] 1026 보물
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-31T23:30:00+09:00">
-	
-		    2020/03/31
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1026">보물</a><br><img width="1178" alt="스크린샷 2020-03-31 오후 11 42 54" src="https://user-images.githubusercontent.com/20227720/78039896-a568d680-73a9-11ea-9aa8-c744e1202204.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">desc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123; <span class="keyword">return</span> a &gt; b; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, rtn = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;, B[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) A[j] = num;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">1</span>) B[j] = num;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 오름차순</span></span><br><span class="line">    sort(A, A+n);</span><br><span class="line">    <span class="comment">// 내림차순</span></span><br><span class="line">    sort(B, B+n, desc);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        rtn += A[i] * B[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; rtn &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    A = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    B = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    C = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line">    A.sort()</span><br><span class="line">    B.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        C[i] = A[i] * B[i]</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">sum</span>(C))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>오름 차순, 내림차순 해주고, 각각 위치 곱한거 한값에 더해준것을 출력한다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>바쁘다 바뻐</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/31/baekjoon/2020/3March/2020-03-31-%5B%EB%B0%B1%EC%A4%80%5D%201026%20%EB%B3%B4%EB%AC%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/30/baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/" aria-label=": [백준][c++][python] 6118 숨바꼭질">
-                            [백준][c++][python] 6118 숨바꼭질
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-30T22:30:00+09:00">
-	
-		    2020/03/30
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/6118">숨바꼭질</a><br><img width="1181" alt="스크린샷 2020-03-30 오후 10 32 57" src="https://user-images.githubusercontent.com/20227720/77918202-82b9bd80-72d6-11ea-8233-c8fedcf5e703.png"><br><img width="1179" alt="스크린샷 2020-03-30 오후 10 33 02" src="https://user-images.githubusercontent.com/20227720/77918188-80576380-72d6-11ea-9acf-8b4e13b89d1f.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>, a = <span class="number">0</span>, b = <span class="number">0</span>, INF = <span class="number">987654321</span>, max_num = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; barn[<span class="number">20001</span>];</span><br><span class="line"><span class="keyword">int</span> dist[<span class="number">20001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; pq; <span class="comment">// 힙구조</span></span><br><span class="line">    pq.push(<span class="built_in">make_pair</span>(s, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 가까운 순서대로 처리 하므로 큐 사용</span></span><br><span class="line">    <span class="keyword">while</span>( !pq.empty() )&#123;</span><br><span class="line">        <span class="keyword">int</span> current = pq.top().first;</span><br><span class="line">        <span class="comment">// 짧은 것이 먼저 오도록 음수화</span></span><br><span class="line">        <span class="keyword">int</span> distance = -pq.top().second;</span><br><span class="line">        pq.pop();</span><br><span class="line">        <span class="comment">// 최단거리가 아닌경우 스킵</span></span><br><span class="line">        <span class="keyword">if</span>(dist[current] &lt; distance) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; barn[current].size(); i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> next = barn[current][i].first;</span><br><span class="line">            <span class="keyword">int</span> nextDistance = barn[current][i].second + distance;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( nextDistance &lt; dist[next] )&#123;</span><br><span class="line">                dist[next] = nextDistance;</span><br><span class="line">                pq.push(<span class="built_in">make_pair</span>(next, -nextDistance));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        barn[a].push_back(<span class="built_in">make_pair</span>(b, <span class="number">1</span>));</span><br><span class="line">        barn[b].push_back(<span class="built_in">make_pair</span>(a, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        dist[i + <span class="number">1</span>] = INF;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dijkstra(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; answer;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        max_num = max(max_num, dist[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( dist[i] == max_num )&#123;</span><br><span class="line">            answer.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; answer.front() &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; max_num &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; answer.size() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">s</span>):</span></span><br><span class="line">    dist = [<span class="number">0</span>] + [INF] * (n)</span><br><span class="line">    dist[s] = <span class="number">0</span></span><br><span class="line">    heap = []</span><br><span class="line">    heappush(heap, [s, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> heap:</span><br><span class="line">        current, distance = heappop(heap)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">next</span>, nextDistance <span class="keyword">in</span> barn[current]:</span><br><span class="line">            nextDistance += distance</span><br><span class="line">            <span class="keyword">if</span> nextDistance &lt; dist[<span class="built_in">next</span>]:</span><br><span class="line">                dist[<span class="built_in">next</span>] = nextDistance</span><br><span class="line">                heappush(heap, [<span class="built_in">next</span>, nextDistance])</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    barn = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        barn[a].append([b,<span class="number">1</span>])</span><br><span class="line">        barn[b].append([a,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    dist = dijkstra(<span class="number">1</span>)</span><br><span class="line">    max_dist = <span class="built_in">max</span>(dist)</span><br><span class="line"></span><br><span class="line">    print(dist.index(max_dist), max_dist, dist.count(max_dist))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>다익스트라 이용해서 해결.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>한동안은 다익스트라 관련 문제를 풀어야겠다.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/30/baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

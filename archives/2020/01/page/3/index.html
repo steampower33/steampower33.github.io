@@ -172,57 +172,6 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/18/baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/" aria-label=": [백준][python] 1867 돌멩이 제거">
-                            [백준][python] 1867 돌멩이 제거
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-18T19:30:00+09:00">
-	
-		    2020/01/18
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1867">돌멩이 제거</a><br><img src="https://user-images.githubusercontent.com/20227720/72662295-d5e6d880-3a28-11ea-80e0-403d410501f1.png" alt="스크린샷 2020-01-18 오후 7 27 24"></p>
-<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/source/8898279">참고1</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://justicehui.github.io/usaco/2019/09/10/BOJ1867/">참고2</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://pledge.tistory.com/entry/%EB%B0%B1%EC%A4%801864-%EB%8F%8C%EB%A9%A9%EC%9D%B4-%EC%A0%9C%EA%B1%B0">참고3</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># field에 들어있는 값의 r위치가 이미 한번 돌았던거라면, 또 돌필요가 없다.</span></span><br><span class="line"><span class="comment"># 이분 매칭에서는 이미 있는 곳을 선택하려할때 이미 다른게 있으면</span></span><br><span class="line"><span class="comment"># 그 다른걸 가지고 또 다른 가능성이 있는지 탐색하는데</span></span><br><span class="line"><span class="comment"># 이 문제에서는 돌 한번 치우면 끝이기 때문에 또 치울 필요가없다.</span></span><br><span class="line"><span class="comment"># 그러니 field를 길이 만큼 돌면서, 되면 ans += 1 해주고 안되면 아무것도 안해주면된다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">a</span>):</span></span><br><span class="line">    <span class="keyword">global</span> v,r,field</span><br><span class="line">    <span class="keyword">if</span> v[a]:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    v[a] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> field[a]:</span><br><span class="line">        <span class="keyword">if</span> r[b] == -<span class="number">1</span> <span class="keyword">or</span> dfs(r[b]):</span><br><span class="line">            r[b] = a</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 격자, 돌멩이.</span></span><br><span class="line">    n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 운동장.</span></span><br><span class="line">    field = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 돌맹이 위치.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        field[a - <span class="number">1</span>].append(b - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># n 만큼을 돌면서 확인해주면된다.</span></span><br><span class="line">    v = [<span class="number">0</span>] * n</span><br><span class="line">    r = [-<span class="number">1</span>] * n</span><br><span class="line"></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        v = [<span class="number">0</span>] * n</span><br><span class="line">        ans += dfs(i)</span><br><span class="line">    print(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/18/baekjoon/2020/1January/2020-01-18-%5B%EB%B0%B1%EC%A4%80%5D%201867%20%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%A0%9C%EA%B1%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
                         <a class="link-unstyled" href="/2020/01/17/baekjoon/2020/1January/2020-01-17-%5B%EB%B0%B1%EC%A4%80%5D%201389%20%EC%BC%80%EB%B9%88%20%EB%B2%A0%EC%9D%B4%EC%BB%A8%EC%9D%98%206%EB%8B%A8%EA%B3%84%20%EB%B2%95%EC%B9%99/" aria-label=": [백준][python] 1389 케빈 베이컨의 6단계 법칙">
                             [백준][python] 1389 케빈 베이컨의 6단계 법칙
                         </a>
@@ -704,6 +653,103 @@
                     
                         <p>
                             <a href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/13/etc/2020-01-13-%5Bmd%5D%20markdown%EC%97%90%EC%84%9C%20%ED%91%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label=": [md] markdown에서 표 만들기">
+                            [md] markdown에서 표 만들기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-13T17:30:00+09:00">
+	
+		    2020/01/13
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/md/">md</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-예시"><a href="#1-예시" class="headerlink" title="1. 예시"></a>1. 예시</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">| 이름 | 2019 부자 순위 |</span><br><span class="line">| :------: | :---------------------------------------------------------- |</span><br><span class="line">| 제프 베조스 | 1위 (1310억 달러) |</span><br><span class="line">| 빌 게이츠 | 2위 ( 965억 달러) |</span><br><span class="line">| 워런 버핏 버크셔 | 3위 ( 825억 달러) |</span><br><span class="line">| 베르나르 아르노 | 4위 ( 760억 달러) |</span><br><span class="line">| e카를로스 슬림 | 5위 ( 640억 달러) |</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center">이름</th>
+<th align="left">2019 부자 순위</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">제프 베조스</td>
+<td align="left">1위 (1310억 달러)</td>
+</tr>
+<tr>
+<td align="center">빌 게이츠</td>
+<td align="left">2위 ( 965억 달러)</td>
+</tr>
+<tr>
+<td align="center">워런 버핏 버크셔</td>
+<td align="left">3위 ( 825억 달러)</td>
+</tr>
+<tr>
+<td align="center">베르나르 아르노</td>
+<td align="left">4위 ( 760억 달러)</td>
+</tr>
+<tr>
+<td align="center">e카를로스 슬림</td>
+<td align="left">5위 ( 640억 달러)</td>
+</tr>
+</tbody></table>
+<h2 id="2-간단하게"><a href="#2-간단하게" class="headerlink" title="2. 간단하게."></a>2. 간단하게.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">| 왼쪽 정렬 | 가운데 정렬 | 오른쪽 정렬|</span><br><span class="line">| 왼 | 가 | 오 |</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">왼쪽 정렬</th>
+<th align="center">가운데 정렬</th>
+<th align="right">오른쪽 정렬</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">왼</td>
+<td align="center">가</td>
+<td align="right">오</td>
+</tr>
+</tbody></table>
+<h2 id="3-빠르고-간편하게-만들기"><a href="#3-빠르고-간편하게-만들기" class="headerlink" title="3. 빠르고, 간편하게 만들기."></a>3. 빠르고, 간편하게 만들기.</h2><p>테이블 생성기 사이트 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.tablesgenerator.com/markdown_tables#">TablesGenerator</a>.</p>
+<img width="1295" alt="스크린샷 2020-01-13 오후 5 42 58" src="https://user-images.githubusercontent.com/20227720/72242216-32fb1c80-362c-11ea-8fe0-e4147c84a618.png">
+
+<p>사이트를 들어가서, Edit, Table, Column, Row 를 클릭, 수정한 다음<br>밑에 <strong>Generate</strong>를 누르면, <strong>Result</strong>에 코드가 생성된다.  </p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/13/etc/2020-01-13-%5Bmd%5D%20markdown%EC%97%90%EC%84%9C%20%ED%91%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

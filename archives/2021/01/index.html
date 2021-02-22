@@ -172,6 +172,70 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/" aria-label=": [dart] Dart에 대해서">
+                            [dart] Dart에 대해서
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-30T21:00:00+09:00">
+	
+		    2021/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/dart/">dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-ABOUT-DART"><a href="#1-ABOUT-DART" class="headerlink" title="1. ABOUT DART"></a>1. ABOUT DART</h1><p>Language Feature : OOP, FLUTTER, EASY, VERY 190,000</p>
+<p>이 페이지의 내용의 대부분은 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://ko.wikipedia.org/wiki/%EC%83%9D%EC%84%B1%EC%9E%90">위키백과</a>를 참조하고있습니다.</p>
+<h1 id="2-출력-output"><a href="#2-출력-output" class="headerlink" title="2. 출력 output"></a>2. 출력 output</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello World!&#x27;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-생성자-constructor"><a href="#3-생성자-constructor" class="headerlink" title="3. 생성자 constructor"></a>3. 생성자 constructor</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">생성자(영어: constructor, 혹은 약자로 ctor)는 객체 지향 프로그래밍에서 객체의 초기화를 담당하는 서브루틴을 가리킨다. 생성자는 객체가 처음 생성될 때 호출되어 멤버 변수를 초기화하고, 필요에 따라 자원을 할당하기도 한다. 객체의 생성 시에 호출되기 때문에 생성자라는 이름이 붙었다.</span><br><span class="line"></span><br><span class="line">생성자는 대체로 멤버 함수와 같은 모양을 하고 있지만, 값을 반환하지 않는다는 점에서 엄밀한 의미의 함수는 아니다.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-1. 예시</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 생성자</span></span><br><span class="line">  <span class="comment">// 이런식의 사용은 데이터형이 일치하는 변수를 각 위치에 설정해야한다.</span></span><br><span class="line">  Person(<span class="built_in">String</span> inputName, <span class="built_in">int</span> inputAge) &#123;</span><br><span class="line">    name = inputName;</span><br><span class="line">    age = inputAge;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="comment">// 생성사 사용</span></span><br><span class="line">  <span class="comment">// String, int 인데 int, String으로 넣으면안됨.</span></span><br><span class="line">  <span class="keyword">var</span> p1 = Person(<span class="string">&#x27;Lee&#x27;</span>, <span class="number">25</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-2. {} 사용</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// &#123;&#125; 사용</span></span><br><span class="line">  <span class="comment">// 생성자를 사용할때, &#123;&#125; 안의 변수를 무조건 설정하지 않아도 되게 해준다.</span></span><br><span class="line">  Person(&#123;<span class="built_in">String</span> inputName, <span class="built_in">int</span> inputAge&#125;) &#123;</span><br><span class="line">    name = inputName;</span><br><span class="line">    age = inputAge;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="comment">// 설정해도되고 안해도됨. 변수를 각각 설정해주기때문에 순서 또한 상관없다.</span></span><br><span class="line">  <span class="keyword">var</span> p1 = Person(inputName : <span class="string">&#x27;Lee&#x27;</span>, inputAge : <span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Person();</span></span><br><span class="line">  <span class="comment">// Person(inputAge : 25);</span></span><br><span class="line">  <span class="comment">// 등 다 가능.</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-3. 주로 쓰는 표현</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 생성자</span></span><br><span class="line">  <span class="comment">// this를 사용함으로써 생성자 사용시 name에 들어온 값을 객체 안 name 변수에 바로 넣음.</span></span><br><span class="line">  Person(&#123;<span class="keyword">this</span>.name, <span class="keyword">this</span>.age&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> p1 = Person(name : <span class="string">&#x27;Lee&#x27;</span>, age : <span class="number">25</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2021/01/30/flutter&dart/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label=": flutter 오류 모음">
                             flutter 오류 모음
                         </a>

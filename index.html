@@ -171,6 +171,180 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label=": [flutter&amp;dart] map 메소드">
+                            [flutter&amp;dart] map 메소드
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-02-18T12:00:00+09:00">
+	
+		    2021/02/18
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-map-메소드"><a href="#1-map-메소드" class="headerlink" title="1. map 메소드"></a>1. map 메소드</h1><p>문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> questions = [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite color?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Black&#x27;</span>, <span class="string">&#x27;Red&#x27;</span>, <span class="string">&#x27;Green&#x27;</span>, <span class="string">&#x27;White&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite animal?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Cow&#x27;</span>, <span class="string">&#x27;Rabbit&#x27;</span>, <span class="string">&#x27;Dog&#x27;</span>, <span class="string">&#x27;Lion&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;what\&#x27;s your favorite Game?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;LOL&#x27;</span>, <span class="string">&#x27;FIFA&#x27;</span>, <span class="string">&#x27;OVERWATCH&#x27;</span>, <span class="string">&#x27;MAPLESTORY&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">  ];</span><br></pre></td></tr></table></figure>
+<p>위의 자료형에 접근하려고한다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...(questions[_questionIndex][<span class="string">&#x27;answers&#x27;</span>] <span class="keyword">as</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;)</span><br><span class="line">                .map((answer) &#123;</span><br><span class="line">              <span class="keyword">return</span> Answer(_answerQuestion, answer);</span><br><span class="line">            &#125;).toList()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">questions[_questionIndex][&#39;answers&#39;]은 List&lt;String&gt;인데, dart에서 인식하지 못해서 () 감싸준다음 as LIst&lt;String&gt;으로 dart에게 알려줄 수 있다.</span><br><span class="line">그리고 이건 iterable 하기에 map method 사용할수있다.</span><br><span class="line">반복가능한 집단에서 map method 사용 가능</span><br><span class="line"></span><br><span class="line">() &#123;&#125; 에서 () 안에 익명함수를 사용 &#123;&#125; 안에는 리턴할 함수를 사용한다.</span><br><span class="line">익명 함수를 사용하는 이유는 여기에만 해당 함수가 필요하고 다른 곳에서는 필요하지 않기 때문이다.</span><br><span class="line"></span><br><span class="line">map method 안에서 여기서 만들 수 있는 명명 된 함수를 사용할 수 있다.</span><br><span class="line">여기에서 함수를 정의하고 그 함수는 자동으로 인수 자체를 받는다.</span><br><span class="line"></span><br><span class="line">.toList()를 통해 map으로 리턴될 것을 List가 되게해줌.</span><br><span class="line"></span><br><span class="line">맨앞의 ...은 spread operator인데, 현재 이 구문 밖은 List로 감싸져있다.</span><br><span class="line">List 안의 List이기에 spread operator를 통해서 그 밖의 List의 값이 되도록 해준다.</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/" aria-label=": final과 const ">
+                            final과 const 
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-02-18T12:00:00+09:00">
+	
+		    2021/02/18
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-컴파일-타임-런타임"><a href="#1-컴파일-타임-런타임" class="headerlink" title="1. 컴파일 타임, 런타임"></a>1. 컴파일 타임, 런타임</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,</span><br><span class="line">소스코드에 이상이 없는지 판단하는 과정이다.</span><br><span class="line"></span><br><span class="line">런타임 : 컴파일 이후 프로그램이 실행되는 타임</span><br><span class="line"></span><br><span class="line">컴파일 -&gt; 런 순서</span><br></pre></td></tr></table></figure>
+<h1 id="2-final과-const"><a href="#2-final과-const" class="headerlink" title="2. final과 const"></a>2. final과 const</h1><h1 id="2-1-상수"><a href="#2-1-상수" class="headerlink" title="2-1. 상수"></a>2-1. 상수</h1><p>final과 const 둘 다 한번 설정하면 변경할 수 없다.</p>
+<p>const는 컴파일 타임에서 상수 정의 가능 -&gt; const로 정의된 상수는 런타임에서 설정 불가능<br>즉 절대 바뀌지않아야하는 상수라면 const를 사용한다.</p>
+<p>final은 런타임에서 결정되는 값도 설정가능하다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="built_in">DateTime</span> now = <span class="built_in">DateTime</span>.now(); <span class="comment">// DateTime.now()의 값이 런타임에서 결정되어도, final은 문제가 없다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const DateTime now = DateTime.now(); // 런타임 시에 값이 결정나기때문에 const는 사용 불가능.</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-2-배열"><a href="#2-2-배열" class="headerlink" title="2-2. 배열"></a>2-2. 배열</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> hello = [<span class="string">&#x27;Hello&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"><span class="keyword">const</span> hi = [<span class="string">&#x27;hi&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello.add(<span class="string">&#x27;Bye&#x27;</span>) <span class="comment">// 가능</span></span><br><span class="line">hi.add(<span class="string">&#x27;See ya&#x27;</span>) <span class="comment">// 불가능</span></span><br><span class="line"></span><br><span class="line">hello.removeAt(<span class="number">0</span>); <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br><span class="line">hi = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br></pre></td></tr></table></figure>
+<p>const와 final 둘다 아예 다른 배열로 바꾸는 것은 불가능하다.</p>
+<p>const의 경우 추가, 삭제 불가능. 아예 원본을 유지해야한다.<br>final은 추가, 삭제가 가능하다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/" aria-label=": [dart] Dart에 대해서">
+                            [dart] Dart에 대해서
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-30T21:00:00+09:00">
+	
+		    2021/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/dart/">dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-ABOUT-DART"><a href="#1-ABOUT-DART" class="headerlink" title="1. ABOUT DART"></a>1. ABOUT DART</h1><p>Language Feature : OOP, FLUTTER, EASY, VERY 190,000</p>
+<p>이 페이지의 내용의 대부분은 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://ko.wikipedia.org/wiki/%EC%83%9D%EC%84%B1%EC%9E%90">위키백과</a>를 참조하고있습니다.</p>
+<h1 id="2-출력-output"><a href="#2-출력-output" class="headerlink" title="2. 출력 output"></a>2. 출력 output</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello World!&#x27;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-생성자-constructor"><a href="#3-생성자-constructor" class="headerlink" title="3. 생성자 constructor"></a>3. 생성자 constructor</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">생성자(영어: constructor, 혹은 약자로 ctor)는 객체 지향 프로그래밍에서 객체의 초기화를 담당하는 서브루틴을 가리킨다. 생성자는 객체가 처음 생성될 때 호출되어 멤버 변수를 초기화하고, 필요에 따라 자원을 할당하기도 한다. 객체의 생성 시에 호출되기 때문에 생성자라는 이름이 붙었다.</span><br><span class="line"></span><br><span class="line">생성자는 대체로 멤버 함수와 같은 모양을 하고 있지만, 값을 반환하지 않는다는 점에서 엄밀한 의미의 함수는 아니다.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-1. 예시</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 생성자</span></span><br><span class="line">  <span class="comment">// 이런식의 사용은 데이터형이 일치하는 변수를 각 위치에 설정해야한다.</span></span><br><span class="line">  Person(<span class="built_in">String</span> inputName, <span class="built_in">int</span> inputAge) &#123;</span><br><span class="line">    name = inputName;</span><br><span class="line">    age = inputAge;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="comment">// 생성사 사용</span></span><br><span class="line">  <span class="comment">// String, int 인데 int, String으로 넣으면안됨.</span></span><br><span class="line">  <span class="keyword">var</span> p1 = Person(<span class="string">&#x27;Lee&#x27;</span>, <span class="number">25</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-2. {} 사용</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// &#123;&#125; 사용</span></span><br><span class="line">  <span class="comment">// 생성자를 사용할때, &#123;&#125; 안의 변수를 무조건 설정하지 않아도 되게 해준다.</span></span><br><span class="line">  Person(&#123;<span class="built_in">String</span> inputName, <span class="built_in">int</span> inputAge&#125;) &#123;</span><br><span class="line">    name = inputName;</span><br><span class="line">    age = inputAge;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="comment">// 설정해도되고 안해도됨. 변수를 각각 설정해주기때문에 순서 또한 상관없다.</span></span><br><span class="line">  <span class="keyword">var</span> p1 = Person(inputName : <span class="string">&#x27;Lee&#x27;</span>, inputAge : <span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Person();</span></span><br><span class="line">  <span class="comment">// Person(inputAge : 25);</span></span><br><span class="line">  <span class="comment">// 등 다 가능.</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3-3. 주로 쓰는 표현</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">int</span> age;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 생성자</span></span><br><span class="line">  <span class="comment">// this를 사용함으로써 생성자 사용시 name에 들어온 값을 객체 안 name 변수에 바로 넣음.</span></span><br><span class="line">  Person(&#123;<span class="keyword">this</span>.name, <span class="keyword">this</span>.age&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line">  <span class="keyword">var</span> p1 = Person(name : <span class="string">&#x27;Lee&#x27;</span>, age : <span class="number">25</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">print</span>(p1.name);</span><br><span class="line">  <span class="built_in">print</span>(p1.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/30/flutter&dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2021/01/30/flutter&dart/2021-01-30-flutter%20%EC%98%A4%EB%A5%98%20%EB%AA%A8%EC%9B%80/" aria-label=": flutter 오류 모음">
                             flutter 오류 모음
                         </a>
@@ -603,164 +777,6 @@
                     
                         <p>
                             <a href="/2020/12/30/baekjoon/2020/12December/2020-12-30-2740%20%ED%96%89%EB%A0%AC%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/12/30/baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/" aria-label=": [백준][python] 1629 곱셈">
-                            [백준][python] 1629 곱셈
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-12-30T00:08:00+09:00">
-	
-		    2020/12/30
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1629">1629 곱셈</a><br><img src="https://user-images.githubusercontent.com/20227720/103293689-b0818d80-4a33-11eb-8bd1-71aa8d518f26.PNG" alt="캡처">  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def solve(a,b):</span><br><span class="line">    if b &#x3D;&#x3D; 0:</span><br><span class="line">        return 1</span><br><span class="line">    elif b &#x3D;&#x3D; 1:</span><br><span class="line">        return a</span><br><span class="line">    else:</span><br><span class="line">        if b % 2 &#x3D;&#x3D; 1:</span><br><span class="line">            return solve(a, b - 1) * a</span><br><span class="line">        elif b % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            result &#x3D; solve(a, b &#x2F;&#x2F; 2)</span><br><span class="line">            return result * result % c</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    a, b, c &#x3D; map(int, input().split())</span><br><span class="line"></span><br><span class="line">    print(solve(a,b) % c)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>a, b, c가 주어진 상황에서 a를 b제곱하고 c로 나누는 과정에서 데이터 값이 범위를 초과하거나, 시간을 초과할수있다.</p>
-<p>그 과정을 줄이면된다.</p>
-<p>10 11 12가 주어졌을때, 10^11을 해야하는데 이걸 쪼개는 과정은</p>
-<p>b가 홀수인지 짝수인지 확인하고</p>
-<p>b가 짝수일때는 b // 2를 해준것을 2개한후 c로 나눠주고 반환 =&gt; ( a ** b // 2 ) * ( a ** b // 2) % c<br>b가 홀수일때는 a ** (b-1) * a를 반환</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/12/30/baekjoon/2020/12December/2020-12-30-1629%20%EA%B3%B1%EC%85%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label=": [백준][python] 1780 종이의 개수">
-                            [백준][python] 1780 종이의 개수
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-12-28T23:30:00+09:00">
-	
-		    2020/12/28
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1780">종이의 개수</a><br><img src="https://user-images.githubusercontent.com/20227720/103218794-6cbd5400-495f-11eb-8173-e667ff0f37d7.PNG" alt="캡처">  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def paperSum(x, y, v):</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    minus &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            if paper[i][j] &#x3D;&#x3D; 0:</span><br><span class="line">                zero +&#x3D; 1</span><br><span class="line">            elif paper[i][j] &#x3D;&#x3D; -1:</span><br><span class="line">                minus +&#x3D; 1</span><br><span class="line">            elif paper[i][j] &#x3D;&#x3D; 1:</span><br><span class="line">                one +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    if v &#x3D;&#x3D; zero:</span><br><span class="line">        return 0</span><br><span class="line">    elif v &#x3D;&#x3D; one:</span><br><span class="line">        return 1</span><br><span class="line">    elif v &#x3D;&#x3D; minus:</span><br><span class="line">        return -1</span><br><span class="line"></span><br><span class="line">def paperChecker(x, y, p):</span><br><span class="line">    global zero, one, minus</span><br><span class="line">    value &#x3D; abs(x[1] - x[0]) * abs(y[1] - y[0])</span><br><span class="line">    pS &#x3D; paperSum(x, y, value)</span><br><span class="line">    if  pS &#x3D;&#x3D; 0:</span><br><span class="line">        zero +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 1:</span><br><span class="line">        one +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; -1:</span><br><span class="line">        minus +&#x3D; 1</span><br><span class="line">        return</span><br><span class="line">    else:</span><br><span class="line">        nP &#x3D; p &#x2F;&#x2F; 3</span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[0], y[0] + nP], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[0] + nP, y[0] + nP * 2], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0], x[0] + nP], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[0] + nP, x[0] + nP * 2], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">        paperChecker([x[1] - nP, x[1]], [y[1] - nP, y[1]], nP)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    zero &#x3D; 0</span><br><span class="line">    one &#x3D; 0</span><br><span class="line">    minus &#x3D; 0</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    paper &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): paper[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;).rsplit()))</span><br><span class="line">    paperChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    print(minus)</span><br><span class="line">    print(zero)</span><br><span class="line">    print(one)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/12/28/baekjoon/2020/12December/2020-12-28-1780%20%EC%A2%85%EC%9D%B4%EC%9D%98%20%EA%B0%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/" aria-label=": [백준][python] 1992 쿼드트리">
-                            [백준][python] 1992 쿼드트리
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-12-27T19:40:00+09:00">
-	
-		    2020/12/27
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1992">1992 쿼드트리</a><br><img src="https://user-images.githubusercontent.com/20227720/103169080-2642f900-487c-11eb-99ed-010bc275ac7b.PNG" alt="캡처">  </p>
-<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def treeSum(x, y):</span><br><span class="line">    sum &#x3D; 0</span><br><span class="line">    for i in range(y[0], y[1]):</span><br><span class="line">        for j in range(x[0], x[1]):</span><br><span class="line">            sum +&#x3D; tree[i][j]</span><br><span class="line">    return sum</span><br><span class="line"></span><br><span class="line">def treeChecker(x, y, p):</span><br><span class="line">    global result</span><br><span class="line">    value &#x3D; (x[1] - x[0]) * (y[1] - y[0])</span><br><span class="line">    pS &#x3D; treeSum(x,y)</span><br><span class="line">    if  pS &#x3D;&#x3D; value:</span><br><span class="line">        result.append(&#39;1&#39;)</span><br><span class="line">        return</span><br><span class="line">    elif pS &#x3D;&#x3D; 0:</span><br><span class="line">        result.append(&#39;0&#39;)</span><br><span class="line">        return</span><br><span class="line">    elif treeSum(x,y) !&#x3D; value:</span><br><span class="line">        result.append(&#39;(&#39;)</span><br><span class="line">        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0],y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0], y[1] - p&#x2F;&#x2F;2], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0], x[1] - p&#x2F;&#x2F;2], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line"></span><br><span class="line">        treeChecker([x[0] + p&#x2F;&#x2F;2, x[1]], [y[0] + p&#x2F;&#x2F;2, y[1]], p&#x2F;&#x2F;2)</span><br><span class="line">        result.append(&#39;)&#39;)</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    result &#x3D; list()</span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    tree &#x3D; [[] for j in range(n)]</span><br><span class="line"></span><br><span class="line">    for _ in range(n): tree[_] &#x3D; list(map(int, sys.stdin.readline().rstrip(&#39;\n&#39;)))</span><br><span class="line"></span><br><span class="line">    treeChecker([0,n], [0,n], n)</span><br><span class="line"></span><br><span class="line">    for _ in result:</span><br><span class="line">        print(_, end&#x3D;&#39;&#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://neversayn3v3r.github.io/2020/12/26/Baekjoon/12December/2020-12-26-2630%20%EC%83%89%EC%A2%85%EC%9D%B4%20%EB%A7%8C%EB%93%A4%EA%B8%B0/">2630 색종이 만들기 해결</a>에서 재귀를 돌기전과 후에 소괄호 하나씩 넣고, 네모안이 전부1인지 아닌지 확인하는 부분에서 소괄호 넣어주는 것으로 수정해주면 된다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/12/27/baekjoon/2020/12December/2020-12-27-1992%20%EC%BF%BC%EB%93%9C%ED%8A%B8%EB%A6%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

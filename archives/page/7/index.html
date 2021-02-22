@@ -172,6 +172,209 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/03/15/baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/" aria-label=": [백준][c++][python] 10825 국영수">
+                            [백준][c++][python] 10825 국영수
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-15T16:30:00+09:00">
+	
+		    2020/03/15
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/10825">국영수</a><br><img width="799" alt="스크린샷 2020-03-16 오전 12 59 52" src="https://user-images.githubusercontent.com/20227720/76705211-ae0eab00-6721-11ea-807c-6f9cc06e60f6.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> lang, eng, math;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Student &amp;u, <span class="keyword">const</span> Student &amp;v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> a = make_tuple(-u.lang, u.eng, -u.math, u.name); </span><br><span class="line">    <span class="keyword">auto</span> b = make_tuple(-v.lang, v.eng, -v.math, v.name);</span><br><span class="line">    <span class="keyword">return</span> a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;Student&gt; <span class="title">vec</span><span class="params">(n)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; vec[i].name &gt;&gt; vec[i].lang &gt;&gt; vec[i].eng &gt;&gt; vec[i].math;</span><br><span class="line"></span><br><span class="line">    sort(vec.begin(), vec.end(), cmp);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; vec[i].name &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    info = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        name, lang, eng, math = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">        info[i] = [name, <span class="built_in">int</span>(lang), <span class="built_in">int</span>(eng), <span class="built_in">int</span>(math)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    info.sort(key=<span class="keyword">lambda</span> x : ( -x[<span class="number">1</span>], x[<span class="number">2</span>], -x[<span class="number">3</span>], x[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        print(info[i][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결방법"><a href="#3-해결방법" class="headerlink" title="3. 해결방법"></a>3. 해결방법</h2><ul>
+<li>c++ 에서는 tuple을 이용하고, python에서는 sort에서 key 값으로 lambda를 사용한다.</li>
+<li>Pypy3가 Python3 보다 훨씬 빠르니까 참고하자.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>Pypy3는 엄청 빠르다.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/15/baekjoon/2020/3March/2020-03-15-%5B%EB%B0%B1%EC%A4%80%5D%2010825%20%EA%B5%AD%EC%98%81%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/14/baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/" aria-label=": [백준][c++][python] 2751 수 정렬하기">
+                            [백준][c++][python] 2751 수 정렬하기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-14T18:30:00+09:00">
+	
+		    2020/03/14
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2751">수 정렬하기 2</a><br><img src="https://user-images.githubusercontent.com/20227720/76680069-ef6f5f80-6628-11ea-874c-91fb5c8b1656.png" alt="스크린샷 2020-03-14 오후 7 20 53"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, srt[<span class="number">1000001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        srt[i] = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(srt, srt+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; srt[i] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    nums = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        num = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        nums[i] = num</span><br><span class="line"></span><br><span class="line">    nums.sort()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n): print(nums[i])</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>c++은 STL sort() 함수를 다뤄서 해결하고, 파이썬도 리스트 정렬을 이용해서 해결한다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>c++ stl 어떻게 쓰나 해서 한번 사용햘겸 문제를 풀어봤다.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/14/baekjoon/2020/3March/2020-03-14-%5B%EB%B0%B1%EC%A4%80%5D%202751%20%EC%88%98%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0%202/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/13/baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/" aria-label=": [백준][c++][python] 2011 암호코드">
+                            [백준][c++][python] 2011 암호코드
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-13T18:30:00+09:00">
+	
+		    2020/03/13
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2011">암호코드</a><br><img src="https://user-images.githubusercontent.com/20227720/76679444-e039e300-6623-11ea-896e-6f7dade82d29.png" alt="스크린샷 2020-03-14 오후 6 44 34"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">5001</span>] = &#123;<span class="number">0</span>&#125;, size_s = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    size_s = s.length();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>( s[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span> )&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>, dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= size_s; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> one = s[i<span class="number">-1</span>] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>( <span class="number">1</span> &lt;= one &amp;&amp; one &lt;= <span class="number">9</span> )&#123;</span><br><span class="line">                dp[i] += dp[i<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i] %= <span class="number">1000000</span>;</span><br><span class="line">            <span class="keyword">int</span> two = ( s[i - <span class="number">2</span>] - <span class="string">&#x27;0&#x27;</span> ) * <span class="number">10</span> + ( s[i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span> );</span><br><span class="line">            <span class="keyword">if</span>( <span class="number">10</span> &lt;= two &amp;&amp; two &lt;= <span class="number">26</span>)&#123;</span><br><span class="line">                dp[i] += dp[i<span class="number">-2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i] %= <span class="number">1000000</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; dp[size_s] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">input</span>()</span><br><span class="line">    size_n = <span class="built_in">len</span>(n)</span><br><span class="line">    dp = [<span class="number">0</span>] * ( size_n + <span class="number">1</span> )</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">        print(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, size_n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="number">1</span> &lt;= <span class="built_in">int</span>(n[i-<span class="number">1</span>]) &lt;= <span class="number">9</span>:</span><br><span class="line">                dp[i] += dp[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="number">10</span> &lt;= <span class="built_in">int</span>(n[i-<span class="number">2</span>:i]) &lt;= <span class="number">26</span>:</span><br><span class="line">                dp[i] += dp[i-<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">            dp[i] %= <span class="number">1000000</span></span><br><span class="line"></span><br><span class="line">        print(dp[size_n])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>자리 개수에 따라 생각해보자.</li>
+<li>1234를 예로, dp[0]은 나중에 생각하고, dp[1]은 1, dp[2]는 2, 12, dp[3]은 1 + 2 + 3, 12 + 3, 1 + 23 dp[4]는 1 + 2 + 3 + 4, 1+ 23 + 4, 12 + 3 + 4가 있다.</li>
+<li>dp[1] = 1</li>
+<li>dp[2] = 2</li>
+<li>dp[3] = 3</li>
+<li>dp[4] = 3</li>
+<li>잘 보면 지금 위치의 수와 앞 자리 하나를 포함한 수가 1 ~ 9, 10 ~ 26 에 포함되면 dp에 하나씩 증가시켜주는데, 이를 점화식으로 유도하면 dp[i] += dp[i-1], dp[i] += dp[i-2] 가 된다.</li>
+<li>여기서 그러면 dp[0], dp[1] 인 경우를 한번 살펴보자.</li>
+<li>dp[0] 일때는, 0을 해야할까? 1을 해야할까? 답은 1을 해야한다. 이유로는 점화식을 보면 1을 따로 더해주는 방식이 아니기때문에, dp에서 자급해야한다. 그럼 제일 밑단을 사용한다 하면, dp[0]에 1을 이용한다. 그래서 dp[0]은 1 설정이다.</li>
+<li>다음으로 dp[1]의 경우에는 0과 같이 1을 해야한다. 사실 이전에 조건문으로 입력 문자열의 맨 처음 값이 0이면 0을 출력하고 프로그램을 종료하기때문에, 이부분에서는 그런 값을 만날수 없다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>아직도 문제에서 맨 처음값이 0이면 왜 암호가 해석되지 않는지는 잘 모르겠다.</li>
+<li>블로그들 중에서도 재채점되어서 코드가 이상한게 많다. 항상 다른 블로그를 참고할때는 그 블로그의 코드를 먼저 제출해보고 맞으면 참고하도록하자.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/13/baekjoon/2020/3March/2020-03-13-%5B%EB%B0%B1%EC%A4%80%5D%202011%20%EC%95%94%ED%98%B8%EC%BD%94%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/03/12/baekjoon/2020/3March/2020-03-12-%5B%EB%B0%B1%EC%A4%80%5D%2011054%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EB%B0%94%EC%9D%B4%ED%86%A0%EB%8B%89%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/" aria-label=": [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열">
                             [백준][c++][python] 11054 가장 긴 바이토닉 부분 수열
                         </a>
@@ -625,212 +828,6 @@
                     
                         <p>
                             <a href="/2020/03/06/baekjoon/2020/3March/2020-03-06-%5B%EB%B0%B1%EC%A4%80%5D%202225%20%ED%95%A9%EB%B6%84%ED%95%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/05/baekjoon/2020/3March/2020-03-05-%5B%EB%B0%B1%EC%A4%80%5D%202156%20%ED%8F%AC%EB%8F%84%EC%A3%BC%20%EC%8B%9C%EC%8B%9D/" aria-label=": [백준][c++][python] 2156 포도주 시식">
-                            [백준][c++][python] 2156 포도주 시식
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-05T23:30:00+09:00">
-	
-		    2020/03/05
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2156">포도주 시식</a><br><img width="801" alt="스크린샷 2020-03-05 오후 11 50 25" src="https://user-images.githubusercontent.com/20227720/75992934-17c9d080-5f3c-11ea-8965-e4cba37ec553.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, Max = <span class="number">0</span>, dp[<span class="number">10001</span>] = &#123;<span class="number">0</span>&#125;, wine[<span class="number">10001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">        wine[i] = num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">1</span>] = wine[<span class="number">1</span>];</span><br><span class="line">    dp[<span class="number">2</span>] = wine[<span class="number">1</span>] + wine[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        dp[i] = max(dp[i - <span class="number">2</span>] + wine[i], dp[i - <span class="number">3</span>] + wine[i - <span class="number">1</span>] + wine[i]);</span><br><span class="line">        dp[i] = max(dp[i], dp[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(Max &lt; dp[i]) Max = dp[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, Max);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    wine = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10001</span>)]</span><br><span class="line">    dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10001</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        wine[i] = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">1</span>] = wine[<span class="number">1</span>]</span><br><span class="line">    dp[<span class="number">2</span>] = wine[<span class="number">1</span>] + wine[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, n+<span class="number">1</span>):</span><br><span class="line">        dp[i] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>], dp[i - <span class="number">3</span>] + wine[i - <span class="number">1</span>] + wine[i], dp[i - <span class="number">2</span>] + wine[i])</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">max</span>(dp))</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결방법"><a href="#3-해결방법" class="headerlink" title="3. 해결방법"></a>3. 해결방법</h2><ul>
-<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2579">계단 오르기</a> 이 문제랑 비슷하다.</li>
-<li>다른점은 마지막 와인을 무조건 안마셔도 된다는것이고, 와인을 두번이상 안먹을 경우가 생긴다.</li>
-<li>와인을 두번 연속 먹지 않는 경우를 위해서, dp[i]와 dp[i-1]을 비교해서 더 큰 값을 dp[i]에 넣어준다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>dp[i - 3] 때문에 0의 위치에서 계단 한개 시작하게 해야하는거라고 생각했는데, 그게 아니였다.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/05/baekjoon/2020/3March/2020-03-05-%5B%EB%B0%B1%EC%A4%80%5D%202156%20%ED%8F%AC%EB%8F%84%EC%A3%BC%20%EC%8B%9C%EC%8B%9D/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/04/baekjoon/2020/3March/2020-03-04-%5B%EB%B0%B1%EC%A4%80%5D%209465%20%EC%8A%A4%ED%8B%B0%EC%BB%A4/" aria-label=": [백준][c++][python] 9465 스티커">
-                            [백준][c++][python] 9465 스티커
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-04T13:30:00+09:00">
-	
-		    2020/03/04
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/9465">스티커</a><br><img width="970" alt="스크린샷 2020-03-04 오후 1 02 21" src="https://user-images.githubusercontent.com/20227720/75844166-90377100-5e18-11ea-92d8-c78fa84fbf34.png"><br><img width="971" alt="스크린샷 2020-03-04 오후 1 02 25" src="https://user-images.githubusercontent.com/20227720/75844163-8dd51700-5e18-11ea-9520-d1dc2ed8fd1f.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> tc = <span class="number">0</span>, n = <span class="number">0</span>, num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;tc);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; tc; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> stickers[<span class="number">2</span>][<span class="number">100001</span>] = &#123;<span class="number">0</span>&#125;, dp[<span class="number">2</span>][<span class="number">100001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(k = <span class="number">1</span>; k &lt;= n; k++)&#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">                stickers[j][k] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = stickers[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">1</span>][<span class="number">1</span>] = stickers[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">2</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = max(dp[<span class="number">1</span>][j - <span class="number">1</span>], dp[<span class="number">1</span>][j - <span class="number">2</span>]) + stickers[<span class="number">0</span>][j];</span><br><span class="line">            dp[<span class="number">1</span>][j] = max(dp[<span class="number">0</span>][j - <span class="number">1</span>], dp[<span class="number">0</span>][j - <span class="number">2</span>]) + stickers[<span class="number">1</span>][j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,max(dp[<span class="number">0</span>][n],dp[<span class="number">1</span>][n]));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    tc = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(tc):</span><br><span class="line">        dp = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100001</span>)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)]</span><br><span class="line">        stickers = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100001</span>)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)]</span><br><span class="line">        n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">            s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> , n+<span class="number">1</span>):</span><br><span class="line">                stickers[j][k] = s[k-<span class="number">1</span>]</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = stickers[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">        dp[<span class="number">1</span>][<span class="number">1</span>] = stickers[<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">            dp[<span class="number">0</span>][j] = <span class="built_in">max</span>(dp[<span class="number">1</span>][j-<span class="number">1</span>], dp[<span class="number">1</span>][j-<span class="number">2</span>]) + stickers[<span class="number">0</span>][j]</span><br><span class="line">            dp[<span class="number">1</span>][j] = <span class="built_in">max</span>(dp[<span class="number">0</span>][j-<span class="number">1</span>], dp[<span class="number">0</span>][j-<span class="number">2</span>]) + stickers[<span class="number">1</span>][j]</span><br><span class="line"></span><br><span class="line">        rtn = <span class="built_in">max</span>(dp[<span class="number">0</span>][n], dp[<span class="number">1</span>][n])</span><br><span class="line"></span><br><span class="line">        print(rtn)</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결방법"><a href="#3-해결방법" class="headerlink" title="3. 해결방법"></a>3. 해결방법</h2><ul>
-<li>테이블 놓고, o x 놀이를 해봅시다. 그럼 자연스럽게 대각선으로 이어지는 동그라미들을 보게됩니다.</li>
-<li>단순하게 생각하면 일정한 모양 패턴만 생각할수있고, 좀더 생각해보면 그것만 있는게 아니라는것을 알게됩니다.</li>
-<li>현재 위치에서는 대각선 위치로 한칸 두칸 까지 갈수있다는걸 알게됩니다.</li>
-<li>그럼 dp의 초기 위치 0 과 1의 위치에서 0은 0을, 1은 입력값의 처음 값을 넣어두고, 배열을 2부터 시작합니다.</li>
-<li>현재 위치의 대각선 한칸뒤 두칸뒤의 값중 큰 값을 입력의 현재위치의 값을 더해주면 됩니다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>세상에서 가장 멋이 없는 사람은 자기 수준을 모르는 것이고, 이것에 화를 내는 것입니다.</li>
-<li>저는 오늘까지만 세상 멋 없는 사람이 되고, 내일부터는 세상 멋있는 사람이 될것입니다.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/04/baekjoon/2020/3March/2020-03-04-%5B%EB%B0%B1%EC%A4%80%5D%209465%20%EC%8A%A4%ED%8B%B0%EC%BB%A4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/03/baekjoon/2020/3March/2020-03-03-%5B%EB%B0%B1%EC%A4%80%5D%201699%20%EC%A0%9C%EA%B3%B1%EC%88%98%EC%9D%98%20%ED%95%A9/" aria-label=": [백준][c++][python] 1699 제곱수의 합">
-                            [백준][c++][python] 1699 제곱수의 합
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-03T15:30:00+09:00">
-	
-		    2020/03/03
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1699">제곱수의 합</a><br><img width="969" alt="스크린샷 2020-03-03 오후 3 41 04" src="https://user-images.githubusercontent.com/20227720/75749570-6cffb980-5d65-11ea-883b-44d6e857c295.png"><br><img width="967" alt="스크린샷 2020-03-03 오후 3 41 08" src="https://user-images.githubusercontent.com/20227720/75749566-6a9d5f80-5d65-11ea-8b21-189ce971025b.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, dp[<span class="number">100001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) dp[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j*j &lt;= i; j++)</span><br><span class="line">            dp[i] = min(dp[i], dp[i - j*j] + <span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[n] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100001</span>)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">1</span>): dp[i] = i</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, i):</span><br><span class="line">            <span class="keyword">if</span> j*j &gt; i: <span class="keyword">break</span></span><br><span class="line">            dp[i] = <span class="built_in">min</span>(dp[i], dp[i - j*j] + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(dp[n])</span><br></pre></td></tr></table></figure>
-<h2 id="3-풀이"><a href="#3-풀이" class="headerlink" title="3. 풀이"></a>3. 풀이</h2><ul>
-<li>python 코드는 Pypy로 돌려야 시간초과가 발생하지 않는다.</li>
-<li>배열의 값을 각 위치의 값으로 모두 초기화시킨다.</li>
-<li>i를 2부터 돌고 j를 2부터 시작해서 j의 제곱값으로 뺄수있는 값이면 빼고, dp[i]에 dp[i]값과 dp[i - j*j] + 1의 값 중 더 작은 값을 넣는다.</li>
-<li>그 위치의 값에 1을 더한다는 것은 결국 횟수를 더하는것이다.</li>
-<li>예를 들면 에[0]은 0번, dp[1]은 횟수가 1번 가능하다. 2는 2번 3은 3번이 필요하다. 이제 배열을 정확히는 4의 값 부터 도는것인데, 4부터는 2의 제곱이 사용되기 때문이다.</li>
-<li>그렇다면 4의 위치에서 2*2를 빼주면 dp[0] 은 0번이고, 이 위치와 값은 모든 경우에서 최소이다. 만약 이 경우에 dp[i - j * j]에 1을 더하지않으면, dp[4]는 0의 값이 들어간다. 그 이하의 값 0 1 2 3은 횟수가 들어간것이므로, 이 값은 틀린값이다. dp방식을 적용해서 횟수를 설정하기위해 1을 더해준다.</li>
-</ul>
-<h2 id="4-풀이"><a href="#4-풀이" class="headerlink" title="4. 풀이"></a>4. 풀이</h2><ul>
-<li>이 문제에서는 맨 아랫단의 위치와 값을 이용해서 DP방식이 되었다.</li>
-<li>0 1 2 3의 경우 횟수이고, 4부터는 횟수가아닌 그냥 수라는 구분이 생겼고, 이것을 이용할 수 있다는 발상 전환이 되게 새롭게 느껴졌다.</li>
-<li>풀면 풀수록 재밌다 이말이야.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/03/baekjoon/2020/3March/2020-03-03-%5B%EB%B0%B1%EC%A4%80%5D%201699%20%EC%A0%9C%EA%B3%B1%EC%88%98%EC%9D%98%20%ED%95%A9/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

@@ -171,6 +171,202 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/04/02/baekjoon/2020/4April/2020-04-02-%5B%EB%B0%B1%EC%A4%80%5D%201932%20%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95/" aria-label=": [백준][c++][python] 1932 정수 삼각형">
+                            [백준][c++][python] 1932 정수 삼각형
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-04-02T16:30:00+09:00">
+	
+		    2020/04/02
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1932">정수 삼각형</a><br><img width="1176" alt="스크린샷 2020-04-02 오후 4 05 21" src="https://user-images.githubusercontent.com/20227720/78220076-cb05f500-74fb-11ea-9d0f-d1d5abcc69bd.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, dp[<span class="number">500</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;, sq[<span class="number">500</span>][<span class="number">500</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">            sq[i][j] = num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = sq[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span>; j++)&#123;</span><br><span class="line">            dp[i+<span class="number">1</span>][j] = max(dp[i+<span class="number">1</span>][j], sq[i+<span class="number">1</span>][j] + dp[i][j]);</span><br><span class="line">            dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i+<span class="number">1</span>][j+<span class="number">1</span>], sq[i+<span class="number">1</span>][j+<span class="number">1</span>] + dp[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> rtn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( rtn &lt; dp[n<span class="number">-1</span>][i] ) rtn = dp[n<span class="number">-1</span>][i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, rtn);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    dp = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    sq = [[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        nums = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">input</span>().split()]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">            sq[i][j] = nums[j]</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = sq[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>):</span><br><span class="line">            dp[i+<span class="number">1</span>][j] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j], sq[i+<span class="number">1</span>][j] + dp[i][j])</span><br><span class="line">            dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = <span class="built_in">max</span>(dp[i+<span class="number">1</span>][j+<span class="number">1</span>], sq[i+<span class="number">1</span>][j+<span class="number">1</span>] + dp[i][j])</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">max</span>(dp[n-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>dp[i+1][j] = max(dp[i+1][j], sq[i+1][j] + dp[i][j])</li>
+<li>dp[i+1][j+1] = max(dp[i+1][j+1], sq[i+1][j+1] + dp[i][j])</li>
+<li>이 점화식을 사용한다.</li>
+<li>계속 더하기만 하면 중간에 겹치는 부분때문에 숫자가 엄청 커진다.</li>
+<li>그래서 max를 이용해서 최대값을 넣어준다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>으따 dp 으렵네</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/04/02/baekjoon/2020/4April/2020-04-02-%5B%EB%B0%B1%EC%A4%80%5D%201932%20%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/31/baekjoon/2020/3March/2020-03-31-%5B%EB%B0%B1%EC%A4%80%5D%201026%20%EB%B3%B4%EB%AC%BC/" aria-label=": [백준][c++][python] 1026 보물">
+                            [백준][c++][python] 1026 보물
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-31T23:30:00+09:00">
+	
+		    2020/03/31
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1026">보물</a><br><img width="1178" alt="스크린샷 2020-03-31 오후 11 42 54" src="https://user-images.githubusercontent.com/20227720/78039896-a568d680-73a9-11ea-9aa8-c744e1202204.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">desc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123; <span class="keyword">return</span> a &gt; b; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, rtn = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;, B[<span class="number">51</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) A[j] = num;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">1</span>) B[j] = num;</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 오름차순</span></span><br><span class="line">    sort(A, A+n);</span><br><span class="line">    <span class="comment">// 내림차순</span></span><br><span class="line">    sort(B, B+n, desc);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        rtn += A[i] * B[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; rtn &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    A = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    B = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    C = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line">    A.sort()</span><br><span class="line">    B.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        C[i] = A[i] * B[i]</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">sum</span>(C))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>오름 차순, 내림차순 해주고, 각각 위치 곱한거 한값에 더해준것을 출력한다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>바쁘다 바뻐</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/31/baekjoon/2020/3March/2020-03-31-%5B%EB%B0%B1%EC%A4%80%5D%201026%20%EB%B3%B4%EB%AC%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/03/30/baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/" aria-label=": [백준][c++][python] 6118 숨바꼭질">
+                            [백준][c++][python] 6118 숨바꼭질
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-30T22:30:00+09:00">
+	
+		    2020/03/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/6118">숨바꼭질</a><br><img width="1181" alt="스크린샷 2020-03-30 오후 10 32 57" src="https://user-images.githubusercontent.com/20227720/77918202-82b9bd80-72d6-11ea-8233-c8fedcf5e703.png"><br><img width="1179" alt="스크린샷 2020-03-30 오후 10 33 02" src="https://user-images.githubusercontent.com/20227720/77918188-80576380-72d6-11ea-9acf-8b4e13b89d1f.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>, a = <span class="number">0</span>, b = <span class="number">0</span>, INF = <span class="number">987654321</span>, max_num = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; barn[<span class="number">20001</span>];</span><br><span class="line"><span class="keyword">int</span> dist[<span class="number">20001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    dist[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; pq; <span class="comment">// 힙구조</span></span><br><span class="line">    pq.push(<span class="built_in">make_pair</span>(s, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 가까운 순서대로 처리 하므로 큐 사용</span></span><br><span class="line">    <span class="keyword">while</span>( !pq.empty() )&#123;</span><br><span class="line">        <span class="keyword">int</span> current = pq.top().first;</span><br><span class="line">        <span class="comment">// 짧은 것이 먼저 오도록 음수화</span></span><br><span class="line">        <span class="keyword">int</span> distance = -pq.top().second;</span><br><span class="line">        pq.pop();</span><br><span class="line">        <span class="comment">// 최단거리가 아닌경우 스킵</span></span><br><span class="line">        <span class="keyword">if</span>(dist[current] &lt; distance) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; barn[current].size(); i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> next = barn[current][i].first;</span><br><span class="line">            <span class="keyword">int</span> nextDistance = barn[current][i].second + distance;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>( nextDistance &lt; dist[next] )&#123;</span><br><span class="line">                dist[next] = nextDistance;</span><br><span class="line">                pq.push(<span class="built_in">make_pair</span>(next, -nextDistance));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        barn[a].push_back(<span class="built_in">make_pair</span>(b, <span class="number">1</span>));</span><br><span class="line">        barn[b].push_back(<span class="built_in">make_pair</span>(a, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        dist[i + <span class="number">1</span>] = INF;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dijkstra(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; answer;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        max_num = max(max_num, dist[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( dist[i] == max_num )&#123;</span><br><span class="line">            answer.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; answer.front() &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; max_num &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; answer.size() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">s</span>):</span></span><br><span class="line">    dist = [<span class="number">0</span>] + [INF] * (n)</span><br><span class="line">    dist[s] = <span class="number">0</span></span><br><span class="line">    heap = []</span><br><span class="line">    heappush(heap, [s, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> heap:</span><br><span class="line">        current, distance = heappop(heap)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">next</span>, nextDistance <span class="keyword">in</span> barn[current]:</span><br><span class="line">            nextDistance += distance</span><br><span class="line">            <span class="keyword">if</span> nextDistance &lt; dist[<span class="built_in">next</span>]:</span><br><span class="line">                dist[<span class="built_in">next</span>] = nextDistance</span><br><span class="line">                heappush(heap, [<span class="built_in">next</span>, nextDistance])</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    barn = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        barn[a].append([b,<span class="number">1</span>])</span><br><span class="line">        barn[b].append([a,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    dist = dijkstra(<span class="number">1</span>)</span><br><span class="line">    max_dist = <span class="built_in">max</span>(dist)</span><br><span class="line"></span><br><span class="line">    print(dist.index(max_dist), max_dist, dist.count(max_dist))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>다익스트라 이용해서 해결.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>한동안은 다익스트라 관련 문제를 풀어야겠다.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/30/baekjoon/2020/3March/2020-03-30-%5B%EB%B0%B1%EC%A4%80%5D%206118%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/03/28/etc/2020-03-28-%EB%A7%A5(Mac)%EC%97%90%EC%84%9C%20%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%20%EC%84%A4%EC%B9%98/" aria-label=": 맥(Mac)에서 이클립스(Eclipse) 설치">
                             맥(Mac)에서 이클립스(Eclipse) 설치
                         </a>
@@ -673,193 +869,6 @@
                     
                         <p>
                             <a href="/2020/03/24/baekjoon/2020/3March/2020-03-24-%5B%EB%B0%B1%EC%A4%80%5D%202331%20%EB%B0%98%EB%B3%B5%EC%88%98%EC%97%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/23/baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/" aria-label=": [백준][c++][python] 10451 순열 사이클">
-                            [백준][c++][python] 10451 순열 사이클
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-23T05:30:00+09:00">
-	
-		    2020/03/23
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/10451">순열 사이클</a><br><img src="https://user-images.githubusercontent.com/20227720/77259833-8ee6bf00-6cc7-11ea-950b-e5163ae43230.png" alt="스크린샷 2020-03-23 오전 5 29 34"><br><img src="https://user-images.githubusercontent.com/20227720/77259832-8db59200-6cc7-11ea-9338-4843287b0769.png" alt="스크린샷 2020-03-23 오전 5 29 47"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; graph[<span class="number">1001</span>];</span><br><span class="line"><span class="keyword">bool</span> visited[<span class="number">1001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> start)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(start);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( !q.empty() )&#123;</span><br><span class="line">        <span class="keyword">int</span> node = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ( !visited[node] )&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; graph[node].size(); i++)&#123;</span><br><span class="line">                q.push(graph[node][i]);</span><br><span class="line">            &#125;</span><br><span class="line">            visited[node] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    visited[v] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; graph[v].size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>( !visited[graph[v][i]] )&#123;</span><br><span class="line">            dfs(graph[v][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>, num = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(visited, <span class="literal">false</span>, <span class="keyword">sizeof</span>(visited));</span><br><span class="line">        <span class="built_in">memset</span>(graph, <span class="number">0</span>, <span class="keyword">sizeof</span>(graph));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">            graph[i].push_back(num);</span><br><span class="line">            graph[num].push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n+<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>( !visited[i] )&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                <span class="comment">// bfs(i);</span></span><br><span class="line">                dfs(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, cnt);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">start</span>):</span></span><br><span class="line">    q = <span class="built_in">set</span>()</span><br><span class="line">    q.add(start)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        node = q.pop()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> visited[node]:</span><br><span class="line">            q = q | <span class="built_in">set</span>(graph[node])</span><br><span class="line">            visited[node] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">v</span>):</span></span><br><span class="line">    visited[v] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> graph[v]:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (visited[i]):</span><br><span class="line">            dfs(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    t = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">        n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">        s = [<span class="number">0</span>] + s</span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line">        visited = [<span class="literal">False</span>] * (n+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        graph = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">            graph[i] = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">            graph[i].append(s[i])</span><br><span class="line">            graph[s[i]].append(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> visited[i]:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                bfs(i)</span><br><span class="line">                <span class="comment"># dfs(i)</span></span><br><span class="line"></span><br><span class="line">        print(cnt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>단방향 그래프가 아닌 양방향 그래프를 이용해서 bfs, dfs를 이용해서 해결한다.</li>
-<li>파이썬에서 bfs를 이용할때는 set을 이용해서 중복되는 것을 없애준다.</li>
-<li>c++에서 graph와 visited를 초기화해줘야한다는 것을 알아야한다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>이미 전에 짜본 bfs와 dfs를 다시 짜보려니까 머리가 느려졌다. 마치 과부화된것마냥</li>
-<li>나의 뇌는 금붕어와 같아서 계속해서 기억에 박힐때까지 공부하지않으면, 금방 까먹어버린다.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/23/baekjoon/2020/3March/2020-03-23-%5B%EB%B0%B1%EC%A4%80%5D%2010451%20%EC%88%9C%EC%97%B4%20%EC%82%AC%EC%9D%B4%ED%81%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/22/baekjoon/2020/3March/2020-03-22-%5B%EB%B0%B1%EC%A4%80%5D%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/" aria-label=": [백준][c++][python] 11724 연결 요소의 개수">
-                            [백준][c++][python] 11724 연결 요소의 개수
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-22T21:30:00+09:00">
-	
-		    2020/03/22
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11724">연결 요소의 개수</a><br><img src="https://user-images.githubusercontent.com/20227720/77249734-a5205b00-6c86-11ea-81da-49269558db08.png" alt="스크린샷 2020-03-22 오후 9 45 29"><br><img src="https://user-images.githubusercontent.com/20227720/77249732-a2be0100-6c86-11ea-8314-03871d79916c.png" alt="스크린샷 2020-03-22 오후 9 45 33"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; graph[<span class="number">1001</span>];</span><br><span class="line"><span class="keyword">bool</span> visited[<span class="number">1001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> start)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    q.push(start);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> node = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!visited[node])&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; graph[node].size(); i++)&#123;</span><br><span class="line">                q.push(graph[node][i]);</span><br><span class="line">            &#125;</span><br><span class="line">            visited[node] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    visited[v] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; graph[v].size(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[graph[v][i]])&#123;</span><br><span class="line">            dfs(graph[v][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>, a = <span class="number">0</span>, b = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        graph[a].push_back(b);</span><br><span class="line">        graph[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(visited, <span class="literal">false</span>, <span class="keyword">sizeof</span>(visited));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!visited[i])&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            bfs(i);</span><br><span class="line">            <span class="comment">// dfs(i);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, cnt);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">start</span>):</span></span><br><span class="line">    q = <span class="built_in">set</span>()</span><br><span class="line">    q.add(start)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        node = q.pop()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> visited[node]:</span><br><span class="line">            plus = <span class="built_in">set</span>(graph[node])</span><br><span class="line">            q = q | plus</span><br><span class="line">            visited[node] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">v</span>):</span></span><br><span class="line">    visited[v] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> graph[v]:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span>(visited[i]):</span><br><span class="line">            dfs(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n, m = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    graph = <span class="built_in">dict</span>()</span><br><span class="line">    visited = [<span class="literal">False</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>): graph[i] = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[a].append(b)</span><br><span class="line">        graph[b].append(a)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span>(visited[i]):</span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line">            bfs(i)</span><br><span class="line">            <span class="comment">#dfs(i)</span></span><br><span class="line"></span><br><span class="line">    print(cnt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>bfs와 dfs 둘다 이용해서 해결할수있다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>c++에서 코드에 문제가 없는데, 런타임 오류가 뜬다? -&gt; include에서 뭐 빼먹은게 없는지 확인하자.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/22/baekjoon/2020/3March/2020-03-22-%5B%EB%B0%B1%EC%A4%80%5D%2011724%20%EC%97%B0%EA%B2%B0%20%EC%9A%94%EC%86%8C%EC%9D%98%20%EA%B0%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/21/c++/2020-03-21-%5Bc++%5D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B3%80%EC%88%98%20%EB%B2%94%EC%9C%84/" aria-label=": [c++] 데이터 변수 범위">
-                            [c++] 데이터 변수 범위
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-21T23:00:00+09:00">
-	
-		    2020/03/21
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/c/">c++</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="변수-범위"><a href="#변수-범위" class="headerlink" title="변수 범위"></a>변수 범위</h1><ul>
-<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.microsoft.com/ko-kr/cpp/cpp/data-type-ranges?view=vs-2019">출처</a></li>
-<li><img width="778" alt="스크린샷 2020-03-21 오후 11 55 37" src="https://user-images.githubusercontent.com/20227720/77229153-7f844a80-6bcf-11ea-85ce-aede223e31c3.png">
-<img width="777" alt="스크린샷 2020-03-21 오후 11 55 43" src="https://user-images.githubusercontent.com/20227720/77229150-7bf0c380-6bcf-11ea-8e72-de0bcc6bb65f.png">
-</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/21/c++/2020-03-21-%5Bc++%5D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B3%80%EC%88%98%20%EB%B2%94%EC%9C%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

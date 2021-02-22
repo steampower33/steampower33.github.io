@@ -171,6 +171,108 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/02/16/baekjoon/2020/2February/2020-02-16-%5B%EB%B0%B1%EC%A4%80%5D%201427%20%EC%86%8C%ED%8A%B8%EC%9D%B8%EC%82%AC%EC%9D%B4%EB%93%9C/" aria-label=": [백준][python] 1427 소트인사이드">
+                            [백준][python] 1427 소트인사이드
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-16T22:00:00+09:00">
+	
+		    2020/02/16
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1427">소트인사이드</a><br><img width="708" alt="스크린샷 2020-02-16 오후 10 50 40" src="https://user-images.githubusercontent.com/20227720/74605847-02b50b00-510f-11ea-9ef1-1677775bc872.png"></p>
+<h2 id="2-현재-코드"><a href="#2-현재-코드" class="headerlink" title="2. 현재 코드"></a>2. 현재 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 받고.</span></span><br><span class="line">s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 내림 차순 정렬.</span></span><br><span class="line">s.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출력.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    print(i,end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/16/baekjoon/2020/2February/2020-02-16-%5B%EB%B0%B1%EC%A4%80%5D%201427%20%EC%86%8C%ED%8A%B8%EC%9D%B8%EC%82%AC%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/15/baekjoon/2020/2February/2020-02-15-%5B%EB%B0%B1%EC%A4%80%5D%2011651%20%EC%A2%8C%ED%91%9C%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B02/" aria-label=": [백준][python] 11651 좌표 정렬하기 2">
+                            [백준][python] 11651 좌표 정렬하기 2
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-15T18:00:00+09:00">
+	
+		    2020/02/15
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11651">좌표 정렬하기 2</a><br><img width="708" alt="스크린샷 2020-02-16 오후 11 46 11" src="https://user-images.githubusercontent.com/20227720/74606782-89211b00-5116-11ea-8d31-9ee6f82f7222.png"></p>
+<h2 id="2-현재-코드"><a href="#2-현재-코드" class="headerlink" title="2. 현재 코드"></a>2. 현재 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys; <span class="built_in">input</span> = sys.stdin.readline <span class="comment"># 입력 빠르게.</span></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>()); loc = <span class="built_in">list</span>() <span class="comment"># 입력 및 위치 설정.</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n): loc.append(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))) <span class="comment"># 위치 넣기.</span></span><br><span class="line">loc.sort(key=<span class="keyword">lambda</span> dot: (dot[<span class="number">1</span>], dot[<span class="number">0</span>])) <span class="comment"># x를 먼저 기준, y를 그 다음 기준으로 정렬.</span></span><br><span class="line">last = <span class="built_in">list</span>()</span><br><span class="line"><span class="keyword">for</span> [i, j] <span class="keyword">in</span> loc: print(i, j) <span class="comment"># 출력</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>난독이 있는것같다. y를 기준으로 먼저 오름차순이라는데, 그걸 못찾음. 결국 틀리고 나서 틀리는 내 자신이 한심하게 느껴지는 날이다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/15/baekjoon/2020/2February/2020-02-15-%5B%EB%B0%B1%EC%A4%80%5D%2011651%20%EC%A2%8C%ED%91%9C%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B02/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/02/14/winterStudyClub/2020-02-14-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_6%ED%9A%8C%EC%B0%A8_2020_02_14(%EA%B8%88)/" aria-label=": 2020 동계 학습 동아리_6회차_2020_02_14(금)">
                             2020 동계 학습 동아리_6회차_2020_02_14(금)
                         </a>
@@ -647,124 +749,6 @@
                     
                         <p>
                             <a href="/2020/02/10/winterStudyClub/2020-02-10-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_4%ED%9A%8C%EC%B0%A8_2020_02_10(%EC%9B%94)/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/10/baekjoon/2020/2February/2020-02-10-%5B%EB%B0%B1%EC%A4%80%5D%203780%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%97%B0%EA%B2%B0/" aria-label=": [백준][python] 3780 네트워크 연결">
-                            [백준][python] 3780 네트워크 연결
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-10T16:00:00+09:00">
-	
-		    2020/02/10
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/3780">네트워크 연결</a><br><img width="971" alt="스크린샷 2020-02-10 오후 4 12 00" src="https://user-images.githubusercontent.com/20227720/74128274-287a7580-4c20-11ea-82be-c798eda06ad0.png"></p>
-<h2 id="2-해결"><a href="#2-해결" class="headerlink" title="2. 해결"></a>2. 해결</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 빠르게, 이거 않하면 시간초과.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    <span class="comment"># 교체하기.</span></span><br><span class="line">    tmp = find(p[x])</span><br><span class="line">    len_p[x] += len_p[p[x]]</span><br><span class="line">    p[x] = tmp</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">    <span class="comment"># 아래는 이전의 코드. 비슷해 보이지만 아래는 오답이 발생한다.</span></span><br><span class="line">    <span class="comment"># len_p[x] += len_p[p[x]]</span></span><br><span class="line">    <span class="comment"># p[x] = find(p[x])</span></span><br><span class="line">    <span class="comment"># return p[x]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 합치기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="comment"># a에 길이를 저장.</span></span><br><span class="line">    len_p[a] = <span class="built_in">abs</span>(a - b) % <span class="number">1000</span></span><br><span class="line">    <span class="comment"># b가 부모.</span></span><br><span class="line">    p[a] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 테스트케이스만큼.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(<span class="built_in">input</span>())):</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 부모, 길이.</span></span><br><span class="line">    p = [<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line">    len_p = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># O가 입력될때까지.</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">input</span>().split()</span><br><span class="line">        <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">&#x27;E&#x27;</span>:</span><br><span class="line">            find(<span class="built_in">int</span>(s[<span class="number">1</span>]))</span><br><span class="line">            print(len_p[<span class="built_in">int</span>(s[<span class="number">1</span>])])</span><br><span class="line">        <span class="keyword">elif</span> s[<span class="number">0</span>] == <span class="string">&#x27;I&#x27;</span>:</span><br><span class="line">            a,b = <span class="built_in">int</span>(s[<span class="number">1</span>]),<span class="built_in">int</span>(s[<span class="number">2</span>])</span><br><span class="line">            merge(a, b)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-시행착오"><a href="#3-시행착오" class="headerlink" title="3. 시행착오"></a>3. 시행착오</h2><h2 id="3-1-swap"><a href="#3-1-swap" class="headerlink" title="3-1. swap"></a>3-1. swap</h2><ul>
-<li>find함수는 루트 노드를 반환하는 함수이다. 그 명분이 있는데, 그것을 수행하지 않으면 안될것이다. tmp를 통해서 스왑을 해주지 않으면, 루트 노드가 다르게 나온다.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p[x] == x: <span class="keyword">return</span> x</span><br><span class="line">    <span class="comment"># 교체하기.</span></span><br><span class="line">    tmp = find(p[x])</span><br><span class="line">    len_p[x] += len_p[p[x]]</span><br><span class="line">    p[x] = tmp</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">    <span class="comment"># 아래는 이전의 코드. 비슷해 보이지만 아래는 오답이 발생한다.</span></span><br><span class="line">    <span class="comment"># len_p[x] += len_p[p[x]]</span></span><br><span class="line">    <span class="comment"># p[x] = find(p[x])</span></span><br><span class="line">    <span class="comment"># return p[x]</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-2-주어진-testcase를-통한-코딩"><a href="#3-2-주어진-testcase를-통한-코딩" class="headerlink" title="3-2. 주어진 testcase를 통한 코딩"></a>3-2. 주어진 testcase를 통한 코딩</h2></li>
-<li>주어진 testcase는 아래와 같다.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">4</span><br><span class="line">E 3</span><br><span class="line">I 3 1</span><br><span class="line">E 3</span><br><span class="line">I 1 2</span><br><span class="line">E 3</span><br><span class="line">I 2 4</span><br><span class="line">E 3</span><br><span class="line">O</span><br></pre></td></tr></table></figure>
-<ul>
-<li>merge함수를 보면 자식에 길이를 저장한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 합치기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="comment"># a에 길이를 저장.</span></span><br><span class="line">    len_p[a] = <span class="built_in">abs</span>(a - b) % <span class="number">1000</span></span><br><span class="line">    <span class="comment"># b가 부모.</span></span><br><span class="line">    p[a] = b</span><br></pre></td></tr></table></figure>
-<ul>
-<li>원래 같았으면, 부모에 길이를 연결하겠지만, 테스트 케이스를 짚어 넘어가다보면, 위의 함수처럼 코딩해야한다는것을 알수있다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><p>유니온 파인드 문제는 풀면 풀수록 신기하다. 다 같은 개념이지만, 응용되는 부분이 많다. 처음에 딱 보고 생각나는 방식으로 했다가 나중에는 아닌것을 알았다. 복잡하게 생각했던것 같다. 그렇다고 이게 단순하지만은 않다. 아직 실력이 많이 부족하구나 느꼈다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/10/baekjoon/2020/2February/2020-02-10-%5B%EB%B0%B1%EC%A4%80%5D%203780%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%97%B0%EA%B2%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/08/baekjoon/2020/2February/2020-02-08-%5B%EB%B0%B1%EC%A4%80%5D%209938%20%EB%B0%A9%20%EC%B2%AD%EC%86%8C/" aria-label=": [백준][python] 9938 방 청소">
-                            [백준][python] 9938 방 청소
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-08T22:00:00+09:00">
-	
-		    2020/02/08
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/9938">방청소</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/source/16330265">참고</a><br><img width="971" alt="스크린샷 2020-02-09 오후 3 31 44" src="https://user-images.githubusercontent.com/20227720/74097618-6fe60080-4b51-11ea-8eec-38fc3b83a8aa.png"></p>
-<h2 id="2-못푼이유"><a href="#2-못푼이유" class="headerlink" title="2. 못푼이유"></a>2. 못푼이유</h2><p>유니온 파인드로 풀랬는데 보니까 안그래도 될거같아서 코딩하다가 중간에 유니온파인드 없으면 안되는걸 알아챘다.<br>백준에서 다른 사람의 코드를 해석합니다.  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입/출력 빠르게.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># 부모 찾기.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span>(p[x]==x): <span class="keyword">return</span> x</span><br><span class="line">    p[x] = find(p[x])</span><br><span class="line">    <span class="keyword">return</span> p[x]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 합집합.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    <span class="comment"># 부모찾고,</span></span><br><span class="line">    x,y = find(x),find(y)</span><br><span class="line">    <span class="comment"># x를 부모로 섬김.</span></span><br><span class="line">    p[y]=x</span><br><span class="line">    <span class="comment"># x를 부모로 섬기므로, y의 맥스와 지금을 모두 0으로 만들어준다.</span></span><br><span class="line">    max_p[y]=<span class="number">0</span></span><br><span class="line">    now_p[y]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 입력 설정.</span></span><br><span class="line">n,l=<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line"><span class="comment"># 부모 설정.</span></span><br><span class="line">p=[i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l+<span class="number">1</span>)]</span><br><span class="line"><span class="comment"># 한 부모가 수용가능한 수.</span></span><br><span class="line"><span class="comment"># 즉 1,2 이랑 연결되면 부모는 최대 2를 수용할수있다.</span></span><br><span class="line"><span class="comment"># 여기서 2,3이 되면 최대 3을 수용할수있음.</span></span><br><span class="line"><span class="comment"># 지금과 max가 다르면 보관할수있고,</span></span><br><span class="line"><span class="comment"># 같으면 보관할수 없으므로, 먹어야한다.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">max_p=[<span class="number">1</span>]*(l+<span class="number">1</span>)</span><br><span class="line">now_p=[<span class="number">0</span>]*(l+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    <span class="comment"># a의 부모와 b의 부모가 다르면,</span></span><br><span class="line">    <span class="keyword">if</span> find(p[a])!=find(p[b]):</span><br><span class="line">        <span class="comment"># a의 부모의 최대와 지금에다가 b 부모의 최대와 지금을 더해준다.</span></span><br><span class="line">        max_p[find(p[a])]+=max_p[find(p[b])]</span><br><span class="line">        now_p[find(p[a])]+=now_p[find(p[b])]</span><br><span class="line">        <span class="comment"># 그뒤 merge를 통해 합집합과정을 거쳐준다.</span></span><br><span class="line">        merge(a,b)</span><br><span class="line">    <span class="comment"># 지금이랑 최대의 값이 같으면 더이상 보관불가능함.</span></span><br><span class="line">    <span class="keyword">if</span> now_p[find(a)]==max_p[find(a)]:print(<span class="string">&#x27;SMECE&#x27;</span>)</span><br><span class="line">    <span class="comment"># 다르면 보관가능하니까 지금위치에 1더해줌.</span></span><br><span class="line">    <span class="keyword">else</span>:now_p[find(a)]+=<span class="number">1</span>;print(<span class="string">&#x27;LADICA&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>이런방법으로 접근해서 풀었다는게 상당히 놀랍다. 이런식으로 분할해서 생각하면 정말 생각하기 쉽겠구나란 생각이 들었다.<br>자기 방식대로만 풀고 넘기면 우물안 개구리마냥 고이기 마련이다. 내 방식대로 해결했다해도 다른사람의 풀이를 무조건 한 두개 이상은 해석해보는게 실력에 도움이 될것이다.<br>그리고 못풀때는 내 실력을 인정하고, 다른사람의 코드를 해석하는게 현명하다고 느꼈다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/08/baekjoon/2020/2February/2020-02-08-%5B%EB%B0%B1%EC%A4%80%5D%209938%20%EB%B0%A9%20%EC%B2%AD%EC%86%8C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

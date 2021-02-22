@@ -172,15 +172,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label=": [flutter&amp;dart] map 메소드">
+                        <a class="link-unstyled" href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label=": [flutter&amp;dart] map 메소드">
                             [flutter&amp;dart] map 메소드
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-02-18T12:00:00+09:00">
+    <time datetime="2021-02-18T12:00:00+09:00">
 	
-		    2020/02/18
+		    2021/02/18
     	
     </time>
     
@@ -207,7 +207,64 @@
                     
                     
                         <p>
-                            <a href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                            <a href="/2021/02/18/flutter&dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/" aria-label=": final과 const ">
+                            final과 const 
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-02-18T12:00:00+09:00">
+	
+		    2021/02/18
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-컴파일-타임-런타임"><a href="#1-컴파일-타임-런타임" class="headerlink" title="1. 컴파일 타임, 런타임"></a>1. 컴파일 타임, 런타임</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">컴파일 타임 : 컴파일 과정을 통해 소스코드를 컴퓨터가 인식할 수 있는 기계어 코드로 변환해서 &quot;실행 가능&quot;한 프로그램이 되는 과정을 의미하는데,</span><br><span class="line">소스코드에 이상이 없는지 판단하는 과정이다.</span><br><span class="line"></span><br><span class="line">런타임 : 컴파일 이후 프로그램이 실행되는 타임</span><br><span class="line"></span><br><span class="line">컴파일 -&gt; 런 순서</span><br></pre></td></tr></table></figure>
+<h1 id="2-final과-const"><a href="#2-final과-const" class="headerlink" title="2. final과 const"></a>2. final과 const</h1><h1 id="2-1-상수"><a href="#2-1-상수" class="headerlink" title="2-1. 상수"></a>2-1. 상수</h1><p>final과 const 둘 다 한번 설정하면 변경할 수 없다.</p>
+<p>const는 컴파일 타임에서 상수 정의 가능 -&gt; const로 정의된 상수는 런타임에서 설정 불가능<br>즉 절대 바뀌지않아야하는 상수라면 const를 사용한다.</p>
+<p>final은 런타임에서 결정되는 값도 설정가능하다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="built_in">DateTime</span> now = <span class="built_in">DateTime</span>.now(); <span class="comment">// DateTime.now()의 값이 런타임에서 결정되어도, final은 문제가 없다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const DateTime now = DateTime.now(); // 런타임 시에 값이 결정나기때문에 const는 사용 불가능.</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-2-배열"><a href="#2-2-배열" class="headerlink" title="2-2. 배열"></a>2-2. 배열</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> hello = [<span class="string">&#x27;Hello&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"><span class="keyword">const</span> hi = [<span class="string">&#x27;hi&#x27;</span>]; <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello.add(<span class="string">&#x27;Bye&#x27;</span>) <span class="comment">// 가능</span></span><br><span class="line">hi.add(<span class="string">&#x27;See ya&#x27;</span>) <span class="comment">// 불가능</span></span><br><span class="line"></span><br><span class="line">hello.removeAt(<span class="number">0</span>); <span class="comment">// 가능</span></span><br><span class="line"></span><br><span class="line">hello = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br><span class="line">hi = [<span class="string">&#x27;What&#x27;</span>]; <span class="comment">// 불가능</span></span><br></pre></td></tr></table></figure>
+<p>const와 final 둘다 아예 다른 배열로 바꾸는 것은 불가능하다.</p>
+<p>const의 경우 추가, 삭제 불가능. 아예 원본을 유지해야한다.<br>final은 추가, 삭제가 가능하다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/02/18/flutter&dart/2021-02-22-final%EA%B3%BC%20const/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

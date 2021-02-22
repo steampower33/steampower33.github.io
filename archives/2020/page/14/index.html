@@ -172,106 +172,6 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 4일차 목표">
-                            [모각코] 4일차 목표
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-16T12:50:00+09:00">
-	
-		    2020/01/16
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p>알고리즘 문제 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1012">유기농 배추</a> 를 풀고, 풀이를 작성한다.<br>Django 프로젝트에서 전담하게된 css부분 중, 로그인, 회원가입, 첫, 두번째 페이지를 완성한다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/16/mogagko/2020-01-16-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%204%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/15/baekjoon/2020/1January/2020-01-15-%5B%EB%B0%B1%EC%A4%80%5D%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label=": [백준][python] 2606 바이러스">
-                            [백준][python] 2606 바이러스
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-15T15:36:00+09:00">
-	
-		    2020/01/15
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2606">단지번호붙이기</a><br><img src="https://user-images.githubusercontent.com/20227720/72410898-002c6200-37ad-11ea-9739-b0f853fb2d85.png" alt="스크린샷 2020-01-15 오후 3 37 38"></p>
-<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># bfs</span></span><br><span class="line"><span class="comment"># 방문, q 설정.</span></span><br><span class="line"><span class="comment"># q에 시작위치 넣고.</span></span><br><span class="line"><span class="comment"># q가 빌때까지 돈다.</span></span><br><span class="line"><span class="comment"># node에 q의 값을 pop(0)하고</span></span><br><span class="line"><span class="comment"># 그 pop 한 값이 방문한적없다면 visit에 넣고</span></span><br><span class="line"><span class="comment"># q에 graph[node] 값을 마지막에 넣어준다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">graph, start</span>):</span></span><br><span class="line">    visit = <span class="built_in">list</span>()</span><br><span class="line">    queue = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    queue.append(start)</span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        node = queue.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> visit:</span><br><span class="line">            visit.append(node)</span><br><span class="line">            queue.extend(graph[node])</span><br><span class="line">    <span class="keyword">return</span> visit</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 컴퓨터 수.</span></span><br><span class="line">    computers = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 쌍 수.</span></span><br><span class="line">    pair = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프.</span></span><br><span class="line">    graph = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프 설정.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, computers+<span class="number">1</span>):</span><br><span class="line">        graph[i] = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프 양방향 연결.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(pair):</span><br><span class="line">        one, two = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[one].append(two)</span><br><span class="line">        graph[two].append(one)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 바이러스 걸린 컴퓨터 수 넣을 곳.</span></span><br><span class="line">    birus = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 시작위치를 1 ~ 컴퓨터 수 만큼 돌아서 birus에 길이를 넣는다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, computers+<span class="number">1</span>):</span><br><span class="line">        result = bfs(graph, i)</span><br><span class="line">        birus.append(<span class="built_in">len</span>(result)-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그 중 최대 값을 출력한다.</span></span><br><span class="line">    print(<span class="built_in">max</span>(birus))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/15/baekjoon/2020/1January/2020-01-15-%5B%EB%B0%B1%EC%A4%80%5D%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
                         <a class="link-unstyled" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" aria-label=": [python] 파일 읽고 쓰기 추가">
                             [python] 파일 읽고 쓰기 추가
                         </a>
@@ -761,6 +661,115 @@
                             계속 읽기
                         </a>
                         
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/08/etc/2020-01-08-%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C%20%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%20tree%ED%98%95%ED%83%9C%EB%A1%9C%20%EC%B6%9C%EB%A0%A5/" aria-label=": [Terminal] 터미널에서 디렉토리 tree형태로 출력">
+                            [Terminal] 터미널에서 디렉토리 tree형태로 출력
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-08T23:55:00+09:00">
+	
+		    2020/01/08
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/terminal/">terminal</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="먼저-tree-설치"><a href="#먼저-tree-설치" class="headerlink" title="먼저 tree 설치."></a>먼저 tree 설치.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/71988070-9541cf00-3272-11ea-9aa3-60907df78065.png" alt="스크린샷 2020-01-08 오후 11 52 30"></p>
+<h2 id="그-다음-디렉토리에-들어가서-tree-명령어-실행"><a href="#그-다음-디렉토리에-들어가서-tree-명령어-실행" class="headerlink" title="그 다음 디렉토리에 들어가서 tree 명령어 실행."></a>그 다음 디렉토리에 들어가서 tree 명령어 실행.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/20227720/71988075-9672fc00-3272-11ea-94bf-2f61d1664a44.png" alt="스크린샷 2020-01-08 오후 11 54 13"></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/08/etc/2020-01-08-%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C%20%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%20tree%ED%98%95%ED%83%9C%EB%A1%9C%20%EC%B6%9C%EB%A0%A5/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/06/python/2020-01-02-%5Bpython%5D%20input(),%20input().split()/" aria-label=": [python] 파이썬 input() 과 input().split()">
+                            [python] 파이썬 input() 과 input().split()
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-06T17:53:00+09:00">
+	
+		    2020/01/06
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/python/">python</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h1><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">InputNum = <span class="built_in">input</span>()</span><br><span class="line">InputStr = <span class="built_in">input</span>()</span><br><span class="line"></span><br><span class="line">print(InputNum, InputStr)</span><br></pre></td></tr></table></figure>
+<h3 id="인풋값-넣기"><a href="#인풋값-넣기" class="headerlink" title="인풋값 넣기."></a>인풋값 넣기.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">Billionaire</span><br></pre></td></tr></table></figure>
+<h3 id="출력값"><a href="#출력값" class="headerlink" title="출력값"></a>출력값</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 Billionaire</span><br></pre></td></tr></table></figure>
+<h1 id="input-split"><a href="#input-split" class="headerlink" title="input().split()"></a>input().split()</h1><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="built_in">input</span>().split()</span><br><span class="line">c = <span class="built_in">input</span>().split()</span><br><span class="line">d = <span class="built_in">input</span>()</span><br><span class="line"></span><br><span class="line">print(a, b)</span><br><span class="line">print(c[<span class="number">0</span>], c[<span class="number">1</span>])</span><br><span class="line">print(d[<span class="number">0</span>], d[<span class="number">1</span>], d[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="인풋값-넣기-1"><a href="#인풋값-넣기-1" class="headerlink" title="인풋값 넣기."></a>인풋값 넣기.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 20</span><br><span class="line">a b c d</span><br><span class="line">e f g h</span><br></pre></td></tr></table></figure>
+<h3 id="출력값-1"><a href="#출력값-1" class="headerlink" title="출력값"></a>출력값</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 20</span><br><span class="line">a b</span><br><span class="line">e f</span><br></pre></td></tr></table></figure>
+<p>input()으로 문자열을 받으면, 공백까지 포함해서 받게된다.<br>input().split()의 경우, 공백은 무시하고, 문자만 입력받게된다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/06/python/2020-01-02-%5Bpython%5D%20input(),%20input().split()/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
                     
                 </div>
             

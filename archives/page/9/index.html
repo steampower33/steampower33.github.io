@@ -172,6 +172,170 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/02/23/baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/" aria-label=": [백준][c++][python] 1463 1로 만들기">
+                            [백준][c++][python] 1463 1로 만들기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-23T20:30:00+09:00">
+	
+		    2020/02/23
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1463">1로 만들기</a><br><img width="858" alt="스크린샷 2020-02-24 오전 12 46 06" src="https://user-images.githubusercontent.com/20227720/75115130-3cea5380-569f-11ea-9121-8b110be4f126.png"><br><img width="857" alt="스크린샷 2020-02-24 오전 12 46 12" src="https://user-images.githubusercontent.com/20227720/75115127-3a87f980-569f-11ea-87a9-28a8b7e941bf.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">1000001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= x; i++)&#123;</span><br><span class="line">        dp[i] = dp[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">2</span> == <span class="number">0</span>) dp[i] = min(dp[i], dp[i / <span class="number">2</span>] + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">0</span>) dp[i] = min(dp[i], dp[i / <span class="number">3</span>] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,dp[x]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    x = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    dp = [<span class="number">0</span>] * <span class="number">1000001</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, x+<span class="number">1</span>):</span><br><span class="line">        dp[i] = dp[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>): dp[i] = <span class="built_in">min</span>(dp[i], dp[i // <span class="number">2</span>] + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">3</span> == <span class="number">0</span>): dp[i] = <span class="built_in">min</span>(dp[i], dp[i // <span class="number">3</span>] + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">str</span>(dp[x]))</span><br></pre></td></tr></table></figure>
+<h2 id="3-시행착오"><a href="#3-시행착오" class="headerlink" title="3. 시행착오"></a>3. 시행착오</h2><ul>
+<li>처음 파이썬 코드는 아래와 같았다.</li>
+<li>단순하게 모든 경우를 DP 방식으로 해서 해결하면되지 않을까 싶었다.</li>
+<li>DP를 푼지가 오래되서 그런지 다 까먹은듯 하다.</li>
+<li>메모이제이션, 점화식을 이용해야한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"><span class="built_in">print</span> = sys.stdout.write</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve1</span>(<span class="params">x</span>):</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> x != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> x % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">3</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">2</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x = x - <span class="number">1</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve2</span>(<span class="params">x</span>):</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> x != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> x % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">3</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> x - <span class="number">1</span> != <span class="number">0</span>:</span><br><span class="line">            x = x - <span class="number">1</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">2</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve3</span>(<span class="params">x</span>):</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> x != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">2</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> x - <span class="number">1</span> != <span class="number">0</span>:</span><br><span class="line">            x = x - <span class="number">1</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> x % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">            x = x // <span class="number">3</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    x = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    rtn = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    rtn.append(solve1(x))</span><br><span class="line">    rtn.append(solve2(x))</span><br><span class="line">    rtn.append(solve3(x))</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">str</span>(<span class="built_in">min</span>(rtn)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/23/baekjoon/2020/2February/2020-02-24-%5B%EB%B0%B1%EC%A4%80%5D%201463%201%EB%A1%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/22/baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/" aria-label=": [백준][c++] 10814 나이순 정렬">
+                            [백준][c++] 10814 나이순 정렬
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-22T15:30:00+09:00">
+	
+		    2020/02/22
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/10814">나이순 정렬</a><br><img width="859" alt="스크린샷 2020-02-23 오전 12 33 10" src="https://user-images.githubusercontent.com/20227720/75095024-14495780-55d4-11ea-86a8-1d62a442f34e.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">multimap</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; sorted_map;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="built_in">string</span> str;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num &gt;&gt; str;</span><br><span class="line">        sorted_map.insert(<span class="built_in">make_pair</span>(num, str));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;t : sorted_map)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; t.first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; t.second &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/22/baekjoon/2020/2February/2020-02-22-%5B%EB%B0%B1%EC%A4%80%5D%2010814%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/02/21/baekjoon/2020/2February/2020-02-21-%5B%EB%B0%B1%EC%A4%80%5D%2010807%20%EA%B0%9C%EC%88%98%20%EC%84%B8%EA%B8%B0/" aria-label=": [백준][c++] 10807 개수 세기">
+                            [백준][c++] 10807 개수 세기
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-02-21T15:30:00+09:00">
+	
+		    2020/02/21
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/10807">개수 세기</a><br><img width="856" alt="스크린샷 2020-02-21 오후 3 22 54" src="https://user-images.githubusercontent.com/20227720/75009585-68621800-54be-11ea-9f2c-d3279f67e7d6.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, v = <span class="number">0</span>, num = <span class="number">0</span>, nums[<span class="number">201</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">memset</span>(nums, <span class="number">0</span>, <span class="keyword">sizeof</span>(nums));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        ++nums[num+<span class="number">100</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; v;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; nums[v+<span class="number">100</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/02/21/baekjoon/2020/2February/2020-02-21-%5B%EB%B0%B1%EC%A4%80%5D%2010807%20%EA%B0%9C%EC%88%98%20%EC%84%B8%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/02/20/baekjoon/2020/1January/2020-01-20-%5B%EB%B0%B1%EC%A4%80%5D%2010820%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%B6%84%EC%84%9D/" aria-label=": [백준][python] 10820 문자열 분석">
                             [백준][python] 10820 문자열 분석
                         </a>
@@ -441,59 +605,6 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/" aria-label=": [flutter&amp;dart] map 메소드">
-                            [flutter&amp;dart] map 메소드
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-18T12:00:00+09:00">
-	
-		    2020/02/18
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="1-map-메소드"><a href="#1-map-메소드" class="headerlink" title="1. map 메소드"></a>1. map 메소드</h1><p>문제에 해당하는 답 버튼을 나타내려고할때, 반복 가능한 집단내에서 map method를 사용하여 요소수만큼 리턴한다.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> questions = [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite color?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Black&#x27;</span>, <span class="string">&#x27;Red&#x27;</span>, <span class="string">&#x27;Green&#x27;</span>, <span class="string">&#x27;White&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;What\&#x27;s your favorite animal?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;Cow&#x27;</span>, <span class="string">&#x27;Rabbit&#x27;</span>, <span class="string">&#x27;Dog&#x27;</span>, <span class="string">&#x27;Lion&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&#x27;questionText&#x27;</span>: <span class="string">&#x27;what\&#x27;s your favorite Game?&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;answers&#x27;</span>: [<span class="string">&#x27;LOL&#x27;</span>, <span class="string">&#x27;FIFA&#x27;</span>, <span class="string">&#x27;OVERWATCH&#x27;</span>, <span class="string">&#x27;MAPLESTORY&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">  ];</span><br></pre></td></tr></table></figure>
-<p>위의 자료형에 접근하려고한다.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...(questions[_questionIndex][<span class="string">&#x27;answers&#x27;</span>] <span class="keyword">as</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;)</span><br><span class="line">                .map((answer) &#123;</span><br><span class="line">              <span class="keyword">return</span> Answer(_answerQuestion, answer);</span><br><span class="line">            &#125;).toList()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">questions[_questionIndex][&#39;answers&#39;]은 List&lt;String&gt;인데, dart에서 인식하지 못해서 () 감싸준다음 as LIst&lt;String&gt;으로 dart에게 알려줄 수 있다.</span><br><span class="line">그리고 이건 iterable 하기에 map method 사용할수있다.</span><br><span class="line">반복가능한 집단에서 map method 사용 가능</span><br><span class="line"></span><br><span class="line">() &#123;&#125; 에서 () 안에 익명함수를 사용 &#123;&#125; 안에는 리턴할 함수를 사용한다.</span><br><span class="line">익명 함수를 사용하는 이유는 여기에만 해당 함수가 필요하고 다른 곳에서는 필요하지 않기 때문이다.</span><br><span class="line"></span><br><span class="line">map method 안에서 여기서 만들 수 있는 명명 된 함수를 사용할 수 있다.</span><br><span class="line">여기에서 함수를 정의하고 그 함수는 자동으로 인수 자체를 받는다.</span><br><span class="line"></span><br><span class="line">.toList()를 통해 map으로 리턴될 것을 List가 되게해줌.</span><br><span class="line"></span><br><span class="line">맨앞의 ...은 spread operator인데, 현재 이 구문 밖은 List로 감싸져있다.</span><br><span class="line">List 안의 List이기에 spread operator를 통해서 그 밖의 List의 값이 되도록 해준다.</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/18/flutter&dart/2020-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
                         <a class="link-unstyled" href="/2020/02/17/winterStudyClub/2020-02-17-2020%20%EB%8F%99%EA%B3%84%20%ED%95%99%EC%8A%B5%20%EB%8F%99%EC%95%84%EB%A6%AC_7%ED%9A%8C%EC%B0%A8_2020_02_17(%EC%9B%94)/" aria-label=": 2020 동계 학습 동아리_7회차_2020_02_17(월)">
                             2020 동계 학습 동아리_7회차_2020_02_17(월)
                         </a>
@@ -606,108 +717,6 @@
                     
                         <p>
                             <a href="/2020/02/17/baekjoon/2020/2February/2020-02-17-%5B%EB%B0%B1%EC%A4%80%5D%2011654%20%EC%95%84%EC%8A%A4%ED%82%A4%EC%BD%94%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/16/baekjoon/2020/2February/2020-02-16-%5B%EB%B0%B1%EC%A4%80%5D%201427%20%EC%86%8C%ED%8A%B8%EC%9D%B8%EC%82%AC%EC%9D%B4%EB%93%9C/" aria-label=": [백준][python] 1427 소트인사이드">
-                            [백준][python] 1427 소트인사이드
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-16T22:00:00+09:00">
-	
-		    2020/02/16
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1427">소트인사이드</a><br><img width="708" alt="스크린샷 2020-02-16 오후 10 50 40" src="https://user-images.githubusercontent.com/20227720/74605847-02b50b00-510f-11ea-9ef1-1677775bc872.png"></p>
-<h2 id="2-현재-코드"><a href="#2-현재-코드" class="headerlink" title="2. 현재 코드"></a>2. 현재 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 받고.</span></span><br><span class="line">s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 내림 차순 정렬.</span></span><br><span class="line">s.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출력.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    print(i,end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/16/baekjoon/2020/2February/2020-02-16-%5B%EB%B0%B1%EC%A4%80%5D%201427%20%EC%86%8C%ED%8A%B8%EC%9D%B8%EC%82%AC%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/02/15/baekjoon/2020/2February/2020-02-15-%5B%EB%B0%B1%EC%A4%80%5D%2011651%20%EC%A2%8C%ED%91%9C%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B02/" aria-label=": [백준][python] 11651 좌표 정렬하기 2">
-                            [백준][python] 11651 좌표 정렬하기 2
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-02-15T18:00:00+09:00">
-	
-		    2020/02/15
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11651">좌표 정렬하기 2</a><br><img width="708" alt="스크린샷 2020-02-16 오후 11 46 11" src="https://user-images.githubusercontent.com/20227720/74606782-89211b00-5116-11ea-8d31-9ee6f82f7222.png"></p>
-<h2 id="2-현재-코드"><a href="#2-현재-코드" class="headerlink" title="2. 현재 코드"></a>2. 현재 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys; <span class="built_in">input</span> = sys.stdin.readline <span class="comment"># 입력 빠르게.</span></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>()); loc = <span class="built_in">list</span>() <span class="comment"># 입력 및 위치 설정.</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n): loc.append(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))) <span class="comment"># 위치 넣기.</span></span><br><span class="line">loc.sort(key=<span class="keyword">lambda</span> dot: (dot[<span class="number">1</span>], dot[<span class="number">0</span>])) <span class="comment"># x를 먼저 기준, y를 그 다음 기준으로 정렬.</span></span><br><span class="line">last = <span class="built_in">list</span>()</span><br><span class="line"><span class="keyword">for</span> [i, j] <span class="keyword">in</span> loc: print(i, j) <span class="comment"># 출력</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>난독이 있는것같다. y를 기준으로 먼저 오름차순이라는데, 그걸 못찾음. 결국 틀리고 나서 틀리는 내 자신이 한심하게 느껴지는 날이다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/02/15/baekjoon/2020/2February/2020-02-15-%5B%EB%B0%B1%EC%A4%80%5D%2011651%20%EC%A2%8C%ED%91%9C%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B02/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

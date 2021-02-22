@@ -4,7 +4,14 @@
 
     <url>
         <loc>http://example.com/tags/map-method/</loc>
-        <lastmod>2021-02-18T07:43:23.894Z</lastmod>
+        <lastmod>2021-02-22T10:52:52.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://example.com/tags/dart/</loc>
+        <lastmod>2021-02-22T09:58:25.111Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -19,13 +26,6 @@
     <url>
         <loc>http://example.com/tags/start-flutter/</loc>
         <lastmod>2021-02-18T07:14:25.998Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://example.com/tags/dart/</loc>
-        <lastmod>2021-02-18T07:14:14.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
