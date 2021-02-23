@@ -9,8 +9,16 @@
 
 
     <url>
-        <loc>http://example.com/2021/02/18/flutter%26dart/2021-02-22-final%EA%B3%BC%20const/</loc>
-        <lastmod>2021-02-22T10:52:52.083Z</lastmod>
+        <loc>http://example.com/2021/02/22/flutter%26dart/2021-02-22-%5Bflutter&dart%5D%20final%EA%B3%BC%20const/</loc>
+        <lastmod>2021-02-23T10:15:20.803Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://example.com/2021/02/18/flutter%26dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/</loc>
+        <lastmod>2021-02-23T10:14:11.546Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -19,14 +27,6 @@
     <url>
         <loc>http://example.com/2021/01/30/flutter%26dart/2021-01-30-%5Bdart%5D%20dart%EC%97%90%20%EB%8C%80%ED%95%B4%EC%84%9C/</loc>
         <lastmod>2021-02-22T09:58:25.111Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://example.com/2021/02/18/flutter%26dart/2021-02-18-%5Bflutter&dart%5D%20map%20%EB%A9%94%EC%86%8C%EB%93%9C/</loc>
-        <lastmod>2021-02-22T09:58:19.942Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
