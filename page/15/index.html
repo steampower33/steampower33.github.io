@@ -171,6 +171,142 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/01/15/baekjoon/2020/1January/2020-01-15-%5B%EB%B0%B1%EC%A4%80%5D%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/" aria-label=": [백준][python] 2606 바이러스">
+                            [백준][python] 2606 바이러스
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-15T15:36:00+09:00">
+	
+		    2020/01/15
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2606">단지번호붙이기</a><br><img src="https://user-images.githubusercontent.com/20227720/72410898-002c6200-37ad-11ea-9739-b0f853fb2d85.png" alt="스크린샷 2020-01-15 오후 3 37 38"></p>
+<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># bfs</span></span><br><span class="line"><span class="comment"># 방문, q 설정.</span></span><br><span class="line"><span class="comment"># q에 시작위치 넣고.</span></span><br><span class="line"><span class="comment"># q가 빌때까지 돈다.</span></span><br><span class="line"><span class="comment"># node에 q의 값을 pop(0)하고</span></span><br><span class="line"><span class="comment"># 그 pop 한 값이 방문한적없다면 visit에 넣고</span></span><br><span class="line"><span class="comment"># q에 graph[node] 값을 마지막에 넣어준다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">graph, start</span>):</span></span><br><span class="line">    visit = <span class="built_in">list</span>()</span><br><span class="line">    queue = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    queue.append(start)</span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        node = queue.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> visit:</span><br><span class="line">            visit.append(node)</span><br><span class="line">            queue.extend(graph[node])</span><br><span class="line">    <span class="keyword">return</span> visit</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 컴퓨터 수.</span></span><br><span class="line">    computers = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="comment"># 쌍 수.</span></span><br><span class="line">    pair = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프.</span></span><br><span class="line">    graph = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프 설정.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, computers+<span class="number">1</span>):</span><br><span class="line">        graph[i] = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프 양방향 연결.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(pair):</span><br><span class="line">        one, two = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        graph[one].append(two)</span><br><span class="line">        graph[two].append(one)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 바이러스 걸린 컴퓨터 수 넣을 곳.</span></span><br><span class="line">    birus = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 시작위치를 1 ~ 컴퓨터 수 만큼 돌아서 birus에 길이를 넣는다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, computers+<span class="number">1</span>):</span><br><span class="line">        result = bfs(graph, i)</span><br><span class="line">        birus.append(<span class="built_in">len</span>(result)-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그 중 최대 값을 출력한다.</span></span><br><span class="line">    print(<span class="built_in">max</span>(birus))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/15/baekjoon/2020/1January/2020-01-15-%5B%EB%B0%B1%EC%A4%80%5D%202606%20%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/" aria-label=": [python] 파일 읽고 쓰기 추가">
+                            [python] 파일 읽고 쓰기 추가
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-15T15:13:00+09:00">
+	
+		    2020/01/15
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/python/">python</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-파일-생성"><a href="#1-파일-생성" class="headerlink" title="1. 파일 생성"></a>1. 파일 생성</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;new.txt&quot;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-경로에-파일-생성"><a href="#1-1-경로에-파일-생성" class="headerlink" title="1-1. 경로에 파일 생성"></a>1-1. 경로에 파일 생성</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;/Users/iseungmin/desktop/new.txt&quot;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="2-모드"><a href="#2-모드" class="headerlink" title="2. 모드"></a>2. 모드</h2><table>
+<thead>
+<tr>
+<th align="center">모드</th>
+<th align="center">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">r</td>
+<td align="center">읽기모드</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">쓰기모드</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="center">추가모드</td>
+</tr>
+</tbody></table>
+<h2 id="3-쓰기"><a href="#3-쓰기" class="headerlink" title="3. 쓰기"></a>3. 쓰기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f &#x3D; open(&quot;new.txt&quot;, &#39;w&#39;)</span><br><span class="line">data &#x3D; &quot;write data\n&quot;</span><br><span class="line">f.write(data)</span><br></pre></td></tr></table></figure>
+<img width="159" alt="스크린샷 2020-01-15 오후 3 54 50" src="https://user-images.githubusercontent.com/20227720/72411941-73cf6e80-37af-11ea-947d-82c49d2832e1.png">
+
+<h2 id="3-3-반복문도-사용가능"><a href="#3-3-반복문도-사용가능" class="headerlink" title="3-3. 반복문도 사용가능"></a>3-3. 반복문도 사용가능</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;new.txt&quot;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    data = <span class="string">&quot;write data &quot;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;\n&quot;</span></span><br><span class="line">    f.write(data)</span><br></pre></td></tr></table></figure>
+<img width="171" alt="스크린샷 2020-01-15 오후 4 04 31" src="https://user-images.githubusercontent.com/20227720/72412458-b9406b80-37b0-11ea-9e20-52ab9f789335.png">
+
+<h2 id="4-읽기"><a href="#4-읽기" class="headerlink" title="4. 읽기"></a>4. 읽기</h2><h3 id="readline"><a href="#readline" class="headerlink" title="readline"></a>readline</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;new.txt&quot;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">data = f.readline()</span><br><span class="line">print(data)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<img width="564" alt="스크린샷 2020-01-15 오후 4 06 10" src="https://user-images.githubusercontent.com/20227720/72412555-f573cc00-37b0-11ea-8785-cabf501a7c2f.png">
+
+
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;new.txt&quot;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">data = f.read()</span><br><span class="line">print(data)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<img width="575" alt="스크린샷 2020-01-15 오후 4 07 56" src="https://user-images.githubusercontent.com/20227720/72412642-34098680-37b1-11ea-84b8-6d350ac2272f.png">
+
+<h2 id="5-추가"><a href="#5-추가" class="headerlink" title="5. 추가"></a>5. 추가</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;new.txt&quot;</span>,<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    data = <span class="string">&quot;더한다 &quot;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;를\n&quot;</span></span><br><span class="line">    f.write(data)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<img width="193" alt="스크린샷 2020-01-15 오후 4 10 45" src="https://user-images.githubusercontent.com/20227720/72412790-9c586800-37b1-11ea-9251-cff69941e4d5.png">
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/15/python/2020-01-15-%5Bpython%5D%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B3%A0%20%EC%93%B0%EA%B8%B0/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/01/14/mogagko/2020-01-14-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%203%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 3일차 결과">
                             [모각코] 3일차 결과
                         </a>
@@ -624,115 +760,6 @@
                     
                         <p>
                             <a href="/2020/01/08/etc/2020-01-08-%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C%20%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%20tree%ED%98%95%ED%83%9C%EB%A1%9C%20%EC%B6%9C%EB%A0%A5/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/06/python/2020-01-02-%5Bpython%5D%20input(),%20input().split()/" aria-label=": [python] 파이썬 input() 과 input().split()">
-                            [python] 파이썬 input() 과 input().split()
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-06T17:53:00+09:00">
-	
-		    2020/01/06
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/python/">python</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h1><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">InputNum = <span class="built_in">input</span>()</span><br><span class="line">InputStr = <span class="built_in">input</span>()</span><br><span class="line"></span><br><span class="line">print(InputNum, InputStr)</span><br></pre></td></tr></table></figure>
-<h3 id="인풋값-넣기"><a href="#인풋값-넣기" class="headerlink" title="인풋값 넣기."></a>인풋값 넣기.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">Billionaire</span><br></pre></td></tr></table></figure>
-<h3 id="출력값"><a href="#출력값" class="headerlink" title="출력값"></a>출력값</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 Billionaire</span><br></pre></td></tr></table></figure>
-<h1 id="input-split"><a href="#input-split" class="headerlink" title="input().split()"></a>input().split()</h1><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="built_in">input</span>().split()</span><br><span class="line">c = <span class="built_in">input</span>().split()</span><br><span class="line">d = <span class="built_in">input</span>()</span><br><span class="line"></span><br><span class="line">print(a, b)</span><br><span class="line">print(c[<span class="number">0</span>], c[<span class="number">1</span>])</span><br><span class="line">print(d[<span class="number">0</span>], d[<span class="number">1</span>], d[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="인풋값-넣기-1"><a href="#인풋값-넣기-1" class="headerlink" title="인풋값 넣기."></a>인풋값 넣기.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 20</span><br><span class="line">a b c d</span><br><span class="line">e f g h</span><br></pre></td></tr></table></figure>
-<h3 id="출력값-1"><a href="#출력값-1" class="headerlink" title="출력값"></a>출력값</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 20</span><br><span class="line">a b</span><br><span class="line">e f</span><br></pre></td></tr></table></figure>
-<p>input()으로 문자열을 받으면, 공백까지 포함해서 받게된다.<br>input().split()의 경우, 공백은 무시하고, 문자만 입력받게된다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/06/python/2020-01-02-%5Bpython%5D%20input(),%20input().split()/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/05/etc/2020-01-05-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%98%20%EC%9E%91%EB%AA%85%EA%B7%9C%EC%B9%99/" aria-label=": 개발자들의 작명규칙">
-                            개발자들의 작명규칙
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-05T22:00:00+09:00">
-	
-		    2020/01/05
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/development/">development</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="개발자들의-작명규칙"><a href="#개발자들의-작명규칙" class="headerlink" title="개발자들의 작명규칙"></a>개발자들의 작명규칙</h2><h3 id="1-파스칼-Pascal"><a href="#1-파스칼-Pascal" class="headerlink" title="1. 파스칼(Pascal)"></a>1. 파스칼(Pascal)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">예) MyClass</span><br></pre></td></tr></table></figure>
-<p>단어와 단어를 연결 시 대문자로 구분합니다.<br>첫 단어는 대문자로 시작합니다.<br>보통 네임스페이스, 클래스 이름 등에 사용됩니다.  </p>
-<h3 id="2-카멜-Camel"><a href="#2-카멜-Camel" class="headerlink" title="2. 카멜(Camel)"></a>2. 카멜(Camel)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">예) myFunction</span><br></pre></td></tr></table></figure>
-<p>단어와 단어 연결 시 대문자로 구분합니다.<br>첫 단어는 소문자로 시작합니다.<br>보통 변수, 함수 등에 사용됩니다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/05/etc/2020-01-05-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%98%20%EC%9E%91%EB%AA%85%EA%B7%9C%EC%B9%99/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

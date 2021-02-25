@@ -171,6 +171,110 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/" aria-label=": 다시 풀어야할 문제">
+                            다시 풀어야할 문제
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-29T14:30:00+09:00">
+	
+		    2020/01/29
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-확인-해결못함"><a href="#1-확인-해결못함" class="headerlink" title="1. 확인 - 해결못함."></a>1. 확인 - 해결못함.</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11404">플로이드</a><br><img width="979" alt="스크린샷 2020-01-30 오전 2 57 45" src="https://user-images.githubusercontent.com/20227720/73383229-4be21e00-430c-11ea-8036-f6ab376f5540.png"></p>
+<h2 id="2-실패한-코드"><a href="#2-실패한-코드" class="headerlink" title="2. 실패한 코드"></a>2. 실패한 코드</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 정점의 개수.</span></span><br><span class="line"><span class="comment"># 버스의 개수.</span></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 무한대 및 그래프 설정.</span></span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line">field = [[INF <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 버스의 정보 입력받는다.</span></span><br><span class="line"><span class="comment"># 함정이 있다 입력받을때 이미 정보가 있는 위치에 그 위치의 값보다 작은 값을 입력받을수있다.</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    a, b, c = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    field[a-<span class="number">1</span>][b-<span class="number">1</span>] = <span class="built_in">min</span>(field[a-<span class="number">1</span>][b-<span class="number">1</span>], c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 플로이드.</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> i == j:</span><br><span class="line">                field[i][j] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> field[i][k] + field[k][j] &lt; field[i][j]:</span><br><span class="line">                field[i][j] = field[i][k] + field[k][j]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 출력.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        print(field[i][j], end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>이 문제는 파이썬으로 풀면, 푼시간보다 제출해서 채점하는시간이 더 길다. 채점에 10분이 걸림<br>으이가 없네 ㄹㅇ 제출하고 유투브 보고옴. 왜 틀린건지는 이성을 되찾고 나중에 찾아봐야겠다.<br>채점도 70~80%대에서 틀려서 더 열받음</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/29/baekjoon/2020/1January/2020-01-29-%5B%EB%B0%B1%EC%A4%80%5D%2011404%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 7일차 결과">
+                            [모각코] 7일차 결과
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-28T16:00:00+09:00">
+	
+		    2020/01/28
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-플로이드-와샬"><a href="#1-플로이드-와샬" class="headerlink" title="1. 플로이드 와샬"></a>1. 플로이드 와샬</h2><p>플로이드 와샬 알고리즘은 DP 방식을 사용해서 모든 정점에서 모든 정점의 최단 거리를 구하는 알고리즘이다.<br><img width="812" alt="스크린샷 2020-01-28 오후 5 10 39" src="https://user-images.githubusercontent.com/20227720/73246091-1dbbeb80-41f1-11ea-8972-ca67beccdafc.png"><br>출처: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://ko.wikipedia.org/wiki/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%9B%8C%EC%85%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">위키피디아</a></p>
+<p>2차원 배열에서 3중 for문을 돌아서, i -&gt; j의 최소비용 과 i -&gt; k + k -&gt; j 의 최소비용을 비교해서 둘중에 더 작은 값을 [i][j] 위치에 넣는다.</p>
+<h2 id="2-문제-해결"><a href="#2-문제-해결" class="headerlink" title="2. 문제 해결"></a>2. 문제 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-11430-%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/">경로찾기</a>문제를 해결하여, 풀이 및 정리 했다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/28/mogagko/2020-01-28-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%207%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/01/28/baekjoon/2020/1January/2020-01-28-%5B%EB%B0%B1%EC%A4%80%5D%2011430%20%EA%B2%BD%EB%A1%9C%EC%B0%BE%EA%B8%B0/" aria-label=": [백준][python] 11430 경로찾기">
                             [백준][python] 11430 경로찾기
                         </a>
@@ -605,110 +709,6 @@
                     
                         <p>
                             <a href="/2020/01/22/baekjoon/2020/1January/2020-01-22-%5B%EB%B0%B1%EC%A4%80%5D%205214%20%ED%99%98%EC%8A%B9/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/21/mogagko/2020-01-21-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%205%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 5일차 결과">
-                            [모각코] 5일차 결과
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-21T15:50:00+09:00">
-	
-		    2020/01/21
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-풀이"><a href="#1-풀이" class="headerlink" title="1. 풀이"></a>1. 풀이</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://steampower33.github.io/%EB%B0%B1%EC%A4%80/%EB%B0%B1%EC%A4%80-5567-%EA%B2%B0%ED%98%BC%EC%8B%9D/">풀이</a></p>
-<h2 id="2-리뷰"><a href="#2-리뷰" class="headerlink" title="2. 리뷰"></a>2. 리뷰</h2><p>먼저 이 문제는 쉽고, 간단하다.<br>그 이유는 값에 제한을 두어서 그 제한 안에서만 결과값을 도출해내면 되기때문이다.<br>사실 모든 알고리즘은 제한을 둘수있는데, 그 제한을 두는 범위를 내가 설정할 수 있는지 없는지가 문제이다.<br>문제에 적용되는 알고리즘은 다 다른데, 결국 알고리즘을 하나 적용 했으면, 제한을 둔것이다.<br>이 문제가 더 쉽게 느껴지는 이유는 그 제한안에 또 제한을 하나 더 두기때문이라고 할수있다.<br>값을 1로 설정해서 지정할수 있기때문에 더 쉬운것이다.<br>이런식으로 제한을 둘수 있다는 것을 파악하는 수준이 숫자를 두는 것에 익숙해져있다고 할수있고,<br>아직 내 수준이 이 정도 밖에 안된다고 판단할 수 있다.<br>다른 고급 알고리즘을 큰 범위에 적용했을때, 그 범위 내에서 또 작은 제한을 둬서<br>결과값을 도출해 낼수 있을 정도가 되어야 할것이다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/21/mogagko/2020-01-21-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%205%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/21/baekjoon/2020/1January/2020-01-21-%5B%EB%B0%B1%EC%A4%80%5D%205567%20%EA%B2%B0%ED%98%BC%EC%8B%9D/" aria-label=": [백준][python] 5567 결혼식">
-                            [백준][python] 5567 결혼식
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-21T15:30:00+09:00">
-	
-		    2020/01/21
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-확인"><a href="#1-확인" class="headerlink" title="1. 확인"></a>1. 확인</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/5567">결혼식</a><br><img width="980" alt="스크린샷 2020-01-21 오후 3 38 34" src="https://user-images.githubusercontent.com/20227720/72781223-2007ce00-3c64-11ea-84df-e8056c4bc513.png"></p>
-<h2 id="2-코드-및-설명"><a href="#2-코드-및-설명" class="headerlink" title="2. 코드 및 설명"></a>2. 코드 및 설명</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 뿌리가 1인 그래프에서 1 다음 그 다음 까지의 값들을 중복없이 v에 넣어준다.</span></span><br><span class="line"><span class="comment"># 제한적인 구조이며 재활용이 어렵다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">f</span>):</span></span><br><span class="line">    v = <span class="built_in">list</span>()</span><br><span class="line">    q = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    q.extend(f[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> f[<span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">        q.extend(f[<span class="number">1</span>][i])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        node = q.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> v:</span><br><span class="line">            v.append(node)</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># f[1]안에서 다 연결된다. 즉 1이 무조건 뿌리라고 설정함.</span></span><br><span class="line">    friend = <span class="built_in">dict</span>()</span><br><span class="line">    friend[<span class="number">1</span>] = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 아래로는 그래프 설정이다.</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m+<span class="number">1</span>):</span><br><span class="line">        friend[<span class="number">1</span>][i] = <span class="built_in">list</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        friend[<span class="number">1</span>][a].append(b)</span><br><span class="line">        friend[<span class="number">1</span>][b].append(a)</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">len</span>(bfs(friend))-<span class="number">1</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-리뷰"><a href="#3-리뷰" class="headerlink" title="3. 리뷰"></a>3. 리뷰</h2><p>먼저 이 문제는 쉽고, 간단하다.<br>그 이유는 값에 제한을 두어서 그 제한 안에서만 결과값을 도출해내면 되기때문이다.<br>사실 모든 알고리즘은 제한을 둘수있는데, 그 제한을 두는 범위를 내가 설정할 수 있는지 없는지가 문제이다.<br>문제에 적용되는 알고리즘은 다 다른데, 결국 알고리즘을 하나 적용 했으면, 제한을 둔것이다.<br>이 문제가 더 쉽게 느껴지는 이유는 그 제한안에 또 제한을 하나 더 두기때문이라고 할수있다.<br>값을 1로 설정해서 지정할수 있기때문에 더 쉬운것이다.<br>이런식으로 제한을 둘수 있다는 것을 파악하는 수준이 숫자를 두는 것에 익숙해져있다고 할수있고,<br>아직 내 수준이 이 정도 밖에 안된다고 판단할 수 있다.<br>다른 고급 알고리즘을 큰 범위에 적용했을때, 그 범위 내에서 또 작은 제한을 둬서<br>결과값을 도출해 낼수 있을 정도가 되어야 할것이다.  </p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/21/baekjoon/2020/1January/2020-01-21-%5B%EB%B0%B1%EC%A4%80%5D%205567%20%EA%B2%B0%ED%98%BC%EC%8B%9D/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

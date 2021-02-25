@@ -10,21 +10,21 @@
 
     <url>
         <loc>http://example.com/categories/flutter-dart/</loc>
-        <lastmod>2021-02-23T10:15:20.803Z</lastmod>
+        <lastmod>2021-02-25T08:38:48.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://example.com/categories/dart/</loc>
-        <lastmod>2021-02-22T09:58:25.111Z</lastmod>
+        <lastmod>2021-02-23T11:28:15.738Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://example.com/categories/flutter/</loc>
-        <lastmod>2021-02-18T07:14:29.934Z</lastmod>
+        <lastmod>2021-02-23T11:28:15.734Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

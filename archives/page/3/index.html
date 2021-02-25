@@ -172,6 +172,112 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/12/20/baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/" aria-label=": [백준][python]1966 프린터 큐">
+                            [백준][python]1966 프린터 큐
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-12-20T21:30:00+09:00">
+	
+		    2020/12/20
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1966">1966 프린터 큐</a><br><img src="https://user-images.githubusercontent.com/20227720/102713522-3b63d900-430c-11eb-972f-32f77e00a68b.PNG" alt="캡처">  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    t &#x3D; int(sys.stdin.readline())</span><br><span class="line"></span><br><span class="line">    for _ in range(t):</span><br><span class="line">        n, m &#x3D; map(int, sys.stdin.readline().rsplit())</span><br><span class="line">        importance &#x3D; collections.deque(map(int, sys.stdin.readline().rsplit()))</span><br><span class="line">        cnt &#x3D; 0</span><br><span class="line">        des &#x3D; list(sorted(importance))</span><br><span class="line">        # print(des)</span><br><span class="line">        for _ in range(len(importance)):</span><br><span class="line">            importance[_] &#x3D; (_, importance[_])</span><br><span class="line"></span><br><span class="line">        # print(importance)</span><br><span class="line">        while True:</span><br><span class="line"></span><br><span class="line">            if importance[0][1] &#x3D;&#x3D; des[-1]:</span><br><span class="line">                cnt +&#x3D; 1</span><br><span class="line">                des.pop()</span><br><span class="line">                if importance[0][0] &#x3D;&#x3D; m:</span><br><span class="line">                    print(cnt)</span><br><span class="line">                    break</span><br><span class="line">                importance.popleft()</span><br><span class="line">            elif importance[0][1] &lt; des[-1]:</span><br><span class="line">                importance.rotate(-1)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>중요도를 오름차순으로 정렬했다.<br>초기 중요도의 위치를 중요도와 함께 나타냈다.</p>
+<p>중요도의 맨처음 위치에서의 값이 중요도의 최고값이랑 같을때마다 cnt를 늘리고,<br>중요도 정렬한 곳에서 최고값을 없애고, 중요도에서 맨 처음 위치의 값을 pop한다.<br>그리고 만약 여기서 구하려는 인덱스랑 일치할 경우 값을 출력하고, 끝낸다.</p>
+<p>그렇지않다면, 중요도를 -1로테이트돌려 반복한다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/12/20/baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/2020/12/17/baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/" aria-label=": [백준][python]11866 요세푸스 문제 O">
+                            [백준][python]11866 요세푸스 문제 O
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-12-17T17:30:00+09:00">
+	
+		    2020/12/17
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/11866">11866 요세푸스 문제 O</a><br><img src="https://user-images.githubusercontent.com/20227720/102464692-064b5280-4090-11eb-97f7-b75626be7692.PNG" alt="캡처">  </p>
+<h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    n, k &#x3D; map(int, input().split())</span><br><span class="line"></span><br><span class="line">    circle &#x3D; collections.deque([_ for _ in range(1,n+1)])</span><br><span class="line">    result &#x3D; list()</span><br><span class="line">    cnt &#x3D; 1</span><br><span class="line">    while len(circle) !&#x3D; 0:</span><br><span class="line">        if cnt &#x2F;&#x2F; k &gt;&#x3D; 1 and cnt % k &#x3D;&#x3D; 0:</span><br><span class="line">            result.append(circle.popleft())</span><br><span class="line">        else:</span><br><span class="line">            circle.rotate(-1)</span><br><span class="line">        cnt +&#x3D; 1</span><br><span class="line"></span><br><span class="line">    print(&quot;&lt;&quot;, end &#x3D; &#39;&#39;)</span><br><span class="line">    for _ in range(len(result)):</span><br><span class="line">        if _ &#x3D;&#x3D; len(result)-1:</span><br><span class="line">            print(result[_], end&#x3D;&#39;&gt;&#39;)</span><br><span class="line">        else:</span><br><span class="line">            print(result[_], end&#x3D;&#39;, &#39;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h1><p>파이썬 collections.deque.rotate(n) 을 사용한다.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/12/17/baekjoon/2020/12December/2020-12-17-11866%20%EC%9A%94%EC%84%B8%ED%91%B8%EC%8A%A4%20%EB%AC%B8%EC%A0%9C%20O/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/12/16/baekjoon/2020/12December/2020-12-16-2164%20%EC%B9%B4%EB%93%9C2/" aria-label=": [백준][python]2164 카드2">
                             [백준][python]2164 카드2
                         </a>
@@ -579,114 +685,6 @@
                     
                         <p>
                             <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/" aria-label=": [백준][python] 1085 직사각형에서 탈출">
-                            [백준][python] 1085 직사각형에서 탈출
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-11-04T15:45:00+09:00">
-	
-		    2020/11/04
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1085">직사각형에서 탈출</a><br><img width="945" alt="스크린샷 2020-11-04 오후 3 49 40" src="https://user-images.githubusercontent.com/20227720/98078455-74a7cd00-1eb5-11eb-9a11-eea10514b69a.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    x, y, w, h = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line">    arr = [x, y, w-x, h-y]</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">min</span>(arr))</span><br></pre></td></tr></table></figure>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%201085%20%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95%EC%97%90%EC%84%9C%20%ED%83%88%EC%B6%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/" aria-label=": [백준][python] 9020 골드바흐의 추측">
-                            [백준][python] 9020 골드바흐의 추측
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-11-04T15:20:00+09:00">
-	
-		    2020/11/04
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/9020">골드바흐의 추측</a><br><img width="948" alt="스크린샷 2020-11-04 오후 3 32 09" src="https://user-images.githubusercontent.com/20227720/98077128-f813ef00-1eb2-11eb-9a4e-f5d7a3b93acd.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrimeNumber</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num):</span><br><span class="line">        <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    testCase = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(testCase):</span><br><span class="line">        n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        lower = n // <span class="number">2</span></span><br><span class="line">        upper = n // <span class="number">2</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n // <span class="number">2</span> + <span class="number">1</span>):</span><br><span class="line">            isLowerPrime = isPrimeNumber(lower)</span><br><span class="line">            isUpperPrime = isPrimeNumber(upper)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> isLowerPrime == <span class="literal">True</span> <span class="keyword">and</span> isUpperPrime == <span class="literal">True</span>:</span><br><span class="line">                print(lower, upper)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            lower -= <span class="number">1</span></span><br><span class="line">            upper += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%209020%20%EA%B3%A8%EB%93%9C%EB%B0%94%ED%9D%90%EC%9D%98%20%EC%B6%94%EC%B8%A1/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
