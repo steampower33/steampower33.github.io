@@ -171,6 +171,58 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2021/03/01/flutter&dart/2021-03-01-%5Bflutter&dart%5D%20card%20%EC%98%88%EC%A0%9C/" aria-label=": [flutter&amp;dart] card 예제 ">
+                            [flutter&amp;dart] card 예제 
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-03-01T12:00:00+09:00">
+	
+		    2021/03/01
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/flutter-dart/">flutter&dart</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="1-예제"><a href="#1-예제" class="headerlink" title="1. 예제"></a>1. 예제</h1><p>크기는 부모 위젯의 것을 가지는 듯.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// <span class="markdown">Flutter code sample for Card</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// This sample shows creation of a [Card] widget that can be tapped. When</span></span><br><span class="line"><span class="comment">// tapped this [Card]&#x27;s [InkWell] displays an &quot;ink splash&quot; that fills the</span></span><br><span class="line"><span class="comment">// entire card.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:flutter/material.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line"><span class="comment">/// <span class="markdown">This is the main application widget.</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">String</span> _title = <span class="string">&#x27;Flutter Code Sample&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> MaterialApp(</span><br><span class="line">      title: _title,</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(title: <span class="keyword">const</span> Text(_title)),</span><br><span class="line">        body: MyStatelessWidget(),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// <span class="markdown">This is the stateless widget that the main application instantiates.</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStatelessWidget</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  MyStatelessWidget(&#123;Key key&#125;) : <span class="keyword">super</span>(key: key);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> Row(</span><br><span class="line">      mainAxisAlignment: MainAxisAlignment.center,</span><br><span class="line">      children: [</span><br><span class="line">        SizedBox(</span><br><span class="line">          width: <span class="number">300</span>,</span><br><span class="line">          height: <span class="number">210</span>,</span><br><span class="line">          child: Card(</span><br><span class="line">            child: Column(</span><br><span class="line">              children: [</span><br><span class="line">                ListTile(</span><br><span class="line">                  title: Text(<span class="string">&#x27;Papunica&#x27;</span>,</span><br><span class="line">                      style: TextStyle(fontWeight: FontWeight.w500)),</span><br><span class="line">                  subtitle: Text(<span class="string">&#x27;My City, Nia village&#x27;</span>),</span><br><span class="line">                  leading: Icon(</span><br><span class="line">                    Icons.restaurant_menu,</span><br><span class="line">                    color: Colors.blue[<span class="number">500</span>],</span><br><span class="line">                  ),</span><br><span class="line">                ),</span><br><span class="line">                Divider(),</span><br><span class="line">                ListTile(</span><br><span class="line">                  title: Text(<span class="string">&#x27;010-1234-5678&#x27;</span>,</span><br><span class="line">                      style: TextStyle(fontWeight: FontWeight.w500)),</span><br><span class="line">                  leading: Icon(</span><br><span class="line">                    Icons.contact_phone,</span><br><span class="line">                    color: Colors.blue[<span class="number">500</span>],</span><br><span class="line">                  ),</span><br><span class="line">                ),</span><br><span class="line">                ListTile(</span><br><span class="line">                  title: Text(<span class="string">&#x27;ark@naver.com&#x27;</span>),</span><br><span class="line">                  leading: Icon(</span><br><span class="line">                    Icons.contact_mail,</span><br><span class="line">                    color: Colors.blue[<span class="number">500</span>],</span><br><span class="line">                  ),</span><br><span class="line">                ),</span><br><span class="line">              ],</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="2-결과"><a href="#2-결과" class="headerlink" title="2. 결과"></a>2. 결과</h1><img width="307" alt="스크린샷 2021-03-01 오후 5 37 02" src="https://user-images.githubusercontent.com/20227720/109471887-c43d8480-7ab4-11eb-97a7-631b4e642e04.png">
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/03/01/flutter&dart/2021-03-01-%5Bflutter&dart%5D%20card%20%EC%98%88%EC%A0%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2021/02/25/flutter&dart/2021-02-25-%5Bflutter&dart%5D%20%EB%B2%84%ED%8A%BC%20%EB%88%84%EB%A5%BC%EB%95%8C%EB%A7%88%EB%8B%A4%20%EB%AC%B8%EC%9E%90%20%ED%81%AC%EA%B8%B0%20%EC%BB%A4%EC%A7%80%EB%8A%94%20%EC%95%B1/" aria-label=": [flutter&amp;dart] 버튼 누를때마다 문자 크기 커지는 앱 ">
                             [flutter&amp;dart] 버튼 누를때마다 문자 크기 커지는 앱 
                         </a>
@@ -732,56 +784,6 @@
                     
                         <p>
                             <a href="/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2021/01/02/c++/2021-01-02-%5Bc++%5D%20%EB%A7%A4%ED%81%AC%EB%A1%9C/" aria-label=": [c++] 매크로">
-                            [c++] 매크로
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2021-01-02T15:00:00+09:00">
-	
-		    2021/01/02
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/c/">c++</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="간결한-코드-작성을-위한-c-매크로-사용"><a href="#간결한-코드-작성을-위한-c-매크로-사용" class="headerlink" title="간결한 코드 작성을 위한 c++ 매크로 사용"></a>간결한 코드 작성을 위한 c++ 매크로 사용</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">array</span>.size(); ++i) </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; ++j)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i,n) for(int i = 0; i &lt; (n); ++i)</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    FOR(i, <span class="built_in">array</span>.size())</span><br><span class="line">        FOR(j,i)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2021/01/02/c++/2021-01-02-%5Bc++%5D%20%EB%A7%A4%ED%81%AC%EB%A1%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

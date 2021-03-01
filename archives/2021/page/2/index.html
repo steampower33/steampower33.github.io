@@ -172,6 +172,56 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2021/01/02/c++/2021-01-02-%5Bc++%5D%20%EB%A7%A4%ED%81%AC%EB%A1%9C/" aria-label=": [c++] 매크로">
+                            [c++] 매크로
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-01-02T15:00:00+09:00">
+	
+		    2021/01/02
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/c/">c++</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="간결한-코드-작성을-위한-c-매크로-사용"><a href="#간결한-코드-작성을-위한-c-매크로-사용" class="headerlink" title="간결한 코드 작성을 위한 c++ 매크로 사용"></a>간결한 코드 작성을 위한 c++ 매크로 사용</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">array</span>.size(); ++i) </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; ++j)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i,n) for(int i = 0; i &lt; (n); ++i)</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">TrueOrFalse</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">array</span>)</span> </span>&#123;</span><br><span class="line">    FOR(i, <span class="built_in">array</span>.size())</span><br><span class="line">        FOR(j,i)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">array</span>[i] == <span class="built_in">array</span>[j])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/01/02/c++/2021-01-02-%5Bc++%5D%20%EB%A7%A4%ED%81%AC%EB%A1%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2021/01/02/baekjoon/2021/1January/2021-01-02-10830%20%ED%96%89%EB%A0%AC%20%EC%A0%9C%EA%B3%B1/" aria-label=": [백준][python] 10830 행렬 제곱">
                             [백준][python] 10830 행렬 제곱
                         </a>

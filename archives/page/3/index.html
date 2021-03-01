@@ -172,6 +172,90 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/12/21/git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/" aria-label=": [git] git 명령어 모음">
+                            [git] git 명령어 모음
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-12-21T15:30:00+09:00">
+	
+		    2020/12/21
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/git/">git</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="master-에서-main으로-바꾸기"><a href="#master-에서-main으로-바꾸기" class="headerlink" title="master 에서 main으로 바꾸기."></a>master 에서 main으로 바꾸기.</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -help</span><br><span class="line">git branch -m master main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h1 id="git-add-commit-push-취소하기"><a href="#git-add-commit-push-취소하기" class="headerlink" title="git add, commit, push 취소하기."></a>git add, commit, push 취소하기.</h1><h2 id="git-add-취소하기"><a href="#git-add-취소하기" class="headerlink" title="git add 취소하기"></a>git add 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>file 명을 add 취소한다 공백으로 두면 add 모든것을 취소한다.</p>
+<h2 id="git-commit-취소하기"><a href="#git-commit-취소하기" class="headerlink" title="git commit 취소하기"></a>git commit 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 - git reset --soft HEAD~  </span><br><span class="line">2 - git reset HEAD~  </span><br><span class="line">3 - git reset --hard HEAD~</span><br></pre></td></tr></table></figure>
+<p>1 - Undo commit and keep all files “staged”<br>2 - Undo commit and “unstage” all files<br>3 - Undo the commit and “completely remove all changes”  </p>
+<h2 id="git-push-취소하기"><a href="#git-push-취소하기" class="headerlink" title="git push 취소하기"></a>git push 취소하기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git reset HEAD^</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<p>reflog 한후 로그에 나오는 HEAD@{number} 를 복사 혹은 기억했다가<br>아래와 같이 명령어를 실행한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD@&#123;number&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +master</span><br></pre></td></tr></table></figure>
+<p>위 단계를 실행하면 git 홈페이지에서 확인해보자.</p>
+<h1 id="git-리모트-삭제하기"><a href="#git-리모트-삭제하기" class="headerlink" title="git 리모트 삭제하기."></a>git 리모트 삭제하기.</h1><h2 id="1-리모트-확인-gt-삭제할-것의-맨-앞부분-기억"><a href="#1-리모트-확인-gt-삭제할-것의-맨-앞부분-기억" class="headerlink" title="1. 리모트 확인 -&gt; 삭제할 것의 맨 앞부분 기억"></a>1. 리모트 확인 -&gt; 삭제할 것의 맨 앞부분 기억</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v </span><br></pre></td></tr></table></figure>
+<img width="469" alt="스크린샷 2020-01-09 오전 12 31 45" src="https://user-images.githubusercontent.com/20227720/71990897-8d385e00-3277-11ea-9160-4f5cb814c817.png">
+
+<h2 id="2-리모트-삭제"><a href="#2-리모트-삭제" class="headerlink" title="2. 리모트 삭제"></a>2. 리모트 삭제</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm &quot;삭제할 부분&quot;</span><br></pre></td></tr></table></figure>
+<img width="410" alt="스크린샷 2020-01-09 오전 12 32 15" src="https://user-images.githubusercontent.com/20227720/71990898-8d385e00-3277-11ea-9777-8ee36932262c.png">
+
+
+<h1 id="git-pull로-강제로-로컬-업데이트"><a href="#git-pull로-강제로-로컬-업데이트" class="headerlink" title="git pull로 강제로 로컬 업데이트"></a>git pull로 강제로 로컬 업데이트</h1><h2 id="1-디렉토리에-가서-아래의-명령어-실행"><a href="#1-디렉토리에-가서-아래의-명령어-실행" class="headerlink" title="1. 디렉토리에 가서 아래의 명령어 실행"></a>1. 디렉토리에 가서 아래의 명령어 실행</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line"> </span><br><span class="line">git reset --hard origin&#x2F;master</span><br><span class="line"> </span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<h1 id="git-레포-설정하기"><a href="#git-레포-설정하기" class="headerlink" title="git 레포 설정하기"></a>git 레포 설정하기</h1><h2 id="1-Git-로컬-저장소-만들기"><a href="#1-Git-로컬-저장소-만들기" class="headerlink" title="1. Git 로컬 저장소 만들기"></a>1. Git 로컬 저장소 만들기</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git config --global user.name &quot;깃허브 이름(큰따옴표는 빼고 입력)&quot;</span><br><span class="line">git config --global user.email &quot;깃허브 이메일 ex) justpost@naver.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="2-저장-되지-않았으면-하는-파일-설정"><a href="#2-저장-되지-않았으면-하는-파일-설정" class="headerlink" title="2. 저장 되지 않았으면 하는 파일 설정"></a>2. 저장 되지 않았으면 하는 파일 설정</h2><h2 id="2-2-현재-아래와-같은-파일들이-있다고-해보자"><a href="#2-2-현재-아래와-같은-파일들이-있다고-해보자" class="headerlink" title="2-2. 현재 아래와 같은 파일들이 있다고 해보자"></a>2-2. 현재 아래와 같은 파일들이 있다고 해보자</h2><img width="512" alt="스크린샷 2020-01-27 오전 2 23 07" src="https://user-images.githubusercontent.com/20227720/73138971-f7406800-40ab-11ea-8b29-c96fd57ee220.png">
+
+<h2 id="2-2-gitignore-파일-안에-저장-되지-않았으면-하는-파일의-형식-혹은-디렉토리-이름을-입력"><a href="#2-2-gitignore-파일-안에-저장-되지-않았으면-하는-파일의-형식-혹은-디렉토리-이름을-입력" class="headerlink" title="2-2. .gitignore 파일 안에 저장 되지 않았으면 하는 파일의 형식 혹은 디렉토리 이름을 입력"></a>2-2. .gitignore 파일 안에 저장 되지 않았으면 하는 파일의 형식 혹은 디렉토리 이름을 입력</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;build&#x2F;</span><br><span class="line">*.json</span><br><span class="line">&#x2F;image&#x2F;</span><br></pre></td></tr></table></figure>
+<h2 id="3-commit을-하기전에는-항상-git-status로-커밋될수-있는-내용들을-확인하자"><a href="#3-commit을-하기전에는-항상-git-status로-커밋될수-있는-내용들을-확인하자" class="headerlink" title="3. commit을 하기전에는 항상 git status로 커밋될수 있는 내용들을 확인하자"></a>3. commit을 하기전에는 항상 git status로 커밋될수 있는 내용들을 확인하자</h2><h2 id="3-1-gitignore를-설정했기때문에-설정한-파일을-제외한-나머지-파일들이-확인된다"><a href="#3-1-gitignore를-설정했기때문에-설정한-파일을-제외한-나머지-파일들이-확인된다" class="headerlink" title="3-1. .gitignore를 설정했기때문에 설정한 파일을 제외한 나머지 파일들이 확인된다"></a>3-1. .gitignore를 설정했기때문에 설정한 파일을 제외한 나머지 파일들이 확인된다</h2><img width="548" alt="스크린샷 2020-01-27 오전 2 27 05" src="https://user-images.githubusercontent.com/20227720/73139010-851c5300-40ac-11ea-9641-441e352a1140.png">
+
+<h2 id="4-commit-및-원격-레포에-push"><a href="#4-commit-및-원격-레포에-push" class="headerlink" title="4. commit 및 원격 레포에 push"></a>4. commit 및 원격 레포에 push</h2><h2 id="4-1-commit"><a href="#4-1-commit" class="headerlink" title="4-1. commit"></a>4-1. commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add --all .</span><br><span class="line">git commit -m &quot;이렇게 큰따움표 안에 커밋 내용을 쓰세요 아까는 뺏지만 지금은 넣어야함&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-원격-레포-설정"><a href="#4-2-원격-레포-설정" class="headerlink" title="4-2. 원격 레포 설정"></a>4-2. 원격 레포 설정</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/">Github사이트</a>에 가서 레포를 아래와 같이 아무것도 체크하지 않고만드세요.<br>이렇게 만들지 않고 현재 로컬 저장소를 원격 저장소로 만들면 push 하는 과정에서 master의 위치 때문에 문제가 발생합니다.</p>
+<img width="743" alt="스크린샷 2020-01-27 오전 2 30 59" src="https://user-images.githubusercontent.com/20227720/73139061-2c00ef00-40ad-11ea-9748-46ccd820ef2a.png">
+
+<p>다음으로 아래의 HTTPS 주소를 버튼을 눌러 복사하세요.</p>
+<img width="963" alt="스크린샷 2020-01-27 오전 2 34 42" src="https://user-images.githubusercontent.com/20227720/73139098-acbfeb00-40ad-11ea-98bf-d19175f072d0.png">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &quot;HTTPS 주소(큰따옴표는 빼고 입력)&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="5-끝"><a href="#5-끝" class="headerlink" title="5. 끝"></a>5. 끝</h2><p><strong>혹시 Github 사용자 이름이랑 암호 입력하라그러면 입력해주세요.</strong></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/12/21/git/2020-12-21-%5Bgit%5D%20git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/12/20/baekjoon/2020/12December/2020-12-20-1966%20%ED%94%84%EB%A6%B0%ED%84%B0%20%ED%81%90/" aria-label=": [백준][python]1966 프린터 큐">
                             [백준][python]1966 프린터 큐
                         </a>
@@ -632,59 +716,6 @@
                     
                         <p>
                             <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/" aria-label=": [백준][python] 3009 네 번째 점">
-                            [백준][python] 3009 네 번째 점
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-11-04T15:50:00+09:00">
-	
-		    2020/11/04
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/3009">네 번째 점</a><br><img width="949" alt="스크린샷 2020-11-04 오후 3 59 11" src="https://user-images.githubusercontent.com/20227720/98079255-d452a800-1eb6-11eb-94ec-a10c18852f8a.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    x = []</span><br><span class="line">    y = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        <span class="keyword">if</span> a <span class="keyword">in</span> x: x.remove(a)</span><br><span class="line">        <span class="keyword">else</span>: x.append(a)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> b <span class="keyword">in</span> y: y.remove(b)</span><br><span class="line">        <span class="keyword">else</span>: y.append(b)</span><br><span class="line"></span><br><span class="line">    print(x[<span class="number">0</span>], y[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
