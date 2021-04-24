@@ -171,6 +171,64 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/" aria-label=": [모각코] 8일차 결과">
+                            [모각코] 8일차 결과
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-01-30T13:50:00+09:00">
+	
+		    2020/01/30
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-다익스트라-알고리즘"><a href="#1-다익스트라-알고리즘" class="headerlink" title="1. 다익스트라 알고리즘"></a>1. 다익스트라 알고리즘</h2><p>다익스트라 알고리즘은 한 정점에서 다른 정점까지의 최단거리를 구하는 알고리즘이다.<br>백준에서 플로이드-와샬 카테고리를 갔는데, 파이썬으로 플로이드-와샬로 하면 해결할수없는 문제들이 많다.<br>플로이드-와샬이 구현은 간단한데, 다익스트라는 간단하지 않다.<br>다익스트라에 대해서 따로 공부가 필요하다.</p>
+<h2 id="2-구현"><a href="#2-구현" class="headerlink" title="2. 구현."></a>2. 구현.</h2><ul>
+<li>아래의 코드는 다익스트라 선행방식이다.</li>
+<li>이 방식으로 하면 O(N^2) 이라는 시간 복잡도가 나온다.</li>
+<li>적은 양의 데이터면 모를까 간선이 많아 지는 경우에는 매우 비효율적이다.</li>
+<li>하지만 Heap을 사용해서 O(N * log N)으로 만들수있다.</li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://m.blog.naver.com/PostView.nhn?blogId=ndb796&logNo=221234424646&proxyReferer=https://www.google.com/">다익스트라 기본 개념</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://dojinkimm.github.io/problem_solving/2019/12/10/boj-1238-party.html">1238파티 heap 파이썬구현</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 입력 및 무한대 그래프 설정.</span></span><br><span class="line">n, m, x = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">INF = <span class="number">987654321</span></span><br><span class="line">graph = [[INF <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 방향 입력 가중치 설정.</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    x, y, v = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    graph[x-<span class="number">1</span>][y-<span class="number">1</span>] = v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 자시자신으로는 못감</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    graph[i][i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">v = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">d = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSmallIndex</span>():</span></span><br><span class="line">    <span class="built_in">min</span> = INF</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">if</span> d[i] &lt; <span class="built_in">min</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> v[i]:</span><br><span class="line">                <span class="built_in">min</span> = d[i]</span><br><span class="line">                index = i</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">start, graph, v, d</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        d[i] = graph[start][i]</span><br><span class="line"></span><br><span class="line">    v[start] = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">2</span>):</span><br><span class="line">        current = getSmallIndex()</span><br><span class="line">        v[current] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> v[j]:</span><br><span class="line">                <span class="keyword">if</span> d[current] + graph[current][j] &lt; d[j]:</span><br><span class="line">                    d[j] = d[current] + graph[current][j]</span><br><span class="line"></span><br><span class="line">dijkstra(<span class="number">0</span>, graph, v, d)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    print(d[i], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/01/30/mogagko/2020-01-30-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/01/30/mogagko/2020-01-29-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%208%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 8일차 목표">
                             [모각코] 8일차 목표
                         </a>
@@ -659,56 +717,6 @@
                     
                         <p>
                             <a href="/2020/01/23/baekjoon/2020/1January/2020-01-23-%5B%EB%B0%B1%EC%A4%80%5D%201507%20%EA%B6%81%EA%B8%88%ED%95%9C%20%EB%AF%BC%ED%98%B8/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/01/23/mogagko/2020-01-23-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%206%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/" aria-label=": [모각코] 6일차 목표">
-                            [모각코] 6일차 목표
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-01-23T12:50:00+09:00">
-	
-		    2020/01/23
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Mogagko/">Mogagko</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="목표"><a href="#목표" class="headerlink" title="목표"></a>목표</h2><p>파이썬 웹 크롤링에 대해서 공부하고, 정리한다.</p>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/01/23/mogagko/2020-01-23-%5B%EB%AA%A8%EA%B0%81%EC%BD%94%5D%206%EC%9D%BC%EC%B0%A8%20%EB%AA%A9%ED%91%9C/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

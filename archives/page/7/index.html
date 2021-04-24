@@ -172,6 +172,73 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/" aria-label=": [백준][c++][python] 10824 네 수">
+                            [백준][c++][python] 10824 네 수
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-19T16:30:00+09:00">
+	
+		    2020/03/19
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/10824">네 수</a><br><img width="720" alt="스크린샷 2020-03-20 오전 1 11 04" src="https://user-images.githubusercontent.com/20227720/77088691-2c33c000-6a48-11ea-8770-355c07be0b27.png"><br><img width="721" alt="스크린샷 2020-03-20 오전 1 11 08" src="https://user-images.githubusercontent.com/20227720/77088685-2938cf80-6a48-11ea-913b-1afa7f4e8f95.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>c++</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> num1, num2, num3, num4, num5, num6;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> rtn = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; num1;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; num2;</span><br><span class="line"></span><br><span class="line">    num3 = num1 + num2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; num4;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; num5;</span><br><span class="line"></span><br><span class="line">    num6 = num4 + num5;</span><br><span class="line"></span><br><span class="line">    rtn = stoll(num3) + stoll(num6);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; rtn &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    a1 = a[<span class="number">0</span>] + a[<span class="number">1</span>]</span><br><span class="line">    a2 = a[<span class="number">2</span>] + a[<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">    print(<span class="built_in">int</span>(a1) + <span class="built_in">int</span>(a2))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
+<li>c++ 에서는 수를 더하면 int 의 범위수를 넘어선다 그래서 long long 변수를 사용해야하는데, string to long long을 하려면, stoll을 사용하면된다.</li>
+<li>python은 그냥 더하면된다.</li>
+</ul>
+<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
+<li>c++은 역시 생각할게 많다! 근데 이게 정상이다 파이썬이 비정상이지.</li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/03/19/baekjoon/2020/3March/2020-03-19-%5B%EB%B0%B1%EC%A4%80%5D%2010824%20%EB%84%A4%20%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/03/18/baekjoon/2020/3March/2020-03-18-%5B%EB%B0%B1%EC%A4%80%5D%2011004%20K%EB%B2%88%EC%A7%B8%20%EC%88%98/" aria-label=": [백준][c++][python] 11004 K번째 수">
                             [백준][c++][python] 11004 K번째 수
                         </a>
@@ -770,71 +837,6 @@
                     
                         <p>
                             <a href="/2020/03/10/baekjoon/2020/3March/2020-03-10-%5B%EB%B0%B1%EC%A4%80%5D%2011053%20%EA%B0%80%EC%9E%A5%20%EA%B8%B4%20%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/03/09/baekjoon/2020/3March/2020-03-09-%5B%EB%B0%B1%EC%A4%80%5D%202193%20%EC%9D%B4%EC%B9%9C%EC%88%98/" aria-label=": [백준][c++][python] 2193 이친수">
-                            [백준][c++][python] 2193 이친수
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-03-09T18:30:00+09:00">
-	
-		    2020/03/09
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/2193">이친수</a><br><img width="613" alt="스크린샷 2020-03-10 오전 12 44 26" src="https://user-images.githubusercontent.com/20227720/76231252-50351b80-6268-11ea-9b1f-42e60d5b556f.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> dp[<span class="number">91</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">1</span>, dp[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        dp[i] = dp[i<span class="number">-2</span>] + dp[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[n] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n+<span class="number">3</span>)]</span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    dp[<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, n+<span class="number">1</span>):</span><br><span class="line">        dp[i] = dp[i-<span class="number">2</span>] + dp[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    print(dp[n])</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결방법"><a href="#3-해결방법" class="headerlink" title="3. 해결방법"></a>3. 해결방법</h2><ul>
-<li>1~6 정도 까지 일일히 해보면, 피보나치 수열이 보인다.</li>
-<li>c++ 에서는 수의 범위가 int를 벗어나기때문에 long long 을 사용해준다.</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>long long 짱</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/03/09/baekjoon/2020/3March/2020-03-09-%5B%EB%B0%B1%EC%A4%80%5D%202193%20%EC%9D%B4%EC%B9%9C%EC%88%98/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

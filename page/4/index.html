@@ -171,6 +171,59 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/" aria-label=": [백준][python] 4153 직각삼각형">
+                            [백준][python] 4153 직각삼각형
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-11-04T16:20:00+09:00">
+	
+		    2020/11/04
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/BOJ/">BOJ</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/4153">직각삼각형</a><br><img width="947" alt="스크린샷 2020-11-04 오후 4 27 39" src="https://user-images.githubusercontent.com/20227720/98081562-acfdda00-1eba-11eb-86c4-98ef15562148.png"></p>
+<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
+<li>python</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span>(<span class="params">nums</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)-<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &lt; nums[j]: <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        x, y, z = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        <span class="keyword">if</span> x == <span class="number">0</span> <span class="keyword">and</span> y == <span class="number">0</span> <span class="keyword">and</span> z == <span class="number">0</span>: <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        value = selectionSort([x,y,z])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (value[<span class="number">0</span>]**<span class="number">2</span> + value[<span class="number">1</span>]**<span class="number">2</span>) == value[<span class="number">2</span>]**<span class="number">2</span>: print(<span class="string">&quot;right&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>: print(<span class="string">&quot;wrong&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%204153%20%EC%A7%81%EA%B0%81%EC%82%BC%EA%B0%81%ED%98%95/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2020/11/04/baekjoon/2020/11November/2020-11-04-%5B%EB%B0%B1%EC%A4%80%5D%203009%20%EB%84%A4%20%EB%B2%88%EC%A7%B8%20%EC%A0%90/" aria-label=": [백준][python] 3009 네 번째 점">
                             [백준][python] 3009 네 번째 점
                         </a>
@@ -669,70 +722,6 @@
                     
                         <p>
                             <a href="/2020/04/08/baekjoon/2020/4April/2020-04-08-%5B%EB%B0%B1%EC%A4%80%5D%206603%20%EB%A1%9C%EB%98%90/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2020/04/07/baekjoon/2020/4April/2020-04-07-%5B%EB%B0%B1%EC%A4%80%5D%201697%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/" aria-label=": [백준][python] 1697 숨바꼭질">
-                            [백준][python] 1697 숨바꼭질
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2020-04-07T22:20:00+09:00">
-	
-		    2020/04/07
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/BOJ/">BOJ</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="1-문제"><a href="#1-문제" class="headerlink" title="1. 문제"></a>1. 문제</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.acmicpc.net/problem/1697">숨바꼭질</a><br><img width="1177" alt="스크린샷 2020-04-07 오후 6 30 06" src="https://user-images.githubusercontent.com/20227720/78656104-de510000-7901-11ea-8ca4-f871c3269284.png"></p>
-<h2 id="2-코드"><a href="#2-코드" class="headerlink" title="2. 코드"></a>2. 코드</h2><ul>
-<li>c++</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n = <span class="number">0</span>, k = <span class="number">0</span>, visited[<span class="number">100001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( !q.empty() )&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> num = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( num == k ) <span class="keyword">return</span> visited[num];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( <span class="number">0</span> &lt;= (num - <span class="number">1</span>) &amp;&amp; !visited[num - <span class="number">1</span>] )&#123;</span><br><span class="line">            visited[num - <span class="number">1</span>] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( num + <span class="number">1</span> &lt;= <span class="number">100000</span> &amp;&amp; !visited[num + <span class="number">1</span>] ) &#123;</span><br><span class="line">            visited[num + <span class="number">1</span>] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( num * <span class="number">2</span> &lt;= <span class="number">100000</span> &amp;&amp; !visited[num * <span class="number">2</span>] ) &#123;</span><br><span class="line">            visited[num * <span class="number">2</span>] = visited[num] + <span class="number">1</span>;</span><br><span class="line">            q.push(num*<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    q.push(n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, bfs());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>():</span></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        num = q.popleft()</span><br><span class="line">        <span class="keyword">if</span> num == k: <span class="keyword">return</span> visited[num]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= (num - <span class="number">1</span>) <span class="keyword">and</span> <span class="keyword">not</span> visited[num - <span class="number">1</span>]:</span><br><span class="line">            visited[num - <span class="number">1</span>] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num + <span class="number">1</span> &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num + <span class="number">1</span>]:</span><br><span class="line">            visited[num + <span class="number">1</span>] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num * <span class="number">2</span> &lt;= <span class="number">100000</span> <span class="keyword">and</span> <span class="keyword">not</span> visited[num * <span class="number">2</span>]:</span><br><span class="line">            visited[num * <span class="number">2</span>] = visited[num] + <span class="number">1</span></span><br><span class="line">            q.append(num*<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    visited = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100001</span>)]</span><br><span class="line">    q = deque()</span><br><span class="line">    q.append(n)</span><br><span class="line">    visited[n] = <span class="number">0</span></span><br><span class="line">    print(bfs())</span><br></pre></td></tr></table></figure>
-<h2 id="3-해결-방법"><a href="#3-해결-방법" class="headerlink" title="3. 해결 방법"></a>3. 해결 방법</h2><ul>
-<li>DP 스러운 해결방법이다. n - 1, n + 1, n*2 를 계속 q에 넣고, 돌린다. 그럼 시간이 충분해서 통과한다 레전드네 ㄹㅇ ㅋㅋㅋㅋ</li>
-</ul>
-<h2 id="4-리뷰"><a href="#4-리뷰" class="headerlink" title="4. 리뷰"></a>4. 리뷰</h2><ul>
-<li>오늘 수강 과목 하나를 철회했다. 기분이 너무 좋다. 과목 하나로 휴학과 제정신을 오갈수있다니 대학교는 정말 다양한 경험을 해준다.</li>
-</ul>
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2020/04/07/baekjoon/2020/4April/2020-04-07-%5B%EB%B0%B1%EC%A4%80%5D%201697%20%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%88/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>

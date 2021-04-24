@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-01T10:18:59.072Z</updated>
+  <updated>2021-04-24T09:16:38.259Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[anaconda] konlpy에서 Jpype 오류 해결방법</title>
+    <link href="http://example.com/2021/04/24/anaconda/2021-04-24-[anaconda]%20konlpy%EC%97%90%EC%84%9C%20Jpype%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20/"/>
+    <id>http://example.com/2021/04/24/anaconda/2021-04-24-[anaconda]%20konlpy%EC%97%90%EC%84%9C%20Jpype%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20/</id>
+    <published>2021-04-24T08:50:00.000Z</published>
+    <updated>2021-04-24T09:16:38.259Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="미리-말씀드리는것"><a href="#미리-말씀드리는것" class="headerlink" title="미리 말씀드리는것"></a>미리 말씀드리는것</h1><p>왜 이 오류가 발생했고, 오류 해결 방법으로 오류를 해결했지만, 이 방법으로 이 오류를 해결하는 방법이 옳은지는 확신하지못합니다.<br>저는 단순히 임시방편이라 생각하고있고, 이 글을 보시는분들도 그렇게 알아주셨으면 합니다.</p><h2 id="1-konlpy에서-제공하는-형태소-분석기를-사용하려는데-발생하는-오류"><a href="#1-konlpy에서-제공하는-형태소-분석기를-사용하려는데-발생하는-오류" class="headerlink" title="1. konlpy에서 제공하는 형태소 분석기를 사용하려는데 발생하는 오류"></a>1. konlpy에서 제공하는 형태소 분석기를 사용하려는데 발생하는 오류</h2><p>from konlpy.tag import *</p><p><img src="https://user-images.githubusercontent.com/20227720/115953554-2a7bdc00-a527-11eb-8b80-9b7cedf95851.png" alt="image"></p><h2 id="2-해결"><a href="#2-해결" class="headerlink" title="2. 해결"></a>2. 해결</h2><p><a href="https://stackoverflow.com/questions/65842567/systemerror-java-nio-file-invalidpathexception">해결 방법 주소</a></p><p>위주소의 답글이 해결 방법이다.</p><ol><li>“C:\Users\ai\Anaconda3\lib\site-packages\konlpy” 주소로 이동 후 jvm.py 란 파일 찾기.<br><img src="https://user-images.githubusercontent.com/20227720/115953692-e76e3880-a527-11eb-8341-bef2983f45e0.png" alt="image"></li><li>init_jvm function에 folder_suffix으로 이동.<br><img src="https://user-images.githubusercontent.com/20227720/115953711-fc4acc00-a527-11eb-8db2-8cef76b0f2ea.png" alt="image"></li><li>주석 처리된 부분에 JAVA sources랑 Twitter (Okt)를 보면 그 아래에 있는 값들중에 마지막에 *이 있는 부분이 있다. 그 줄을 삭제해준다. 총 2줄<br><img src="https://user-images.githubusercontent.com/20227720/115953896-281a8180-a529-11eb-80b6-fd2ce3dede1c.png" alt="tempsnip"><br><img src="https://user-images.githubusercontent.com/20227720/115953792-7c713180-a528-11eb-8d44-0559892e93ae.png" alt="image"></li><li>그럼 오류가 사라지고 정상 작동됨.<br><img src="https://user-images.githubusercontent.com/20227720/115953799-898e2080-a528-11eb-886d-4ac0555c8c0b.png" alt="image"></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;미리-말씀드리는것&quot;&gt;&lt;a href=&quot;#미리-말씀드리는것&quot; class=&quot;headerlink&quot; title=&quot;미리 말씀드리는것&quot;&gt;&lt;/a&gt;미리 말씀드리는것&lt;/h1&gt;&lt;p&gt;왜 이 오류가 발생했고, 오류 해결 방법으로 오류를 해결했지만, 이 방법으로</summary>
+      
+    
+    
+    
+    <category term="anaconda" scheme="http://example.com/categories/anaconda/"/>
+    
+    
+    <category term="Error" scheme="http://example.com/tags/Error/"/>
+    
+  </entry>
   
   <entry>
     <title>[flutter&amp;dart] card 예제 </title>
@@ -478,32 +502,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1021&quot;&gt;1021 회전하는 큐&lt;/a&gt;&lt;br&gt;&lt;img</summary>
-      
-    
-    
-    
-    <category term="BOJ" scheme="http://example.com/categories/BOJ/"/>
-    
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-    <category term="Queue" scheme="http://example.com/tags/Queue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[백준][python] 10866 덱</title>
-    <link href="http://example.com/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/"/>
-    <id>http://example.com/2020/12/22/baekjoon/2020/12December/2020-12-22-10866%20%EB%8D%B1/</id>
-    <published>2020-12-22T06:00:00.000Z</published>
-    <updated>2021-01-20T07:33:36.996Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p><a href="https://www.acmicpc.net/problem/10866">10866 덱</a><br><img src="https://user-images.githubusercontent.com/20227720/102856623-2dc46580-446a-11eb-9859-bbeacce73432.PNG" alt="캡처">  </p><h1 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import collections, sys</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    n &#x3D; int(sys.stdin.readline())</span><br><span class="line">    deque &#x3D; collections.deque()</span><br><span class="line"></span><br><span class="line">    for _ in range(n):</span><br><span class="line">        commands &#x3D; list(sys.stdin.readline().rsplit())</span><br><span class="line"></span><br><span class="line">        if commands[0] &#x3D;&#x3D; &#39;push_front&#39;:</span><br><span class="line">            deque.appendleft(int(commands[1]))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;push_back&#39;:</span><br><span class="line">            deque.append(int(commands[1]))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;pop_front&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque.popleft())</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;pop_back&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque.pop())</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;size&#39;:</span><br><span class="line">            print(len(deque))</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;empty&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(1)</span><br><span class="line">            else:</span><br><span class="line">                print(0)</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;front&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque[0])</span><br><span class="line">        elif commands[0] &#x3D;&#x3D; &#39;back&#39;:</span><br><span class="line">            if len(deque) &#x3D;&#x3D; 0:</span><br><span class="line">                print(&quot;-1&quot;)</span><br><span class="line">            else:</span><br><span class="line">                print(deque[-1])</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10866&quot;&gt;10866 덱&lt;/a&gt;&lt;br&gt;&lt;img sr</summary>
       
     
     

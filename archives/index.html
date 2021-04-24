@@ -172,6 +172,66 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/2021/04/24/anaconda/2021-04-24-%5Banaconda%5D%20konlpy%EC%97%90%EC%84%9C%20Jpype%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20/" aria-label=": [anaconda] konlpy에서 Jpype 오류 해결방법">
+                            [anaconda] konlpy에서 Jpype 오류 해결방법
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2021-04-24T17:50:00+09:00">
+	
+		    2021/04/24
+    	
+    </time>
+    
+        <span>카테고리 </span>
+        
+    <a class="category-link" href="/categories/anaconda/">anaconda</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="미리-말씀드리는것"><a href="#미리-말씀드리는것" class="headerlink" title="미리 말씀드리는것"></a>미리 말씀드리는것</h1><p>왜 이 오류가 발생했고, 오류 해결 방법으로 오류를 해결했지만, 이 방법으로 이 오류를 해결하는 방법이 옳은지는 확신하지못합니다.<br>저는 단순히 임시방편이라 생각하고있고, 이 글을 보시는분들도 그렇게 알아주셨으면 합니다.</p>
+<h2 id="1-konlpy에서-제공하는-형태소-분석기를-사용하려는데-발생하는-오류"><a href="#1-konlpy에서-제공하는-형태소-분석기를-사용하려는데-발생하는-오류" class="headerlink" title="1. konlpy에서 제공하는 형태소 분석기를 사용하려는데 발생하는 오류"></a>1. konlpy에서 제공하는 형태소 분석기를 사용하려는데 발생하는 오류</h2><p>from konlpy.tag import *</p>
+<p><img src="https://user-images.githubusercontent.com/20227720/115953554-2a7bdc00-a527-11eb-8b80-9b7cedf95851.png" alt="image"></p>
+<h2 id="2-해결"><a href="#2-해결" class="headerlink" title="2. 해결"></a>2. 해결</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/65842567/systemerror-java-nio-file-invalidpathexception">해결 방법 주소</a></p>
+<p>위주소의 답글이 해결 방법이다.</p>
+<ol>
+<li>“C:\Users\ai\Anaconda3\lib\site-packages\konlpy” 주소로 이동 후 jvm.py 란 파일 찾기.<br><img src="https://user-images.githubusercontent.com/20227720/115953692-e76e3880-a527-11eb-8341-bef2983f45e0.png" alt="image"></li>
+<li>init_jvm function에 folder_suffix으로 이동.<br><img src="https://user-images.githubusercontent.com/20227720/115953711-fc4acc00-a527-11eb-8db2-8cef76b0f2ea.png" alt="image"></li>
+<li>주석 처리된 부분에 JAVA sources랑 Twitter (Okt)를 보면 그 아래에 있는 값들중에 마지막에 *이 있는 부분이 있다. 그 줄을 삭제해준다. 총 2줄<br><img src="https://user-images.githubusercontent.com/20227720/115953896-281a8180-a529-11eb-80b6-fd2ce3dede1c.png" alt="tempsnip"><br><img src="https://user-images.githubusercontent.com/20227720/115953792-7c713180-a528-11eb-8d44-0559892e93ae.png" alt="image"></li>
+<li>그럼 오류가 사라지고 정상 작동됨.<br><img src="https://user-images.githubusercontent.com/20227720/115953799-898e2080-a528-11eb-886d-4ac0555c8c0b.png" alt="image"></li>
+</ol>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a href="/2021/04/24/anaconda/2021-04-24-%5Banaconda%5D%20konlpy%EC%97%90%EC%84%9C%20Jpype%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95%20/#post-footer" class="postShorten-excerpt_link link" aria-label>
+                                댓글 공유
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/2021/03/01/flutter&dart/2021-03-01-%5Bflutter&dart%5D%20card%20%EC%98%88%EC%A0%9C/" aria-label=": [flutter&amp;dart] card 예제 ">
                             [flutter&amp;dart] card 예제 
                         </a>
@@ -733,58 +793,6 @@
                     
                         <p>
                             <a href="/2021/01/06/baekjoon/2021/1January/2021-01-06-11444%20%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%20%EC%88%98%206/#post-footer" class="postShorten-excerpt_link link" aria-label>
-                                댓글 공유
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/" aria-label=": 반열린구간">
-                            반열린구간
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2021-01-02T16:30:00+09:00">
-	
-		    2021/01/02
-    	
-    </time>
-    
-        <span>카테고리 </span>
-        
-    <a class="category-link" href="/categories/Information/">Information</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="범위"><a href="#범위" class="headerlink" title="범위"></a>범위</h1><p>평소 범위라고 한다면, “일부터 십까지”에서 1 2 3 4 5 6 7 8 9 10 을 말하는 것이다.<br>이 범위를 숫자 양쪽을 포함해서 표현하자면 (1, 10) -&gt; 1 &lt;= i &lt;= 10이며, 이런 집합을 닫힌 구간이라고 부른다.<br>다르게 양 끝의 경계를 포함하지 않는 열린 구간이 있는데, (0, 11) -&gt; 0 &lt; i &lt; 11 로 표현할 수 있다.</p>
-<p>프로그래밍 언어에서 사용하는 방식은 위의 두가지를 섞은 반 열린 구간이다.<br>앞을 열고, 뒤를 닫는다.</p>
-<h1 id="이유"><a href="#이유" class="headerlink" title="이유"></a>이유</h1><p>프로그래밍 언어에서 반 열린 구간을 사용하는 이유에는 여러가지가 있다.<br>그 중 하나를 들자면,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">대부분의 프로그래밍 언어에서 n개의 원소를 갖는 배열 a의 첫 번째 원소는 a[0]이고, 마지막 원소는 a[n-1]이다.</span><br><span class="line">따라서 a의 인덱스 i의 범위는 0&lt;&#x3D;i&lt;n이다.</span><br></pre></td></tr></table></figure>
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a href="/2021/01/02/etc/2021-01-02-%EB%B0%98%EC%97%B4%EB%A6%B0%EA%B5%AC%EA%B0%84/#post-footer" class="postShorten-excerpt_link link" aria-label>
                                 댓글 공유
                             </a>
                         </p>
