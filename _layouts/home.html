@@ -1,0 +1,205 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+{% assign all_pinned = site.posts | where: 'pin', 'true' %}
+{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+
+{% assign posts = '' | split: '' %}
+
+<!-- Get pinned posts on current page -->
+
+{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign visible_end = visible_start | plus: paginator.per_page %}
+
+{% if all_pinned.size > visible_start %}
+  {% if all_pinned.size > visible_end %}
+    {% assign pinned_size = paginator.per_page %}
+  {% else %}
+    {% assign pinned_size = all_pinned.size | minus: visible_start %}
+  {% endif %}
+
+  {% for i in (visible_start..all_pinned.size) limit: pinned_size %}
+    {% assign posts = posts | push: all_pinned[i] %}
+  {% endfor %}
+{% else %}
+  {% assign pinned_size = 0 %}
+{% endif %}
+
+<!-- Get normal posts on current page -->
+
+{% assign normal_size = paginator.posts | size | minus: pinned_size %}
+
+{% if normal_size > 0 %}
+  {% if pinned_size > 0 %}
+    {% assign normal_start = 0 %}
+  {% else %}
+    {% assign normal_start = visible_start | minus: all_pinned.size %}
+  {% endif %}
+
+  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
+
+  {% for i in (normal_start..normal_end) %}
+    {% assign posts = posts | push: all_normal[i] %}
+  {% endfor %}
+{% endif %}
+
+<div class="d-flex justify-content-end mb-3">
+  <button id="lang-toggle-btn" class="btn btn-sm btn-outline-primary" onclick="toggleLanguage()">
+    <i class="fas fa-globe"></i> <span id="btn-text">Switch to English</span>
+  </button>
+</div>
+
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% for post in posts %}
+    {% assign partner = site.posts | where: "key", post.key | where_exp: "item", "item.lang == 'en'" | first %}
+<article class="card-wrapper card">
+      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse"
+        data-ko-url="{{ post.url | relative_url }}"
+        data-ko-title="{{ post.title }}"
+        data-ko-summary="{{ post.description | default: post.excerpt | strip_html | truncate: 200 | xml_escape }}"
+        
+        {% if partner %}
+          data-en-url="{{ partner.url | relative_url }}"
+          data-en-title="{{ partner.title }}"
+          data-en-summary="{{ partner.description | default: partner.excerpt | strip_html | truncate: 200 | xml_escape }}"
+          data-has-en="true"
+        {% endif %}>
+      {% assign card_body_col = '12' %}
+
+        {% if post.image %}
+          {% assign src = post.image.path | default: post.image %}
+
+          {% if post.media_subpath %}
+            {% unless src contains '://' %}
+              {% assign src = post.media_subpath
+                | append: '/'
+                | append: src
+                | replace: '///', '/'
+                | replace: '//', '/'
+              %}
+            {% endunless %}
+          {% endif %}
+
+          {% if post.image.lqip %}
+            {% assign lqip = post.image.lqip %}
+
+            {% if post.media_subpath %}
+              {% unless lqip contains 'data:' %}
+                {% assign lqip = post.media_subpath
+                  | append: '/'
+                  | append: lqip
+                  | replace: '///', '/'
+                  | replace: '//', '/'
+                %}
+              {% endunless %}
+            {% endif %}
+
+            {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
+          {% endif %}
+
+          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+          <div class="col-md-5">
+            <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+          </div>
+
+          {% assign card_body_col = '7' %}
+        {% endif %}
+
+        <div class="col-md-{{ card_body_col }}">
+          <div class="card-body d-flex flex-column">
+          <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>{% include post-summary.html %}</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <i class="far fa-calendar fa-fw me-1"></i>
+                {% include datetime.html date=post.date lang=lang %}
+
+                {% if post.categories.size > 0 %}
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    {% for category in post.categories %}
+                      {{ category }}
+                      {%- unless forloop.last -%},{%- endunless -%}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if post.pin %}
+                <div class="pin ms-1">
+                  <i class="fas fa-thumbtack fa-fw"></i>
+                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+                </div>
+              {% endif %}
+            </div>
+            </div>
+          </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
+<!-- #post-list -->
+
+{% if paginator.total_pages > 1 %}
+  {% include post-paginator.html %}
+{% endif %}
+
+<script>
+function toggleLanguage() {
+  const btn = document.getElementById('lang-toggle-btn');
+  const btnText = document.getElementById('btn-text');
+  
+  // 영어 짝꿍이 있는 글들만 선택
+  const posts = document.querySelectorAll('a.post-preview[data-has-en="true"]'); 
+
+  // 현재 상태 확인 (버튼 텍스트로 판단)
+  const isEnglishMode = btnText.innerText.includes('Korean');
+
+  if (!isEnglishMode) {
+    // [영어 모드로 전환]
+    btnText.innerText = "Switch to Korean";
+    posts.forEach(post => {
+      // 1. 링크 변경
+      post.setAttribute('href', post.getAttribute('data-en-url'));
+      
+      // 2. 제목 변경
+      const titleEl = post.querySelector('.card-title');
+      if (titleEl) titleEl.innerText = post.getAttribute('data-en-title');
+
+      // 3. ▼▼▼ 요약글 변경 (영어) ▼▼▼
+      const summaryEl = post.querySelector('.card-text'); // 요약글이 들어있는 div
+      const enSummary = post.getAttribute('data-en-summary');
+      if (summaryEl && enSummary) {
+        summaryEl.innerText = enSummary; // 영어 요약으로 교체
+      }
+    });
+
+  } else {
+    // [한국어 모드로 복귀]
+    btnText.innerText = "Switch to English";
+    posts.forEach(post => {
+      // 1. 링크 복구
+      post.setAttribute('href', post.getAttribute('data-ko-url'));
+      
+      // 2. 제목 복구
+      const titleEl = post.querySelector('.card-title');
+      if (titleEl) titleEl.innerText = post.getAttribute('data-ko-title');
+
+      // 3. ▼▼▼ 요약글 복구 (한국어) ▼▼▼
+      const summaryEl = post.querySelector('.card-text');
+      const koSummary = post.getAttribute('data-ko-summary');
+      if (summaryEl && koSummary) {
+        summaryEl.innerText = koSummary; // 원래 한국어 요약으로 복구
+      }
+    });
+  }
+}
+</script>
