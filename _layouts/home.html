@@ -2,6 +2,68 @@
 layout: default
 ---
 
+<script>
+// 전역 객체인 window에 함수를 직접 등록해서 어디서든 부를 수 있게 함
+window.toggleLanguage = function() {
+  const btn = document.getElementById('lang-toggle-btn');
+  const btnText = document.getElementById('btn-text');
+
+  // 영어 짝꿍이 있는 글들만 선택
+  const posts = document.querySelectorAll('a.post-preview[data-has-en="true"]');
+
+  if (!btn || !btnText) {
+    console.error("버튼을 찾을 수 없습니다.");
+    return;
+  }
+
+  // 현재 상태 확인 (버튼 텍스트로 판단)
+  const isEnglishMode = btnText.innerText.includes('Korean');
+
+  if (!isEnglishMode) {
+    // [영어 모드로 전환]
+    btnText.innerText = "Switch to Korean";
+    posts.forEach(function(post) {
+      // 1. 링크 변경
+      const enUrl = post.getAttribute('data-en-url');
+      if (enUrl) post.setAttribute('href', enUrl);
+
+      // 2. 제목 변경
+      const titleEl = post.querySelector('.card-title');
+      const enTitle = post.getAttribute('data-en-title');
+      if (titleEl && enTitle) titleEl.innerText = enTitle;
+
+      // 3. 요약글 변경 (영어)
+      const summaryEl = post.querySelector('.card-text');
+      const enSummary = post.getAttribute('data-en-summary');
+      if (summaryEl && enSummary) {
+        summaryEl.innerText = enSummary;
+      }
+    });
+
+  } else {
+    // [한국어 모드로 복귀]
+    btnText.innerText = "Switch to English";
+    posts.forEach(function(post) {
+      // 1. 링크 복구
+      const koUrl = post.getAttribute('data-ko-url');
+      if (koUrl) post.setAttribute('href', koUrl);
+
+      // 2. 제목 복구
+      const titleEl = post.querySelector('.card-title');
+      const koTitle = post.getAttribute('data-ko-title');
+      if (titleEl && koTitle) titleEl.innerText = koTitle;
+
+      // 3. 요약글 복구 (한국어)
+      const summaryEl = post.querySelector('.card-text');
+      const koSummary = post.getAttribute('data-ko-summary');
+      if (summaryEl && koSummary) {
+        summaryEl.innerText = koSummary;
+      }
+    });
+  }
+};
+</script>
+
 {% include lang.html %}
 
 {% assign all_pinned = site.posts | where: 'pin', 'true' %}
@@ -152,64 +214,3 @@ layout: default
   {% include post-paginator.html %}
 {% endif %}
 
-<script>
-// 전역 객체인 window에 함수를 직접 등록해서 어디서든 부를 수 있게 함
-window.toggleLanguage = function() {
-  const btn = document.getElementById('lang-toggle-btn');
-  const btnText = document.getElementById('btn-text');
-
-  // 영어 짝꿍이 있는 글들만 선택
-  const posts = document.querySelectorAll('a.post-preview[data-has-en="true"]');
-
-  if (!btn || !btnText) {
-    console.error("버튼을 찾을 수 없습니다.");
-    return;
-  }
-
-  // 현재 상태 확인 (버튼 텍스트로 판단)
-  const isEnglishMode = btnText.innerText.includes('Korean');
-
-  if (!isEnglishMode) {
-    // [영어 모드로 전환]
-    btnText.innerText = "Switch to Korean";
-    posts.forEach(function(post) {
-      // 1. 링크 변경
-      const enUrl = post.getAttribute('data-en-url');
-      if (enUrl) post.setAttribute('href', enUrl);
-
-      // 2. 제목 변경
-      const titleEl = post.querySelector('.card-title');
-      const enTitle = post.getAttribute('data-en-title');
-      if (titleEl && enTitle) titleEl.innerText = enTitle;
-
-      // 3. 요약글 변경 (영어)
-      const summaryEl = post.querySelector('.card-text');
-      const enSummary = post.getAttribute('data-en-summary');
-      if (summaryEl && enSummary) {
-        summaryEl.innerText = enSummary;
-      }
-    });
-
-  } else {
-    // [한국어 모드로 복귀]
-    btnText.innerText = "Switch to English";
-    posts.forEach(function(post) {
-      // 1. 링크 복구
-      const koUrl = post.getAttribute('data-ko-url');
-      if (koUrl) post.setAttribute('href', koUrl);
-
-      // 2. 제목 복구
-      const titleEl = post.querySelector('.card-title');
-      const koTitle = post.getAttribute('data-ko-title');
-      if (titleEl && koTitle) titleEl.innerText = koTitle;
-
-      // 3. 요약글 복구 (한국어)
-      const summaryEl = post.querySelector('.card-text');
-      const koSummary = post.getAttribute('data-ko-summary');
-      if (summaryEl && koSummary) {
-        summaryEl.innerText = koSummary;
-      }
-    });
-  }
-};
-</script>
