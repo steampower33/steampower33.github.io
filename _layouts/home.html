@@ -174,11 +174,11 @@ function toggleLanguage() {
       const titleEl = post.querySelector('.card-title');
       if (titleEl) titleEl.innerText = post.getAttribute('data-en-title');
 
-      // 3. ▼▼▼ 요약글 변경 (영어) ▼▼▼
-      const summaryEl = post.querySelector('.card-text'); // 요약글이 들어있는 div
+      // 3. 요약글 변경 (영어)
+      const summaryEl = post.querySelector('.card-text'); 
       const enSummary = post.getAttribute('data-en-summary');
       if (summaryEl && enSummary) {
-        summaryEl.innerText = enSummary; // 영어 요약으로 교체
+        summaryEl.innerText = enSummary; 
       }
     });
 
@@ -193,11 +193,11 @@ function toggleLanguage() {
       const titleEl = post.querySelector('.card-title');
       if (titleEl) titleEl.innerText = post.getAttribute('data-ko-title');
 
-      // 3. ▼▼▼ 요약글 복구 (한국어) ▼▼▼
+      // 3. 요약글 복구 (한국어)
       const summaryEl = post.querySelector('.card-text');
       const koSummary = post.getAttribute('data-ko-summary');
       if (summaryEl && koSummary) {
-        summaryEl.innerText = koSummary; // 원래 한국어 요약으로 복구
+        summaryEl.innerText = koSummary; 
       }
     });
   }
