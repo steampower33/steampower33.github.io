@@ -45,12 +45,3 @@ while (isBlackBox) {
 |---|
 |[![Real-time Volumetric Cloud in DX11](https://img.youtube.com/vi/an71mmn2r7w/maxresdefault.jpg)](https://www.youtube.com/watch?v=an71mmn2r7w)|
 |[Github Repo](https://github.com/steampower33/RayMarching-DX)|
-
-### 🧩 Problem Solving Stats
-
-<div align="left">
-<img src="https://leetcard.jacoblin.cool/steampower33" height="150" alt="LeetCode Stats" />
-<a href="https://solved.ac/steampower33/">
-<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=steampower33" height="150" alt="Solved.ac Profile" />
-</a>
-</div>
