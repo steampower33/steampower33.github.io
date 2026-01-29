@@ -1,10 +1,9 @@
----
-layout: page
-title: About Me
----
 # Hi there, I'm Seungmin Lee! 👋
+<div align="center">
+Aspiring Graphics Engineer building projects to deepen technical expertise.
+</div>
 
-**"Aspiring Graphics Engineer building projects to deepen technical expertise."**
+<br/>
 
 <div align="center">
   <a href="https://steampower33.github.io/projects/">
@@ -12,7 +11,6 @@ title: About Me
   </a>
 </div>
 
-<br/>
 
 ### ⚡ Motto
 
@@ -36,12 +34,14 @@ while (isBlackBox) {
 
 ## 🚀 Representative Demos
 
-| **XPBD Cloth Simulation** |
+|<div align="center"> **XPBD Cloth Simulation**</div> |
 | --- |
 |[![XPBD Cloth Simulation in Vulkan](https://img.youtube.com/vi/nu1VZo1UNBs/maxresdefault.jpg)](https://www.youtube.com/watch?v=nu1VZo1UNBs)|
-|[Github Repo](https://github.com/steampower33/PhysixStudio)|
+|<div align="center">[Github Repo](https://github.com/steampower33/PhysixStudio)</div>|
 
-|**Real-time Volumetric Cloud** |
+<br/>
+
+|<div align="center">**Real-time Volumetric Cloud** </div>|
 |---|
 |[![Real-time Volumetric Cloud in DX11](https://img.youtube.com/vi/an71mmn2r7w/maxresdefault.jpg)](https://www.youtube.com/watch?v=an71mmn2r7w)|
-|[Github Repo](https://github.com/steampower33/RayMarching-DX)|
+|<div align="center">[Github Repo](https://github.com/steampower33/RayMarching-DX)</div>|
