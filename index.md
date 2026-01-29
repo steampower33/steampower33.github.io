@@ -1,3 +1,8 @@
+---
+layout: page
+title: About Me
+---
+
 # Hi there, I'm Seungmin Lee! 👋
 <div align="center">
 Aspiring Graphics Engineer building projects to deepen technical expertise.
