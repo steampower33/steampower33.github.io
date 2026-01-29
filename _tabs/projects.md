@@ -7,7 +7,7 @@ title: Projects
 ---
 
 Here are my personal projects focused on **Graphics Engineering** and **Physics Simulation**.
-I enjoy exploring low-level APIs (DirectX 12, Vulkan) to understand the underlying hardware architecture.
+I enjoy exploring various graphics techniques and physics simulations using low-level APIs (DirectX 12, Vulkan).
 
 ---
 
