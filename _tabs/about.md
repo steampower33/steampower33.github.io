@@ -13,8 +13,8 @@ order: 4
 
 | Category | Technologies |
 | :--- | :--- |
-| **Languages** | <img src="https://img.shields.io/badge/C++-%2300599C.svg?style=flat-square&logo=c%2B%2B&logoColor=white" /> <img src="https://img.shields.io/badge/HLSL-%235C2D91.svg?style=flat-square&logo=c&logoColor=white" /> <img src="https://img.shields.io/badge/GLSL-%23100000.svg?style=flat-square&logo=opengl&logoColor=white" /> |
-| **Graphics APIs** | <img src="https://img.shields.io/badge/DirectX_12-%230078D7.svg?style=flat-square&logo=windows&logoColor=white" /> <img src="https://img.shields.io/badge/DirectX_11-%231F4F91.svg?style=flat-square&logo=windows&logoColor=white" /> <img src="https://img.shields.io/badge/Vulkan-%23AC162C.svg?style=flat-square&logo=vulkan&logoColor=white" /> <img src="https://img.shields.io/badge/OpenGL-%235586A4.svg?style=flat-square&logo=opengl&logoColor=white" /> |
+| **Languages** | <img src="https://img.shields.io/badge/C++-%2300599C.svg?style=flat-square&logo=c%2B%2B&logoColor=white" alt="C++" /> <img src="https://img.shields.io/badge/HLSL-%235C2D91.svg?style=flat-square&logo=c&logoColor=white" alt="HLSL" /> <img src="https://img.shields.io/badge/GLSL-%23100000.svg?style=flat-square&logo=opengl&logoColor=white" alt="GLSL" /> |
+| **Graphics APIs** | <img src="https://img.shields.io/badge/DirectX_12-%230078D7.svg?style=flat-square&logo=windows&logoColor=white" alt="DirectX 12" /> <img src="https://img.shields.io/badge/DirectX_11-%231F4F91.svg?style=flat-square&logo=windows&logoColor=white" alt="DirectX 11" /> <img src="https://img.shields.io/badge/Vulkan-%23AC162C.svg?style=flat-square&logo=vulkan&logoColor=white" alt="Vulkan" /> <img src="https://img.shields.io/badge/OpenGL-%235586A4.svg?style=flat-square&logo=opengl&logoColor=white" alt="OpenGL" /> |
 | **Interests** | `Graphics Programming` `Compute Shader` `Physics Simulation` `GPU Architecture` |
 
 ---
@@ -22,7 +22,7 @@ order: 4
 ## ⚡ Motto
 
 while (isBlackBox) {
-    DiveDeep();
+    DiveDeep();
 }
 
 ---
