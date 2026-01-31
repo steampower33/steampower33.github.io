@@ -32,7 +32,7 @@ I enjoy exploring various graphics techniques and physics simulations using low-
 ---
 
 ## ☁️ Real-time Volumetric Cloud (DX11)
-> **Role:** Solo Developer | **Tech:** C++, DirectX 11, HLSL | **Period:** 2026.1 ~ Present
+> **Role:** Solo Developer | **Tech:** C++, DirectX 11, HLSL | **Period:** 2026.1 ~ 2026.2
 
 [![Volumetric Cloud](https://img.youtube.com/vi/an71mmn2r7w/maxresdefault.jpg)](https://www.youtube.com/watch?v=an71mmn2r7w)
 
