@@ -37,10 +37,3 @@ while (isBlackBox) {
 | --- |
 |[![XPBD Cloth Simulation in Vulkan](https://img.youtube.com/vi/nu1VZo1UNBs/maxresdefault.jpg)](https://www.youtube.com/watch?v=nu1VZo1UNBs)|
 |[Github Repo](https://github.com/steampower33/PhysixStudio)|
-
-<br/>
-
-|**Real-time Volumetric Cloud** |
-|---|
-|[![Real-time Volumetric Cloud in DX11](https://img.youtube.com/vi/an71mmn2r7w/maxresdefault.jpg)](https://www.youtube.com/watch?v=an71mmn2r7w)|
-|[Github Repo](https://github.com/steampower33/RayMarching-DX)|
