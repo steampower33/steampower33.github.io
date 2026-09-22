@@ -6,103 +6,29 @@ permalink: /projects/
 title: Projects
 ---
 
-<style>
-.project-meta {
-  color: var(--text-muted-color);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
+C++ 기반 **GPU Simulation / Real-time Graphics**를 중심으로 구현한 개인 프로젝트를 정리하고 있습니다.
 
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 1.2rem 0 2rem;
-}
-
-.project-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-
-  padding: 0.5rem 0.85rem;
-
-  border: 1px solid var(--btn-border-color, #aaa);
-  border-radius: 8px;
-
-  color: var(--text-color) !important;
-  text-decoration: none !important;
-
-  font-size: 0.88rem;
-  font-weight: 600;
-
-  transition: background 0.15s ease;
-}
-
-.project-btn:hover {
-  background: var(--button-bg);
-}
-
-.project-thumbnail {
-  display: block;
-  margin: 1rem 0 1.4rem;
-}
-
-.project-thumbnail img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.project-tech {
-  margin: 0.8rem 0 1.2rem;
-}
-
-.project-tech code {
-  margin-right: 0.25rem;
-}
-
-.project-divider {
-  margin: 3rem 0;
-}
-</style>
-
-
-C++ 기반 **GPU Simulation / Real-time Graphics**를 중심으로 구현한 프로젝트를 정리하고 있습니다.
-
-Vulkan과 DirectX 12를 사용해 GPU 병렬 처리, Physics Simulation, Rendering Pipeline과 성능 최적화를 직접 다뤘습니다.
-
+Vulkan과 DirectX 12를 사용해 GPU 병렬 처리, Physics Simulation, Rendering Pipeline 및 성능 최적화를 직접 구현하고 분석했습니다.
 
 ---
 
-# DX12 기반 100만 파티클 PBF Fluid Simulation
+## 💧 DX12 기반 100만 파티클 PBF Fluid Simulation
 
-<div class="project-meta">
-Solo Project · 2026 · C++ / DirectX 12 / HLSL
-</div>
+> **Role:** Solo Developer | **Tech:** C++, DirectX 12, HLSL, Compute Shader | **Period:** 2026.02
 
-<a
-  class="project-thumbnail"
-  href="https://www.youtube.com/watch?v=OuQbcxNxZGo"
-  target="_blank"
->
-  <img
-    src="https://img.youtube.com/vi/OuQbcxNxZGo/maxresdefault.jpg"
-    alt="DX12 PBF Fluid Simulation"
-  >
-</a>
+[![PBF Fluid Simulation](https://img.youtube.com/vi/OuQbcxNxZGo/maxresdefault.jpg)](https://www.youtube.com/watch?v=OuQbcxNxZGo)
 
-DirectX 12 Compute Shader 기반으로 **Position Based Fluids(PBF)** 유체 시뮬레이션을 구현한 프로젝트입니다.
+### 💡 Project Overview
+
+DirectX 12 Compute Shader 기반으로 **Position Based Fluids(PBF)** 유체 시뮬레이션과  
+**Screen Space Fluid Rendering(SSFR)** 파이프라인을 구현한 프로젝트입니다.
 
 100만 개의 Fluid Particle을 GPU에서 처리하는 것을 목표로 했으며,  
-Spatial Hash 기반 Neighbor Search, GPU Sorting, Particle Permutation, SSFR 및 GPU-Driven Diffuse Particle Rendering을 구현했습니다.
+Spatial Hash 기반 Neighbor Search, GPU Sorting, Particle Permutation, Resource Synchronization 및 GPU-Driven Rendering을 구현했습니다.
 
-<div class="project-tech">
+PIX를 이용해 GPU 병목 구간을 분석하고, 정렬 및 Memory Access 구조를 개선했습니다.
 
-`C++` `DirectX 12` `HLSL` `Compute Shader` `PBF` `Spatial Hash` `Counting Sort` `SSFR` `PIX`
-
-</div>
-
-## 주요 구현
+### 🔧 Key Features
 
 - **GPU PBF Solver**
   - Integration
@@ -114,18 +40,19 @@ Spatial Hash 기반 Neighbor Search, GPU Sorting, Particle Permutation, SSFR 및
 
 - **Spatial Hash 기반 Neighbor Search**
   - Uniform Grid 기반으로 Particle을 공간 분할
-  - Grid Cell Key를 기준으로 Particle Data 재배열
+  - Grid Cell Key를 기준으로 Particle을 정렬
+  - Particle Data 자체를 Grid 순서로 재배열하여 Neighbor-heavy Pass의 Memory Access 개선
 
 - **GPU Sorting 최적화**
-  - 초기 Bitonic Sort 사용
-  - Integer Cell Key 특성을 이용해 Counting Sort Pipeline으로 변경
+  - 초기 Bitonic Sort 구현
+  - Integer Cell Key 특성을 이용해 Counting Sort 기반 Pipeline으로 변경
   - `2^20 Particle` 기준 **5.19 ms → 0.68 ms**
   - Sorting Time 약 **86.9% 감소**
 
-- **Resource / Memory Access 최적화**
+- **GPU Resource / Synchronization**
   - Compute Pass별 UAV / SRV 접근 패턴 분리
-  - Resource State Transition 및 Synchronization 관리
-  - PIX 기반 GPU Profiling
+  - Resource State Transition 및 Barrier 관리
+  - PIX Hardware Counter 기반 GPU Pipeline Profiling
 
 - **Screen Space Fluid Rendering**
   - Linear Depth
@@ -135,78 +62,45 @@ Spatial Hash 기반 Neighbor Search, GPU Sorting, Particle Permutation, SSFR 및
   - Reflection / Refraction
 
 - **GPU-Driven Diffuse Particle**
-  - ExecuteIndirect 사용
-  - Active Particle Count CPU Readback 제거
+  - ExecuteIndirect 기반 Rendering
+  - Active Particle Count의 CPU Readback 제거
 
-## 성능
+### 📊 Performance
 
-- Fluid Particle: **1,000,000**
+- Fluid Particles: **1,000,000**
 - PBF Compute: **약 25.2 ms**
 - PBF + SSFR GPU Frame: **약 28.4 ms**
-- 주요 병목: Neighbor Search / Solver Iteration **약 14 ms**
+- Neighbor Search / Solver Iteration: **약 14 ms**
 
-<div class="project-links">
+<div style="text-align: center;">
 
-<a
-  class="project-btn"
-  href="https://github.com/steampower33/SPH-PBF-Solver-DX12"
-  target="_blank"
->
-  <i class="fab fa-github"></i>
-  GitHub
-</a>
+<a href="https://github.com/steampower33/SPH-PBF-Solver-DX12" class="btn btn-outline-primary btn-lg">📂 GitHub Repository</a>
 
-<a
-  class="project-btn"
-  href="https://www.youtube.com/watch?v=kDXEbfrF-uI"
-  target="_blank"
->
-  ▶ Demo
-</a>
+<a href="https://www.youtube.com/watch?v=kDXEbfrF-uI" class="btn btn-outline-primary btn-lg">▶ Demo</a>
 
-<a
-  class="project-btn"
-  href="https://www.youtube.com/watch?v=OuQbcxNxZGo"
-  target="_blank"
->
-  ▶ 1M Performance
-</a>
+<a href="https://www.youtube.com/watch?v=OuQbcxNxZGo" class="btn btn-outline-primary btn-lg">▶ 1M Performance</a>
+
+<a href="https://app.notion.com/p/DX12-100-PBF-30dfcfd1c8e080eaaa68c4ff985e817f" class="btn btn-outline-primary btn-lg">📄 Technical Write-up</a>
 
 </div>
 
+---
 
-<div class="project-divider"></div>
+## 🧵 Vulkan 기반 GPU XPBD Cloth Simulation
 
+> **Role:** Solo Developer | **Tech:** C++, Vulkan, GLSL, Compute Shader | **Period:** 2025.10 ~ 2026.01
 
-# Vulkan 기반 GPU XPBD Cloth Simulation
+[![XPBD Cloth Simulation](https://img.youtube.com/vi/nu1VZo1UNBs/maxresdefault.jpg)](https://www.youtube.com/watch?v=nu1VZo1UNBs)
 
-<div class="project-meta">
-Solo Project · 2025.10 — 2026.01 · C++ / Vulkan / GLSL
-</div>
+### 💡 Project Overview
 
-<a
-  class="project-thumbnail"
-  href="https://www.youtube.com/watch?v=nu1VZo1UNBs"
-  target="_blank"
->
-  <img
-    src="https://img.youtube.com/vi/nu1VZo1UNBs/maxresdefault.jpg"
-    alt="Vulkan XPBD Cloth Simulation"
-  >
-</a>
+Vulkan Compute Shader 기반으로 **XPBD(Extended Position Based Dynamics) Cloth Simulation**을 구현한 프로젝트입니다.
 
-Vulkan Compute Shader 기반으로 **XPBD Cloth Simulation**을 구현한 프로젝트입니다.
+Cloth Constraint Solver를 GPU로 병렬화하면서 발생하는 Write Conflict와 Solver Stability 문제를 다뤘으며,  
+Constraint 종류에 따라 **Graph Coloring 기반 Gauss-Seidel-style Solver**와  
+**Atomic Add 기반 Jacobi-style Solver**를 사용했습니다.
 
-Constraint Solver를 GPU로 병렬화하면서 발생하는 Write Conflict를 해결하기 위해  
-Graph Coloring 기반 Gauss-Seidel-style Solver와 Atomic Add 기반 Jacobi-style Solver를 함께 사용했습니다.
-
-<div class="project-tech">
-
-`C++` `Vulkan` `GLSL` `Compute Shader` `XPBD` `Graph Coloring` `Atomic Add` `Spatial Hash`
-
-</div>
-
-## 주요 구현
+### 🔧 Key Features
 
 - **XPBD Cloth Solver**
   - Stretch
@@ -216,139 +110,49 @@ Graph Coloring 기반 Gauss-Seidel-style Solver와 Atomic Add 기반 Jacobi-styl
 
 - **Graph Coloring 기반 Stretch Solver**
   - 동일 Vertex를 공유하지 않는 Constraint를 Color Group으로 구성
-  - 동일 Color 내부 병렬 실행
-  - Color 사이 Barrier 적용
-  - In-place Position Update 기반 Gauss-Seidel-style Solver
+  - 같은 Color 내부의 Constraint를 GPU에서 병렬 실행
+  - Color Pass 사이 Synchronization 적용
+  - In-place Position Update 기반 Gauss-Seidel-style 처리
 
 - **Atomic Jacobi-style Solver**
   - Shear / Bend / Area / Self-Collision Correction을 Atomic Add로 누적
-  - ApplyDeltas Pass에서 평균 및 Relaxation 후 Position 반영
+  - 별도의 ApplyDeltas Pass에서 Averaging / Relaxation 후 Position에 적용
 
 - **Self-Collision Broadphase**
   - Spatial Hashing
   - GPU Radix Sort
-  - Cell Range / Neighbor List 구성
+  - Cell Range 및 Neighbor List 구성
 
-- **Collision**
-  - Sphere SDF
-  - Plane SDF
-  - Capsule SDF
+- **Analytic SDF Collision**
+  - Sphere
+  - Plane
+  - Capsule
 
-- **Vulkan Compute / Graphics Pipeline 연동**
-  - Compute 결과를 기반으로 Cloth Normal 재구성 및 Rendering
+- **Vulkan Compute / Graphics Pipeline**
+  - Compute Shader에서 Cloth Position 갱신
+  - 최종 Position을 기반으로 Triangle / Vertex Normal 재구성
+  - Rendering Pipeline과 연동
 
-## Simulation 규모
+### 📊 Simulation Scale
 
 - Cloth Resolution: **251 × 251**
 - Particles: **63,001**
 - Generated Constraints: **약 751K**
 - Recorded Physics Step: **약 7.4 ms**
 
-> 7.4 ms는 특정 Scene / Solver Configuration에서 측정한 GPU Physics Workload이며 전체 Frame Time을 의미하지 않습니다.
+> `7.4 ms`는 특정 Scene / Solver Configuration에서 측정한 GPU Physics Workload이며, 전체 Frame Time 또는 실제 FPS를 의미하지 않습니다.
 
-<div class="project-links">
+<div style="text-align: center;">
 
-<a
-  class="project-btn"
-  href="https://github.com/steampower33/XPBD-Cloth"
-  target="_blank"
->
-  <i class="fab fa-github"></i>
-  GitHub
-</a>
+<a href="https://github.com/steampower33/XPBD-Cloth" class="btn btn-outline-primary btn-lg">📂 GitHub Repository</a>
 
-<a
-  class="project-btn"
-  href="https://www.youtube.com/watch?v=nu1VZo1UNBs"
-  target="_blank"
->
-  ▶ Demo
-</a>
+<a href="https://www.youtube.com/watch?v=nu1VZo1UNBs" class="btn btn-outline-primary btn-lg">▶ Demo</a>
+
+<a href="https://app.notion.com/p/Vulkan-GPU-XPBD-Cloth-Simulation-3c9fcfd1c8e080c489c3c7b4b9df6188" class="btn btn-outline-primary btn-lg">📄 Technical Write-up</a>
 
 </div>
 
+---
 
-<div class="project-divider"></div>
-
-
-# DX12 WCSPH Fluid Simulation Prototype
-
-<div class="project-meta">
-Pearl Abyss Graphics Internship · 2025.03 — 2025.05
-</div>
-
-<!--
-WCSPH 스크린샷이 있다면 아래 img 경로에 넣기.
-
-예:
-<img src="/assets/img/projects/wcsph.png" alt="WCSPH Fluid Simulation">
-
-assets/img/projects/wcsph.png 파일도 Repository에 추가.
--->
-
-펄어비스 그래픽스실 인턴 과정에서 진행한  
-**DirectX 12 Compute Shader 기반 WCSPH Fluid Simulation Prototype**입니다.
-
-GPU Particle Simulation Pipeline과 Spatial Hash 기반 Neighbor Search를 구현하고,  
-WCSPH의 Density / Pressure / Force 계산 Pipeline을 구현했습니다.
-
-<div class="project-tech">
-
-`C++` `DirectX 12` `HLSL` `Compute Shader` `WCSPH` `Uniform Grid` `Spatial Hash` `PIX`
-
-</div>
-
-## 주요 구현
-
-- **GPU Particle Pipeline**
-  - Particle Spawn
-  - Particle Update
-  - Rendering
-
-- **Uniform Grid / Spatial Hash**
-  - Particle Neighbor Search
-  - Hashing / Grouping
-  - Prefix Sum 기반 Cell Range 구성 Prototype
-
-- **WCSPH Solver**
-  - Density
-  - Pressure (Equation of State)
-  - Force
-  - Velocity / Position Update
-
-- **GPU Synchronization**
-  - UAV Barrier 기반 Compute Pass Synchronization
-
-- **GPU Debugging**
-  - PIX를 이용한 Buffer / Compute Pipeline 분석
-
-## 프로젝트 규모 및 한계
-
-- 최대 약 **100K Particle Pipeline Test**
-- Solver Stability와 Physical Validation을 충분히 체계화하지 못한 Prototype
-- 이후 Vulkan XPBD와 DX12 PBF 프로젝트에서 GPU Simulation과 Solver 구조를 추가로 학습
-
-<div class="project-links">
-
-<a
-  class="project-btn"
-  href="https://github.com/steampower33/SPH-WCSPH-Solver"
-  target="_blank"
->
-  <i class="fab fa-github"></i>
-  GitHub
-</a>
-
-<!--
-WCSPH 데모 영상이 있다면 아래 주석을 해제하고 링크 수정
-
-<a
-  class="project-btn"
-  href="WCSPH_YOUTUBE_URL"
-  target="_blank"
->
-  ▶ Demo
-</a>
--->
-
-</div>
+각 프로젝트의 GitHub Repository에는 실제 구현 코드와 README를 공개하고 있으며,  
+Technical Write-up에는 Architecture, GPU 병렬화, 문제 해결 과정 및 성능 최적화 내용을 보다 자세히 정리하고 있습니다.
