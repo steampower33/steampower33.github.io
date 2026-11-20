@@ -1,8 +1,9 @@
 # 홈 화면에 보이는 프로젝트 목록. 위에 있을수록 먼저 보인다.
 # youtube: 메인 영상 ID (썸네일과 인라인 재생에 쓰인다)
+# 수치는 각 저장소 README / Notion Write-up 에 적힌 측정값과 조건을 그대로 따른다.
 
 - id: pbf-fluid
-  title: 100만 파티클 PBF Fluid Simulation
+  title: GPU PBF Fluid Simulation
   api: DirectX 12
   tech: [C++, DirectX 12, HLSL, Compute Shader, PIX]
   period: 2026.02
@@ -10,28 +11,33 @@
   summary: >-
     DirectX 12 Compute Shader로 Position Based Fluids 유체 시뮬레이션과
     Screen Space Fluid Rendering 파이프라인을 구현했습니다.
-    100만 개 파티클을 GPU에서 처리하고, PIX로 병목을 분석해 정렬과 메모리 접근 구조를 개선했습니다.
+    파티클 수를 100만 개까지 늘리면서 PIX로 Pass별 GPU Time을 측정했고,
+    병목이던 정렬을 Counting Sort 기반으로 교체했습니다.
+    최종 파이프라인에서는 Neighbor Search / Solver Iteration이 가장 큰 비용으로 남아 있습니다.
   stats:
     - value: "1,000,000"
       label: Fluid Particles
-    - value: "86.9%"
-      label: Sort Time 감소
-      note: 5.19 ms → 0.68 ms
+      note: "RTX 4060 Laptop GPU에서 측정"
+    - value: "0.68 ms"
+      label: Counting Sort
+      note: "Bitonic 5.19 ms 대비 · 2^20 particles"
     - value: "28.4 ms"
       label: PBF + SSFR GPU Frame
+      note: "PBF 25.2 ms + SSFR 3.2 ms · Diffuse 제외"
   highlights:
     - title: GPU PBF Solver
-      body: Integration, Spatial Hashing, Density / Lambda, Delta Position, Constraint Solve, Vorticity / Velocity Update
+      body: Integration, Spatial Hashing, Density / Lambda (Poly6, Spiky), Delta Position, Constraint Apply, Vorticity, XSPH Viscosity / Velocity Update
     - title: Spatial Hash Neighbor Search
-      body: Uniform Grid로 공간 분할 후 Cell Key 기준 정렬, 파티클 데이터 자체를 Grid 순서로 재배열해 Neighbor-heavy Pass의 메모리 접근 개선
-    - title: GPU Sorting 최적화
-      body: Bitonic Sort에서 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
-    - title: Resource / Synchronization
-      body: Pass별 UAV / SRV 접근 패턴 분리, Resource State Transition과 Barrier 관리, PIX Hardware Counter 기반 프로파일링
+      body: Uniform Grid로 공간 분할 후 Cell Key 기준 정렬, 파티클 데이터 자체를 Grid 순서로 재배열해 인접 Cell의 파티클이 메모리에서도 가깝게 놓이도록 구성
+    - title: GPU Sorting 교체
+      body: Bitonic Sort의 초기 단계를 Group Shared Memory로 옮긴 뒤(10만 파티클 기준 1.52 ms → 1.01 ms), 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
+    - title: Resource State 관리
+      body: Pass별 UAV / SRV 접근 패턴 분리, Read-only Pass는 Resource Barrier 후 SRV로 바인딩. 변경 전후를 PIX Hardware Counter로 확인
     - title: Screen Space Fluid Rendering
-      body: Linear Depth, Separable Bilateral Blur, Thickness, Normal Reconstruction, Reflection / Refraction
+      body: Linear Depth, Separable Bilateral Blur, Thickness, Normal Reconstruction, Fresnel / Reflection / Refraction
     - title: GPU-Driven Diffuse Particle
-      body: ExecuteIndirect 기반 렌더링으로 Active Particle Count의 CPU Readback 제거
+      body: Spray / Foam / Bubble 분류, Compute Shader에서 Dispatch / Draw Argument를 만들어 ExecuteIndirect로 실행, Active Particle Count의 CPU Readback 제거
+  footnote: "28.4 ms는 RTX 4060 Laptop GPU에서 Diffuse Simulation / Rendering을 끄고 Fluid 100만 개로 측정한 GPU Frame Time입니다. 활성 Diffuse Particle 약 180만 개 조건에서는 약 12.2 ms가 추가되어 약 40.6 ms였습니다."
   links:
     - label: GitHub
       url: https://github.com/steampower33/SPH-PBF-Solver-DX12
@@ -54,30 +60,33 @@
   youtube: nu1VZo1UNBs
   summary: >-
     Vulkan Compute Shader로 XPBD 천 시뮬레이션을 구현했습니다.
-    Constraint Solver를 GPU로 병렬화할 때 생기는 Write Conflict와 안정성 문제를
-    Graph Coloring 기반 Gauss-Seidel과 Atomic Jacobi 솔버로 나눠 다뤘습니다.
+    Constraint Solver를 GPU로 병렬화할 때 생기는 Write Conflict를
+    Stretch는 Graph Coloring 기반 Gauss-Seidel-style, 나머지는 Atomic Add 기반 Jacobi-style 경로로 나눠 처리했습니다.
+    Jitter와 발산은 Correction Averaging, Relaxation, Multi-Substep을 조합하고 값을 경험적으로 조정해 줄였습니다.
   stats:
     - value: "63,001"
       label: Particles
       note: 251 × 251 cloth
     - value: "~751K"
-      label: Constraints
+      label: Generated Constraints
+      note: Stretch / Shear / Bend / Area / LRA
     - value: "7.4 ms"
-      label: Physics Step
+      label: Recorded Physics Step
+      note: RTX 4060 Laptop GPU
   highlights:
     - title: XPBD Cloth Solver
-      body: Stretch, Shear, Bend, Area Constraint
+      body: Stretch, Shear, Bend, Area Constraint, Long Range Attachments. 기본 설정 10 Substeps × 4 Solver Iterations
     - title: Graph Coloring Stretch Solver
       body: Vertex를 공유하지 않는 Constraint끼리 Color Group을 만들어 같은 Color 안에서 병렬 실행, Color Pass 사이 동기화와 In-place 업데이트
     - title: Atomic Jacobi-style Solver
       body: Shear / Bend / Area / Self-Collision 보정을 Atomic Add로 누적한 뒤 ApplyDeltas Pass에서 Averaging / Relaxation
     - title: Self-Collision Broadphase
-      body: Spatial Hashing, GPU Radix Sort, Cell Range와 Neighbor List 구성
+      body: Spatial Hashing, vulkan_radix_sort 라이브러리를 통합한 GPU Radix Sort, Cell Range와 Neighbor List 구성. Neighbor List는 Substep 사이에 재사용
     - title: Analytic SDF Collision
       body: Sphere, Plane, Capsule
     - title: Compute ↔ Graphics
       body: Compute에서 갱신한 Position으로 Triangle / Vertex Normal을 재구성해 렌더링 파이프라인과 연동
-  footnote: 7.4 ms는 특정 Scene / Solver 설정에서 측정한 GPU Physics Workload이며 전체 Frame Time이 아닙니다.
+  footnote: 7.4 ms는 RTX 4060 Laptop GPU에서 특정 Scene / Solver 설정으로 기록한 GPU Physics Workload이며 전체 Frame Time이나 FPS가 아닙니다. Pass별 Breakdown 자료는 남아 있지 않습니다.
   links:
     - label: GitHub
       url: https://github.com/steampower33/XPBD-Cloth
