@@ -41,6 +41,13 @@
           <span>GALLERY</span>
         </a>
       </li>
+      <!-- 알고리즘 등 학습 기록. categories 첫 번째가 Study 인 글을 /study/ 에 모은다. -->
+      <li class="nav-item{% if page.url == '/study/' %}{{ " active" }}{% endif %}">
+        <a href="{{ '/study/' | relative_url }}" class="nav-link">
+          <i class="fa-fw fas fa-book-open"></i>
+          <span>STUDY</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
