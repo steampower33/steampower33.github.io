@@ -62,7 +62,7 @@
     Vulkan Compute Shader로 XPBD 천 시뮬레이션을 구현했습니다.
     Constraint Solver를 GPU로 병렬화할 때 생기는 Write Conflict를
     Stretch는 Graph Coloring 기반 Gauss-Seidel-style, 나머지는 Atomic Add 기반 Jacobi-style 경로로 나눠 처리했습니다.
-    Jitter와 발산은 Correction Averaging, Relaxation, Multi-Substep을 조합하고 값을 경험적으로 조정해 줄였습니다.
+    Jitter와 발산은 Correction Averaging, Constraint별 Compliance, Multi-Substep을 조합하고 값을 경험적으로 조정해 줄였습니다.
   stats:
     - value: "63,001"
       label: Particles
@@ -79,7 +79,7 @@
     - title: Graph Coloring Stretch Solver
       body: Vertex를 공유하지 않는 Constraint끼리 Color Group을 만들어 같은 Color 안에서 병렬 실행, Color Pass 사이 동기화와 In-place 업데이트
     - title: Atomic Jacobi-style Solver
-      body: Shear / Bend / Area / Self-Collision 보정을 Atomic Add로 누적한 뒤 ApplyDeltas Pass에서 Averaging / Relaxation
+      body: Shear / Bend / Area / Self-Collision 보정을 Atomic Add로 누적한 뒤 ApplyDeltas Pass에서 Particle별 Averaging
     - title: Self-Collision Broadphase
       body: Spatial Hashing, vulkan_radix_sort 라이브러리를 통합한 GPU Radix Sort, Cell Range와 Neighbor List 구성. Neighbor List는 Substep 사이에 재사용
     - title: Analytic SDF Collision
