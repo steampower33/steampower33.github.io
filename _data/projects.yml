@@ -30,7 +30,7 @@
     - title: Spatial Hash Neighbor Search
       body: Uniform Grid 좌표를 해시한 Cell Key로 정렬한 뒤 파티클 데이터 자체를 재배열해, 같은 Cell의 파티클이 연속 구간에 놓이고 Neighbor 순회에서 Index 간접 참조가 없도록 구성
     - title: GPU Sorting 교체
-      body: Bitonic Sort의 초기 단계를 Group Shared Memory로 옮긴 뒤(10만 파티클 기준 1.52 ms → 1.01 ms), 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
+      body: Bitonic Sort의 초기 단계를 Group Shared Memory로 옮긴 뒤(2^18 파티클 기준 1.60 ms → 1.10 ms), 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
     - title: Resource State 관리
       body: Pass별 UAV / SRV 접근 패턴 분리, Read-only Pass는 Resource Barrier 후 SRV로 바인딩. 변경 전후를 PIX Hardware Counter로 확인
     - title: Screen Space Fluid Rendering
