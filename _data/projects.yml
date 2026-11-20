@@ -28,7 +28,7 @@
     - title: GPU PBF Solver
       body: Integration, Spatial Hashing, Density / Lambda (Poly6, Spiky), Delta Position, Constraint Apply, Vorticity, XSPH Viscosity / Velocity Update
     - title: Spatial Hash Neighbor Search
-      body: Uniform Grid로 공간 분할 후 Cell Key 기준 정렬, 파티클 데이터 자체를 Grid 순서로 재배열해 인접 Cell의 파티클이 메모리에서도 가깝게 놓이도록 구성
+      body: Uniform Grid 좌표를 해시한 Cell Key로 정렬한 뒤 파티클 데이터 자체를 재배열해, 같은 Cell의 파티클이 연속 구간에 놓이고 Neighbor 순회에서 Index 간접 참조가 없도록 구성
     - title: GPU Sorting 교체
       body: Bitonic Sort의 초기 단계를 Group Shared Memory로 옮긴 뒤(10만 파티클 기준 1.52 ms → 1.01 ms), 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
     - title: Resource State 관리
@@ -37,7 +37,7 @@
       body: Linear Depth, Separable Bilateral Blur, Thickness, Normal Reconstruction, Fresnel / Reflection / Refraction
     - title: GPU-Driven Diffuse Particle
       body: Spray / Foam / Bubble 분류, Compute Shader에서 Dispatch / Draw Argument를 만들어 ExecuteIndirect로 실행, Active Particle Count의 CPU Readback 제거
-  footnote: "28.4 ms는 RTX 4060 Laptop GPU에서 Diffuse Simulation / Rendering을 끄고 Fluid 100만 개로 측정한 GPU Frame Time입니다. 활성 Diffuse Particle 약 180만 개 조건에서는 약 12.2 ms가 추가되어 약 40.6 ms였습니다."
+  footnote: "28.4 ms는 RTX 4060 Laptop GPU에서 Diffuse Simulation / Rendering을 끄고 Fluid 100만 개로 측정한 GPU Pass 시간의 합입니다. 시뮬레이션은 프레임마다 고정 1/120 s 한 스텝을 진행합니다."
   links:
     - label: GitHub
       url: https://github.com/steampower33/SPH-PBF-Solver-DX12
@@ -70,9 +70,9 @@
     - value: "~751K"
       label: Generated Constraints
       note: Stretch / Shear / Bend / Area / LRA
-    - value: "7.4 ms"
-      label: Recorded Physics Step
-      note: RTX 4060 Laptop GPU
+    - value: "~11.1 ms"
+      label: Physics Step (avg)
+      note: 전체 Constraint + Self-Collision · RTX 4060 Laptop
   highlights:
     - title: XPBD Cloth Solver
       body: Stretch, Shear, Bend, Area Constraint, Long Range Attachments. 기본 설정 10 Substeps × 4 Solver Iterations
@@ -86,7 +86,7 @@
       body: Sphere, Plane, Capsule
     - title: Compute ↔ Graphics
       body: Compute에서 갱신한 Position으로 Triangle / Vertex Normal을 재구성해 렌더링 파이프라인과 연동
-  footnote: 7.4 ms는 RTX 4060 Laptop GPU에서 특정 Scene / Solver 설정으로 기록한 GPU Physics Workload이며 전체 Frame Time이나 FPS가 아닙니다. Pass별 Breakdown 자료는 남아 있지 않습니다.
+  footnote: "11.1 ms는 RTX 4060 Laptop GPU에서 Stretch / Shear / Bend / Area / LRA와 Self-Collision을 모두 켜고 바닥 위 천을 드래그하는 상태에서 측정한 Compute Kernel 시간 합의 평균입니다(세 번 측정 10.8–11.2 ms). 전체 Frame Time이나 FPS가 아닙니다. 이전에 표기한 7.4 ms는 GPU 프로파일러의 집계 버그로 작게 잡힌 값이었고, 2026-11-21에 수정 후 다시 측정했습니다."
   links:
     - label: GitHub
       url: https://github.com/steampower33/XPBD-Cloth
