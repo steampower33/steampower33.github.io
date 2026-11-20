@@ -144,7 +144,9 @@ assets:
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
-    enabled: true # The option for PWA offline cache
+    # 꺼 두면 Chirpy 페이지가 기존 서비스 워커를 해제하고 캐시를 비운다.
+    # 켜면 배포 후에도 예전 페이지가 보이고 "업데이트" 버튼을 눌러야 반영된다.
+    enabled: false # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
