@@ -12,16 +12,20 @@
     .hero {
       position: relative; min-height: 100svh; display: grid; place-items: center;
       overflow: hidden; isolation: isolate;
+      user-select: none; -webkit-user-select: none;
+      background: radial-gradient(ellipse 70% 55% at 50% 45%, #0d1420, var(--bg));
     }
-    #field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+    .hero-tip {
+      position: absolute; left: 24px; bottom: 30px; margin: 0;
+      font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; color: var(--faint);
+      pointer-events: none;
+    }
+    @media (hover: none), (max-width: 700px) { .hero-tip { display: none; } }
+    #field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; display: block; }
     .hero::after {
       content: ''; position: absolute; inset: auto 0 0 0; height: 40%; z-index: -1;
       background: linear-gradient(to bottom, transparent, var(--bg));
       pointer-events: none;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-      background: radial-gradient(ellipse 55% 38% at 50% 50%, rgba(7, 8, 12, 0.78), transparent 75%);
     }
     .hero-inner { text-align: center; padding: 0 16px; }
     .hero h1 {
@@ -186,6 +190,7 @@
         <h1>{{ site.social.name }}</h1>
         <p class="role">{{ site.tagline }}</p>
       </div>
+      <p class="hero-tip">stir with your cursor · click to drop ink</p>
       <a class="scroll-hint" href="#work">Work <i class="fas fa-chevron-down"></i></a>
     </section>
 
@@ -320,75 +325,232 @@
     }, { rootMargin: '200px' });
     document.querySelectorAll('.preview[data-src]').forEach(function (el) { gio.observe(el); });
 
-    // 히어로 배경: flow field 를 따라 흐르는 파티클. 마우스 근처는 밀려난다.
-    var cv = document.getElementById('field');
-    var ctx = cv.getContext('2d');
-    var W, H, dpr, P = [], mouse = { x: -1e4, y: -1e4 }, running = true, t = 0;
+    // 히어로 배경: WebGL2 2D 유체 시뮬레이션 (Stable Fluids).
+    // 속도장에서 압력을 풀어 비압축으로 만들고, 그 흐름을 따라 잉크를 옮긴다.
+    // 이름 글자는 장애물이라 잉크가 글자를 감싸고 돌아 흐른다.
+    // 평소엔 보이지 않는 붓이 아주 천천히 잉크를 흘리고, 마우스로 휘저으면 따라온다.
+    // 움직임 줄이기 설정이면 정지 화면이고, 만질 때만 잠깐 움직인다.
+    (function () {
+      var canvas = document.getElementById('field');
+      var hero = canvas.parentElement;
+      var nameEl = hero.querySelector('h1');
+      var gl = canvas.getContext('webgl2', { alpha: false, antialias: false });
+      if (!gl || !gl.getExtension('EXT_color_buffer_float')) { canvas.style.display = 'none'; return; }   // 미지원이면 배경 그라데이션만
 
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = cv.clientWidth; H = cv.clientHeight;
-      if (!W || !H) return;
-      cv.width = W * dpr; cv.height = H * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.min(2600, Math.floor(W * H / 520));
-      P = [];
-      for (var i = 0; i < n; i++) P.push(spawn({}));
-      ctx.fillStyle = '#07080c'; ctx.fillRect(0, 0, W, H);
-      if (reduce) for (var k = 0; k < 160; k++) step();   // 움직임 줄이기 설정이면 정지 화면 한 장만
-    }
-    function spawn(p) {
-      p.x = Math.random() * W; p.y = Math.random() * H;
-      p.vx = 0; p.vy = 0; p.life = 120 + Math.random() * 280;
-      p.hue = Math.random();
-      return p;
-    }
-    // 부드러운 의사 노이즈 각도장 (sin 합성)
-    function angle(x, y) {
-      var s = 0.0021;
-      return Math.sin(x * s + t * 0.21) * 1.7 + Math.cos(y * s * 1.3 - t * 0.17) * 1.7
-           + Math.sin((x + y) * s * 0.6 + t * 0.11) * 1.1;
-    }
-    function step() {
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(7, 8, 12, 0.085)';
-      ctx.fillRect(0, 0, W, H);
-      ctx.globalCompositeOperation = 'lighter';
-      for (var i = 0; i < P.length; i++) {
-        var p = P[i], a = angle(p.x, p.y);
-        p.vx = p.vx * 0.92 + Math.cos(a) * 0.16;
-        p.vy = p.vy * 0.92 + Math.sin(a) * 0.16;
-        var dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
-        if (d2 < 22000) { var f = (22000 - d2) / 22000 * 0.9; var d = Math.sqrt(d2) + 0.01; p.vx += dx / d * f; p.vy += dy / d * f; }
-        p.x += p.vx; p.y += p.vy;
-        if (--p.life < 0 || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) spawn(p);
-        var sp = Math.min(1, Math.hypot(p.vx, p.vy) / 2.4);
-        // cyan → violet, 빠를수록 밝게
-        var r = 94 + (139 - 94) * p.hue, g = 231 + (123 - 231) * p.hue, b = 255;
-        ctx.fillStyle = 'rgba(' + (r | 0) + ',' + (g | 0) + ',' + b + ',' + (0.3 + sp * 0.55).toFixed(2) + ')';
-        ctx.fillRect(p.x, p.y, 1.6, 1.6);
+      var SIM_RES = 160, DYE_RES = 720;
+      var VEL_DISSIPATION = 0.35, DYE_DISSIPATION = 0.55, PRESSURE_ITERS = 20, CURL = 12;
+      var SPLAT_FORCE = 5200, SPLAT_RADIUS = 0.0022;
+
+      var VS = '#version 300 es\nprecision highp float;\nlayout(location=0) in vec2 aPos;\nuniform vec2 texel;\nout vec2 vUv, vL, vR, vT, vB;\n' +
+        'void main(){ vUv=aPos*0.5+0.5; vL=vUv-vec2(texel.x,0.); vR=vUv+vec2(texel.x,0.); vT=vUv+vec2(0.,texel.y); vB=vUv-vec2(0.,texel.y); gl_Position=vec4(aPos,0.,1.); }';
+      var HEAD = '#version 300 es\nprecision highp float; precision highp sampler2D;\nin vec2 vUv, vL, vR, vT, vB; out vec4 o;\nuniform sampler2D uMask;\n' +
+        'float solid(vec2 uv){ return texture(uMask, uv).r; }\n';
+      var FS = {
+        splat: 'uniform sampler2D uTarget; uniform float aspect, radius; uniform vec3 color; uniform vec2 point;' +
+          'void main(){ vec2 p=vUv-point; p.x*=aspect; vec3 s=exp(-dot(p,p)/radius)*color; o=vec4(texture(uTarget,vUv).xyz+s*(1.-solid(vUv)),1.); }',
+        advect: 'uniform sampler2D uVelocity, uSource; uniform vec2 simTexel; uniform float dt, dissipation;' +
+          'void main(){ vec2 coord=vUv-dt*texture(uVelocity,vUv).xy*simTexel; o=texture(uSource,coord)/(1.+dissipation*dt)*(1.-solid(vUv)); }',
+        divergence: 'uniform sampler2D uVelocity;' +
+          'void main(){ vec2 C=texture(uVelocity,vUv).xy;' +
+          ' float L=texture(uVelocity,vL).x, R=texture(uVelocity,vR).x, T=texture(uVelocity,vT).y, B=texture(uVelocity,vB).y;' +
+          ' if(vL.x<0.||solid(vL)>.5) L=-C.x; if(vR.x>1.||solid(vR)>.5) R=-C.x;' +
+          ' if(vT.y>1.||solid(vT)>.5) T=-C.y; if(vB.y<0.||solid(vB)>.5) B=-C.y;' +
+          ' o=vec4(0.5*(R-L+T-B),0.,0.,1.); }',
+        curl: 'uniform sampler2D uVelocity;' +
+          'void main(){ float L=texture(uVelocity,vL).y, R=texture(uVelocity,vR).y, T=texture(uVelocity,vT).x, B=texture(uVelocity,vB).x; o=vec4(0.5*(R-L-T+B),0.,0.,1.); }',
+        vorticity: 'uniform sampler2D uVelocity, uCurl; uniform float curl, dt;' +
+          'void main(){ float L=texture(uCurl,vL).x, R=texture(uCurl,vR).x, T=texture(uCurl,vT).x, B=texture(uCurl,vB).x, C=texture(uCurl,vUv).x;' +
+          ' vec2 f=0.5*vec2(abs(T)-abs(B), abs(R)-abs(L)); f/=length(f)+1e-4; f*=curl*C; f.y*=-1.;' +
+          ' o=vec4(clamp(texture(uVelocity,vUv).xy+f*dt,-1000.,1000.),0.,1.); }',
+        pressure: 'uniform sampler2D uPressure, uDivergence;' +
+          'void main(){ float C=texture(uPressure,vUv).x;' +
+          ' float L=solid(vL)>.5?C:texture(uPressure,vL).x, R=solid(vR)>.5?C:texture(uPressure,vR).x;' +
+          ' float T=solid(vT)>.5?C:texture(uPressure,vT).x, B=solid(vB)>.5?C:texture(uPressure,vB).x;' +
+          ' o=vec4((L+R+B+T-texture(uDivergence,vUv).x)*0.25,0.,0.,1.); }',
+        gradient: 'uniform sampler2D uPressure, uVelocity;' +
+          'void main(){ float L=texture(uPressure,vL).x, R=texture(uPressure,vR).x, T=texture(uPressure,vT).x, B=texture(uPressure,vB).x;' +
+          ' o=vec4((texture(uVelocity,vUv).xy-vec2(R-L,T-B))*(1.-solid(vUv)),0.,1.); }',
+        scale: 'uniform sampler2D uTexture; uniform float value; void main(){ o=value*texture(uTexture,vUv); }',
+        display: 'uniform sampler2D uTexture;' +
+          'void main(){ vec3 c=texture(uTexture,vUv).rgb; c=pow(1.-exp(-c*1.4),vec3(0.9));' +
+          ' vec2 q=(vUv-vec2(0.5,0.55))*vec2(1.4,1.8); vec3 bg=mix(vec3(0.051,0.078,0.125),vec3(0.027,0.031,0.047),clamp(length(q),0.,1.));' +
+          ' o=vec4(bg+c*(1.-bg),1.); }'
+      };
+
+      function compile(type, src) {
+        var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+        return s;
       }
-      t += 0.016;
-    }
-    function loop() { if (running) { step(); requestAnimationFrame(loop); } }
+      var prog = {};
+      try {
+        var vs = compile(gl.VERTEX_SHADER, VS);
+        Object.keys(FS).forEach(function (k) {
+          var p = gl.createProgram();
+          gl.attachShader(p, vs); gl.attachShader(p, compile(gl.FRAGMENT_SHADER, HEAD + FS[k])); gl.linkProgram(p);
+          if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+          var u = {}, n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+          for (var i = 0; i < n; i++) { var name = gl.getActiveUniform(p, i).name; u[name] = gl.getUniformLocation(p, name); }
+          prog[k] = { p: p, u: u };
+        });
+      } catch (err) { canvas.style.display = 'none'; return; }
 
-    // 레이아웃이 잡히기 전엔 크기가 0 일 수 있으므로 window resize 대신 캔버스 자체 크기를 관찰한다
-    new ResizeObserver(resize).observe(cv);
-    cv.parentElement.addEventListener('pointermove', function (e) {
-      var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-    });
-    cv.parentElement.addEventListener('pointerleave', function () { mouse.x = mouse.y = -1e4; });
+      gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
-    if (!reduce) {
-      new IntersectionObserver(function (e) {
-        var vis = e[0].isIntersecting;
-        if (vis && !running) { running = true; loop(); } else if (!vis) running = false;
-      }).observe(cv);
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) running = false; else if (!running) { running = true; loop(); }
+      function fbo(w, h, ifmt, fmt, filter) {
+        var tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texImage2D(gl.TEXTURE_2D, 0, ifmt, w, h, 0, fmt, gl.HALF_FLOAT, null);
+        var fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+        gl.viewport(0, 0, w, h); gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+        return { tex: tex, fb: fb, w: w, h: h };
+      }
+      function dbl(w, h, ifmt, fmt, filter) {
+        var a = fbo(w, h, ifmt, fmt, filter), b = fbo(w, h, ifmt, fmt, filter);
+        return { get read() { return a; }, get write() { return b; }, swap: function () { var t = a; a = b; b = t; }, w: w, h: h };
+      }
+
+      var vel, dye, pres, div, curlT, maskTex = gl.createTexture(), simW, simH, ready = false;
+      function res(r) { var a = canvas.width / canvas.height; return a > 1 ? [Math.round(r * a), r] : [r, Math.round(r / a)]; }
+
+      // 이름 글자를 장애물로: h1 의 위치와 폰트를 그대로 2D 캔버스에 그려 텍스처로 올린다
+      function buildMask() {
+        var hr = hero.getBoundingClientRect(), r = nameEl.getBoundingClientRect(), cs = getComputedStyle(nameEl);
+        var mc = document.createElement('canvas'); mc.width = Math.max(1, Math.round(hr.width / 2)); mc.height = Math.max(1, Math.round(hr.height / 2));
+        var c = mc.getContext('2d');
+        c.scale(0.5, 0.5); c.fillStyle = '#000'; c.fillRect(0, 0, hr.width, hr.height);
+        c.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; c.textAlign = 'center'; c.textBaseline = 'middle';
+        if ('letterSpacing' in c) c.letterSpacing = cs.letterSpacing;
+        c.fillStyle = c.strokeStyle = '#fff'; c.lineWidth = 10; c.lineJoin = 'round';
+        var x = r.left - hr.left + r.width / 2, y = r.top - hr.top + r.height / 2;
+        c.strokeText(nameEl.textContent, x, y); c.fillText(nameEl.textContent, x, y);
+        gl.bindTexture(gl.TEXTURE_2D, maskTex);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, mc);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      }
+
+      function resize() {
+        var w = canvas.clientWidth, h = canvas.clientHeight;
+        if (!w || !h) return;
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        var cw = Math.round(w * dpr), ch = Math.round(h * dpr);
+        if (ready && cw === canvas.width && ch === canvas.height) { buildMask(); return; }
+        canvas.width = cw; canvas.height = ch;
+        var s = res(SIM_RES), d = res(DYE_RES); simW = s[0]; simH = s[1];
+        vel = dbl(simW, simH, gl.RG16F, gl.RG, gl.LINEAR);
+        dye = dbl(d[0], d[1], gl.RGBA16F, gl.RGBA, gl.LINEAR);
+        pres = dbl(simW, simH, gl.R16F, gl.RED, gl.NEAREST);
+        div = fbo(simW, simH, gl.R16F, gl.RED, gl.NEAREST);
+        curlT = fbo(simW, simH, gl.R16F, gl.RED, gl.NEAREST);
+        buildMask();
+        ready = true;
+        warmup();
+      }
+
+      var unit = 0;
+      function use(k, tx, ty) { var P = prog[k]; gl.useProgram(P.p); unit = 0; gl.uniform2f(P.u.texel, tx, ty); bind(P, 'uMask', maskTex); return P; }
+      function bind(P, name, tex) { if (!P.u[name]) return; gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, tex); gl.uniform1i(P.u[name], unit); unit++; }
+      function draw(t) {
+        if (t) { gl.bindFramebuffer(gl.FRAMEBUFFER, t.fb); gl.viewport(0, 0, t.w, t.h); }
+        else { gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, canvas.width, canvas.height); }
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      }
+
+      function splat(x, y, dx, dy, color, radius) {
+        var a = canvas.width / canvas.height;
+        var P = use('splat', 1 / simW, 1 / simH);
+        bind(P, 'uTarget', vel.read.tex); gl.uniform1f(P.u.aspect, a); gl.uniform2f(P.u.point, x, y);
+        gl.uniform3f(P.u.color, dx, dy, 0); gl.uniform1f(P.u.radius, radius); draw(vel.write); vel.swap();
+        P = use('splat', 1 / dye.w, 1 / dye.h);
+        bind(P, 'uTarget', dye.read.tex); gl.uniform1f(P.u.aspect, a); gl.uniform2f(P.u.point, x, y);
+        gl.uniform3f(P.u.color, color[0], color[1], color[2]); gl.uniform1f(P.u.radius, radius); draw(dye.write); dye.swap();
+      }
+
+      function simulate(dt) {
+        var sx = 1 / simW, sy = 1 / simH, P;
+        P = use('curl', sx, sy); bind(P, 'uVelocity', vel.read.tex); draw(curlT);
+        P = use('vorticity', sx, sy); bind(P, 'uVelocity', vel.read.tex); bind(P, 'uCurl', curlT.tex);
+        gl.uniform1f(P.u.curl, CURL); gl.uniform1f(P.u.dt, dt); draw(vel.write); vel.swap();
+        P = use('divergence', sx, sy); bind(P, 'uVelocity', vel.read.tex); draw(div);
+        P = use('scale', sx, sy); bind(P, 'uTexture', pres.read.tex); gl.uniform1f(P.u.value, 0.8); draw(pres.write); pres.swap();
+        P = use('pressure', sx, sy);
+        for (var i = 0; i < PRESSURE_ITERS; i++) { unit = 1; bind(P, 'uPressure', pres.read.tex); bind(P, 'uDivergence', div.tex); draw(pres.write); pres.swap(); }
+        P = use('gradient', sx, sy); bind(P, 'uPressure', pres.read.tex); bind(P, 'uVelocity', vel.read.tex); draw(vel.write); vel.swap();
+        P = use('advect', sx, sy); bind(P, 'uVelocity', vel.read.tex); bind(P, 'uSource', vel.read.tex);
+        gl.uniform2f(P.u.simTexel, sx, sy); gl.uniform1f(P.u.dt, dt); gl.uniform1f(P.u.dissipation, VEL_DISSIPATION); draw(vel.write); vel.swap();
+        P = use('advect', 1 / dye.w, 1 / dye.h); bind(P, 'uVelocity', vel.read.tex); bind(P, 'uSource', dye.read.tex);
+        gl.uniform2f(P.u.simTexel, sx, sy); gl.uniform1f(P.u.dt, dt); gl.uniform1f(P.u.dissipation, DYE_DISSIPATION); draw(dye.write); dye.swap();
+      }
+      function display() { var P = use('display', 1 / canvas.width, 1 / canvas.height); bind(P, 'uTexture', dye.read.tex); draw(null); }
+
+      // cyan ↔ violet
+      function ink(k, s) { var a = [0.18, 0.62, 0.78], b = [0.40, 0.30, 0.85]; return a.map(function (v, i) { return (v + (b[i] - v) * k) * s; }); }
+
+      // 잔잔한 흐름: 화면을 아주 천천히 도는 보이지 않는 붓 3개
+      var brushes = [0, 1, 2].map(function (i) { return { ph: i * 2.1, sp: 0.05 + i * 0.013, k: i / 2, px: 0, py: 0 }; });
+      function ambient(time) {
+        brushes.forEach(function (b) {
+          var x = 0.5 + 0.42 * Math.sin(time * b.sp + b.ph), y = 0.5 + 0.38 * Math.sin(time * b.sp * 1.37 + b.ph * 1.7);
+          if (b.px) splat(x, y, (x - b.px) * SPLAT_FORCE * 0.6, (y - b.py) * SPLAT_FORCE * 0.6, ink(b.k, 0.03), SPLAT_RADIUS * 2);
+          b.px = x; b.py = y;
+        });
+      }
+
+      var time = 0;
+      // 첫 화면이 비어 보이지 않게, 그리고 움직임 줄이기 설정의 정지 화면용으로 미리 몇 초 흘려 둔다
+      function warmup() { for (var i = 0; i < 150; i++) { time += 1 / 60; ambient(time * 4); simulate(1 / 60); } display(); }
+
+      // ── 입력: 마우스는 움직임으로 휘젓고, 클릭 / 탭은 잉크 한 방울 ──
+      var ptr = { x: 0, y: 0, dx: 0, dy: 0, moved: false, hue: 0 };
+      function uv(e) { var r = canvas.getBoundingClientRect(); return [(e.clientX - r.left) / r.width, 1 - (e.clientY - r.top) / r.height]; }
+      hero.addEventListener('pointermove', function (e) {
+        var p = uv(e);
+        if (ptr.x) { ptr.dx = p[0] - ptr.x; ptr.dy = p[1] - ptr.y; ptr.moved = true; }
+        ptr.x = p[0]; ptr.y = p[1];
+        wake();
       });
-      loop();
-    }
+      hero.addEventListener('pointerleave', function () { ptr.x = 0; });
+      hero.addEventListener('pointerdown', function (e) {
+        if (e.target.closest('a, button') || !ready) return;
+        var p = uv(e);
+        splat(p[0], p[1], (Math.random() - 0.5) * 600, (Math.random() - 0.5) * 600, ink(Math.random(), 1.2), SPLAT_RADIUS * 4);
+        wake();
+      });
+
+      // ── 루프: 화면 밖이거나 탭이 숨겨지면 멈춘다 ──
+      var running = false, inView = true, awakeUntil = 0, last = 0;
+      function frame(now) {
+        if (!inView || document.hidden || (reduce && now > awakeUntil)) { running = false; return; }
+        var dt = Math.min((now - last) / 1000, 1 / 30); last = now;
+        if (ready) {
+          time += dt;
+          if (!reduce) ambient(time);
+          if (ptr.moved) {
+            ptr.hue = (ptr.hue + 0.004) % 2;
+            var k = ptr.hue < 1 ? ptr.hue : 2 - ptr.hue, sp = Math.min(1, Math.hypot(ptr.dx, ptr.dy) * 40);
+            splat(ptr.x, ptr.y, ptr.dx * SPLAT_FORCE, ptr.dy * SPLAT_FORCE, ink(k, 0.35 * sp + 0.05), SPLAT_RADIUS);
+            ptr.moved = false;
+          }
+          simulate(dt); display();
+        }
+        requestAnimationFrame(frame);
+      }
+      function start() { if (!running && inView && !document.hidden) { running = true; last = performance.now(); requestAnimationFrame(frame); } }
+      function wake() { awakeUntil = performance.now() + 3000; start(); }
+
+      new ResizeObserver(resize).observe(canvas);
+      if (document.fonts) document.fonts.ready.then(function () { if (ready) { buildMask(); } });
+      new IntersectionObserver(function (e) { inView = e[0].isIntersecting; if (inView && !reduce) start(); }).observe(canvas);
+      document.addEventListener('visibilitychange', function () { if (!document.hidden && !reduce) start(); });
+      if (!reduce) start();
+    })();
   })();
   </script>
 </body>

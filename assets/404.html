@@ -5,26 +5,39 @@ permalink: /404.html
 sitemap: false
 ---
 <!doctype html>
-<!-- 없는 주소. 홈과 같은 상단 바로 보여 준다. -->
+<!-- 없는 주소. 홈과 같은 상단 바로 보여 주고, "404" 를 액체 입자로 그린다.
+     휘저으면 물처럼 흘러내렸다가 다시 글자로 모이고, 클릭하면 튄다. -->
 <html lang="{{ site.lang | default: 'ko' }}">
 <head>
   {% include site-head.html %}
   <title>페이지를 찾을 수 없습니다 · {{ site.social.name }}</title>
   <meta name="robots" content="noindex">
   <style>
-    main { min-height: 78vh; display: grid; place-items: center; text-align: center; padding: 120px 0 64px; }
-    .code { margin: 0; font-family: var(--mono); font-weight: 600; font-size: clamp(4rem, 16vw, 8rem); letter-spacing: -0.04em; line-height: 1;
-      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    p { color: var(--muted); margin: 16px 0 32px; }
+    main { min-height: 78vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 96px 0 64px; }
+    /* 입자를 흐린 원으로 그린 뒤 대비를 세게 올려 물방울처럼 붙어 보이게(metaball) 하고, 위에 색을 곱한다 */
+    .stage { position: relative; width: 100%; height: clamp(220px, 42vh, 420px); isolation: isolate; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+    .stage { overflow: hidden; }
+    /* blur 가 가장자리에서 테두리처럼 번지지 않도록 필터 영역을 바깥으로 조금 넓혀 둔다 */
+    .stage .goo { position: absolute; inset: -16px; background: #000; filter: blur(var(--blur, 2px)) contrast(24); }
+    .stage canvas { position: absolute; inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); display: block; }
+    .stage .tint { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; background: linear-gradient(100deg, var(--cyan) 25%, var(--violet) 75%); }
+    .stage .floor { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: lighten; background: var(--bg); }
+    h1 { margin: 8px 0 0; font-size: 1.15rem; font-weight: 600; }
+    p { color: var(--muted); margin: 8px 0 28px; font-size: 14.5px; }
     .actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   </style>
 </head>
 <body>
   {% include site-topbar.html %}
   <main>
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="goo"><canvas id="drops"></canvas></div>
+      <div class="tint"></div>
+      <div class="floor"></div>
+    </div>
     <div class="wrap">
-      <h1 class="code">404</h1>
-      <p>요청한 페이지를 찾을 수 없습니다.</p>
+      <h1>페이지를 찾을 수 없습니다</h1>
+      <p>주소가 바뀌었거나 없는 페이지입니다. 위의 숫자는 휘젓거나 눌러 볼 수 있습니다.</p>
       <div class="actions">
         <a class="btn primary" href="{{ '/' | relative_url }}"><i class="fas fa-house"></i>Home</a>
         <a class="btn" href="{{ '/study/' | relative_url }}"><i class="fas fa-book-open"></i>Study</a>
@@ -32,5 +45,115 @@ sitemap: false
     </div>
   </main>
   {% include site-footer.html %}
+
+  <script>
+  (function () {
+    var stage = document.getElementById('stage'), cv = document.getElementById('drops'), ctx = cv.getContext('2d');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var TEXT = '404', FONT = '"JetBrains Mono", ui-monospace, monospace';
+    var W = 0, H = 0, P = [], CELL = 8, R = 2.2, GAP = 4, gw = 1;
+    var mouse = { x: -1e4, y: -1e4, vx: 0, vy: 0 };
+    var running = false, awakeUntil = 0;
+
+    function build(first) {
+      var w = cv.clientWidth, h = cv.clientHeight;
+      if (!w || !h) return;
+      W = cv.width = w; H = cv.height = h;
+      var size = Math.min(h * 0.82, w * 0.3);
+      // 글자를 오프스크린에 그리고 픽셀을 일정 간격으로 뽑아 입자의 "집" 위치로 쓴다
+      var off = document.createElement('canvas'); off.width = W; off.height = H;
+      var o = off.getContext('2d');
+      o.font = '600 ' + size + 'px ' + FONT; o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillStyle = '#fff';
+      o.fillText(TEXT, W / 2, H / 2);
+      var data = o.getImageData(0, 0, W, H).data, step = Math.max(3, Math.round(size / 40));
+      GAP = step; R = step * 0.78; CELL = Math.ceil(step * 2); gw = Math.ceil(W / CELL) + 1;
+      stage.style.setProperty('--blur', (step * 0.55).toFixed(1) + 'px');
+      var old = P; P = [];
+      for (var y = 0; y < H; y += step) for (var x = 0; x < W; x += step) {
+        if (data[(y * W + x) * 4 + 3] > 128) {
+          var q = old[P.length], intro = first && !reduce;
+          P.push({ hx: x, hy: y, x: q ? q.x : intro ? Math.random() * W : x, y: q ? q.y : intro ? H + Math.random() * 120 : y, vx: 0, vy: 0, free: 0 });
+        }
+      }
+      render();
+    }
+
+    function step() {
+      var grid = new Map(), i, p;
+      for (i = 0; i < P.length; i++) {
+        p = P[i]; var key = ((p.x / CELL) | 0) + ((p.y / CELL) | 0) * gw, b = grid.get(key);
+        if (!b) grid.set(key, b = []); b.push(i);
+      }
+      for (i = 0; i < P.length; i++) {
+        p = P[i];
+        // 집으로 돌아가려는 힘. 휘저어진 직후엔 약하고 중력을 받아 흘러내리다가, 다시 글자로 모인다
+        var home = p.free > 0 ? 0.0025 : 0.02;
+        p.vx += (p.hx - p.x) * home; p.vy += (p.hy - p.y) * home;
+        if (p.free > 0) { p.vy += 0.18; p.free--; }
+        var dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 8100) {
+          var d = Math.sqrt(d2) + 0.01, f = 1 - d / 90, sp = Math.hypot(mouse.vx, mouse.vy);
+          p.vx += (dx / d) * f * f * 2.2 + mouse.vx * 0.06 * f;
+          p.vy += (dy / d) * f * f * 2.2 + mouse.vy * 0.06 * f;
+          if (sp > 3 && f > 0.2) p.free = Math.max(p.free, 70 + (Math.random() * 60) | 0);
+        }
+        // 이웃끼리 겹치지 않게 (부피를 가진 액체처럼)
+        var cx = (p.x / CELL) | 0, cy = (p.y / CELL) | 0, h = GAP * 0.95;
+        for (var oy = -1; oy <= 1; oy++) for (var ox = -1; ox <= 1; ox++) {
+          var bucket = grid.get(cx + ox + (cy + oy) * gw); if (!bucket) continue;
+          for (var n = 0; n < bucket.length; n++) {
+            var j = bucket[n]; if (j <= i) continue;
+            var q = P[j], ex = q.x - p.x, ey = q.y - p.y, e2 = ex * ex + ey * ey;
+            if (e2 < h * h && e2 > 1e-4) {
+              var e = Math.sqrt(e2), push = (h - e) / e * 0.25;
+              p.vx -= ex * push; p.vy -= ey * push; q.vx += ex * push; q.vy += ey * push;
+            }
+          }
+        }
+      }
+      for (i = 0; i < P.length; i++) {
+        p = P[i]; var damp = p.free > 0 ? 0.9 : 0.84;
+        p.vx *= damp; p.vy *= damp; p.x += p.vx; p.y += p.vy;
+        if (p.y > H - R) { p.y = H - R; p.vy *= -0.3; }
+        if (p.x < R) { p.x = R; p.vx *= -0.3; } else if (p.x > W - R) { p.x = W - R; p.vx *= -0.3; }
+      }
+      mouse.vx *= 0.8; mouse.vy *= 0.8;
+    }
+    function render() {
+      ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = '#fff'; ctx.beginPath();
+      for (var i = 0; i < P.length; i++) { var p = P[i]; ctx.moveTo(p.x + R, p.y); ctx.arc(p.x, p.y, R, 0, 6.2832); }
+      ctx.fill();
+    }
+
+    function loop(now) {
+      if (document.hidden || now > awakeUntil) { running = false; return; }
+      step(); render(); requestAnimationFrame(loop);
+    }
+    // 움직임 줄이기 설정이 아니면 처음 몇 초 동안 솟아오르는 장면을 보여 주고, 이후엔 만질 때만 돈다
+    function wake(ms) { awakeUntil = Math.max(awakeUntil, performance.now() + (ms || 4000)); if (!running) { running = true; requestAnimationFrame(loop); } }
+
+    function local(e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+    stage.addEventListener('pointermove', function (e) {
+      var pt = local(e);
+      if (mouse.x > -1e3) { mouse.vx = pt[0] - mouse.x; mouse.vy = pt[1] - mouse.y; }
+      mouse.x = pt[0]; mouse.y = pt[1];
+      if (e.pointerType !== 'touch') wake();
+    });
+    stage.addEventListener('pointerleave', function () { mouse.x = mouse.y = -1e4; });
+    stage.addEventListener('pointerdown', function (e) {
+      // 클릭 / 탭: 그 자리에서 물이 튀듯 터진다
+      var pt = local(e);
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i], dx = p.x - pt[0], dy = p.y - pt[1], d = Math.hypot(dx, dy) + 0.01;
+        if (d < 200) { var f = (1 - d / 200) * 13; p.vx += dx / d * f; p.vy += dy / d * f - 4 * (1 - d / 200); p.free = 120 + (Math.random() * 80) | 0; }
+      }
+      wake(6000);
+    });
+
+    new ResizeObserver(function () { var first = !P.length; build(first); if (!reduce) wake(first ? 6000 : 2000); }).observe(stage);
+    if (document.fonts) document.fonts.load('600 100px "JetBrains Mono"').then(function () { build(false); });
+  })();
+  </script>
 </body>
 </html>
