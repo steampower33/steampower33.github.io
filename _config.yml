@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: SeungMin Lee # the main title
 
-tagline: Graphics Programmer
+tagline: Graphics Engineer
 
 description: >- # used by seo meta and the atom feed
   DirectX, Vulkan, C++, Shader 등을 공부하고 기록합니다.
@@ -24,6 +24,10 @@ description: >- # used by seo meta and the atom feed
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://steampower33.github.io"
+
+# 별도 저장소(steampower33/gallery)로 배포되는 WebGPU 갤러리.
+# jekyll serve 는 url 을 localhost 로 바꾸므로 갤러리 주소는 따로 고정한다.
+gallery_url: "https://steampower33.github.io/gallery/"
 
 github:
   username: steampower33 # change to your GitHub username

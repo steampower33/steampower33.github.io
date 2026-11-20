@@ -1,0 +1,493 @@
+<!doctype html>
+<!-- 홈 화면 전용 레이아웃. Chirpy 테마의 사이드바/탑바 없이 작업물을 바로 보여준다.
+     내용은 _data/projects.yml, _data/gallery.yml 에서 온다. -->
+{% assign gallery_url = site.gallery_url %}
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07080c">
+  <title>{{ site.social.name }} · {{ site.tagline }}</title>
+  {% seo title=false %}
+  {% include favicons.html %}
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+  <style>
+    :root {
+      --bg: #07080c;
+      --bg-raised: #0e1017;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --text: #eceef4;
+      --muted: #8d94a8;
+      --faint: #5a6175;
+      --cyan: #5ee7ff;
+      --violet: #8b7bff;
+      --grad: linear-gradient(100deg, var(--cyan), var(--violet));
+      --radius: 18px;
+      --sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: rgba(94, 231, 255, 0.3); }
+
+    .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
+
+    /* ── Top bar ─────────────────────────────── */
+    .topbar {
+      position: fixed; inset: 0 0 auto 0; z-index: 20;
+      transition: background .3s, border-color .3s;
+      border-bottom: 1px solid transparent;
+    }
+    .topbar.scrolled {
+      background: rgba(7, 8, 12, 0.72);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-color: var(--line);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; letter-spacing: -0.01em; }
+    .nav { display: flex; align-items: center; gap: 4px; }
+    .nav a {
+      padding: 8px 12px; border-radius: 999px; color: var(--muted);
+      font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
+    }
+    .nav a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .nav .icon { font-size: 17px; padding: 8px 10px; }
+
+    /* ── Hero ────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100svh; display: grid; place-items: center;
+      overflow: hidden; isolation: isolate;
+    }
+    #field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+    .hero::after {
+      content: ''; position: absolute; inset: auto 0 0 0; height: 40%; z-index: -1;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      pointer-events: none;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: radial-gradient(ellipse 55% 38% at 50% 50%, rgba(7, 8, 12, 0.78), transparent 75%);
+    }
+    .hero-inner { text-align: center; padding: 0 16px; }
+    .hero h1 {
+      margin: 0; font-weight: 800; letter-spacing: -0.045em; line-height: 0.95;
+      font-size: clamp(3.2rem, 11vw, 9rem);
+    }
+    .hero .role {
+      margin: 22px 0 0; font-family: var(--mono); font-size: clamp(0.95rem, 2vw, 1.2rem);
+      letter-spacing: 0.32em; text-transform: uppercase;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; translate: -50% 0;
+      color: var(--faint); font-size: 13px; letter-spacing: .2em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      transition: color .2s;
+    }
+    .scroll-hint:hover { color: var(--text); }
+    .scroll-hint i { animation: bob 2s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(6px); } }
+
+    /* ── Sections ────────────────────────────── */
+    section.block { padding: 96px 0; }
+    .eyebrow {
+      display: flex; align-items: center; gap: 14px;
+      font-family: var(--mono); font-size: 13px; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--muted); margin: 0 0 48px;
+    }
+    .eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+    .eyebrow b { color: var(--cyan); font-weight: 600; }
+
+    /* ── Project ─────────────────────────────── */
+    .project {
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: start;
+      padding: 0 0 96px;
+    }
+    .project + .project { padding-top: 96px; border-top: 1px solid var(--line); }
+    .project:nth-of-type(even) .media { order: 2; }
+
+    .media {
+      position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+      background: var(--bg-raised); border: 1px solid var(--line);
+      box-shadow: 0 30px 80px -30px rgba(94, 231, 255, 0.25);
+      cursor: pointer;
+    }
+    .media::before {
+      content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; z-index: 2;
+      background: var(--grad); opacity: 0; transition: opacity .35s;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+    .media:hover::before { opacity: 1; }
+    .media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .4s; filter: saturate(1.05) brightness(.85); }
+    .media:hover img { transform: scale(1.04); filter: saturate(1.15) brightness(1); }
+    .media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .play {
+      position: absolute; inset: 0; display: grid; place-items: center; z-index: 1;
+      background: none; border: 0; color: #fff; cursor: pointer; padding: 0;
+    }
+    .play span {
+      width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(7, 8, 12, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--line-strong); font-size: 22px; padding-left: 4px;
+      transition: transform .3s, background .3s;
+    }
+    .media:hover .play span { transform: scale(1.1); background: rgba(94, 231, 255, 0.25); }
+    .api-tag {
+      position: absolute; top: 14px; left: 14px; z-index: 1;
+      font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .08em;
+      padding: 5px 10px; border-radius: 999px; background: rgba(7,8,12,.7);
+      border: 1px solid var(--line-strong); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+
+    .meta { font-family: var(--mono); font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+    .project h2 { margin: 0 0 16px; font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.2; letter-spacing: -0.03em; font-weight: 750; }
+    .summary { color: #c3c8d6; margin: 0 0 28px; word-break: keep-all; }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 0 0 24px; }
+    .stat { background: var(--bg); padding: 16px 16px 14px; }
+    .stat .v {
+      font-family: var(--mono); font-weight: 600; font-size: clamp(1.15rem, 2vw, 1.5rem); letter-spacing: -0.02em;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+      white-space: nowrap;
+    }
+    .stat .l { font-size: 13px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+    .stat .n { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 4px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 24px; padding: 0; list-style: none; }
+    .chips li { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: #b9bfcd; }
+
+    .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; border: 1px solid var(--line-strong); color: var(--text);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
+    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn.primary:hover { background: #fff; }
+
+    details.more { border-top: 1px solid var(--line); }
+    details.more summary {
+      list-style: none; cursor: pointer; padding: 16px 0; display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; font-weight: 600; color: var(--muted); transition: color .2s;
+    }
+    details.more summary::-webkit-details-marker { display: none; }
+    details.more summary:hover { color: var(--text); }
+    details.more summary i { transition: transform .3s; }
+    details.more[open] summary i { transform: rotate(45deg); }
+    .hl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 0 8px; }
+    .hl div { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+    .hl h3 { margin: 0 0 4px; font-size: 14px; font-weight: 700; }
+    .hl p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.55; word-break: keep-all; }
+    .footnote { font-size: 12px; color: var(--faint); margin: 8px 0 0; }
+
+    /* ── Gallery ─────────────────────────────── */
+    .gallery-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: -20px 0 32px; flex-wrap: wrap; }
+    .gallery-head p { margin: 0; color: var(--muted); max-width: 52ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .work {
+      display: block; border-radius: var(--radius); overflow: hidden; background: var(--bg-raised);
+      border: 1px solid var(--line); transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s;
+    }
+    .work:hover { transform: translateY(-4px); border-color: rgba(94,231,255,.4); box-shadow: 0 24px 60px -24px rgba(94,231,255,.3); }
+    .work .preview { position: relative; aspect-ratio: 16 / 10; background: #000; }
+    .work .preview iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+    .work .live {
+      position: absolute; top: 12px; right: 12px; z-index: 1; font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+      padding: 3px 8px; border-radius: 999px; background: rgba(7,8,12,.7); display: flex; align-items: center; gap: 6px;
+    }
+    .work .live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #3ef08a; box-shadow: 0 0 8px #3ef08a; }
+    .work .body { padding: 16px 18px 18px; }
+    .work h3 { margin: 0 0 2px; font-size: 16px; }
+    .work p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+    /* ── Footer ──────────────────────────────── */
+    footer { border-top: 1px solid var(--line); padding: 48px 0 56px; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer .contact { display: flex; gap: 8px; flex-wrap: wrap; }
+    footer small { color: var(--faint); font-size: 13px; }
+
+    /* ── Reveal ──────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (min-width: 901px) {
+      .project .media { position: sticky; top: 96px; }
+    }
+    @media (max-width: 900px) {
+      .project { grid-template-columns: 1fr; gap: 28px; }
+      .project:nth-of-type(even) .media { order: 0; }
+      section.block { padding: 72px 0; }
+    }
+    @media (max-width: 560px) {
+      .nav a:not(.icon) { display: none; }
+      .stats { grid-template-columns: 1fr; }
+      .hl { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .scroll-hint i { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.social.name }}</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#gallery">Gallery</a>
+        <a class="icon" href="https://github.com/{{ site.github.username }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a class="icon" href="mailto:{{ site.social.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <h1>{{ site.social.name }}</h1>
+        <p class="role">{{ site.tagline }}</p>
+      </div>
+      <a class="scroll-hint" href="#work">Work <i class="fas fa-chevron-down"></i></a>
+    </section>
+
+    <section class="block" id="work">
+      <div class="wrap">
+        <h2 class="eyebrow"><b>01</b> Selected Work</h2>
+
+        {% for p in site.data.projects %}
+        <article class="project reveal" id="{{ p.id }}">
+          <div class="media" data-yt="{{ p.youtube }}">
+            <img src="https://img.youtube.com/vi/{{ p.youtube }}/maxresdefault.jpg" alt="{{ p.title }} 데모 영상" loading="lazy">
+            <span class="api-tag">{{ p.api }}</span>
+            <button class="play" type="button" aria-label="{{ p.title }} 영상 재생"><span><i class="fas fa-play"></i></span></button>
+          </div>
+
+          <div class="info">
+            <p class="meta">{{ p.period }}</p>
+            <h2>{{ p.title }}</h2>
+            <p class="summary">{{ p.summary }}</p>
+
+            <div class="stats">
+              {% for s in p.stats %}
+              <div class="stat">
+                <div class="v">{{ s.value }}</div>
+                <div class="l">{{ s.label }}</div>
+                {% if s.note %}<div class="n">{{ s.note }}</div>{% endif %}
+              </div>
+              {% endfor %}
+            </div>
+
+            <ul class="chips">
+              {% for t in p.tech %}<li>{{ t }}</li>{% endfor %}
+            </ul>
+
+            <div class="links">
+              {% for l in p.links %}
+              <a class="btn{% if forloop.first %} primary{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener"><i class="{{ l.icon }}"></i>{{ l.label }}</a>
+              {% endfor %}
+            </div>
+
+            <details class="more">
+              <summary>주요 구현 <i class="fas fa-plus"></i></summary>
+              <div class="hl">
+                {% for h in p.highlights %}
+                <div><h3>{{ h.title }}</h3><p>{{ h.body }}</p></div>
+                {% endfor %}
+              </div>
+              {% if p.footnote %}<p class="footnote">* {{ p.footnote }}</p>{% endif %}
+            </details>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="block" id="gallery">
+      <div class="wrap">
+        <h2 class="eyebrow"><b>02</b> WebGPU Gallery</h2>
+        <div class="gallery-head reveal">
+          <p>브라우저에서 바로 실행되는 실시간 그래픽스 작업물입니다. WebGPU를 지원하는 브라우저(Chrome, Edge 등)에서 볼 수 있습니다.</p>
+          <a class="btn" href="{{ gallery_url }}">갤러리 전체 보기 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="grid">
+          {% for w in site.data.gallery %}
+          <a class="work reveal" href="{{ gallery_url }}#/works/{{ w.id }}">
+            <div class="preview" data-src="{{ gallery_url }}#/works/{{ w.id }}?embed=1">
+              <span class="live">LIVE</span>
+            </div>
+            <div class="body">
+              <h3>{{ w.title }}</h3>
+              <p>{{ w.description }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small>© {{ 'now' | date: '%Y' }} {{ site.social.name }}</small>
+      <div class="contact">
+        <a class="btn" href="https://github.com/{{ site.github.username }}"><i class="fab fa-github"></i>GitHub</a>
+        <a class="btn" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i>{{ site.social.email }}</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 상단 바: 스크롤하면 배경이 생긴다
+    var bar = document.getElementById('topbar');
+    function onScroll() { bar.classList.toggle('scrolled', window.scrollY > 24); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // /#work 같은 주소로 들어오면 레이아웃이 다 잡힌 뒤 해당 섹션으로 이동한다
+    if (location.hash.length > 1) {
+      window.addEventListener('load', function () {
+        var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) target.scrollIntoView({ behavior: 'instant' });
+      });
+    }
+
+    // 스크롤 등장 애니메이션
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+    // 영상: 클릭하면 그 자리에서 YouTube 재생
+    document.querySelectorAll('.media[data-yt]').forEach(function (m) {
+      m.addEventListener('click', function () {
+        if (m.querySelector('iframe')) return;
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + m.dataset.yt + '?autoplay=1&rel=0';
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        f.title = m.querySelector('img').alt;
+        m.appendChild(f);
+        m.style.cursor = 'default';
+      });
+    });
+
+    // 갤러리: 화면에 보일 때만 라이브 iframe 을 띄우고, 벗어나면 내려서 GPU 를 쉬게 한다
+    var gio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var p = e.target, f = p.querySelector('iframe');
+        if (e.isIntersecting && !f) {
+          f = document.createElement('iframe');
+          f.src = p.dataset.src;
+          f.title = 'live preview';
+          f.loading = 'lazy';
+          f.tabIndex = -1;
+          p.appendChild(f);
+        } else if (!e.isIntersecting && f) {
+          f.remove();
+        }
+      });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('.preview[data-src]').forEach(function (el) { gio.observe(el); });
+
+    // 히어로 배경: flow field 를 따라 흐르는 파티클. 마우스 근처는 밀려난다.
+    var cv = document.getElementById('field');
+    var ctx = cv.getContext('2d');
+    var W, H, dpr, P = [], mouse = { x: -1e4, y: -1e4 }, running = true, t = 0;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = cv.clientWidth; H = cv.clientHeight;
+      if (!W || !H) return;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.min(2600, Math.floor(W * H / 520));
+      P = [];
+      for (var i = 0; i < n; i++) P.push(spawn({}));
+      ctx.fillStyle = '#07080c'; ctx.fillRect(0, 0, W, H);
+      if (reduce) for (var k = 0; k < 160; k++) step();   // 움직임 줄이기 설정이면 정지 화면 한 장만
+    }
+    function spawn(p) {
+      p.x = Math.random() * W; p.y = Math.random() * H;
+      p.vx = 0; p.vy = 0; p.life = 120 + Math.random() * 280;
+      p.hue = Math.random();
+      return p;
+    }
+    // 부드러운 의사 노이즈 각도장 (sin 합성)
+    function angle(x, y) {
+      var s = 0.0021;
+      return Math.sin(x * s + t * 0.21) * 1.7 + Math.cos(y * s * 1.3 - t * 0.17) * 1.7
+           + Math.sin((x + y) * s * 0.6 + t * 0.11) * 1.1;
+    }
+    function step() {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = 'rgba(7, 8, 12, 0.085)';
+      ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i], a = angle(p.x, p.y);
+        p.vx = p.vx * 0.92 + Math.cos(a) * 0.16;
+        p.vy = p.vy * 0.92 + Math.sin(a) * 0.16;
+        var dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 22000) { var f = (22000 - d2) / 22000 * 0.9; var d = Math.sqrt(d2) + 0.01; p.vx += dx / d * f; p.vy += dy / d * f; }
+        p.x += p.vx; p.y += p.vy;
+        if (--p.life < 0 || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) spawn(p);
+        var sp = Math.min(1, Math.hypot(p.vx, p.vy) / 2.4);
+        // cyan → violet, 빠를수록 밝게
+        var r = 94 + (139 - 94) * p.hue, g = 231 + (123 - 231) * p.hue, b = 255;
+        ctx.fillStyle = 'rgba(' + (r | 0) + ',' + (g | 0) + ',' + b + ',' + (0.3 + sp * 0.55).toFixed(2) + ')';
+        ctx.fillRect(p.x, p.y, 1.6, 1.6);
+      }
+      t += 0.016;
+    }
+    function loop() { if (running) { step(); requestAnimationFrame(loop); } }
+
+    // 레이아웃이 잡히기 전엔 크기가 0 일 수 있으므로 window resize 대신 캔버스 자체 크기를 관찰한다
+    new ResizeObserver(resize).observe(cv);
+    cv.parentElement.addEventListener('pointermove', function (e) {
+      var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    cv.parentElement.addEventListener('pointerleave', function () { mouse.x = mouse.y = -1e4; });
+
+    if (!reduce) {
+      new IntersectionObserver(function (e) {
+        var vis = e[0].isIntersecting;
+        if (vis && !running) { running = true; loop(); } else if (!vis) running = false;
+      }).observe(cv);
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) running = false; else if (!running) { running = true; loop(); }
+      });
+      loop();
+    }
+  })();
+  </script>
+</body>
+</html>

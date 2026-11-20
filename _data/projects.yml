@@ -1,0 +1,90 @@
+# 홈 화면에 보이는 프로젝트 목록. 위에 있을수록 먼저 보인다.
+# youtube: 메인 영상 ID (썸네일과 인라인 재생에 쓰인다)
+
+- id: pbf-fluid
+  title: 100만 파티클 PBF Fluid Simulation
+  api: DirectX 12
+  tech: [C++, DirectX 12, HLSL, Compute Shader, PIX]
+  period: 2026.02
+  youtube: OuQbcxNxZGo
+  summary: >-
+    DirectX 12 Compute Shader로 Position Based Fluids 유체 시뮬레이션과
+    Screen Space Fluid Rendering 파이프라인을 구현했습니다.
+    100만 개 파티클을 GPU에서 처리하고, PIX로 병목을 분석해 정렬과 메모리 접근 구조를 개선했습니다.
+  stats:
+    - value: "1,000,000"
+      label: Fluid Particles
+    - value: "86.9%"
+      label: Sort Time 감소
+      note: 5.19 ms → 0.68 ms
+    - value: "28.4 ms"
+      label: PBF + SSFR GPU Frame
+  highlights:
+    - title: GPU PBF Solver
+      body: Integration, Spatial Hashing, Density / Lambda, Delta Position, Constraint Solve, Vorticity / Velocity Update
+    - title: Spatial Hash Neighbor Search
+      body: Uniform Grid로 공간 분할 후 Cell Key 기준 정렬, 파티클 데이터 자체를 Grid 순서로 재배열해 Neighbor-heavy Pass의 메모리 접근 개선
+    - title: GPU Sorting 최적화
+      body: Bitonic Sort에서 정수 Cell Key 특성을 이용한 Counting Sort 파이프라인으로 교체. 2^20 파티클 기준 5.19 ms → 0.68 ms
+    - title: Resource / Synchronization
+      body: Pass별 UAV / SRV 접근 패턴 분리, Resource State Transition과 Barrier 관리, PIX Hardware Counter 기반 프로파일링
+    - title: Screen Space Fluid Rendering
+      body: Linear Depth, Separable Bilateral Blur, Thickness, Normal Reconstruction, Reflection / Refraction
+    - title: GPU-Driven Diffuse Particle
+      body: ExecuteIndirect 기반 렌더링으로 Active Particle Count의 CPU Readback 제거
+  links:
+    - label: GitHub
+      url: https://github.com/steampower33/SPH-PBF-Solver-DX12
+      icon: fab fa-github
+    - label: Demo
+      url: https://www.youtube.com/watch?v=kDXEbfrF-uI
+      icon: fas fa-play
+    - label: 1M Performance
+      url: https://www.youtube.com/watch?v=OuQbcxNxZGo
+      icon: fas fa-play
+    - label: Write-up
+      url: https://app.notion.com/p/DX12-100-PBF-30dfcfd1c8e080eaaa68c4ff985e817f
+      icon: fas fa-file-lines
+
+- id: xpbd-cloth
+  title: GPU XPBD Cloth Simulation
+  api: Vulkan
+  tech: [C++, Vulkan, GLSL, Compute Shader]
+  period: 2025.10 – 2026.01
+  youtube: nu1VZo1UNBs
+  summary: >-
+    Vulkan Compute Shader로 XPBD 천 시뮬레이션을 구현했습니다.
+    Constraint Solver를 GPU로 병렬화할 때 생기는 Write Conflict와 안정성 문제를
+    Graph Coloring 기반 Gauss-Seidel과 Atomic Jacobi 솔버로 나눠 다뤘습니다.
+  stats:
+    - value: "63,001"
+      label: Particles
+      note: 251 × 251 cloth
+    - value: "~751K"
+      label: Constraints
+    - value: "7.4 ms"
+      label: Physics Step
+  highlights:
+    - title: XPBD Cloth Solver
+      body: Stretch, Shear, Bend, Area Constraint
+    - title: Graph Coloring Stretch Solver
+      body: Vertex를 공유하지 않는 Constraint끼리 Color Group을 만들어 같은 Color 안에서 병렬 실행, Color Pass 사이 동기화와 In-place 업데이트
+    - title: Atomic Jacobi-style Solver
+      body: Shear / Bend / Area / Self-Collision 보정을 Atomic Add로 누적한 뒤 ApplyDeltas Pass에서 Averaging / Relaxation
+    - title: Self-Collision Broadphase
+      body: Spatial Hashing, GPU Radix Sort, Cell Range와 Neighbor List 구성
+    - title: Analytic SDF Collision
+      body: Sphere, Plane, Capsule
+    - title: Compute ↔ Graphics
+      body: Compute에서 갱신한 Position으로 Triangle / Vertex Normal을 재구성해 렌더링 파이프라인과 연동
+  footnote: 7.4 ms는 특정 Scene / Solver 설정에서 측정한 GPU Physics Workload이며 전체 Frame Time이 아닙니다.
+  links:
+    - label: GitHub
+      url: https://github.com/steampower33/XPBD-Cloth
+      icon: fab fa-github
+    - label: Demo
+      url: https://www.youtube.com/watch?v=nu1VZo1UNBs
+      icon: fas fa-play
+    - label: Write-up
+      url: https://app.notion.com/p/Vulkan-GPU-XPBD-Cloth-Simulation-3c9fcfd1c8e080c489c3c7b4b9df6188
+      icon: fas fa-file-lines
