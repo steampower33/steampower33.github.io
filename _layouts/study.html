@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- /study/ 목록. 홈과 같은 상단 바를 쓰고, categories 첫 번째가 Study 인 글을 두 번째 분류별로 묶는다. -->
+{% assign study_posts = site.posts | where_exp: "p", "p.categories[0] == 'Study'" %}
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  {% include site-head.html %}
+  <title>Study · {{ site.social.name }}</title>
+  {% seo title=false %}
+  <style>
+    main { padding: 128px 0 96px; min-height: 70vh; }
+    .page-head { margin: 0 0 56px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--cyan); margin: 0 0 12px;
+    }
+    .page-head h1 { margin: 0 0 12px; font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .page-head p { margin: 0; color: var(--muted); max-width: 60ch; word-break: keep-all; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 40px; }
+    .filters a {
+      font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted);
+      transition: color .2s, border-color .2s;
+    }
+    .filters a:hover { color: var(--text); border-color: rgba(255,255,255,.3); }
+    .filters span { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-left: 4px; }
+
+    .group { margin: 0 0 48px; scroll-margin-top: 88px; }
+    .group h2 {
+      display: flex; align-items: center; gap: 14px; margin: 0 0 8px;
+      font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+    }
+    .group h2::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list a {
+      display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; align-items: baseline;
+      padding: 18px 4px; border-bottom: 1px solid var(--line); transition: background .2s;
+    }
+    .list a:hover { background: rgba(255,255,255,0.03); }
+    .list a:hover .t { color: var(--cyan); }
+    .list .t { font-size: 1.1rem; font-weight: 650; letter-spacing: -0.01em; transition: color .2s; }
+    .list time { font-family: var(--mono); font-size: 13px; color: var(--faint); }
+    .list .d { grid-column: 1 / -1; color: var(--muted); font-size: 14px; word-break: keep-all; }
+    .list .tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .list .tags span { font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
+    .empty { color: var(--muted); padding: 32px 0; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  {% include site-topbar.html active='study' %}
+
+  <main>
+    <div class="wrap">
+      <header class="page-head">
+        <p class="eyebrow">Study</p>
+        <h1>공부 기록</h1>
+        <p>{{ page.description | default: '알고리즘, 그래픽스 등 공부하면서 정리한 내용을 모아 둡니다.' }}</p>
+      </header>
+
+      {% if study_posts.size == 0 %}
+        <p class="empty">아직 정리한 글이 없습니다.</p>
+      {% else %}
+        {% assign groups = study_posts | group_by_exp: "p", "p.categories[1] | default: 'Etc'" | sort: "name" %}
+        {% if groups.size > 1 %}
+        <nav class="filters" aria-label="분류">
+          {% for g in groups %}<a href="#{{ g.name | slugify }}">{{ g.name }}<span>{{ g.size }}</span></a>{% endfor %}
+        </nav>
+        {% endif %}
+
+        {% for g in groups %}
+        <section class="group" id="{{ g.name | slugify }}">
+          <h2>{{ g.name }}</h2>
+          <ul class="list">
+            {% for p in g.items %}
+            <li>
+              <a href="{{ p.url | relative_url }}">
+                <span class="t">{{ p.title }}</span>
+                <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%Y.%m.%d' }}</time>
+                {% if p.description %}<span class="d">{{ p.description }}</span>{% endif %}
+                {% if p.tags.size > 0 %}<span class="tags">{% for t in p.tags %}<span>#{{ t }}</span>{% endfor %}</span>{% endif %}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </main>
+
+  {% include site-footer.html %}
+</body>
+</html>

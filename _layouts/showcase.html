@@ -4,74 +4,10 @@
 {% assign gallery_url = site.gallery_url %}
 <html lang="{{ site.lang | default: 'ko' }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#07080c">
+  {% include site-head.html %}
   <title>{{ site.social.name }} · {{ site.tagline }}</title>
   {% seo title=false %}
-  {% include favicons.html %}
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
   <style>
-    :root {
-      --bg: #07080c;
-      --bg-raised: #0e1017;
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.16);
-      --text: #eceef4;
-      --muted: #8d94a8;
-      --faint: #5a6175;
-      --cyan: #5ee7ff;
-      --violet: #8b7bff;
-      --grad: linear-gradient(100deg, var(--cyan), var(--violet));
-      --radius: 18px;
-      --sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    ::selection { background: rgba(94, 231, 255, 0.3); }
-
-    .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
-
-    /* ── Top bar ─────────────────────────────── */
-    .topbar {
-      position: fixed; inset: 0 0 auto 0; z-index: 20;
-      transition: background .3s, border-color .3s;
-      border-bottom: 1px solid transparent;
-    }
-    .topbar.scrolled {
-      background: rgba(7, 8, 12, 0.72);
-      backdrop-filter: blur(14px) saturate(140%);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      border-color: var(--line);
-    }
-    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { font-weight: 700; letter-spacing: -0.01em; }
-    .nav { display: flex; align-items: center; gap: 4px; }
-    .nav a {
-      padding: 8px 12px; border-radius: 999px; color: var(--muted);
-      font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
-    }
-    .nav a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
-    .nav .icon { font-size: 17px; padding: 8px 10px; }
-
     /* ── Hero ────────────────────────────────── */
     .hero {
       position: relative; min-height: 100svh; display: grid; place-items: center;
@@ -180,14 +116,6 @@
     .chips li { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: #b9bfcd; }
 
     .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
-      font-size: 14px; font-weight: 600; border: 1px solid var(--line-strong); color: var(--text);
-      transition: background .2s, border-color .2s, transform .2s;
-    }
-    .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
-    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .btn.primary:hover { background: #fff; }
 
     details.more { border-top: 1px solid var(--line); }
     details.more summary {
@@ -224,11 +152,6 @@
     .work h3 { margin: 0 0 2px; font-size: 16px; }
     .work p { margin: 0; font-size: 13.5px; color: var(--muted); }
 
-    /* ── Footer ──────────────────────────────── */
-    footer { border-top: 1px solid var(--line); padding: 48px 0 56px; }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    footer .contact { display: flex; gap: 8px; flex-wrap: wrap; }
-    footer small { color: var(--faint); font-size: 13px; }
 
     /* ── Reveal ──────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -243,7 +166,6 @@
       section.block { padding: 72px 0; }
     }
     @media (max-width: 560px) {
-      .nav a:not(.icon) { display: none; }
       .stats { grid-template-columns: 1fr; }
       .hl { grid-template-columns: 1fr; }
     }
@@ -255,18 +177,7 @@
   </style>
 </head>
 <body>
-  <header class="topbar" id="topbar">
-    <div class="wrap">
-      <a class="brand" href="{{ '/' | relative_url }}">{{ site.social.name }}</a>
-      <nav class="nav" aria-label="Main">
-        <a href="#work">Work</a>
-        <a href="#gallery">Gallery</a>
-        <a href="{{ '/study/' | relative_url }}">Study</a>
-        <a class="icon" href="https://github.com/{{ site.github.username }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a class="icon" href="mailto:{{ site.social.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </nav>
-    </div>
-  </header>
+  {% include site-topbar.html %}
 
   <main>
     <section class="hero">
@@ -354,48 +265,12 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <small>© {{ 'now' | date: '%Y' }} {{ site.social.name }}</small>
-      <div class="contact">
-        <a class="btn" href="https://github.com/{{ site.github.username }}"><i class="fab fa-github"></i>GitHub</a>
-        <a class="btn" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i>{{ site.social.email }}</a>
-      </div>
-    </div>
-  </footer>
+  {% include site-footer.html %}
 
   <script>
   (function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // 예전 Chirpy PWA 가 남긴 서비스 워커와 캐시를 지운다. 이게 남아 있으면 배포 후에도 예전 페이지가 보인다.
-    // 지금 페이지가 그 워커가 준 캐시본이면 한 번만 새로고침해서 최신 페이지를 받는다.
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function (regs) {
-        if (!regs.length) return;
-        var wasControlled = !!navigator.serviceWorker.controller;
-        return Promise.all(regs.map(function (r) { return r.unregister(); }))
-          .then(function () { return window.caches ? caches.keys() : []; })
-          .then(function (keys) {
-            return Promise.all(keys.filter(function (k) { return k.indexOf('chirpy') === 0; })
-              .map(function (k) { return caches.delete(k); }));
-          })
-          .then(function () {
-            if (!wasControlled) return;
-            try {
-              if (sessionStorage.getItem('sw-cleared')) return;
-              sessionStorage.setItem('sw-cleared', '1');
-            } catch (e) { return; }
-            location.reload();
-          });
-      }).catch(function () {});
-    }
-
-    // 상단 바: 스크롤하면 배경이 생긴다
-    var bar = document.getElementById('topbar');
-    function onScroll() { bar.classList.toggle('scrolled', window.scrollY > 24); }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     // /#work 같은 주소로 들어오면 레이아웃이 다 잡힌 뒤 해당 섹션으로 이동한다
     if (location.hash.length > 1) {

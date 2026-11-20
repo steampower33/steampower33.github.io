@@ -1,0 +1,36 @@
+---
+layout: null
+# Chirpy 테마의 assets/404.html 을 같은 경로로 덮어쓴다.
+permalink: /404.html
+sitemap: false
+---
+<!doctype html>
+<!-- 없는 주소. 홈과 같은 상단 바로 보여 준다. -->
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  {% include site-head.html %}
+  <title>페이지를 찾을 수 없습니다 · {{ site.social.name }}</title>
+  <meta name="robots" content="noindex">
+  <style>
+    main { min-height: 78vh; display: grid; place-items: center; text-align: center; padding: 120px 0 64px; }
+    .code { margin: 0; font-family: var(--mono); font-weight: 600; font-size: clamp(4rem, 16vw, 8rem); letter-spacing: -0.04em; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    p { color: var(--muted); margin: 16px 0 32px; }
+    .actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  {% include site-topbar.html %}
+  <main>
+    <div class="wrap">
+      <h1 class="code">404</h1>
+      <p>요청한 페이지를 찾을 수 없습니다.</p>
+      <div class="actions">
+        <a class="btn primary" href="{{ '/' | relative_url }}"><i class="fas fa-house"></i>Home</a>
+        <a class="btn" href="{{ '/study/' | relative_url }}"><i class="fas fa-book-open"></i>Study</a>
+      </div>
+    </div>
+  </main>
+  {% include site-footer.html %}
+</body>
+</html>

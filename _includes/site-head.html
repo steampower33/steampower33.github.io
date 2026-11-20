@@ -1,0 +1,93 @@
+<!-- 홈 / Study / 글 화면이 같이 쓰는 head: 폰트, 아이콘, 공통 색과 상단 바 / 버튼 / 푸터 스타일. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080c">
+{% include favicons.html %}
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #07080c;
+    --bg-raised: #0e1017;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --text: #eceef4;
+    --muted: #8d94a8;
+    --faint: #5a6175;
+    --cyan: #5ee7ff;
+    --violet: #8b7bff;
+    --grad: linear-gradient(100deg, var(--cyan), var(--violet));
+    --radius: 18px;
+    --sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: rgba(94, 231, 255, 0.3); }
+
+  .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
+
+  /* ── Top bar ─────────────────────────────── */
+  .topbar {
+    position: fixed; inset: 0 0 auto 0; z-index: 20;
+    transition: background .3s, border-color .3s;
+    border-bottom: 1px solid transparent;
+  }
+  .topbar.scrolled {
+    background: rgba(7, 8, 12, 0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-color: var(--line);
+  }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .brand { font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  .nav { display: flex; align-items: center; gap: 4px; }
+  .nav a {
+    padding: 8px 12px; border-radius: 999px; color: var(--muted);
+    font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
+  }
+  .nav a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+  .nav a.active { color: var(--text); }
+  .nav .icon { font-size: 17px; padding: 8px 10px; }
+
+  /* ── Buttons ─────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; border: 1px solid var(--line-strong); color: var(--text);
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .btn.primary:hover { background: #fff; }
+
+  /* ── Footer ──────────────────────────────── */
+  footer { border-top: 1px solid var(--line); padding: 48px 0 56px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer .contact { display: flex; gap: 8px; flex-wrap: wrap; }
+  footer small { color: var(--faint); font-size: 13px; }
+
+  /* 좁은 화면: GitHub / 메일 아이콘은 푸터에도 있으니 숨기고 메뉴 글자를 남긴다 */
+  @media (max-width: 560px) {
+    .nav .icon { display: none; }
+    .nav a { padding: 8px 9px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>

@@ -1,47 +1,7 @@
 ---
-layout: page
+# 목록 화면은 _layouts/study.html. 새 글은 _drafts/study-template.md 를 복사해 _posts 에 쓴다.
+layout: study
 title: Study
-icon: fas fa-book-open
 permalink: /study/
+description: 알고리즘, 그래픽스 등 공부하면서 정리한 내용을 모아 둡니다.
 ---
-{%- comment -%}
-  categories 의 첫 번째가 Study 인 글을 두 번째 분류(Algorithm, Graphics 등)별로 모은다.
-  새 글: _drafts/study-template.md 를 복사해 _posts/YYYY-MM-DD-제목.md 로 저장.
-{%- endcomment -%}
-{% assign study_posts = site.posts | where_exp: "p", "p.categories[0] == 'Study'" %}
-
-<p class="study-intro">알고리즘, 그래픽스 등 공부하면서 정리한 내용을 모아 둡니다.</p>
-
-{% if study_posts.size == 0 %}
-  <p class="study-empty">아직 정리한 글이 없습니다.</p>
-{% else %}
-  {% assign groups = study_posts | group_by_exp: "p", "p.categories[1] | default: 'Etc'" | sort: "name" %}
-  {% for g in groups %}
-    <section class="study-group">
-      <h2 id="{{ g.name | slugify }}">{{ g.name }} <span class="study-count">{{ g.size }}</span></h2>
-      <ul class="study-list">
-        {% for p in g.items %}
-          <li>
-            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-            <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%Y.%m.%d' }}</time>
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endfor %}
-{% endif %}
-
-<style>
-  .study-intro { color: var(--text-muted-color); }
-  .study-empty { margin-top: 2rem; color: var(--text-muted-color); }
-  .study-group { margin-top: 2rem; }
-  .study-group h2 { font-size: 1.25rem; display: flex; align-items: center; gap: .5rem; }
-  .study-count { font-size: .8rem; font-weight: 400; color: var(--text-muted-color); }
-  .study-list { list-style: none; padding-left: 0; margin: 0; }
-  .study-list li {
-    display: flex; justify-content: space-between; gap: 1rem;
-    padding: .55rem 0; border-bottom: 1px solid var(--main-border-color);
-  }
-  .study-list li a { min-width: 0; overflow-wrap: anywhere; }
-  .study-list time { flex-shrink: 0; color: var(--text-muted-color); font-size: .85rem; }
-</style>

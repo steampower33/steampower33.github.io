@@ -1,0 +1,42 @@
+<!-- 공통 푸터와 스크립트: 예전 PWA 서비스 워커 정리, 스크롤 시 상단 바 배경. -->
+<footer>
+  <div class="wrap">
+    <small>© {{ 'now' | date: '%Y' }} {{ site.social.name }}</small>
+    <div class="contact">
+      <a class="btn" href="https://github.com/{{ site.github.username }}"><i class="fab fa-github"></i>GitHub</a>
+      <a class="btn" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i>{{ site.social.email }}</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  // 예전 Chirpy PWA 가 남긴 서비스 워커와 캐시를 지운다. 이게 남아 있으면 배포 후에도 예전 페이지가 보인다.
+  // 지금 페이지가 그 워커가 준 캐시본이면 한 번만 새로고침해서 최신 페이지를 받는다.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      if (!regs.length) return;
+      var wasControlled = !!navigator.serviceWorker.controller;
+      return Promise.all(regs.map(function (r) { return r.unregister(); }))
+        .then(function () { return window.caches ? caches.keys() : []; })
+        .then(function (keys) {
+          return Promise.all(keys.filter(function (k) { return k.indexOf('chirpy') === 0; })
+            .map(function (k) { return caches.delete(k); }));
+        })
+        .then(function () {
+          if (!wasControlled) return;
+          try {
+            if (sessionStorage.getItem('sw-cleared')) return;
+            sessionStorage.setItem('sw-cleared', '1');
+          } catch (e) { return; }
+          location.reload();
+        });
+    }).catch(function () {});
+  }
+
+  // 상단 바: 스크롤하면 배경이 생긴다
+  var bar = document.getElementById('topbar');
+  function onScroll() { bar.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

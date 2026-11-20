@@ -1,0 +1,14 @@
+<!-- 공통 상단 바. include.active 에 study 를 넘기면 Study 메뉴가 강조된다. -->
+{% assign home = '/' | relative_url %}
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <a class="brand" href="{{ home }}">{{ site.social.name }}</a>
+    <nav class="nav" aria-label="Main">
+      <a href="{{ home }}#work">Work</a>
+      <a href="{{ home }}#gallery">Gallery</a>
+      <a href="{{ '/study/' | relative_url }}"{% if include.active == 'study' %} class="active" aria-current="page"{% endif %}>Study</a>
+      <a class="icon" href="https://github.com/{{ site.github.username }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a class="icon" href="mailto:{{ site.social.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </nav>
+  </div>
+</header>

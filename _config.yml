@@ -182,7 +182,8 @@ defaults:
       path: "" # An empty string here means all files in the project
       type: posts
     values:
-      layout: post
+      # 홈과 같은 상단 바를 쓰는 글 화면 (_layouts/note.html). Chirpy 사이드바 레이아웃은 쓰지 않는다.
+      layout: note
       comments: true # Enable comments in posts.
       toc: true # Display TOC column in posts.
       # DO NOT modify the following parameter unless you are confident enough
@@ -222,8 +223,9 @@ exclude:
   - "*.config.js"
   - "package*.json"
 
+# 카테고리 / 태그 목록 페이지는 만들지 않는다. 글 목록은 /study/ 에서 본다.
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled: []
   layouts:
     category: category
     tag: tag
