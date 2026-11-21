@@ -19,7 +19,7 @@ title: SeungMin Lee # the main title
 tagline: Graphics Engineer
 
 description: >- # used by seo meta and the atom feed
-  DirectX, Vulkan, C++, Shader 등을 공부하고 기록합니다.
+  GPU 시뮬레이션과 실시간 렌더링을 만드는 그래픽스 엔지니어 SeungMin Lee의 작업과 공부 기록입니다.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
