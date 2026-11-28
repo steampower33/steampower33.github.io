@@ -1,7 +1,7 @@
 <!-- 공통 푸터와 스크립트: 예전 PWA 서비스 워커 정리, 스크롤 시 상단 바 배경. -->
 <footer>
   <div class="wrap">
-    <small>© {{ 'now' | date: '%Y' }} {{ site.social.name }}</small>
+    <small>© {{ 'now' | date: '%Y' }} {{ site.social.name }} · 글 <a class="license" href="{{ site.content_license.url }}" rel="license noopener" target="_blank">{{ site.content_license.name }}</a> · 코드 MIT</small>
     <div class="contact">
       <a class="btn" href="https://github.com/{{ site.github.username }}"><i class="fab fa-github"></i>GitHub</a>
       <a class="btn" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i>{{ site.social.email }}</a>

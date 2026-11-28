@@ -4,6 +4,9 @@
 #   categories 첫 번째는 반드시 Study (그래야 /study/ 에 모인다),
 #   두 번째는 묶을 분류 (Algorithm, Graphics, Math ...).
 # 로컬에서 초안까지 보려면: bundle exec jekyll serve --drafts
+# 라이선스: 기본은 _config.yml 의 content_license (CC BY 4.0). 이 글만 바꾸려면 아래 두 줄의 주석을 푼다.
+# license: CC BY-NC 4.0
+# license_url: https://creativecommons.org/licenses/by-nc/4.0/deed.ko
 title: "제목"
 # date: 2026-11-21 20:00:00 +0900   # _posts 로 옮길 때 추가. 현재 시각보다 미래면 빌드에서 빠진다.
 categories: [Study, Algorithm]

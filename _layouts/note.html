@@ -75,6 +75,13 @@
     .toc a:hover { color: var(--text); }
     .toc a.on { color: var(--text); border-left-color: var(--cyan); }
 
+    /* 라이선스 안내 */
+    .license-note { margin: 56px 0 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px;
+      font-size: 13px; line-height: 1.7; color: var(--faint); word-break: keep-all; }
+    .license-note i { color: var(--muted); margin-right: 4px; }
+    .license-note a { color: var(--muted); border-bottom: 1px solid var(--line-strong); }
+    .license-note a:hover { color: var(--text); }
+
     /* 이전 / 다음 */
     .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 64px 0 0; padding: 32px 0 0; border-top: 1px solid var(--line); }
     .pager a { display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; transition: border-color .2s, background .2s; }
@@ -120,6 +127,14 @@
         <div class="prose" id="prose">
           {{ content }}
         </div>
+
+        {% assign lic_name = page.license | default: site.content_license.name %}
+        {% assign lic_url = page.license_url | default: site.content_license.url %}
+        <p class="license-note">
+          <i class="fab fa-creative-commons" aria-hidden="true"></i>
+          이 글은 <a href="{{ lic_url }}" rel="license noopener" target="_blank">{{ lic_name }}</a> 라이선스를 따릅니다.
+          출처({{ site.social.name }}, 이 글의 주소)를 밝히면 자유롭게 공유할 수 있고, 글 속 코드는 MIT 라이선스로 사용할 수 있습니다.
+        </p>
 
         {% if is_study %}
           {% assign study_posts = site.posts | where_exp: "p", "p.categories[0] == 'Study'" %}

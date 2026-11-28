@@ -29,6 +29,12 @@ url: "https://steampower33.github.io"
 # jekyll serve 는 url 을 localhost 로 바꾸므로 갤러리 주소는 따로 고정한다.
 gallery_url: "https://steampower33.github.io/gallery/"
 
+# 글(_posts) 의 기본 라이선스. 글 속 코드 조각은 MIT.
+# 특정 글만 다르게 하려면 그 글 front matter 에 license / license_url 을 적는다.
+content_license:
+  name: CC BY 4.0
+  url: https://creativecommons.org/licenses/by/4.0/deed.ko
+
 github:
   username: steampower33 # change to your GitHub username
 

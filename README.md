@@ -1,43 +1,17 @@
-# Chirpy Starter
+# steampower33.github.io
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+그래픽스 엔지니어 SeungMin Lee의 작업과 공부 기록을 모아 둔 사이트입니다.
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+- 사이트: <https://steampower33.github.io/>
+- 홈: 프로젝트 소개와 WebGPU 갤러리 (`_data/projects.yml`, `_data/gallery.yml`)
+- Study: 공부 기록 글 (`_posts/`, 목록은 `/study/`)
+- WebGPU 갤러리는 별도 저장소 [steampower33/gallery](https://github.com/steampower33/gallery)에서 배포됩니다.
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+[Jekyll](https://jekyllrb.com/)과 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 테마의 starter를 바탕으로 만들었고, 홈 / Study / 글 화면의 레이아웃은 직접 작성했습니다.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+## 라이선스
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
-
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
-
-## Usage
-
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
-
-## Contributing
-
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
-
-## License
-
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+- **사이트 코드** (레이아웃, 스타일, 스크립트, 설정): [MIT](LICENSE). Chirpy starter의 MIT 라이선스를 그대로 따릅니다.
+- **글** (`_posts/`의 본문): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ko). 출처(SeungMin Lee, 글의 주소)를 밝히면 공유·인용·수정할 수 있습니다.
+- **글 속 코드 조각**: MIT.
+- 특정 글에 다른 라이선스를 적은 경우에는 그 글의 표시를 따릅니다. 글에 실린 다른 사람의 그림이나 인용은 원저작자의 권리를 따릅니다.
