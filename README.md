@@ -3,9 +3,9 @@
 그래픽스 엔지니어 SeungMin Lee의 작업과 공부 기록을 모아 둔 사이트입니다.
 
 - 사이트: <https://steampower33.github.io/>
-- 홈: 프로젝트 소개와 WebGPU 갤러리 (`_data/projects.yml`, `_data/gallery.yml`)
+- 홈: 프로젝트 소개 (`_data/projects.yml`)
 - Study: 공부 기록 글 (`_posts/`, 목록은 `/study/`)
-- WebGPU 갤러리는 별도 저장소 [steampower33/gallery](https://github.com/steampower33/gallery)에서 배포됩니다.
+- WebGPU 갤러리는 별도 저장소 [steampower33/gallery](https://github.com/steampower33/gallery)에서 배포되고, 상단 바의 Gallery 가 그 사이트(<https://steampower33.github.io/gallery/>)로 연결됩니다.
 
 [Jekyll](https://jekyllrb.com/)과 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 테마의 starter를 바탕으로 만들었고, 홈 / Study / 글 화면의 레이아웃은 직접 작성했습니다.
 

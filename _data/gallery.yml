@@ -1,6 +1,0 @@
-# 홈 화면의 WebGPU 갤러리 섹션. steampower33/gallery 의 src/works/index.ts 에 작품을 추가하면 여기도 한 줄 추가한다.
-# id 는 갤러리 URL(#/works/<id>)과 같아야 한다.
-
-- id: clear-color
-  title: Clear Color
-  description: 캔버스를 단색으로 지우는 예시

@@ -5,7 +5,8 @@
     <a class="brand" href="{{ home }}">{{ site.social.name }}</a>
     <nav class="nav" aria-label="Main">
       <a href="{{ home }}#work">Work</a>
-      <a href="{{ home }}#gallery">Gallery</a>
+      <!-- 별도 저장소(steampower33/gallery)의 WebGPU 갤러리 사이트로 바로 간다. 주소는 _config.yml 의 gallery_url. -->
+      <a href="{{ site.gallery_url }}">Gallery</a>
       <a href="{{ '/study/' | relative_url }}"{% if include.active == 'study' %} class="active" aria-current="page"{% endif %}>Study</a>
       <a class="icon" href="https://github.com/{{ site.github.username }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a class="icon" href="mailto:{{ site.social.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
